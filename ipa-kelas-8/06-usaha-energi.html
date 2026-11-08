@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Usaha, Energi, dan Pesawat Sederhana · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="fisika" data-store="ipa8" style="--acc:#5f3dc4">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">⚙️</div>
+  <span class="chip">Modul 6 · Fisika <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Usaha, Energi, dan Pesawat Sederhana</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menghitung usaha (W = F·s) dan daya (P = W/t).</li><li>Menerapkan hukum kekekalan energi mekanik.</li><li>Menghitung keuntungan mekanis tuas, katrol, dan bidang miring.</li><li>Mengenali pesawat sederhana dalam tubuh dan kehidupan sehari-hari.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">⚙️ Lab Pesawat Sederhana</button><button data-target="lab2">🎢 Lab Energi Mekanik</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Memindahkan drum ke atas truk</span><p style="margin:.3em 0">Pak Budi harus menaikkan drum 100 kg ke bak truk setinggi 1 m. Diangkat langsung? Terlalu berat! Ia meletakkan papan miring sepanjang 4 m dan cukup mendorong dengan gaya ±250 N. <b>Pesawat sederhana</b> tidak mengurangi usaha, tetapi memperkecil gaya yang diperlukan.</p></div>
+</div>
+<div class="card"><h2>1. Usaha, energi, daya</h2>
+  <div class="grid2"><div class="def"><b>Usaha</b> W = F · s (joule)<br><b>Daya</b> P = W / t (watt)</div><div class="def"><b>Energi kinetik</b> Ek = ½ m v²<br><b>Energi potensial</b> Ep = m g h<br><b>Energi mekanik</b> Em = Ep + Ek (tetap tanpa gesekan)</div></div>
+  <p>Usaha bernilai nol bila benda tidak berpindah (mendorong tembok) atau gaya tegak lurus perpindahan (membawa tas sambil berjalan mendatar).</p>
+</div>
+<div class="card"><h2>2. Pesawat sederhana</h2>
+  <table class="t"><tr><th>Jenis</th><th>Rumus KM</th><th>Contoh</th></tr><tr><td>Tuas I (titik tumpu di tengah)</td><td rowspan="3">KM = w / F = l<sub>k</sub> / l<sub>b</sub></td><td>gunting, linggis, jungkat-jungkit</td></tr><tr><td>Tuas II (beban di tengah)</td><td>gerobak, pemecah kemiri, pembuka botol</td></tr><tr><td>Tuas III (kuasa di tengah)</td><td>sekop, pinset, lengan manusia</td></tr><tr><td>Katrol tetap / bebas / majemuk</td><td>KM = 1 / 2 / jumlah tali penopang</td><td>sumur timba, derek</td></tr><tr><td>Bidang miring</td><td>KM = s / h</td><td>tangga, jalan berkelok di gunung, sekrup</td></tr><tr><td>Roda berporos</td><td>KM = R / r</td><td>setir, obeng, gerinda</td></tr></table>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Angkat Beban 600 N</h2>
+  <div class="row" id="ty"></div>
+  <div class="ctrl" id="pc"></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Bola di Lintasan</h2>
+  <p>Bola 2 kg dilepas dari puncak. Geser posisinya dan lihat perubahan Ep dan Ek. Aktifkan gesekan untuk melihat energi berubah menjadi panas.</p>
+  <div class="ctrl"><label>Posisi bola <span class="v" id="x-v"></span><input type="range" id="x" min="0" max="100" value="20"></label><label>Tinggi awal <span class="v" id="h-v"></span><input type="range" id="h" min="2" max="10" value="8"></label><label>Gesekan <select id="fr"><option value="0">tanpa gesekan</option><option value="1">ada gesekan</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja dalam satuan yang diminta.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 6 · Rujukan: BS IPA VIII Merdeka Bab III; BS IPA VIII K13 Bab 2</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const W=600; let ty=0;
+const TY=['Tuas','Katrol','Bidang miring'];
+function ui(){ $('#ty').innerHTML=TY.map((t,i)=>`<button class="chipbtn ${i===ty?'on':''}" data-i="${i}">${t}</button>`).join(''); $$('#ty button').forEach(b=>b.onclick=()=>{ ty=+b.dataset.i; ui(); });
+  $('#pc').innerHTML=ty===0?`<label>Lengan beban <span class="v" id="p1-v"></span><input type="range" id="p1" min="0.2" max="1.5" step="0.1" value="0.5"></label><label>Lengan kuasa <span class="v" id="p2-v"></span><input type="range" id="p2" min="0.5" max="3" step="0.1" value="1.5"></label>`:ty===1?`<label>Jenis katrol <select id="p1"><option value="1">tetap</option><option value="2">bebas</option><option value="4">majemuk (4 tali)</option></select></label>`:`<label>Tinggi h <span class="v" id="p1-v"></span><input type="range" id="p1" min="0.5" max="2" step="0.1" value="1"></label><label>Panjang s <span class="v" id="p2-v"></span><input type="range" id="p2" min="1" max="6" step="0.5" value="4"></label>`;
+  $$('#pc input,#pc select').forEach(e=>e.oninput=d1); d1(); }
+function d1(){ const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g); let F,KM,txtx;
+  const box=(x,y,w=50)=>{ s('rect',{x:x-w/2,y:y-w,width:w,height:w,rx:5,fill:'#c08a4a',stroke:'#7a5230','stroke-width':2},g); txt(g,x,y-w/2+5,'600 N',{'font-size':12,'font-weight':800,fill:'#fff'}); };
+  const arrow=(x,y1,y2,c,l)=>{ s('line',{x1:x,y1,x2:x,y2,stroke:c,'stroke-width':5},g); s('path',{d:`M${x},${y2} l-8,${y2>y1?-12:12} h16z`,fill:c},g); txt(g,x+10,(y1+y2)/2,l,{'font-size':13,'font-weight':800,fill:c,'text-anchor':'start'}); };
+  if(ty===0){ const lb=+$('#p1').value, lk=+$('#p2').value; $('#p1-v').textContent=fm(lb,1)+' m'; $('#p2-v').textContent=fm(lk,1)+' m'; F=W*lb/lk; KM=lk/lb;
+    const px=260, sc=110, ang=Math.atan2(0,1); s('path',{d:`M${px-18},250 L${px},215 L${px+18},250Z`,fill:'#495057'},g);
+    s('line',{x1:px-lb*sc,y1:212,x2:px+lk*sc,y2:212,stroke:'#8d6e63','stroke-width':10,'stroke-linecap':'round'},g); box(px-lb*sc,207); arrow(px+lk*sc,150,205,'#1971c2','F = '+fm(F,0)+' N');
+    txtx=`Tuas jenis I: w × l<sub>b</sub> = F × l<sub>k</sub> → F = 600 × ${fm(lb,1)} / ${fm(lk,1)} = ${fm(F,0)} N.`; }
+  else if(ty===1){ const n=+$('#p1').value; F=W/n; KM=n; s('rect',{x:120,y:20,width:400,height:10,fill:'#495057'},g);
+    if(n===1){ s('circle',{cx:320,cy:60,r:26,fill:'none',stroke:'#495057','stroke-width':6},g); s('line',{x1:294,y1:60,x2:294,y2:220,stroke:'#adb5bd','stroke-width':3},g); s('line',{x1:346,y1:60,x2:346,y2:180,stroke:'#adb5bd','stroke-width':3},g); box(294,270); arrow(346,180,240,'#1971c2','F = 600 N'); }
+    else { const k=n/2; for(let i=0;i<k;i++){ s('circle',{cx:280+i*60,cy:60,r:20,fill:'none',stroke:'#495057','stroke-width':5},g); s('circle',{cx:280+i*60,cy:170,r:20,fill:'none',stroke:'#495057','stroke-width':5},g); s('line',{x1:260+i*60,y1:60,x2:260+i*60,y2:170,stroke:'#adb5bd','stroke-width':3},g); s('line',{x1:300+i*60,y1:60,x2:300+i*60,y2:170,stroke:'#adb5bd','stroke-width':3},g); }
+      box(280+(k-1)*30,240,60); s('line',{x1:280+(k-1)*30,y1:190,x2:280+(k-1)*30,y2:180,stroke:'#495057','stroke-width':3},g); arrow(300+(k-1)*60+40,60,130,'#1971c2','F = '+fm(F,0)+' N'); s('line',{x1:300+(k-1)*60,y1:60,x2:340+(k-1)*60,y2:60,stroke:'#adb5bd','stroke-width':3},g); }
+    txtx=`Katrol ${n===1?'tetap hanya mengubah arah gaya':n===2?'bebas ditopang 2 tali':'majemuk ditopang 4 tali'}: F = 600 / ${n} = ${fm(F,0)} N.`; }
+  else { const h=+$('#p1').value, sl=+$('#p2').value; $('#p1-v').textContent=fm(h,1)+' m'; $('#p2-v').textContent=fm(sl,1)+' m'; const hh=Math.min(h,sl*0.95); F=W*hh/sl; KM=sl/hh;
+    const sc=90, ang=Math.asin(hh/sl), base=sl*Math.cos(ang)*sc; const x0=60, y0=260; s('path',{d:`M${x0},${y0} L${x0+base},${y0} L${x0+base},${y0-hh*sc}Z`,fill:'#e9ecef',stroke:'#868e96','stroke-width':2},g);
+    const bx=x0+base*0.5, by=y0-hh*sc*0.5; const B=s('g',{transform:`translate(${bx} ${by}) rotate(${-ang*180/Math.PI})`},g); s('rect',{x:-22,y:-40,width:44,height:40,rx:5,fill:'#c08a4a',stroke:'#7a5230','stroke-width':2},B); txt(B,0,-15,'600 N',{'font-size':11,'font-weight':800,fill:'#fff'});
+    txt(g,x0+base+30,y0-hh*sc/2,'h = '+fm(hh,1)+' m',{'font-size':13,'text-anchor':'start'}); txt(g,x0+base*0.25,y0-hh*sc*0.25-12,'s = '+fm(sl,1)+' m',{'font-size':13});
+    txtx=`F = w × h / s = 600 × ${fm(hh,1)} / ${fm(sl,1)} = ${fm(F,0)} N. Makin landai (s panjang), makin kecil gaya, tetapi makin jauh jarak tempuhnya.`; }
+  $('#o1').innerHTML=`<div class="big">Gaya kuasa F = ${fm(F,0)} N · KM = ${fm(KM,2)}</div><p>${txtx}</p>`; }
+ui();
+
+/* LAB 2 */
+const track=x=>{ const t=x/100; return 0.5+0.5*Math.cos(t*Math.PI*2.2)*(1-t*0.35); };
+function d2(){ const x=+$('#x').value, h0=+$('#h').value, fr=+$('#fr').value; $('#x-v').textContent=x+'%'; $('#h-v').textContent=h0+' m';
+  const m=2, gg=10, hx=h0*track(x), loss=fr?Math.min(m*gg*(h0-hx),m*gg*h0*0.004*x):0; const E=m*gg*h0, Ep=m*gg*hx, Ek=Math.max(0,E-Ep-loss), v=Math.sqrt(2*Ek/m);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  let d=''; for(let i=0;i<=100;i++) d+=(i?'L':'M')+(30+i*4)+','+(260-h0*track(i)*20); s('path',{d,fill:'none',stroke:'var(--ink)','stroke-width':4},g);
+  s('circle',{cx:30+x*4,cy:260-hx*20-11,r:11,fill:'#e8590c',stroke:'#fff','stroke-width':2},g);
+  const bars=[['Ep',Ep,'#1971c2'],['Ek',Ek,'#e8590c'],['Panas',loss,'#c92a2a']]; bars.forEach(([n,v_,c],i)=>{ const bh=v_/200*160; s('rect',{x:470+i*50,y:270-bh,width:36,height:bh,fill:c},g); txt(g,488+i*50,288,n,{'font-size':12,'font-weight':800}); txt(g,488+i*50,262-bh,fm(v_,0),{'font-size':11}); });
+  $('#o2').innerHTML=`<div class="big">Ep = ${fm(Ep,0)} J · Ek = ${fm(Ek,0)} J · v = ${fm(v,1)} m/s</div><p>Energi mekanik awal = m g h = 2 × 10 × ${h0} = ${E} J. ${fr?`Gesekan mengubah ${fm(loss,0)} J menjadi panas, sehingga Em berkurang.`:'Tanpa gesekan, Ep + Ek selalu tetap (hukum kekekalan energi mekanik).'}</p>`; }
+['x','h','fr'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Usaha', gen(){ const F=rand(2,30)*5, sd=rand(2,20); return {q:`Gaya ${F} N memindahkan benda sejauh ${sd} m searah gaya. Usaha = … J`, a:String(F*sd), hint:'W = F · s', ex:`${F} × ${sd} = ${F*sd}`}; }},
+ {name:'Daya', gen(){ const Wk=rand(2,40)*100, t=pick([2,4,5,10,20]); return {q:`Usaha ${Wk} J dilakukan dalam ${t} s. Daya = … watt`, a:String(Wk/t), hint:'P = W / t', ex:`${Wk}/${t} = ${Wk/t}`}; }},
+ {name:'Tuas', gen(){ const w=rand(2,20)*50, lb=rand(1,4)*0.5, lk=lb*pick([2,3,4,5]); return {q:`Beban ${w} N, lengan beban ${fm(lb,1)} m, lengan kuasa ${fm(lk,1)} m. Gaya kuasa = … N`, a:String(Math.round(w*lb/lk*100)/100), hint:'F = w · lb / lk', ex:`${w} × ${fm(lb,1)} / ${fm(lk,1)} = ${fm(w*lb/lk,2)}`}; }},
+ {name:'Bidang miring', gen(){ const h=rand(1,3), sl=h*pick([2,3,4,5]), w=rand(4,20)*100; return {q:`Benda ${w} N dinaikkan lewat bidang miring panjang ${sl} m ke ketinggian ${h} m. Gaya minimal = … N`, a:String(w*h/sl), hint:'F = w · h / s', ex:`${w} × ${h}/${sl} = ${w*h/sl}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Satuan usaha dalam SI adalah …', o:['joule','watt','newton','pascal'], a:0, ex:'1 J = 1 N·m.'},
+ {q:'Seseorang mendorong tembok sekuat tenaga tetapi tembok tidak bergeser. Usahanya …', o:['nol','sangat besar','negatif','sama dengan gayanya'], a:0, ex:'s = 0.'},
+ {q:'Gunting termasuk tuas jenis …', o:['I','II','III','katrol'], a:0, ex:'Titik tumpu di tengah.'},
+ {q:'Gerobak dorong termasuk tuas jenis …', o:['II','I','III','bidang miring'], a:0, ex:'Beban di tengah.'},
+ {q:'Keuntungan mekanis katrol tetap adalah …', o:['1','2','0,5','4'], a:0, ex:'Hanya mengubah arah.'},
+ {q:'Jalan di pegunungan dibuat berkelok-kelok menerapkan prinsip …', o:['bidang miring','katrol','tuas','roda berporos'], a:0, ex:'Lintasan landai.'},
+ {q:'Ketika bola jatuh bebas, energi potensialnya …', o:['berkurang dan energi kinetiknya bertambah','bertambah','tetap','sama dengan nol sejak awal'], a:0, ex:'Ep → Ek.'},
+ {q:'Bila kecepatan benda dijadikan dua kali, energi kinetiknya menjadi …', o:['empat kali','dua kali','setengah','sama'], a:0, ex:'v².'},
+ {q:'Daya 100 watt artinya …', o:['100 joule usaha tiap sekon','100 newton tiap meter','100 joule total','100 meter tiap sekon'], a:0, ex:'P = W/t.'},
+ {q:'Pesawat sederhana tidak dapat …', o:['mengurangi besar usaha','memperkecil gaya','mengubah arah gaya','memudahkan pekerjaan'], a:0, ex:'Usaha tetap.'},
+ {q:'Beban 1.000 N diangkat dengan tuas: lengan beban 0,5 m dan lengan kuasa 2 m. Gaya kuasa = … N', input:true, a:['250'], ex:'1000×0,5/2.'},
+ {q:'Benda 4 kg di ketinggian 5 m (g = 10). Energi potensialnya = … J', input:true, a:['200'], ex:'4×10×5.'}
+],'w6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

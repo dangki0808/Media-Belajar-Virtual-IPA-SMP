@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IPA SMP Kelas VII · Virtual Science Lab SMP</title>
+<link rel="stylesheet" href="../shared/style.css">
+<style>
+.chero{display:grid;grid-template-columns:1.25fr .9fr;gap:22px;align-items:center;margin:30px 0 10px}
+.chero .paper{position:relative;background:var(--card);border:2px solid var(--edge);border-radius:26px;padding:24px;box-shadow:8px 8px 0 var(--acc)}
+.chero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);font-weight:900;line-height:1.1;margin:.3em 0 .35em}
+.chero h1 em{font-style:normal;background:linear-gradient(transparent 55%,color-mix(in srgb,var(--acc) 30%,transparent) 55%);padding:0 4px}
+.chero .lead{color:var(--muted);font-size:1.05rem}
+.stamps{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.stamps div{width:92px;height:92px;border-radius:50%;border:2.5px dashed var(--acc);display:grid;place-items:center;text-align:center;font-size:.72rem;font-weight:800;color:var(--muted);line-height:1.1;transform:rotate(-6deg);background:color-mix(in srgb,var(--acc) 7%,var(--card))}
+.stamps div:nth-child(even){transform:rotate(5deg)}
+.stamps b{display:block;font-size:1.6rem;color:var(--acc)}
+.polaroid{background:#fff;padding:12px 12px 40px;border:2px solid var(--edge);border-radius:8px;box-shadow:6px 6px 0 rgba(0,0,0,.18);transform:rotate(2.5deg);position:relative}
+.polaroid svg{display:block;border-radius:4px}
+.polaroid figcaption{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-weight:800;color:#444;font-style:italic}
+.polaroid::before{content:"";position:absolute;top:-14px;left:50%;width:90px;height:24px;transform:translateX(-50%) rotate(-4deg);background:rgba(255,212,59,.75)}
+.trail{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;position:relative}
+.trail div{position:relative;border:2px solid var(--edge);border-radius:18px;padding:14px 14px 14px 58px;background:var(--card)}
+.trail div i{position:absolute;left:12px;top:14px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900;color:#fff;border:2px solid var(--edge)}
+.trail b{display:block}
+.life{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.life div{border:2px dashed color-mix(in srgb,var(--edge) 35%,transparent);border-radius:16px;padding:10px 12px;font-size:.9rem;color:var(--muted)}
+.life div span{font-size:1.6rem;display:block}
+.life div b{color:var(--ink)}
+.mod .tag2{font-size:.72rem;font-weight:800;color:var(--muted);margin-top:8px}
+.prog{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:6px;border:1px solid color-mix(in srgb,var(--edge) 25%,transparent)}
+.prog i{display:block;height:100%}
+h2.sec{display:inline-block;margin:28px 0 4px;font-size:1.6rem;font-weight:900;background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:4px 14px;box-shadow:4px 4px 0 var(--acc);transform:rotate(-1deg)}
+@media (max-width:760px){.chero{grid-template-columns:1fr}.polaroid{max-width:360px;margin:0 auto}}
+</style>
+</head>
+<body class="t7" data-kat="biologi" data-store="ipa7" style="--acc:#11885f">
+<header class="top"><div class="wrap"><a class="back" href="../index.html">← Beranda</a><div class="brand">🔬 IPA SMP <small>· Kelas VII · Hijau Daun</small></div></div></header>
+<div class="wrap">
+<section class="chero">
+  <div class="paper">
+    <span class="chip">Fase D · Merdeka + K13 + KTSP · 10 modul</span>
+    <h1>IPA Kelas VII: <em>mengenal alam dari dekat.</em></h1>
+    <p class="lead">Mulai dari cara kerja ilmuwan dan alat ukur, wujud zat, asam-basa di dapur, suhu dan kalor, gerak dan gaya, energi dalam makhluk hidup, klasifikasi, sel, ekologi, sampai bumi dan tata surya. Materi menggabungkan Kurikulum Merdeka, K13, dan KTSP.</p>
+    <div class="stamps"><div><span><b>10</b>modul</span></div><div><span><b>20</b>lab</span></div><div><span><b>120</b>soal kuis</span></div><div><span><b id="avg">–</b>rata-rata nilaimu</span></div></div>
+  </div>
+  <figure class="polaroid" style="margin:0"><svg viewBox="0 0 360 260" width="100%" aria-hidden="true"><rect width="360" height="260" fill="#d3f9d8"/><circle cx="300" cy="50" r="28" fill="#ffd43b"/><path d="M0 200 Q90 150 180 190 T360 180 V260 H0Z" fill="#69db7c"/><path d="M60 200 v-60 M60 150 q-30 -10 -30 -40 q30 5 30 40 M60 165 q28 -12 32 -42 q-30 8 -32 42" stroke="#2b8a3e" stroke-width="4" fill="#8ce99a"/><circle cx="210" cy="110" r="34" fill="#fff" stroke="#11885f" stroke-width="4"/><circle cx="210" cy="110" r="12" fill="#c0eb75"/><path d="M234 134 l30 30" stroke="#11885f" stroke-width="8" stroke-linecap="round"/><text x="120" y="60" font-size="30">🦋</text><text x="280" y="215" font-size="26">🐞</text></svg><figcaption>lup, daun, dan kupu-kupu</figcaption></figure>
+</section>
+<h2 class="sec">🧭 Jalur belajar</h2>
+<div class="card"><div class="trail"><div><i style="background:#11885f">1</i><b>Kerja Ilmiah & Materi</b><span class="muted">Hakikat sains, zat dan perubahannya, asam-basa-garam (Modul 1–3).</span></div><div><i style="background:#1971c2">2</i><b>Energi & Gerak</b><span class="muted">Suhu-kalor, gerak-gaya, energi dalam kehidupan (Modul 4–6).</span></div><div><i style="background:#e8590c">3</i><b>Makhluk Hidup & Bumi</b><span class="muted">Klasifikasi, sel, ekologi, bumi dan tata surya (Modul 7–10).</span></div></div></div>
+<h2 class="sec">📚 Modul Kelas VII</h2>
+<div class="mods" id="mods"></div>
+<h2 class="sec">🏡 IPA di sekitar kita</h2>
+<div class="card"><div class="life"><div><span>🌡️</span><b>Termometer</b><br>Mengukur demam dengan skala Celsius</div><div><span>🍋</span><b>Jeruk nipis</b><br>Asam alami penghilang bau amis</div><div><span>🚲</span><b>Sepeda</b><br>Gaya gesek rem menghentikan laju</div><div><span>🍚</span><b>Sarapan</b><br>Energi kimia untuk belajar</div><div><span>🔬</span><b>Mikroskop</b><br>Melihat sel bawang merah</div><div><span>🌾</span><b>Sawah</b><br>Rantai makanan padi–tikus–ular</div><div><span>🌍</span><b>Rumah kaca</b><br>CO₂ menahan panas bumi</div><div><span>🌙</span><b>Bulan</b><br>Fase berganti setiap ±29,5 hari</div></div></div>
+<div class="card"><h2>Cara memakai</h2>
+  <p>Setiap modul berisi <b>📖 Cerita &amp; Materi</b>, dua <b>lab virtual</b>, <b>✏️ Latihan</b> dengan soal acak tak terbatas, dan <b>🏆 Kuis</b> 12 soal dengan pembahasan. Ukur kesiapan di menu <b>📝 Tryout</b>, latih soal per topik di <b>🗂 Bank Soal</b>, dan buka <b>📘 Rumus</b> untuk ringkasan.</p>
+  <p class="muted">Semua berkas berjalan tanpa internet. Nilai tersimpan di perangkat masing-masing.</p>
+  <div class="row"><button class="btn ghost" id="reset">Hapus nilai Kelas VII di perangkat ini</button></div>
+</div>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · IPA Kelas VII · Merdeka + K13 + KTSP · Bahan: Buku Siswa IPA SMP Kemendikbudristek &amp; BSE IPA SMP</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/catalog.js"></script>
+<script>
+const CAT=VCL_CATALOG.find(g=>g.folder==='ipa-kelas-7'), M=CAT.mods;
+function card(m,i){ const b=VML.store.get(m.k); if(b!=null){window._s+=b;window._c++;}
+  return `<a class="mod" href="${m.f}" style="--mc:${m.c}"><div class="ic" style="background:${m.c}">${m.i}</div><span class="muted" style="font-size:.8rem;font-weight:800">MODUL ${i+1} · ${m.l.toUpperCase()}</span><h3>${m.t}</h3><p>${m.d}</p>
+    <div class="tag2">${(window.VCL_KUR&&VCL_KUR[m.k])?'Merdeka '+VCL_KUR[m.k][0]+' · K13 '+VCL_KUR[m.k][1]+' · KTSP '+VCL_KUR[m.k][2]:''}</div><div class="best" style="color:${m.c}">${b!=null?'Nilai kuis terbaik: '+b:'Belum mengerjakan kuis'}</div><div class="prog"><i style="width:${b||0}%;background:${m.c}"></i></div></a>`; }
+function render(){ window._s=0; window._c=0; document.getElementById('mods').innerHTML=M.map(card).join('');
+  document.getElementById('avg').textContent = window._c ? Math.round(window._s/window._c) : '–'; }
+render();
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis Kelas VII yang tersimpan di perangkat ini?')){ M.forEach(m=>{ try{localStorage.removeItem(CAT.pref+m.k);}catch(e){} }); render(); } };
+window.addEventListener('pageshow',render);
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ringkasan Rumus IPA SMP · Virtual Science Lab</title>
+<style>
+:root{--bg:#eef5ff;--card:#fffefa;--ink:#1f2a37;--muted:#5d6479;--line:#cfe0f5;--edge:#1f2a37;--x:#11885f;--xi:#1971c2;--xii:#c2410c;--hl:#ffd43b}
+@media (prefers-color-scheme:dark){:root{--bg:#10151f;--card:#1b2230;--ink:#eef1f8;--muted:#a8afc4;--line:#2b3a55;--edge:#c9d4e5;--x:#4fd1a0;--xi:#74c0fc;--xii:#ffa94d}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;font-family:"Nunito","Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:16px;line-height:1.55;min-height:100vh;background:var(--bg);background-image:linear-gradient(color-mix(in srgb,var(--xi) 10%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--xi) 10%,transparent) 1px,transparent 1px);background-size:24px 24px;background-attachment:fixed}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:900;line-height:1.15}
+.hero{position:relative;margin:28px 0 10px;padding:22px;background:var(--card);border:2px solid var(--edge);border-radius:24px;box-shadow:8px 8px 0 var(--xi)}
+.hero::after{content:"📘";position:absolute;right:18px;top:-24px;font-size:3rem;transform:rotate(-8deg)}
+.hero h1{font-size:clamp(1.9rem,5vw,2.8rem);margin:.15em 0}.hero p{color:var(--muted);max-width:720px;margin:.3em 0}
+.eyebrow{font-size:.75rem;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--xi)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0;position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);padding:8px 0}
+.bar input{flex:1;min-width:200px;font:inherit;padding:10px 14px;border-radius:14px;border:2px solid var(--edge);background:var(--card);color:var(--ink)}
+.bar button{font:inherit;font-weight:800;padding:8px 14px;border-radius:999px;border:2px solid var(--edge);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--edge)}
+.bar button.on{background:var(--edge);color:var(--card)}
+h2.cl{display:inline-block;margin:22px 0 6px;font-size:1.5rem;background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:4px 14px;box-shadow:4px 4px 0 var(--c);transform:rotate(-1deg)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ix{position:relative;background:var(--card);border:2px solid var(--edge);border-radius:6px;padding:12px 14px 12px;box-shadow:4px 4px 0 color-mix(in srgb,var(--c) 45%,transparent);background-image:linear-gradient(transparent 33px,var(--c) 33px 35px,transparent 35px),repeating-linear-gradient(transparent 0 25px,var(--line) 25px 26px);background-position:0 0,0 36px;background-repeat:no-repeat,repeat}
+.ix:nth-child(3n+1){transform:rotate(-.5deg)}.ix:nth-child(3n+2){transform:rotate(.6deg)}
+.ix h3{margin:0 0 12px;font-size:1.05rem;display:flex;gap:8px;align-items:center}
+.ix h3 a{color:var(--ink);text-decoration:none}.ix h3 a:hover{text-decoration:underline}
+.ix h3 span{font-size:1.3rem}
+.ix ul{margin:0;padding-left:1.1em;line-height:26px}
+.ix li{margin:0}
+.ix li b{background:linear-gradient(transparent 55%,color-mix(in srgb,var(--hl) 70%,transparent) 55%)}
+.muted{color:var(--muted)}
+sub,sup{line-height:0}
+footer{color:var(--muted);font-size:.85rem;border-top:2px dashed var(--line);padding:18px 0 30px;margin-top:30px}
+@media print{.bar,.vnav{display:none!important}.ix{transform:none!important;box-shadow:none;break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><span class="eyebrow">Ringkasan · Kelas VII–IX · Merdeka + K13 + KTSP</span><h1>Kartu Rumus &amp; Konsep IPA SMP</h1>
+<p>Tiga puluh kartu indeks berisi rumus, satuan, dan konsep kunci setiap modul. Ketik kata kunci untuk mencari, ketuk judul kartu untuk membuka modulnya, atau cetak sebagai lembar ringkasan menjelang ujian.</p></section>
+<div class="bar"><input id="q" type="search" placeholder="🔍 Cari, mis. tekanan, Ohm, fotosintesis"><button data-f="all" class="on">Semua</button><button data-f="x">Kelas VII</button><button data-f="xi">Kelas VIII</button><button data-f="xii">Kelas IX</button><button onclick="print()">🖨️ Cetak</button></div>
+<div id="out"></div>
+<footer>Virtual Science Lab SMP · Ringkasan Rumus · Disusun dari Buku Siswa IPA SMP Kurikulum Merdeka, K13, dan BSE KTSP.</footer>
+</div>
+<script>
+const K7='../ipa-kelas-7/', K8='../ipa-kelas-8/', K9='../ipa-kelas-9/';
+const D=[
+ ['x','📏','Hakikat Sains & Pengukuran',K7+'01-hakikat-sains.html',['Metode ilmiah: masalah → hipotesis → percobaan → data → simpulan','Variabel <b>bebas</b> (diubah), <b>terikat</b> (diukur), <b>kontrol</b> (disamakan)','7 besaran pokok SI: m, kg, s, K, A, cd, mol','Jangka sorong: hasil = skala utama + (garis nonius × 0,01 cm)','Mikrometer: hasil = skala utama + (skala putar × 0,01 mm)','1 km/jam = 1/3,6 m/s']],
+ ['x','🧊','Zat dan Perubahannya',K7+'02-zat-perubahan.html',['Massa jenis <b>ρ = m / V</b> (g/cm³ atau kg/m³)','1 g/cm³ = 1.000 kg/m³','ρ benda &lt; ρ cair → terapung; = melayang; &gt; tenggelam','Wujud: mencair, membeku, menguap, mengembun, menyublim, mengkristal','Perubahan fisika (tanpa zat baru) vs kimia (zat baru)','Unsur, senyawa, campuran (homogen/heterogen)']],
+ ['x','🧪','Asam, Basa, dan Garam',K7+'03-asam-basa-garam.html',['pH &lt; 7 asam, pH = 7 netral, pH &gt; 7 basa','Asam memerahkan lakmus biru; basa membirukan lakmus merah','Indikator alami: kunyit, kubis ungu, bunga sepatu','<b>Asam + basa → garam + air</b> (netralisasi)','Contoh garam: NaCl, NaHCO₃, CaCO₃']],
+ ['x','🌡️','Suhu, Kalor, dan Pemuaian',K7+'04-suhu-kalor.html',['<b>C : R : (F−32) : (K−273) = 5 : 4 : 9 : 5</b>','K = C + 273 · F = 9/5 C + 32 · R = 4/5 C','<b>Q = m · c · ΔT</b> (kalor menaikkan suhu)','<b>Q = m · L</b> (kalor perubahan wujud, suhu tetap)','Asas Black: Q lepas = Q terima','Muai panjang ΔL = L₀ · α · ΔT','Konduksi, konveksi, radiasi']],
+ ['x','🚲','Gerak dan Gaya',K7+'05-gerak-gaya.html',['Kelajuan <b>v = s / t</b>','GLB: s = v · t (v tetap)','GLBB: <b>v = v₀ + a t</b>; s = v₀ t + ½ a t²','Hukum II Newton <b>ΣF = m · a</b>','Berat <b>w = m · g</b> (g ≈ 10 m/s²)','Hukum I (kelembaman), III (aksi = −reaksi)']],
+ ['x','⚡','Energi dalam Sistem Kehidupan',K7+'06-energi-kehidupan.html',['<b>Ek = ½ m v²</b> · <b>Ep = m g h</b>','Em = Ep + Ek (kekal tanpa gesekan)','Fotosintesis: 6CO₂ + 6H₂O + cahaya → C₆H₁₂O₆ + 6O₂','Respirasi: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP','Energi makanan: karbohidrat 4, protein 4, lemak 9 kkal/g','1 kkal ≈ 4,2 kJ']],
+ ['x','🦋','Klasifikasi Makhluk Hidup',K7+'07-klasifikasi.html',['Takson: <b>Kingdom → Filum → Kelas → Ordo → Famili → Genus → Spesies</b>','Binomial nomenklatur: <i>Genus spesies</i>','5 kingdom: Monera, Protista, Fungi, Plantae, Animalia','Vertebrata: pisces, amfibi, reptil, aves, mamalia','Ciri makhluk hidup: bernapas, bergerak, tumbuh, berkembang biak, iritabilitas, ekskresi, nutrisi']],
+ ['x','🔬','Sel dan Organisasi Kehidupan',K7+'08-sel-organisasi.html',['<b>Perbesaran = okuler × objektif</b>','Sel tumbuhan: dinding sel, kloroplas, vakuola besar','Sel hewan: sentriol, lisosom, tanpa dinding sel','Mitokondria (energi), ribosom (protein), inti (pengatur)','sel → jaringan → organ → sistem organ → organisme']],
+ ['x','🌿','Ekologi & Lingkungan',K7+'09-ekologi-lingkungan.html',['individu → populasi → komunitas → ekosistem → bioma → biosfer','Produsen → konsumen I → II → III; dekomposer','<b>Aturan 10%</b>: energi tingkat berikutnya = 10% sebelumnya','Simbiosis mutualisme, komensalisme, parasitisme','Gas rumah kaca: CO₂, CH₄, N₂O, uap air; hujan asam: SO₂, NO₂']],
+ ['x','🪐','Bumi dan Tata Surya',K7+'10-bumi-tata-surya.html',['Planet: Me-Ve-Bu-Ma-Ju-Sa-U-Ne','Rotasi ±24 jam: siang-malam, beda waktu <b>15° = 1 jam</b>','Revolusi ±365¼ hari: musim, gerak semu tahunan','Gerhana matahari: M–Bl–B (bulan baru)','Gerhana bulan: M–B–Bl (purnama)','Atmosfer: troposfer → stratosfer (ozon) → mesosfer → termosfer']],
+ ['xi','🦴','Sistem Gerak Manusia',K8+'01-sistem-gerak.html',['±206 tulang; tulang keras & rawan','Bentuk: pipa, pipih, pendek','Sendi: engsel, peluru, putar, pelana, geser','Otot rangka, polos, jantung; antagonis vs sinergis','Tuas lengan: F<sub>otot</sub> × L<sub>k</sub> = W × L<sub>b</sub>']],
+ ['xi','🍱','Nutrisi & Pencernaan',K8+'02-pencernaan.html',['Uji: Lugol (amilum), Benedict (glukosa), Biuret (protein), Sudan III (lemak)','Mulut: amilase · Lambung: HCl, pepsin, renin','Usus halus: empedu, tripsin, lipase, amilase; penyerapan oleh vili','Usus besar: penyerapan air, E. coli → vitamin K','Energi = 4K + 4P + 9L (kkal)']],
+ ['xi','❤️','Peredaran Darah',K8+'03-peredaran-darah.html',['Eritrosit (O₂), leukosit (imun), trombosit (pembekuan), plasma','Peredaran kecil: bilik kanan → paru-paru → serambi kiri','Peredaran besar: bilik kiri → tubuh → serambi kanan','O = donor universal; AB = resipien universal','Denyut/menit = denyut terhitung × 60/t','Tekanan normal ±120/80 mmHg']],
+ ['xi','🫁','Pernapasan & Ekskresi',K8+'04-pernapasan-ekskresi.html',['hidung → faring → laring → trakea → bronkus → bronkiolus → alveolus','<b>KV = tidal + cad. inspirasi + cad. ekspirasi</b>','KT = KV + residu','Nefron: filtrasi → reabsorpsi → augmentasi','Ekskresi: ginjal, kulit, paru-paru, hati']],
+ ['xi','🌱','Struktur & Fungsi Tumbuhan',K8+'05-tumbuhan.html',['Xilem: air & mineral (ke atas) · Floem: hasil fotosintesis','Daun: kutikula, epidermis, palisade, spons, stomata','Transpirasi naik bila cahaya, suhu, angin ↑; kelembapan ↓','<b>Laju = jarak gelembung / waktu</b> (potometer)','Monokotil: serabut, tanpa kambium; dikotil: tunggang, berkambium']],
+ ['xi','⚙️','Usaha, Energi, Pesawat Sederhana',K8+'06-usaha-energi.html',['<b>W = F · s</b> (joule) · <b>P = W / t</b> (watt)','Tuas: <b>KM = w/F = l<sub>k</sub>/l<sub>b</sub></b>','Katrol tetap KM = 1, bebas KM = 2, majemuk = jumlah tali','Bidang miring: <b>KM = s/h</b>; F = w·h/s','Roda berporos: KM = R/r']],
+ ['xi','🌊','Tekanan Zat',K8+'07-tekanan-zat.html',['Padat: <b>P = F / A</b> (Pa)','Hidrostatis: <b>P = ρ g h</b>','Pascal: <b>F₁/A₁ = F₂/A₂</b>','Archimedes: <b>F<sub>A</sub> = ρ<sub>cair</sub> g V<sub>celup</sub></b>','Boyle: P₁V₁ = P₂V₂','Tekanan udara turun 1 cmHg tiap naik 100 m']],
+ ['xi','🔊','Getaran, Gelombang, Bunyi',K8+'08-getaran-bunyi.html',['<b>f = n / t</b> · <b>T = t / n = 1/f</b>','<b>v = λ · f = λ / T</b>','Bandul: T = 2π√(L/g) (tidak bergantung massa)','Audio 20–20.000 Hz; infrasonik &lt; 20; ultrasonik &gt; 20.000','Gema/sonar: <b>s = v t / 2</b>']],
+ ['xi','🔦','Cahaya & Alat Optik',K8+'09-cahaya-optik.html',["<b>1/f = 1/s + 1/s'</b> · <b>M = |s'/s|</b>","f = R/2 · <b>P = 100/f</b> (dioptri, f dalam cm)",'Dua cermin datar: n = 360°/α − 1','Snellius: n₁ sin i = n₂ sin r','Miopi → lensa cekung; hipermetropi → lensa cembung']],
+ ['xi','⚗️','Pemisahan Campuran',K8+'10-pemisahan-campuran.html',['Filtrasi (ukuran partikel), distilasi (titik didih)','Evaporasi/kristalisasi, sublimasi, kromatografi, corong pisah','<b>Rf = jarak zat / jarak pelarut</b>','Homogen (larutan) vs heterogen']],
+ ['xi','🪨','Tanah bagi Kehidupan',K8+'11-tanah.html',['Horizon O – A – B – C – R','Komposisi ±45% mineral, 5% organik, 25% air, 25% udara','Pasir (porus) · lempung (menahan air) · geluh (ideal)','pH ideal 6–7; asam → beri dolomit','Konservasi: terasering, reboisasi, rotasi tanaman']],
+ ['xii','🧠','Koordinasi & Homeostasis',K9+'01-koordinasi.html',['Refleks: reseptor → sensorik → sumsum tulang belakang → motorik → efektor','Otak besar (sadar), otak kecil (keseimbangan), sumsum lanjutan (napas)','Insulin ↓ gula darah; glukagon ↑','Waktu impuls t = s / v','Normal: gula darah 70–140 mg/dL, suhu ±37 °C']],
+ ['xii','🏷️','Zat Aditif & Adiktif',K9+'02-aditif-adiktif.html',['Aditif: pewarna, pemanis, pengawet, penyedap, pengental','<b>Batas aman = ADI × berat badan</b>','Terlarang: formalin, boraks, rhodamin B, metanil yellow','Adiktif: narkotika, psikotropika, nikotin, alkohol, kafein']],
+ ['xii','👪','Reproduksi Manusia',K9+'03-reproduksi-manusia.html',['Testis (sperma, testosteron) · ovarium (ovum, estrogen, progesteron)','Fertilisasi di tuba falopi; janin di uterus','Siklus 28 hari: menstruasi → praovulasi → ovulasi → pascaovulasi','<b>Hari ovulasi ≈ panjang siklus − 14</b>','Hormon: FSH, LH, estrogen, progesteron']],
+ ['xii','🌸','Perkembangbiakan',K9+'04-perkembangbiakan.html',['Generatif: bunga → penyerbukan → pembuahan ganda','Vegetatif alami: umbi, geragih, rizoma, tunas adventif','Vegetatif buatan: stek, cangkok, okulasi, sambung, kultur jaringan','Metamorfosis sempurna: telur → larva → pupa → imago','Tidak sempurna: telur → nimfa → imago']],
+ ['xii','🧬','Pewarisan Sifat',K9+'05-pewarisan-sifat.html',['Kromosom ⊃ DNA ⊃ gen; manusia 46 kromosom','Monohibrid F2: fenotipe <b>3 : 1</b>, genotipe 1 : 2 : 1','Dihibrid F2: <b>9 : 3 : 3 : 1</b>','Macam gamet = <b>2ⁿ</b>','Golongan darah: IA, IB kodominan; i resesif']],
+ ['xii','🧫','Bioteknologi',K9+'06-bioteknologi.html',['Tempe (<i>Rhizopus</i>), tape & roti (<i>Saccharomyces</i>), yoghurt (<i>Lactobacillus</i>)','Kecap (<i>Aspergillus</i>), nata de coco (<i>Acetobacter</i>)','Pertumbuhan bakteri: <b>N = N₀ × 2ⁿ</b>','Modern: kultur jaringan, DNA rekombinan, kloning']],
+ ['xii','💡','Listrik',K9+'07-listrik.html',['Coulomb: <b>F = k q₁ q₂ / r²</b>','<b>I = Q / t</b> · Ohm <b>V = I R</b>','Seri: Rs = R₁ + R₂ + … · Paralel: 1/Rp = 1/R₁ + 1/R₂ + …','<b>P = V I</b> · <b>W = P t</b>','Biaya = kWh × tarif']],
+ ['xii','🧲','Magnet & Energi Alternatif',K9+'08-magnet-energi.html',['Elektromagnet makin kuat: lilitan ↑, arus ↑, inti besi','Trafo: <b>Vp/Vs = Np/Ns = Is/Ip</b>','Efisiensi <b>η = Ps/Pp × 100%</b>','Step-up Ns &gt; Np; step-down Ns &lt; Np','Terbarukan: surya, angin, air, panas bumi, biomassa']],
+ ['xii','♻️','Isu Lingkungan',K9+'09-isu-lingkungan.html',['<b>Jejak karbon = aktivitas × faktor emisi</b>','Listrik ≈ 0,85 kg CO₂/kWh (perkiraan)','1 pohon menyerap ±22 kg CO₂/tahun','3R + replace + replant','Sampah: organik, anorganik, B3']]
+];
+const COL={x:'var(--x)',xi:'var(--xi)',xii:'var(--xii)'}, NM={x:'Kelas VII',xi:'Kelas VIII',xii:'Kelas IX'};
+let flt='all';
+function render(){ const q=document.getElementById('q').value.toLowerCase().trim(); let h='';
+  ['x','xi','xii'].forEach(k=>{ if(flt!=='all'&&flt!==k) return; const items=D.filter(d=>d[0]===k&&(!q||(d[2]+' '+d[4].join(' ')).toLowerCase().replace(/<[^>]+>/g,'').includes(q)));
+    if(!items.length) return; h+=`<h2 class="cl" style="--c:${COL[k]}">${NM[k]}</h2><div class="cards">`+items.map(d=>`<div class="ix" style="--c:${COL[k]}"><h3><span>${d[1]}</span><a href="${d[3]}">${d[2]} →</a></h3><ul>${d[4].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')+'</div>'; });
+  document.getElementById('out').innerHTML=h||'<p class="muted">Tidak ada yang cocok.</p>'; }
+document.getElementById('q').oninput=render;
+document.querySelectorAll('.bar button[data-f]').forEach(b=>b.onclick=()=>{ flt=b.dataset.f; document.querySelectorAll('.bar button[data-f]').forEach(x=>x.classList.toggle('on',x===b)); render(); });
+render();
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

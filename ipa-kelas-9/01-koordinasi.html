@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistem Koordinasi dan Homeostasis · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#c2410c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧠</div>
+  <span class="chip">Modul 1 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Sistem Koordinasi dan Homeostasis</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan struktur neuron dan jalannya impuls pada gerak sadar dan refleks.</li><li>Mengukur waktu reaksi dan menghitung kecepatan impuls.</li><li>Menyebutkan kelenjar endokrin, hormon, dan fungsinya.</li><li>Menjelaskan homeostasis gula darah dan suhu tubuh serta alat indra.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">⚡ Lab Waktu Reaksi</button><button data-target="lab2">🍬 Lab Gula Darah</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Tangan menyentuh panci panas</span><p style="margin:.3em 0">Tanpa berpikir, tanganmu langsung menjauh dari panci panas, bahkan sebelum kamu merasa sakit! Itulah <b>gerak refleks</b>: impuls tidak melewati otak, tetapi langsung diolah di sumsum tulang belakang sehingga jauh lebih cepat dan melindungi tubuh.</p></div>
+</div>
+<div class="card"><h2>1. Sistem saraf</h2>
+  <p><b>Neuron</b>: badan sel, dendrit (menerima impuls), akson/neurit (menghantarkan impuls), selubung mielin, sinapsis. Jenis: neuron sensorik, interneuron (konektor), motorik.</p>
+  <div class="grid2"><div class="def"><b>Gerak sadar</b><br>reseptor → saraf sensorik → <b>otak</b> → saraf motorik → efektor</div><div class="def"><b>Gerak refleks</b><br>reseptor → saraf sensorik → <b>sumsum tulang belakang</b> → saraf motorik → efektor</div></div>
+  <p>Otak besar (berpikir, kesadaran), otak kecil (keseimbangan), sumsum lanjutan (napas, denyut jantung).</p>
+</div>
+<div class="card"><h2>2. Hormon dan homeostasis</h2>
+  <table class="t"><tr><th>Kelenjar</th><th>Hormon</th><th>Fungsi</th></tr><tr><td>Hipofisis</td><td>GH (pertumbuhan), FSH, LH</td><td>"master gland"</td></tr><tr><td>Tiroid</td><td>tiroksin</td><td>metabolisme</td></tr><tr><td>Pankreas</td><td>insulin, glukagon</td><td>mengatur gula darah</td></tr><tr><td>Adrenal</td><td>adrenalin</td><td>siaga saat bahaya</td></tr><tr><td>Testis / ovarium</td><td>testosteron / estrogen, progesteron</td><td>ciri kelamin sekunder</td></tr></table>
+  <p><b>Homeostasis</b> = menjaga kondisi dalam tubuh tetap stabil: gula darah 70–140 mg/dL (insulin menurunkan, glukagon menaikkan), suhu ±37 °C (berkeringat, menggigil), kadar air (ADH). Alat indra: mata, telinga, hidung, lidah, kulit.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Seberapa Cepat Refleksmu?</h2>
+  <p>Tekan "Mulai", tunggu kotak berubah <b>hijau</b>, lalu klik secepat mungkin. Lakukan 5 kali.</p>
+  <div id="pad" style="height:180px;border-radius:16px;border:2px solid var(--edge);display:grid;place-items:center;font-size:1.4rem;font-weight:800;cursor:pointer;user-select:none;background:var(--line)">Tekan Mulai</div>
+  <div class="row"><button class="btn" id="st">Mulai</button><button class="btn ghost" id="rs">Hapus data</button></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 200"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Pankreas Menjaga Gula Darah</h2>
+  <p>Simulasikan satu hari: makan dan olahraga mengubah gula darah. Pankreas melepaskan insulin atau glukagon.</p>
+  <div class="ctrl"><label>Porsi makan siang <span class="v" id="mk-v"></span><input type="range" id="mk" min="0" max="3" step="0.5" value="1"></label><label>Olahraga sore <span class="v" id="ol-v"></span><input type="range" id="ol" min="0" max="2" step="0.5" value="1"></label><label>Kondisi pankreas <select id="pk"><option value="1">normal</option><option value="0.05">insulin kurang (diabetes)</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau nama bagian/hormon.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 1 · Rujukan: BS IPA IX Merdeka Bab I; KTSP IX</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let RT=[], state=0, tGreen=0, tm=null;
+function d1(){ const g=$('#g1'); clear(g); const A=G.axes(g,{x0:0,x1:6,y0:0,y1:600,W:640,H:200,pad:46,padb:26,xs:1,ys:200,lx:'percobaan',ly:'ms'});
+  RT.forEach((v,i)=>{ s('rect',{x:A.X(i+1)-18,y:A.Y(Math.min(600,v)),width:36,height:A.Y(0)-A.Y(Math.min(600,v)),fill:'var(--acc)',rx:4},g); txt(g,A.X(i+1),A.Y(Math.min(600,v))-6,String(v),{'font-size':11}); });
+  if(RT.length){ const av=RT.reduce((a,b)=>a+b,0)/RT.length; const d=0.5*9.8*(av/1000)**2*100; $('#o1').innerHTML=`<div class="big">Rata-rata ${fm(av,0)} ms</div><p>Waktu reaksi manusia umumnya 200–300 ms. Pada uji penggaris jatuh, waktu ini setara dengan penggaris jatuh ±${fm(d,1)} cm sebelum ditangkap (d = ½ g t²). Gerak ini termasuk gerak sadar karena melibatkan otak (mata → otak → otot jari), sehingga lebih lambat daripada refleks.</p>`; } else $('#o1').innerHTML='<p>Belum ada data.</p>'; }
+$('#st').onclick=()=>{ if(RT.length>=5) RT=[]; state=1; $('#pad').style.background='#ffc9c9'; $('#pad').textContent='Tunggu…'; clearTimeout(tm); tm=setTimeout(()=>{ state=2; tGreen=performance.now(); $('#pad').style.background='#8ce99a'; $('#pad').textContent='KLIK SEKARANG!'; },1200+Math.random()*2500); };
+$('#pad').onpointerdown=()=>{ if(state===1){ clearTimeout(tm); state=0; $('#pad').style.background='#ffe066'; $('#pad').textContent='Terlalu cepat! Tekan Mulai lagi.'; } else if(state===2){ const v=Math.round(performance.now()-tGreen); RT.push(v); state=0; $('#pad').style.background='var(--line)'; $('#pad').textContent=v+' ms · tekan Mulai lagi'; d1(); } };
+$('#rs').onclick=()=>{ RT=[]; d1(); }; d1();
+
+/* LAB 2 */
+function sim2(mk,ol,pk){ let G0=90, ins=0, out=[]; for(let h=6;h<=24;h+=0.1){ let inp=0; if(h>=7&&h<7.5) inp+=100; if(h>=12&&h<12.5) inp+=mk*100; if(h>=19&&h<19.5) inp+=100; let use=4+(h>=16&&h<17?ol*35:0);
+  const target=90; const insl=Math.max(0,(G0-target))*0.02*pk; const glk=Math.max(0,target-G0)*0.05; G0+= (inp - use - insl*G0*0.3 + glk*10 + 4 + (pk<1?3:0))*0.1; G0=Math.max(40,G0); out.push([h,G0,insl,glk]); } return out; }
+function d2(){ const mk=+$('#mk').value, ol=+$('#ol').value, pk=+$('#pk').value; $('#mk-v').textContent=mk+'×'; $('#ol-v').textContent=ol+' jam';
+  const r=sim2(mk,ol,pk); const g=$('#g2'); clear(g); const A=G.axes(g,{x0:6,x1:24,y0:40,y1:300,W:640,H:300,pad:46,padb:30,xs:2,ys:40,lx:'jam',ly:'gula darah (mg/dL)'});
+  s('rect',{x:A.X(6),y:A.Y(140),width:A.X(24)-A.X(6),height:A.Y(70)-A.Y(140),fill:'#8ce99a',opacity:.25},g); txt(g,A.X(23.8),A.Y(140)+14,'rentang normal',{'font-size':11,'text-anchor':'end',fill:'#2b8a3e'});
+  let d=''; r.forEach(([h,v],i)=>d+=(i?'L':'M')+A.X(h)+','+A.Y(Math.min(300,v))); s('path',{d,fill:'none',stroke:'#c2255c','stroke-width':3},g);
+  [[7,'🍚'],[12,'🍱'],[16,'🏃'],[19,'🍲']].forEach(([h,e])=>txt(g,A.X(h+0.25),A.Y(285),e,{'font-size':18}));
+  const mx=Math.max(...r.map(x=>x[1])), mn=Math.min(...r.map(x=>x[1]));
+  $('#o2').innerHTML=`<div class="big">Tertinggi ${fm(mx,0)} · terendah ${fm(mn,0)} mg/dL</div><p>${pk<1?'⚠️ Insulin kurang: gula darah tetap tinggi lama setelah makan (hiperglikemia). Ini terjadi pada diabetes melitus.':mx>180?'Porsi besar membuat gula darah melonjak; insulin bekerja keras menurunkannya.':'Insulin menurunkan gula darah setelah makan (glukosa disimpan sebagai glikogen di hati), glukagon menaikkannya saat gula darah rendah. Inilah homeostasis.'}${mn<70?' Olahraga berat tanpa makan dapat membuat gula darah turun (hipoglikemia), lalu glukagon dilepaskan.':''}</p>`; }
+['mk','ol','pk'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Kecepatan impuls', gen(){ const sd=pick([0.5,1,1.2,1.5,2]), v=pick([50,60,80,100,120]); const t=sd/v*1000; return {q:`Impuls menempuh saraf sepanjang ${fm(sd,1)} m dengan kecepatan ${v} m/s. Waktu tempuhnya = … ms`, a:String(Math.round(t*100)/100), hint:'t = s / v (×1000 untuk ms)', ex:`${fm(sd,1)}/${v} = ${fm(t/1000,4)} s = ${fm(t,2)} ms`}; }},
+ {name:'Hormon', gen(){ const X=[['menurunkan kadar gula darah','insulin'],['menaikkan kadar gula darah','glukagon'],['memacu pertumbuhan','gh'],['mengatur metabolisme','tiroksin'],['mempersiapkan tubuh saat bahaya','adrenalin'],['memunculkan ciri kelamin sekunder pria','testosteron'],['memunculkan ciri kelamin sekunder wanita','estrogen']]; const x=pick(X); return {q:`Hormon yang berfungsi ${x[0]} adalah …`, a:x[1], show:x[1]==='gh'?'GH (hormon pertumbuhan)':x[1], hint:'nama hormon', ex:x[1]}; }},
+ {name:'Jalur gerak', gen(){ const X=[['menarik tangan dari benda panas','refleks'],['menulis di buku','sadar'],['berkedip saat ada debu','refleks'],['menendang bola','sadar'],['lutut terangkat saat diketuk','refleks'],['menjawab pertanyaan guru','sadar']]; const x=pick(X); return {q:`Gerakan ${x[0]} termasuk gerak …`, a:x[1], hint:'sadar / refleks', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bagian neuron yang menerima impuls dari neuron lain adalah …', o:['dendrit','akson','mielin','sinapsis'], a:0, ex:'Dendrit.'},
+ {q:'Pada gerak refleks, impuls diolah di …', o:['sumsum tulang belakang','otak besar','otak kecil','hipofisis'], a:0, ex:'Lebih cepat.'},
+ {q:'Bagian otak yang mengatur keseimbangan tubuh adalah …', o:['otak kecil','otak besar','sumsum lanjutan','hipotalamus'], a:0, ex:'Serebelum.'},
+ {q:'Neuron yang membawa impuls dari pusat saraf ke efektor adalah …', o:['neuron motorik','neuron sensorik','interneuron','reseptor'], a:0, ex:'Motorik.'},
+ {q:'Hormon insulin dihasilkan oleh …', o:['pankreas','tiroid','adrenal','hipofisis'], a:0, ex:'Pulau Langerhans.'},
+ {q:'Kekurangan insulin menyebabkan …', o:['diabetes melitus','gondok','kretinisme','akromegali'], a:0, ex:'Gula darah tinggi.'},
+ {q:'Kelenjar yang disebut "master gland" adalah …', o:['hipofisis','tiroid','pankreas','adrenal'], a:0, ex:'Mengatur kelenjar lain.'},
+ {q:'Saat kepanasan, tubuh menjaga suhu dengan …', o:['berkeringat','menggigil','merinding','menyempitkan pembuluh kulit'], a:0, ex:'Penguapan keringat.'},
+ {q:'Bagian mata yang peka cahaya adalah …', o:['retina','kornea','iris','sklera'], a:0, ex:'Sel batang dan kerucut.'},
+ {q:'Hormon yang membuat jantung berdebar ketika takut adalah …', o:['adrenalin','tiroksin','insulin','estrogen'], a:0, ex:'Respons siaga.'},
+ {q:'Upaya tubuh mempertahankan kondisi internal tetap stabil disebut …', input:true, a:['homeostasis'], ex:'Homeostasis.'},
+ {q:'Impuls menempuh 1 m dengan kecepatan 100 m/s. Waktunya = … ms', input:true, a:['10'], ex:'0,01 s.'}
+],'y1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zat Aditif dan Zat Adiktif · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="kimia" data-store="ipa9" style="--acc:#d6336c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🏷️</div>
+  <span class="chip">Modul 2 · Kimia <span class="lvl pemula">PEMULA</span></span>
+  <h1>Zat Aditif dan Zat Adiktif</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menggolongkan zat aditif alami dan buatan beserta fungsinya.</li><li>Membaca label komposisi dan kode zat aditif pada kemasan.</li><li>Menghitung batas aman konsumsi harian (ADI).</li><li>Menjelaskan jenis zat adiktif, dampaknya, dan cara menghindarinya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🏷️ Lab Detektif Label</button><button data-target="lab2">⚖️ Lab Batas Aman (ADI)</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Jajanan berwarna mencolok</span><p style="margin:.3em 0">Di depan sekolah, Lala melihat kerupuk berwarna merah menyala dan minuman biru terang. Ia ingat pelajaran: <b>rhodamin B</b> dan <b>metanil yellow</b> adalah pewarna tekstil yang dilarang untuk makanan. Membaca label dan mengenal zat aditif membantu kita memilih jajanan yang aman.</p></div>
+</div>
+<div class="card"><h2>1. Zat aditif</h2>
+  <table class="t"><tr><th>Golongan</th><th>Alami</th><th>Buatan (contoh)</th></tr><tr><td>Pewarna</td><td>kunyit (kuning), daun suji (hijau), bit (merah), karamel</td><td>tartrazin, sunset yellow, brilliant blue</td></tr><tr><td>Pemanis</td><td>gula, madu, stevia</td><td>aspartam, sakarin, siklamat</td></tr><tr><td>Pengawet</td><td>garam, gula, asap</td><td>natrium benzoat, kalsium propionat, nitrit</td></tr><tr><td>Penyedap</td><td>bawang, terasi, daun salam</td><td>MSG (mononatrium glutamat)</td></tr><tr><td>Pengental/pengemulsi</td><td>tepung, agar-agar, lesitin telur</td><td>CMC, gom</td></tr></table>
+  <p>Batas aman dinyatakan dengan <b>ADI</b> (<i>Acceptable Daily Intake</i>) dalam mg per kg berat badan per hari. Zat terlarang di makanan: formalin, boraks, rhodamin B, metanil yellow.</p>
+</div>
+<div class="card"><h2>2. Zat adiktif</h2>
+  <p>Zat yang menyebabkan <b>ketergantungan</b> (adiksi). Narkotika (opium, morfin, heroin, ganja, kokain), psikotropika (sabu, ekstasi, obat penenang tanpa resep), dan zat adiktif lain (nikotin rokok, alkohol, kafein dalam jumlah berlebih, inhalan seperti lem).</p>
+  <p>Dampak: kerusakan otak, jantung, paru-paru, hati; gangguan jiwa; masalah sosial, ekonomi, dan hukum. Cara menghindari: berani menolak, memilih teman dan kegiatan positif, menjaga komunikasi dengan keluarga, dan mencari bantuan jika menghadapi tekanan.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Baca Komposisi Kemasan</h2>
+  <p>Pilih produk, lalu klik setiap bahan untuk menggolongkannya. Temukan bahan yang termasuk zat aditif.</p>
+  <div class="row" id="pr"></div>
+  <div class="out" id="lb" style="font-family:var(--mono);font-size:.95rem"></div>
+  <div class="row" id="cat"></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Berapa Banyak yang Masih Aman?</h2>
+  <div class="ctrl"><label>Zat <select id="zt"><option value="0">Aspartam (minuman diet)</option><option value="1">Natrium benzoat (saus)</option><option value="2">Kafein (minuman energi/kopi)</option><option value="3">Tartrazin (minuman kuning)</option></select></label><label>Berat badan <span class="v" id="bb-v"></span><input type="range" id="bb" min="25" max="80" value="45"></label><label>Jumlah porsi per hari <span class="v" id="n-v"></span><input type="range" id="n" min="0" max="10" value="2"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 170"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau golongan zat aditif.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 2 · Rujukan: BS IPA IX Merdeka Bab II; BS IPA VIII K13 Bab 8</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const CT=['Bahan utama','Pewarna','Pemanis','Pengawet','Penyedap','Pengental/pengemulsi'];
+const PR=[['🥤 Minuman jeruk',[['air',0],['gula',2],['konsentrat jeruk',0],['asam sitrat (pengatur keasaman)',0],['natrium benzoat',3],['tartrazin CI 19140',1],['aspartam',2]]],['🍜 Mi instan',[['tepung terigu',0],['minyak sawit',0],['garam',0],['MSG (penguat rasa)',4],['karboksimetil selulosa',5],['tartrazin',1],['TBHQ (antioksidan)',3]]],['🍫 Biskuit cokelat',[['tepung terigu',0],['gula',2],['lemak nabati',0],['bubuk kakao',0],['lesitin kedelai',5],['kalsium propionat',3],['perisa vanili',4],['karamel',1]]],['🧃 Susu stroberi',[['susu sapi',0],['gula',2],['karagenan',5],['merah allura',1],['perisa stroberi',4],['sukralosa',2]]]];
+let pi=0, sel=null, ans={};
+function d1(){ $('#pr').innerHTML=PR.map((p,i)=>`<button class="chipbtn ${i===pi?'on':''}" data-i="${i}">${p[0]}</button>`).join('');
+  $$('#pr button').forEach(b=>b.onclick=()=>{ pi=+b.dataset.i; sel=null; ans={}; d1(); });
+  const P=PR[pi][1]; $('#lb').innerHTML='<b>KOMPOSISI:</b> '+P.map((x,i)=>`<span data-i="${i}" style="cursor:pointer;padding:2px 6px;border-radius:6px;${sel===i?'outline:2px solid var(--acc);':''}background:${ans[i]===undefined?'transparent':ans[i]===x[1]?'var(--ok-soft)':'var(--bad-soft)'}">${x[0]}</span>`).join(', ')+'.';
+  $$('#lb span').forEach(sp=>sp.onclick=()=>{ sel=+sp.dataset.i; d1(); });
+  $('#cat').innerHTML=sel===null?'<span class="muted">Klik salah satu bahan di atas.</span>':CT.map((c,i)=>`<button class="btn soft" data-c="${i}">${c}</button>`).join('');
+  $$('#cat button').forEach(b=>b.onclick=()=>{ ans[sel]=+b.dataset.c; sel=null; d1(); });
+  const done=Object.keys(ans).length, right=Object.entries(ans).filter(([i,v])=>P[i][1]===v).length;
+  $('#o1').innerHTML=`<p>Tergolongkan: ${done}/${P.length} · benar ${right}.</p>${done===P.length?`<p>Zat aditif dalam produk ini: <b>${P.filter(x=>x[1]>0).map(x=>x[0]+' ('+CT[x[1]].toLowerCase()+')').join('; ')}</b>.</p>`:''}`; }
+d1();
+
+/* LAB 2 */
+const ZT=[['Aspartam',40,180,'kaleng 330 mL'],['Natrium benzoat',5,30,'sachet saus'],['Kafein',3,80,'cangkir/kaleng'],['Tartrazin',7.5,40,'botol']];
+function d2(){ const z=ZT[+$('#zt').value], bb=+$('#bb').value, n=+$('#n').value; $('#bb-v').textContent=bb+' kg'; $('#n-v').textContent=n+' '+z[3];
+  const lim=z[1]*bb, tot=z[2]*n, pc=tot/lim*100, maxN=Math.floor(lim/z[2]);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:170,fill:'var(--card)'},g);
+  s('rect',{x:40,y:60,width:560,height:40,rx:20,fill:'var(--line)'},g); s('rect',{x:40,y:60,width:Math.min(560,560*pc/150),height:40,rx:20,fill:pc>100?'#e03131':pc>70?'#f59f00':'#2f9e44'},g);
+  const lx=40+560/1.5; s('line',{x1:lx,y1:45,x2:lx,y2:115,stroke:'var(--ink)','stroke-width':3,'stroke-dasharray':'5 4'},g); txt(g,lx,36,'batas ADI',{'font-size':12,'font-weight':800});
+  txt(g,320,145,`${fm(tot,0)} mg dari batas ${fm(lim,0)} mg per hari (${fm(pc,0)}%)`,{'font-size':14,'font-weight':800});
+  $('#o2').innerHTML=`<p>ADI ${z[0]} = ${z[1]} mg/kg BB/hari → batas = ${z[1]} × ${bb} = ${fm(lim,0)} mg. Satu ${z[3]} mengandung ±${z[2]} mg, sehingga maksimal sekitar <b>${maxN} ${z[3]}</b> per hari.</p><p>${pc>100?'⚠️ Melebihi batas aman! Konsumsi berlebih berisiko bagi kesehatan.':'Masih di bawah batas aman. Meski begitu, lebih baik memilih makanan segar dan alami.'}</p><p class="muted">Angka kandungan per porsi adalah perkiraan untuk latihan.</p>`; }
+['zt','bb','n'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Batas ADI', gen(){ const z=pick(ZT), bb=rand(5,16)*5; return {q:`ADI ${z[0].toLowerCase()} = ${String(z[1]).replace('.',',')} mg/kg BB. Batas aman per hari untuk anak ${bb} kg = … mg`, a:String(z[1]*bb), hint:'ADI × berat badan', ex:`${z[1]} × ${bb} = ${z[1]*bb}`}; }},
+ {name:'Golongan aditif', gen(){ const all=PR.flatMap(p=>p[1]).filter(x=>x[1]>0); const x=pick(all); return {q:`"${x[0]}" pada label kemasan termasuk zat aditif golongan …`, a:CT[x[1]].split('/')[0].toLowerCase(), show:CT[x[1]], hint:'pewarna / pemanis / pengawet / penyedap / pengental', ex:CT[x[1]]}; }},
+ {name:'Alami/buatan', gen(){ const X=[['kunyit','alami'],['tartrazin','buatan'],['daun suji','alami'],['aspartam','buatan'],['gula aren','alami'],['natrium benzoat','buatan'],['garam','alami'],['MSG','buatan'],['sakarin','buatan'],['stevia','alami']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} termasuk zat aditif …`, a:x[1], hint:'alami / buatan', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Kunyit pada makanan berfungsi sebagai pewarna …', o:['kuning alami','merah alami','hijau buatan','kuning buatan'], a:0, ex:'Kurkumin.'},
+ {q:'Zat berikut yang termasuk pemanis buatan adalah …', o:['aspartam','gula tebu','madu','gula aren'], a:0, ex:'Buatan.'},
+ {q:'Natrium benzoat ditambahkan ke makanan sebagai …', o:['pengawet','pewarna','pemanis','penyedap'], a:0, ex:'Menghambat mikroba.'},
+ {q:'Zat yang dilarang digunakan sebagai pengawet makanan adalah …', o:['formalin','garam','gula','asam cuka'], a:0, ex:'Untuk mengawetkan mayat.'},
+ {q:'Rhodamin B berbahaya karena merupakan pewarna untuk …', o:['tekstil','makanan bayi','obat','kosmetik alami'], a:0, ex:'Dilarang untuk pangan.'},
+ {q:'MSG termasuk zat aditif golongan …', o:['penyedap rasa','pengawet','pewarna','pengental'], a:0, ex:'Penguat rasa.'},
+ {q:'Zat adiktif yang terkandung dalam rokok adalah …', o:['nikotin','kafein','aspartam','tartrazin'], a:0, ex:'Nikotin.'},
+ {q:'Ganja, morfin, dan heroin termasuk golongan …', o:['narkotika','psikotropika','zat aditif','vitamin'], a:0, ex:'Narkotika.'},
+ {q:'Cara terbaik menghindari penyalahgunaan narkoba adalah …', o:['berani menolak dan memilih lingkungan positif','mencoba sedikit saja','menyimpan untuk teman','mengikuti ajakan agar diterima'], a:0, ex:'Katakan tidak.'},
+ {q:'ADI menyatakan …', o:['jumlah maksimum yang aman dikonsumsi per kg berat badan per hari','jumlah minimum gizi harian','harga zat aditif','tanggal kedaluwarsa'], a:0, ex:'Acceptable Daily Intake.'},
+ {q:'ADI aspartam 40 mg/kg BB. Batas harian anak 50 kg = … mg', input:true, a:['2000','2.000'], show:'2.000', ex:'40×50.'},
+ {q:'Pewarna hijau alami dapat dibuat dari daun …', input:true, a:['suji','pandan','daun suji','daun pandan'], show:'suji/pandan', ex:'Klorofil.'}
+],'y2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

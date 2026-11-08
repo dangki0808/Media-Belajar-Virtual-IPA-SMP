@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peta Kurikulum IPA SMP · Virtual Science Lab</title>
+<style>
+:root{--bg:#f1f8ee;--card:#fffefa;--ink:#1f2a37;--muted:#5d6479;--line:#d9e6d2;--edge:#1f2a37;--navy:#2f9e44;--coral:#e8590c;--x:#11885f;--xi:#1971c2;--xii:#c2410c}
+@media (prefers-color-scheme:dark){:root{--bg:#10170f;--card:#1b2219;--ink:#eef4ea;--muted:#a9b6a2;--line:#2e3c2b;--edge:#cfdcc9;--navy:#69db7c;--coral:#ffa36b;--x:#4fd1a0;--xi:#74c0fc;--xii:#ffa94d}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;font-family:"Nunito","Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:16px;line-height:1.55;min-height:100vh;background:var(--bg);background-image:radial-gradient(circle at 20px 20px,color-mix(in srgb,var(--navy) 22%,transparent) 2px,transparent 2.5px);background-size:40px 40px;background-attachment:fixed}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:900;line-height:1.15}
+.hero{position:relative;margin:28px 0 10px;padding:22px;background:var(--card);border:2px solid var(--edge);border-radius:24px;box-shadow:8px 8px 0 var(--navy)}
+.hero::after{content:"🧭";position:absolute;right:18px;top:-24px;font-size:3rem;transform:rotate(-10deg)}
+.hero h1{font-size:clamp(1.9rem,5vw,2.8rem);margin:.2em 0}.hero p{color:var(--muted);max-width:720px}
+.eyebrow{font-size:.75rem;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy)}
+.seg{display:inline-flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.seg button{font:inherit;font-weight:800;border:2px solid var(--edge);border-radius:999px;background:var(--card);color:var(--ink);padding:8px 16px;cursor:pointer;min-height:44px;box-shadow:3px 3px 0 var(--edge)}
+.seg button.on{background:var(--navy);color:#fff}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:12px 0}
+.col{background:var(--card);border:2px solid var(--edge);border-radius:18px;padding:14px 16px;box-shadow:5px 5px 0 var(--c)}
+.col h3{margin:.1em 0 .5em;color:var(--c)}
+.col a{display:block;text-decoration:none;color:var(--ink);padding:7px 10px;border-radius:12px;border:2px dashed var(--line);margin:6px 0;font-weight:700}
+.col a small{display:block;color:var(--muted);font-weight:500}
+.col a:hover{border-color:var(--c);border-style:solid}
+.wrapt{overflow-x:auto;background:var(--card);border:2px solid var(--edge);border-radius:18px;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{padding:8px 10px;border-bottom:1.5px dashed var(--line);text-align:left}
+th{background:color-mix(in srgb,var(--navy) 12%,var(--card))}
+td.c{text-align:center;font-weight:700}
+td a{color:var(--ink)}
+.note{background:#fff9db;border:2px dashed #f59f00;border-radius:14px;padding:12px 14px;margin:12px 0;color:#3d2f00}
+@media (prefers-color-scheme:dark){.note{background:#2b2512;color:#ffe8a3}}
+h2{display:inline-block;background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:4px 14px;box-shadow:4px 4px 0 #ffd43b;transform:rotate(-1deg)}
+footer{color:var(--muted);font-size:.85rem;border-top:2px dashed var(--line);padding:18px 0 30px;margin-top:20px}
+@media print{.vnav,.seg{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><span class="eyebrow">Peta kurikulum · Merdeka · K13 · KTSP</span><h1>Satu aplikasi untuk tiga kurikulum</h1>
+<p>Virtual Science Lab SMP menggabungkan Kurikulum Merdeka (2022), Kurikulum 2013 revisi, dan KTSP 2006 (BSE). Setiap topik hanya dibuat satu kali, lalu dipetakan ke kelas tempat topik itu diajarkan pada masing-masing kurikulum. Pilih kurikulum yang dipakai sekolahmu untuk melihat urutan modulnya.</p></section>
+<div class="seg" id="kur"><button data-k="0" class="on">Kurikulum Merdeka</button><button data-k="1">Kurikulum 2013</button><button data-k="2">KTSP 2006</button></div>
+<div class="cols" id="cols"></div>
+<div class="note" id="note"></div>
+<h2>Tabel lengkap pemetaan</h2>
+<div class="wrapt"><table id="tbl"></table></div>
+<footer>Virtual Science Lab SMP · Peta Kurikulum. Pemetaan disusun dari daftar isi Buku Siswa IPA SMP Kemendikbudristek (Kelas VII–IX, edisi revisi), Capaian Pembelajaran Fase D, KD IPA K13, dan BSE IPA SMP KTSP. Urutan di sekolah dapat berbeda sesuai kebijakan satuan pendidikan.</footer>
+</div>
+<script src="../shared/catalog.js"></script>
+<script src="../shared/nav.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const M=[]; VCL_CATALOG.forEach(g=>g.mods.forEach((m,i)=>M.push(Object.assign({kel:g.name,fd:g.folder,url:'../'+g.folder+'/'+m.f,no:i+1},m))));
+const NM=['Kurikulum Merdeka','Kurikulum 2013','KTSP 2006'], COL={VII:'var(--x)',VIII:'var(--xi)',IX:'var(--xii)'};
+const NOTE=['Pada Kurikulum Merdeka (Fase D), IPA SMP edisi revisi memuat: Kelas VII hakikat sains, zat, suhu-kalor, gerak-gaya, klasifikasi, ekologi, bumi-tata surya; Kelas VIII sistem organ, usaha-energi, tekanan, gelombang-cahaya, pemisahan campuran, tanah; Kelas IX koordinasi, aditif-adiktif, reproduksi, pewarisan sifat-bioteknologi, listrik-magnet, isu lingkungan. Topik asam-basa, sel, sistem gerak, tumbuhan, dan perkembangbiakan dapat dipakai sebagai <b>pengayaan</b> atau penguatan.','Pada K13, Kelas VII memuat objek IPA, klasifikasi, zat, suhu-kalor, energi, sel, ekologi, pencemaran, bumi-tata surya; Kelas VIII gerak, usaha-pesawat sederhana, tumbuhan, pencernaan, zat aditif-adiktif, peredaran darah, tekanan, pernapasan-ekskresi, getaran-bunyi, cahaya; Kelas IX reproduksi, perkembangbiakan, pewarisan sifat, bioteknologi, listrik, magnet, tanah. Topik koordinasi dan isu lingkungan dapat menjadi <b>pengayaan</b>.','Pada KTSP (BSE IPA SMP), urutan umumnya: Kelas VII besaran-pengukuran, zat, asam-basa, kalor, gerak, klasifikasi, ekosistem; Kelas VIII sistem organ, tumbuhan, gaya-usaha, tekanan, getaran-gelombang, cahaya; Kelas IX koordinasi, reproduksi, pewarisan sifat, bioteknologi, listrik, magnet, tata surya.'];
+let kur=0;
+const cls=v=>{ const m=String(v).match(/^(VIII|VII|IX)/); return m?m[1]:null; };
+function render(){
+  const groups={VII:[],VIII:[],IX:[],'Pengayaan':[]};
+  M.forEach(m=>{ const v=VCL_KUR[m.k][kur]; const c=cls(v); (c?groups[c]:groups['Pengayaan']).push(m); });
+  const order=m=>['ipa-kelas-7','ipa-kelas-8','ipa-kelas-9'].indexOf(m.fd)*100+m.no;
+  Object.values(groups).forEach(a=>a.sort((p,q)=>order(p)-order(q)));
+  $('#cols').innerHTML=Object.entries(groups).filter(([k,a])=>a.length).map(([k,a])=>`<div class="col" style="--c:${COL[k]||'var(--coral)'}"><h3>${k==='Pengayaan'?'Pengayaan / tidak tercantum':'Kelas '+k} <small style="font-size:.7em;color:var(--muted)">(${a.length} modul)</small></h3>${a.map(m=>`<a href="${m.url}">${m.t}<small>dibuat di folder ${m.kel} · modul ${m.no}</small></a>`).join('')}</div>`).join('');
+  $('#note').innerHTML=`<b>${NM[kur]}.</b> ${NOTE[kur]}`;
+  $('#tbl').innerHTML=`<tr><th>Topik / modul</th><th>Folder aplikasi</th><th>Merdeka</th><th>K13</th><th>KTSP</th></tr>`+M.map(m=>`<tr><td><a href="${m.url}">${m.t}</a></td><td>${m.kel}</td>${VCL_KUR[m.k].map((v,i)=>`<td class="c" style="${i===kur?'background:color-mix(in srgb,var(--coral) 10%,transparent)':''}">${v}</td>`).join('')}</tr>`).join('');
+}
+document.querySelectorAll('#kur button').forEach(b=>b.onclick=()=>{ document.querySelectorAll('#kur button').forEach(x=>x.classList.toggle('on',x===b)); kur=+b.dataset.k; render(); });
+render();
+})();
+</script>
+</body></html>

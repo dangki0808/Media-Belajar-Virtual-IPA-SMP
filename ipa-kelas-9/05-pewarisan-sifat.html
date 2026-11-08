@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pewarisan Sifat · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#1971c2">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧬</div>
+  <span class="chip">Modul 5 · Biologi <span class="lvl lanjut">LANJUT</span></span>
+  <h1>Pewarisan Sifat</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan hubungan kromosom, DNA, dan gen.</li><li>Menggunakan istilah genotipe, fenotipe, dominan, resesif, homozigot, heterozigot.</li><li>Menentukan hasil persilangan monohibrid dan dihibrid dengan papan Punnett.</li><li>Menentukan kemungkinan golongan darah anak dari orang tuanya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🌱 Lab Papan Punnett</button><button data-target="lab2">🩸 Lab Golongan Darah Keluarga</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Kebun kacang Gregor Mendel</span><p style="margin:.3em 0">Pada tahun 1860-an, biarawan Gregor Mendel menyilangkan ribuan tanaman kacang ercis. Ia mencatat bahwa sifat yang "hilang" pada generasi pertama muncul kembali pada generasi kedua dengan perbandingan sekitar <b>3 : 1</b>. Dari situ ia menemukan aturan pewarisan sifat, sehingga dikenal sebagai Bapak Genetika.</p></div>
+</div>
+<div class="card"><h2>1. Materi genetik</h2>
+  <p><b>Kromosom</b> (di inti sel) tersusun atas <b>DNA</b>; bagian DNA yang mengendalikan satu sifat disebut <b>gen</b>. Manusia punya 46 kromosom (23 pasang: 22 pasang autosom + 1 pasang gonosom, XX perempuan dan XY laki-laki).</p>
+  <div class="grid2"><div class="def"><b>Genotipe</b>: susunan gen (TT, Tt, tt).<br><b>Fenotipe</b>: sifat yang tampak (tinggi, pendek).</div><div class="def"><b>Dominan</b> (huruf besar) menutupi <b>resesif</b> (huruf kecil).<br>Homozigot: TT/tt; heterozigot: Tt. <b>Intermediet</b>: tidak ada yang dominan penuh (merah × putih → merah muda).</div></div>
+</div>
+<div class="card"><h2>2. Hukum Mendel</h2>
+  <p><b>Hukum I (segregasi)</b>: pasangan alel berpisah saat membentuk gamet. Monohibrid Tt × Tt → genotipe 1 : 2 : 1, fenotipe 3 : 1. <b>Hukum II (berpasangan secara bebas)</b>: dihibrid BbKk × BbKk → fenotipe 9 : 3 : 3 : 1. Jumlah macam gamet = 2ⁿ (n = jumlah pasangan heterozigot).</p>
+  <p>Golongan darah ABO: alel I<sup>A</sup>, I<sup>B</sup> (kodominan) dan i (resesif). A = I<sup>A</sup>I<sup>A</sup>/I<sup>A</sup>i, B = I<sup>B</sup>I<sup>B</sup>/I<sup>B</sup>i, AB = I<sup>A</sup>I<sup>B</sup>, O = ii. Penyakit menurun: hemofilia, buta warna (terpaut kromosom X), albino.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Silangkan Kacang Ercis</h2>
+  <p>T = batang tinggi (dominan), t = pendek. K = biji kuning (dominan), k = hijau. Pilih genotipe induk.</p>
+  <div class="ctrl"><label>Jenis <select id="md"><option value="1">Monohibrid (tinggi batang)</option><option value="2">Dihibrid (tinggi + warna biji)</option></select></label><label>Induk ♂ <select id="p1"></select></label><label>Induk ♀ <select id="p2"></select></label></div>
+  <div id="pn" class="scroll"></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Golongan Darah Anak</h2>
+  <div class="ctrl"><label>Ayah <select id="fa"><option>IAIA</option><option selected>IAi</option><option>IBIB</option><option>IBi</option><option>IAIB</option><option>ii</option></select></label><label>Ibu <select id="mo"><option>IAIA</option><option>IAi</option><option>IBIB</option><option selected>IBi</option><option>IAIB</option><option>ii</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab rasio seperti 3:1 atau angka persen.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 5 · Rujukan: BS IPA IX Merdeka Bab IV; BS IPA IX K13 Bab 3</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const OPT={1:['TT','Tt','tt'],2:['TTKK','TtKk','TtKK','TTkk','ttkk','ttKk']};
+function fill(){ const md=$('#md').value; ['p1','p2'].forEach((id,i)=>{ $('#'+id).innerHTML=OPT[md].map(o=>`<option ${o===(md==='1'?'Tt':'TtKk')?'selected':''}>${o}</option>`).join(''); }); }
+function gam(g){ if(g.length===2) return [g[0],g[1]]; const a=[g[0],g[1]], b=[g[2],g[3]]; const r=[]; a.forEach(x=>b.forEach(y=>r.push(x+y))); return r; }
+function norm(x){ return x.split('').sort((p,q)=>p.toLowerCase()===q.toLowerCase()?(p<q?-1:1):0).join(''); }
+function combine(a,b){ if(a.length===1) return [a,b].sort().join(''); return [a[0],b[0]].sort().join('')+[a[1],b[1]].sort().join(''); }
+function phen(g){ const t=/T/.test(g)?'tinggi':'pendek'; if(g.length===2) return t; return t+'–'+(/K/.test(g)?'kuning':'hijau'); }
+function d1(){ const p1=$('#p1').value, p2=$('#p2').value; const G1=gam(p1), G2=gam(p2);
+  const cnt={}, gc={}; let html='<table class="t"><tr><th>♂ \\ ♀</th>'+G2.map(x=>`<th>${x}</th>`).join('')+'</tr>';
+  G1.forEach(a=>{ html+=`<tr><th>${a}</th>`; G2.forEach(b=>{ const c=combine(a,b), ph=phen(c); cnt[ph]=(cnt[ph]||0)+1; gc[c]=(gc[c]||0)+1; const col=/^tinggi–kuning|^tinggi$/.test(ph)?'#d3f9d8':/tinggi/.test(ph)?'#fff3bf':/kuning/.test(ph)?'#e7f5ff':'#ffe3e3'; html+=`<td style="background:${col}"><b>${c}</b><br><small>${ph}</small></td>`; }); html+='</tr>'; });
+  $('#pn').innerHTML=html+'</table>'; const N=G1.length*G2.length;
+  const order=['tinggi–kuning','tinggi–hijau','pendek–kuning','pendek–hijau','tinggi','pendek'].filter(k=>cnt[k]);
+  $('#o1').innerHTML=`<p><b>Gamet</b> ♂: ${[...new Set(G1)].join(', ')} · ♀: ${[...new Set(G2)].join(', ')}</p><p><b>Rasio fenotipe</b> = ${order.map(k=>k+' '+cnt[k]).join(' : ')} (dari ${N} kotak)</p><p><b>Rasio genotipe</b> = ${Object.entries(gc).sort((a,b)=>(b[0].replace(/[a-z]/g,'').length-a[0].replace(/[a-z]/g,'').length)||(a[0]<b[0]?-1:1)).map(([k,v])=>k+' '+v).join(' : ')}</p>`; }
+$('#md').oninput=()=>{ fill(); d1(); }; ['p1','p2'].forEach(i=>$('#'+i).oninput=d1); fill(); d1();
+
+/* LAB 2 */
+const al=g=>g.match(/IA|IB|i/g);
+const bt=g=>{ const A=g.includes('IA'), B=g.includes('IB'); return A&&B?'AB':A?'A':B?'B':'O'; };
+function d2(){ const fa=$('#fa').value, mo=$('#mo').value; const ga=al(fa), gb=al(mo); const res={}; const cells=[];
+  ga.forEach(a=>gb.forEach(b=>{ const g=[a,b].sort().join(''); const t=bt(g); res[t]=(res[t]||0)+1; cells.push([a,b,g,t]); }));
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  const C={A:'#1971c2',B:'#2f9e44',AB:'#7048e8',O:'#e8590c'};
+  txt(g,110,30,'Ayah: '+fa.replace(/I(A|B)/g,'I$1')+' ('+bt(fa)+')',{'font-size':14,'font-weight':800}); txt(g,110,55,'Ibu: '+mo+' ('+bt(mo)+')',{'font-size':14,'font-weight':800});
+  cells.forEach(([a,b,gg,t],i)=>{ const x=40+(i%2)*110, y=80+Math.floor(i/2)*85; s('rect',{x,y,width:100,height:75,rx:10,fill:C[t],opacity:.85},g); txt(g,x+50,y+30,gg,{'font-size':14,'font-weight':800,fill:'#fff'}); txt(g,x+50,y+55,'gol. '+t,{'font-size':13,fill:'#fff'}); });
+  const types=['A','B','AB','O']; types.forEach((t,i)=>{ const p=(res[t]||0)/4; s('rect',{x:330,y:60+i*45,width:250,height:28,rx:14,fill:'var(--line)'},g); s('rect',{x:330,y:60+i*45,width:250*p,height:28,rx:14,fill:C[t]},g); txt(g,316,79+i*45,t,{'font-size':14,'font-weight':900,'text-anchor':'end'}); txt(g,590,79+i*45,fm(p*100,0)+'%',{'font-size':13,'text-anchor':'start'}); });
+  $('#o2').innerHTML=`<p>Gamet ayah: ${ga.join(', ')} · gamet ibu: ${gb.join(', ')}. I<sup>A</sup> dan I<sup>B</sup> kodominan, sedangkan i resesif terhadap keduanya.</p><p>Kemungkinan golongan darah anak: <b>${types.filter(t=>res[t]).map(t=>t+' ('+fm(res[t]/4*100,0)+'%)').join(', ')}</b>.</p>`; }
+['fa','mo'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Macam gamet', gen(){ const n=rand(1,5); const L='ABCDE'; let g=''; for(let i=0;i<5;i++){ const het=i<n; g+=het?L[i]+L[i].toLowerCase():(rand(0,1)?L[i]+L[i]:L[i].toLowerCase()+L[i].toLowerCase()); } return {q:`Individu bergenotipe ${g} menghasilkan … macam gamet`, a:String(2**n), hint:'2ⁿ, n = jumlah pasangan heterozigot', ex:`n = ${n} → 2^${n} = ${2**n}`}; }},
+ {name:'Persentase F2', gen(){ const X=[['Tt × Tt','pendek (tt)',25],['Tt × Tt','tinggi',75],['Tt × tt','pendek',50],['TT × tt','tinggi',100],['Tt × Tt','heterozigot (Tt)',50],['TtKk × TtKk','pendek–hijau',6.25],['TtKk × TtKk','tinggi–kuning',56.25]]; const x=pick(X); return {q:`Persilangan ${x[0]}: persentase keturunan ${x[1]} = … %`, a:String(x[2]), hint:'gunakan papan Punnett', ex:`${x[2]}%`}; }},
+ {name:'Golongan darah', gen(){ const X=[['IAi','IBi','O',25],['IAi','IBi','AB',25],['IAIA','ii','A',100],['IAIB','ii','A',50],['IAi','IAi','O',25],['IBi','ii','B',50],['IAIB','IAIB','AB',50]]; const x=pick(X); return {q:`Ayah ${x[0]} dan ibu ${x[1]}. Kemungkinan anak bergolongan darah ${x[2]} = … %`, a:String(x[3]), hint:'kombinasikan gamet', ex:`${x[3]}%`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bagian kromosom yang mengendalikan satu sifat disebut …', o:['gen','sentromer','kromatid','ribosom'], a:0, ex:'Gen.'},
+ {q:'Sifat yang tampak dari luar disebut …', o:['fenotipe','genotipe','alel','gamet'], a:0, ex:'Fenotipe.'},
+ {q:'Genotipe Tt disebut …', o:['heterozigot','homozigot dominan','homozigot resesif','intermediet'], a:0, ex:'Alel berbeda.'},
+ {q:'Rasio fenotipe F2 persilangan monohibrid dominan penuh adalah …', o:['3 : 1','1 : 2 : 1','9 : 3 : 3 : 1','1 : 1'], a:0, ex:'Hukum I.'},
+ {q:'Rasio fenotipe F2 persilangan dihibrid adalah …', o:['9 : 3 : 3 : 1','3 : 1','1 : 2 : 1','1 : 1 : 1 : 1'], a:0, ex:'Hukum II.'},
+ {q:'Bunga merah (MM) × putih (mm) menghasilkan merah muda. Sifat ini disebut …', o:['intermediet','dominan penuh','resesif','letal'], a:0, ex:'Tidak dominan penuh.'},
+ {q:'Individu BbKk menghasilkan macam gamet sebanyak …', o:['4','2','8','1'], a:0, ex:'2².'},
+ {q:'Laki-laki memiliki kromosom kelamin …', o:['XY','XX','YY','XO'], a:0, ex:'Gonosom.'},
+ {q:'Ayah bergolongan darah O dan ibu AB. Anak yang mungkin lahir bergolongan darah …', o:['A atau B','O','AB','A, B, AB, atau O'], a:0, ex:'ii × IAIB.'},
+ {q:'Penyakit menurun yang terpaut kromosom X adalah …', o:['buta warna','diabetes tipe 2','flu','TBC'], a:0, ex:'Juga hemofilia.'},
+ {q:'Persilangan Tt × Tt menghasilkan keturunan pendek (tt) sebanyak … %', input:true, a:['25'], ex:'1/4.'},
+ {q:'Tokoh yang disebut Bapak Genetika adalah Gregor …', input:true, a:['mendel','johann mendel'], show:'Mendel', ex:'Mendel.'}
+],'y5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

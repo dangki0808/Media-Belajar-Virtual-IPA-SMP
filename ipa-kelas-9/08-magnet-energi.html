@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Magnet, Induksi, dan Energi Alternatif · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="fisika" data-store="ipa9" style="--acc:#5f3dc4">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧲</div>
+  <span class="chip">Modul 8 · Fisika <span class="lvl lanjut">LANJUT</span></span>
+  <h1>Magnet, Induksi Elektromagnetik, dan Energi Alternatif</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan sifat magnet, medan magnet, dan cara membuat magnet.</li><li>Menganalisis faktor kekuatan elektromagnet.</li><li>Menjelaskan induksi elektromagnetik, generator, dan transformator.</li><li>Membandingkan sumber energi alternatif terbarukan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🧲 Lab Elektromagnet</button><button data-target="lab2">🔌 Lab Transformator</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Derek magnet di tempat barang bekas</span><p style="margin:.3em 0">Di tempat pengepul besi tua, sebuah derek mengangkat tumpukan besi tanpa pengait, lalu menjatuhkannya cukup dengan menekan tombol. Rahasianya adalah <b>elektromagnet</b>: magnet yang muncul ketika arus listrik mengalir melalui kumparan, dan hilang ketika arus diputus.</p></div>
+</div>
+<div class="card"><h2>1. Magnet</h2>
+  <p>Kutub sejenis tolak-menolak, tak sejenis tarik-menarik. Bahan feromagnetik (besi, nikel, kobalt) ditarik kuat; paramagnetik lemah; diamagnetik ditolak lemah. Cara membuat magnet: menggosok, induksi, dan elektromagnet. Bumi adalah magnet raksasa; kompas menunjuk utara-selatan. Hewan seperti burung merpati dan penyu memanfaatkan medan magnet bumi untuk navigasi (<b>magnetoresepsi</b>).</p>
+  <p>Kekuatan elektromagnet bertambah bila jumlah lilitan bertambah, arus diperbesar, dan diberi inti besi lunak. Penerapan: bel listrik, relai, telepon, derek magnet, MRI, kereta maglev.</p>
+</div>
+<div class="card"><h2>2. Induksi elektromagnetik</h2>
+  <p>Perubahan medan magnet di dalam kumparan menghasilkan arus induksi (Faraday). Diterapkan pada <b>generator</b> (energi gerak → listrik), <b>dinamo sepeda</b>, dan <b>transformator</b> (pengubah tegangan AC).</p>
+  <div class="eqn">Vp / Vs = Np / Ns = Is / Ip · η = (Ps / Pp) × 100%</div>
+  <p>Trafo step-up: Ns &gt; Np (tegangan naik, untuk transmisi jarak jauh). Step-down: Ns &lt; Np (adaptor, charger).</p>
+</div>
+<div class="card"><h2>3. Energi alternatif</h2>
+  <p>Terbarukan: surya (PLTS), angin (PLTB Sidrap), air (PLTA), panas bumi (PLTP Kamojang, Indonesia termasuk penghasil panas bumi terbesar di dunia), biomassa/biogas, gelombang laut. Tak terbarukan: minyak, batu bara, gas alam. Energi terbarukan mengurangi emisi CO₂.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Berapa Klip yang Terangkat?</h2>
+  <div class="ctrl"><label>Jumlah lilitan <span class="v" id="n-v"></span><input type="range" id="n" min="10" max="100" step="10" value="40"></label><label>Arus <span class="v" id="I-v"></span><input type="range" id="I" min="0" max="3" step="0.5" value="1.5"></label><label>Inti <select id="co"><option value="1">tanpa inti (udara)</option><option value="8" selected>besi lunak</option><option value="0.9">aluminium</option></select></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Trafo Step-up dan Step-down</h2>
+  <div class="ctrl"><label>Lilitan primer Np <span class="v" id="np-v"></span><input type="range" id="np" min="100" max="2000" step="100" value="1100"></label><label>Lilitan sekunder Ns <span class="v" id="ns-v"></span><input type="range" id="ns" min="50" max="2000" step="50" value="60"></label><label>Tegangan primer <span class="v" id="vp-v"></span><input type="range" id="vp" min="12" max="220" step="2" value="220"></label><label>Efisiensi <span class="v" id="ef-v"></span><input type="range" id="ef" min="50" max="100" step="5" value="90"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja dalam satuan yang diminta.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 8 · Rujukan: BS IPA IX Merdeka Bab V; BS IPA IX K13 Bab 6–7</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const n=+$('#n').value, I=+$('#I').value, co=+$('#co').value; $('#n-v').textContent=n+' lilitan'; $('#I-v').textContent=fm(I,1)+' A';
+  const B=n*I*co, clips=Math.min(24,Math.floor(B/60));
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  s('rect',{x:220,y:40,width:200,height:44,rx:8,fill:co===8?'#868e96':co<1?'#dee2e6':'#f1f3f5',stroke:'var(--edge)','stroke-width':2},g);
+  const loops=Math.round(n/5); for(let i=0;i<loops;i++){ const x=226+i*(188/loops); s('path',{d:`M${x},36 q4,26 0,52`,fill:'none',stroke:'#e8590c','stroke-width':2.5},g); }
+  s('path',{d:'M226,62 H75 V190',fill:'none',stroke:'#e8590c','stroke-width':3},g); s('path',{d:'M414,62 H560 V285 H75 V250',fill:'none',stroke:'#e8590c','stroke-width':3},g);
+  s('rect',{x:60,y:190,width:30,height:60,rx:4,fill:'#ffd43b',stroke:'var(--edge)','stroke-width':2},g); txt(g,110,225,fm(I,1)+' A',{'font-size':12,'font-weight':800});
+  if(I>0) for(let k=0;k<3;k++) s('path',{d:`M${220-k*12},${62} C${170-k*30},${-10-k*20} ${470+k*30},${-10-k*20} ${420+k*12},${62}`,fill:'none',stroke:'#1971c2','stroke-width':1.5,'stroke-dasharray':'5 4',opacity:Math.min(1,B/400)},g);
+  for(let i=0;i<clips;i++){ const col=i%6, row=Math.floor(i/6); s('path',{d:`M${262+col*22},${92+row*26} v18 a5,5 0 0 0 10,0 v-14 a3,3 0 0 0 -6,0 v12`,fill:'none',stroke:'#495057','stroke-width':2},g); }
+  for(let i=clips;i<24;i++){ s('path',{d:`M${180+(i*29)%300},${262} h18 a5,5 0 0 0 0,-10 h-14 a3,3 0 0 0 0,6 h12`,fill:'none',stroke:'#adb5bd','stroke-width':2},g); }
+  $('#o1').innerHTML=`<div class="big">${clips} klip terangkat</div><p>${I===0?'Tanpa arus, tidak ada medan magnet.':`Kekuatan elektromagnet ∝ lilitan × arus × pengaruh inti. ${co===8?'Inti besi lunak memperkuat medan magnet berkali-kali lipat dan mudah kehilangan kemagnetan saat arus diputus.':co<1?'Aluminium bukan bahan feromagnetik, sehingga tidak memperkuat medan.':'Tanpa inti, medannya lemah.'}`}</p>`; }
+['n','I','co'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+function d2(){ const np=+$('#np').value, ns=+$('#ns').value, vp=+$('#vp').value, ef=+$('#ef').value/100; ['np','ns'].forEach(i=>$('#'+i+'-v').textContent=$('#'+i).value); $('#vp-v').textContent=vp+' V'; $('#ef-v').textContent=Math.round(ef*100)+'%';
+  const vs=vp*ns/np, Rl=10, Is=vs/Rl, Ps=vs*Is, Pp=Ps/ef, Ip=Pp/vp;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  s('rect',{x:220,y:40,width:200,height:180,fill:'none',stroke:'#868e96','stroke-width':22},g);
+  const coil=(x,n,c)=>{ const k=Math.max(3,Math.round(n/80)); for(let i=0;i<k;i++){ const y=60+i*(140/k); s('ellipse',{cx:x,cy:y+70/k,rx:20,ry:70/k,fill:'none',stroke:c,'stroke-width':2.5},g); } };
+  coil(220,np,'#e8590c'); coil(420,ns,'#1971c2');
+  s('path',{d:'M200,70 H80 M200,190 H80',stroke:'#e8590c','stroke-width':3},g); s('path',{d:'M440,70 H560 M440,190 H560',stroke:'#1971c2','stroke-width':3},g);
+  txt(g,80,130,'~ '+vp+' V',{'font-size':16,'font-weight':900,fill:'#e8590c'}); txt(g,80,150,'Ip = '+fm(Ip,2)+' A',{'font-size':12}); txt(g,560,130,fm(vs,1)+' V',{'font-size':16,'font-weight':900,fill:'#1971c2'}); txt(g,560,150,'Is = '+fm(Is,2)+' A',{'font-size':12});
+  txt(g,220,250,'Np = '+np,{'font-size':12}); txt(g,420,250,'Ns = '+ns,{'font-size':12}); txt(g,320,25,ns>np?'TRAFO STEP-UP':ns<np?'TRAFO STEP-DOWN':'1 : 1',{'font-size':14,'font-weight':900});
+  $('#o2').innerHTML=`<div class="big">Vs = ${fm(vs,1)} V</div><p>Vs = Vp × Ns/Np = ${vp} × ${ns}/${np} = ${fm(vs,1)} V. Dengan beban 10 Ω: Ps = ${fm(Ps,1)} W; karena efisiensi ${Math.round(ef*100)}%, Pp = ${fm(Pp,1)} W. Daya yang hilang (${fm(Pp-Ps,1)} W) menjadi panas pada inti dan kumparan.</p>`; }
+['np','ns','vp','ef'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Tegangan sekunder', gen(){ const np=pick([200,500,1000,1100,2000]), r=pick([0.1,0.2,0.5,2,4,5]), vp=pick([10,20,110,220]); const ns=np*r; return {q:`Trafo: Np = ${np}, Ns = ${ns}, Vp = ${vp} V. Vs = … V`, a:String(vp*r), hint:'Vs = Vp × Ns/Np', ex:`${vp} × ${ns}/${np} = ${vp*r}`}; }},
+ {name:'Lilitan', gen(){ const vp=220, vs=pick([11,22,44,55,110]), np=pick([1000,2000,4000]); return {q:`Adaptor mengubah ${vp} V menjadi ${vs} V. Jika Np = ${np}, maka Ns = …`, a:String(np*vs/vp), hint:'Ns = Np × Vs/Vp', ex:`${np} × ${vs}/${vp} = ${np*vs/vp}`}; }},
+ {name:'Efisiensi', gen(){ const pp=pick([100,200,250,400,500]), ef=pick([60,75,80,90]); return {q:`Daya primer ${pp} W dan daya sekunder ${pp*ef/100} W. Efisiensi trafo = … %`, a:String(ef), hint:'η = Ps/Pp × 100%', ex:`${pp*ef/100}/${pp} × 100 = ${ef}`}; }},
+ {name:'Arus trafo ideal', gen(){ const np=pick([100,200,500]), k=pick([2,4,5,10]), ip=pick([0.5,1,2]); return {q:`Trafo ideal: Np = ${np}, Ns = ${np*k}, Ip = ${fm(ip,1)} A. Is = … A`, a:String(ip/k), hint:'Is = Ip × Np/Ns', ex:`${fm(ip,1)} × ${np}/${np*k} = ${ip/k}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bahan yang ditarik kuat oleh magnet adalah …', o:['besi, nikel, kobalt','tembaga, aluminium, emas','kayu, plastik, karet','kaca, kertas, kain'], a:0, ex:'Feromagnetik.'},
+ {q:'Cara memperkuat elektromagnet adalah …', o:['menambah lilitan dan arus','mengurangi lilitan','memakai inti plastik','memperkecil arus'], a:0, ex:'Faktor kekuatan.'},
+ {q:'Arus induksi timbul ketika …', o:['terjadi perubahan medan magnet dalam kumparan','magnet diam di dalam kumparan','kumparan diputus','arus searah tetap'], a:0, ex:'Faraday.'},
+ {q:'Generator mengubah energi …', o:['gerak menjadi listrik','listrik menjadi gerak','kimia menjadi listrik','listrik menjadi cahaya'], a:0, ex:'Generator.'},
+ {q:'Motor listrik mengubah energi …', o:['listrik menjadi gerak','gerak menjadi listrik','panas menjadi listrik','cahaya menjadi listrik'], a:0, ex:'Kebalikan generator.'},
+ {q:'Ciri trafo step-down adalah …', o:['Ns < Np dan Vs < Vp','Ns > Np dan Vs > Vp','Ns = Np','Is < Ip'], a:0, ex:'Menurunkan tegangan.'},
+ {q:'Transformator hanya bekerja pada arus …', o:['bolak-balik (AC)','searah (DC)','statis','baterai'], a:0, ex:'Butuh perubahan medan.'},
+ {q:'Transmisi listrik jarak jauh memakai tegangan tinggi agar …', o:['energi yang hilang di kabel kecil','arusnya besar','kabel lebih panas','lebih berbahaya'], a:0, ex:'Arus kecil.'},
+ {q:'PLTP Kamojang memanfaatkan energi …', o:['panas bumi','angin','surya','gelombang laut'], a:0, ex:'Geotermal.'},
+ {q:'Sumber energi berikut yang tidak terbarukan adalah …', o:['batu bara','angin','matahari','biogas'], a:0, ex:'Fosil.'},
+ {q:'Trafo: Np = 1.000, Ns = 50, Vp = 220 V. Vs = … V', input:true, a:['11'], ex:'220×50/1000.'},
+ {q:'Daya primer 200 W, daya sekunder 150 W. Efisiensi = … %', input:true, a:['75'], ex:'150/200.'}
+],'y8');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

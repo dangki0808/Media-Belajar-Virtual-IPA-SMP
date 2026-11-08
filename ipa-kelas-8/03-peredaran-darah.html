@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistem Peredaran Darah · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="biologi" data-store="ipa8" style="--acc:#c92a2a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">❤️</div>
+  <span class="chip">Modul 3 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Sistem Peredaran Darah</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan komponen darah dan fungsinya.</li><li>Menelusuri peredaran darah kecil dan besar melalui ruang jantung.</li><li>Menentukan kecocokan transfusi berdasarkan golongan darah ABO.</li><li>Menghitung denyut nadi dan mengenali gangguan peredaran darah.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">❤️ Lab Jantung Berdetak</button><button data-target="lab2">🩸 Lab Golongan Darah</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Donor darah di sekolah</span><p style="margin:.3em 0">PMI datang ke sekolah untuk donor darah. Petugas selalu memeriksa golongan darah dan kadar hemoglobin sebelum mengambil darah. Mengapa golongan darah penting? Karena darah yang tidak cocok dapat <b>menggumpal</b> (aglutinasi) di tubuh penerima.</p></div>
+</div>
+<div class="card"><h2>1. Komponen darah</h2>
+  <table class="t"><tr><th>Komponen</th><th>Ciri</th><th>Fungsi</th></tr><tr><td>Eritrosit (sel darah merah)</td><td>cakram bikonkaf, tanpa inti, mengandung hemoglobin</td><td>mengangkut O₂</td></tr><tr><td>Leukosit (sel darah putih)</td><td>berinti, dapat bergerak (diapedesis)</td><td>melawan kuman</td></tr><tr><td>Trombosit (keping darah)</td><td>kecil, tak beraturan</td><td>pembekuan darah</td></tr><tr><td>Plasma darah (±55%)</td><td>cairan kekuningan</td><td>mengangkut sari makanan, hormon, zat sisa</td></tr></table>
+</div>
+<div class="card"><h2>2. Jantung dan pembuluh</h2>
+  <p>Jantung memiliki 4 ruang: serambi (atrium) kanan-kiri dan bilik (ventrikel) kanan-kiri. Katup mencegah darah berbalik. <b>Arteri</b> membawa darah keluar dari jantung (dinding tebal, elastis), <b>vena</b> membawa darah menuju jantung (berkatup), <b>kapiler</b> tempat pertukaran zat.</p>
+  <div class="grid2"><div class="def"><b>Peredaran kecil (paru-paru)</b><br>bilik kanan → arteri pulmonalis → paru-paru → vena pulmonalis → serambi kiri</div><div class="def"><b>Peredaran besar (sistemik)</b><br>bilik kiri → aorta → seluruh tubuh → vena kava → serambi kanan</div></div>
+  <p>Sistem peredaran manusia disebut <b>tertutup</b> dan <b>ganda</b>. Tekanan darah normal ±120/80 mmHg (sistol/diastol). Gangguan: hipertensi, anemia, varises, leukemia, hemofilia, aterosklerosis.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Ikuti Aliran Darah</h2>
+  <p>Tekan "Langkah" untuk mengikuti satu sel darah merah mengelilingi tubuh. Warna merah = kaya O₂, biru = kaya CO₂.</p>
+  <div class="row"><button class="btn" id="st">Langkah ▶</button><label style="display:flex;gap:6px;align-items:center">Denyut <input type="range" id="bp" min="50" max="160" value="75" style="width:140px"><span class="v" id="bp-v"></span></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 380"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Uji Kecocokan Transfusi</h2>
+  <p>Pilih golongan darah pendonor dan penerima. Antigen pendonor tidak boleh bertemu antibodi (aglutinin) penerima yang sesuai.</p>
+  <div class="ctrl"><label>Pendonor <select id="dn"><option>A</option><option>B</option><option>AB</option><option selected>O</option></select></label><label>Penerima <select id="rc"><option>A</option><option>B</option><option selected>AB</option><option>O</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 220"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan nama, golongan darah, atau angka.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 3 · Rujukan: BS IPA VIII Merdeka Bab I; BS IPA VIII K13 Bab 6</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const PATH=[['Serambi kanan',[255,150],'Darah kaya CO₂ dari seluruh tubuh masuk melalui vena kava.',0],['Bilik kanan',[255,230],'Katup trikuspidalis terbuka; bilik kanan memompa darah ke paru-paru.',0],['Arteri pulmonalis',[280,80],'Satu-satunya arteri yang membawa darah kaya CO₂.',0],['Paru-paru',[150,50],'Di alveolus, CO₂ dilepas dan O₂ diikat hemoglobin.',1],['Vena pulmonalis',[360,80],'Satu-satunya vena yang membawa darah kaya O₂.',1],['Serambi kiri',[385,150],'Darah kaya O₂ masuk; peredaran kecil selesai.',1],['Bilik kiri',[385,230],'Dinding paling tebal karena memompa darah ke seluruh tubuh.',1],['Aorta',[320,40],'Pembuluh nadi terbesar.',1],['Seluruh tubuh (kapiler)',[500,330],'O₂ dan sari makanan diberikan ke sel, CO₂ dan zat sisa diambil.',0],['Vena kava',[140,300],'Darah kembali ke jantung; peredaran besar selesai.',0]];
+let ps=0, beat=0;
+function d1(){ const bp=+$('#bp').value; $('#bp-v').textContent=bp+' /menit';
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:380,fill:'var(--card)'},g);
+  const sc=1+0.04*Math.sin(beat); const H=s('g',{transform:`translate(320 190) scale(${sc}) translate(-320 -190)`},g);
+  s('path',{d:'M320,320 C150,240 170,90 255,100 C290,100 315,125 320,140 C325,125 350,100 385,100 C470,90 490,240 320,320Z',fill:'#ffe3e3',stroke:'#c92a2a','stroke-width':3},H);
+  s('line',{x1:320,y1:140,x2:320,y2:300,stroke:'#c92a2a','stroke-width':4},H); s('line',{x1:200,y1:190,x2:440,y2:190,stroke:'#c92a2a','stroke-width':2,'stroke-dasharray':'5 4'},H);
+  [['SKa',255,150],['BKa',255,240],['SKi',385,150],['BKi',385,240]].forEach(([n,x,y])=>txt(H,x,y+4,n,{'font-size':13,'font-weight':800,fill:'#862e2e'}));
+  s('path',{d:'M280,100 C280,40 200,30 150,50',fill:'none',stroke:'#4dabf7','stroke-width':10,opacity:.7},g); s('path',{d:'M150,50 C220,70 350,60 360,100',fill:'none',stroke:'#ff6b6b','stroke-width':10,opacity:.7},g);
+  s('ellipse',{cx:120,cy:55,rx:40,ry:30,fill:'#ffc9c9',stroke:'#e03131'},g); txt(g,120,60,'paru-paru',{'font-size':12});
+  s('path',{d:'M320,100 C320,20 560,40 560,300 C560,360 520,360 500,330',fill:'none',stroke:'#ff6b6b','stroke-width':10,opacity:.6},g);
+  s('path',{d:'M500,330 C300,380 120,360 140,300 C150,230 200,170 240,150',fill:'none',stroke:'#4dabf7','stroke-width':10,opacity:.6},g);
+  s('rect',{x:470,y:310,width:70,height:40,rx:10,fill:'#fff3bf',stroke:'#f08c00'},g); txt(g,505,335,'sel tubuh',{'font-size':12});
+  const [n,[x,y],d,ox]=PATH[ps]; s('circle',{cx:x,cy:y,r:11,fill:ox?'#e03131':'#1c7ed6',stroke:'#fff','stroke-width':3},g);
+  $('#o1').innerHTML=`<div class="big">${ps+1}. ${n}</div><p>${d}</p><p class="muted">${ps<=5&&ps>=1?'Bagian dari peredaran darah kecil.':'Bagian dari peredaran darah besar.'} Pada ${bp} denyut/menit, jantung memompa sekitar ${fm(bp*70/1000,1)} L darah per menit (±70 mL per denyut).</p>`; }
+$('#st').onclick=()=>{ ps=(ps+1)%PATH.length; d1(); }; $('#bp').oninput=d1; d1();
+setInterval(()=>{ if(!$('#lab1').classList.contains('on')) return; beat+=(+$('#bp').value)/60*2*Math.PI*0.05; d1(); },50);
+
+/* LAB 2 */
+const AG={A:['A'],B:['B'],AB:['A','B'],O:[]}, AB_={A:['β (anti-B)'],B:['α (anti-A)'],AB:[],O:['α (anti-A)','β (anti-B)']};
+function d2(){ const dn=$('#dn').value, rc=$('#rc').value; const bad=AG[dn].filter(a=>!AG[rc].includes(a));
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:220,fill:'var(--card)'},g);
+  const cell=(x,y,ants,lab)=>{ s('circle',{cx:x,cy:y,r:42,fill:'#ff8787',stroke:'#c92a2a','stroke-width':2},g); ants.forEach((a,i)=>{ const an=i*Math.PI+0.6; const px=x+46*Math.cos(an), py=y+46*Math.sin(an); s(a==='A'?'path':'rect',a==='A'?{d:`M${px},${py-8} l8,14 h-16z`,fill:'#1971c2'}:{x:px-7,y:py-7,width:14,height:14,fill:'#2f9e44'},g); }); txt(g,x,y+5,lab,{'font-size':15,'font-weight':900,fill:'#fff'}); };
+  cell(140,100,AG[dn],dn); txt(g,140,185,'Pendonor: antigen '+(AG[dn].join(' & ')||'tidak ada'),{'font-size':12});
+  txt(g,320,105,bad.length?'✖':'➜',{'font-size':40,fill:bad.length?'#e03131':'#2f9e44'});
+  if(bad.length){ for(let i=0;i<7;i++) s('circle',{cx:480+(i%3)*22-22+(i>5?11:0),cy:80+Math.floor(i/3)*22,r:14,fill:'#c92a2a',opacity:.85},g); }
+  else cell(500,100,AG[rc],rc);
+  txt(g,500,185,'Penerima: antibodi '+(AB_[rc].join(' & ')||'tidak ada'),{'font-size':12});
+  $('#o2').innerHTML=bad.length?`<div class="big">❌ Tidak cocok: terjadi aglutinasi</div><p>Antigen ${bad.join(' & ')} dari pendonor bertemu antibodi penerima, sehingga sel darah menggumpal dan menyumbat pembuluh.</p>`:`<div class="big">✅ Cocok untuk transfusi</div><p>${dn==='O'?'Golongan O tidak memiliki antigen sehingga disebut <b>donor universal</b>.':rc==='AB'?'Golongan AB tidak memiliki antibodi sehingga disebut <b>resipien universal</b>.':'Golongan sama selalu cocok.'} Dalam praktik, transfusi tetap diutamakan dengan golongan darah dan rhesus yang sama.</p>`; }
+['dn','rc'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Denyut nadi', gen(){ const n=rand(15,30), t=pick([15,20,30]); return {q:`Dalam ${t} detik terhitung ${n} denyut nadi. Denyut per menit = …`, a:String(n*60/t), hint:'× (60 / waktu)', ex:`${n} × 60/${t} = ${n*60/t}`}; }},
+ {name:'Transfusi', gen(){ const G=['A','B','AB','O'], d=pick(G), r=pick(G); const ok=AG[d].every(a=>AG[r].includes(a)); return {q:`Darah golongan ${d} ditransfusikan ke golongan ${r}. Cocok? (ya/tidak)`, a:ok?'ya':'tidak', hint:'antigen pendonor harus dimiliki penerima', ex:ok?'Cocok.':'Terjadi aglutinasi.'}; }},
+ {name:'Pembuluh', gen(){ const X=[['membawa darah keluar dari jantung','arteri'],['membawa darah menuju jantung','vena'],['tempat pertukaran zat dengan sel','kapiler'],['pembuluh nadi terbesar','aorta'],['membawa darah kaya O₂ dari paru-paru ke jantung','vena pulmonalis'],['membawa darah dari bilik kanan ke paru-paru','arteri pulmonalis']]; const x=pick(X); return {q:`Pembuluh yang ${x[0]} adalah …`, a:x[1], hint:'arteri/vena/kapiler/aorta…', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Sel darah yang berperan dalam pembekuan darah adalah …', o:['trombosit','eritrosit','leukosit','plasma'], a:0, ex:'Keping darah.'},
+ {q:'Hemoglobin berfungsi mengikat …', o:['oksigen','glukosa','antibodi','air'], a:0, ex:'Di eritrosit.'},
+ {q:'Ruang jantung yang dindingnya paling tebal adalah …', o:['bilik kiri','bilik kanan','serambi kiri','serambi kanan'], a:0, ex:'Memompa ke seluruh tubuh.'},
+ {q:'Pembuluh yang membawa darah kaya oksigen dari paru-paru ke jantung adalah …', o:['vena pulmonalis','arteri pulmonalis','aorta','vena kava'], a:0, ex:'Pengecualian vena.'},
+ {q:'Urutan peredaran darah kecil yang benar adalah …', o:['bilik kanan → paru-paru → serambi kiri','bilik kiri → paru-paru → serambi kanan','serambi kanan → tubuh → bilik kiri','bilik kiri → tubuh → serambi kanan'], a:0, ex:'Peredaran paru.'},
+ {q:'Golongan darah yang disebut donor universal adalah …', o:['O','AB','A','B'], a:0, ex:'Tanpa antigen.'},
+ {q:'Golongan darah AB memiliki aglutinin …', o:['tidak ada','α dan β','α','β'], a:0, ex:'Resipien universal.'},
+ {q:'Penyakit darah sukar membeku yang bersifat menurun adalah …', o:['hemofilia','anemia','leukemia','varises'], a:0, ex:'Hemofilia.'},
+ {q:'Kekurangan hemoglobin atau eritrosit disebut …', o:['anemia','hipertensi','leukemia','varises'], a:0, ex:'Kurang darah.'},
+ {q:'Sistem peredaran darah manusia disebut ganda karena …', o:['darah melewati jantung dua kali dalam satu kali peredaran','jantung ada dua','pembuluh ada dua jenis','darah mengalir dua arah'], a:0, ex:'Peredaran kecil + besar.'},
+ {q:'Pada tekanan darah 120/80 mmHg, angka 120 menunjukkan tekanan …', input:true, a:['sistol','sistole','sistolik'], show:'sistol', ex:'Saat bilik berkontraksi.'},
+ {q:'Dalam 15 detik terhitung 18 denyut. Denyut per menit = …', input:true, a:['72'], ex:'18 × 4.'}
+],'w3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

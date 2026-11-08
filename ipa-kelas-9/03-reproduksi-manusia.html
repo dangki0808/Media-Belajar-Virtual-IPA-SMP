@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistem Reproduksi Manusia · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#ae3ec9">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">👪</div>
+  <span class="chip">Modul 3 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Sistem Reproduksi Manusia</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menyebutkan organ reproduksi pria dan wanita beserta fungsinya.</li><li>Menjelaskan perubahan saat pubertas.</li><li>Menjelaskan siklus menstruasi dan peran hormon.</li><li>Menjelaskan fertilisasi, perkembangan janin, dan menjaga kesehatan reproduksi.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">📅 Lab Siklus Menstruasi</button><button data-target="lab2">👶 Lab Perkembangan Janin</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Tumbuh dan berubah</span><p style="margin:.3em 0">Di kelas IX, banyak temanmu bertambah tinggi dengan cepat, suara berubah, atau mulai tumbuh jerawat. Semua itu tanda <b>pubertas</b>, masa ketika hormon kelamin mulai aktif dan organ reproduksi matang. Mengenal tubuh sendiri membantu kita menjaganya dengan sehat dan bertanggung jawab.</p></div>
+</div>
+<div class="card"><h2>1. Organ reproduksi</h2>
+  <div class="grid2"><div class="def"><b>Pria</b>: testis (menghasilkan sperma dan testosteron), skrotum, epididimis (pematangan sperma), vas deferens, kelenjar (vesikula seminalis, prostat), uretra.</div><div class="def"><b>Wanita</b>: ovarium (menghasilkan ovum, estrogen, progesteron), tuba falopi/oviduk (tempat fertilisasi), uterus/rahim (tempat janin berkembang), vagina.</div></div>
+  <p>Pembentukan sel kelamin: <b>spermatogenesis</b> (di testis) dan <b>oogenesis</b> (di ovarium), melalui pembelahan meiosis sehingga kromosomnya setengah (23).</p>
+</div>
+<div class="card"><h2>2. Siklus menstruasi dan kehamilan</h2>
+  <p>Rata-rata 28 hari: fase <b>menstruasi</b> (hari 1–5, dinding rahim luruh), <b>praovulasi/folikel</b> (FSH mematangkan folikel, estrogen menebalkan dinding rahim), <b>ovulasi</b> (±hari ke-14, LH memicu pelepasan ovum), <b>pascaovulasi/luteal</b> (progesteron mempertahankan dinding rahim).</p>
+  <p>Fertilisasi di tuba falopi → zigot → embrio menempel di rahim (implantasi) → janin; kehamilan ±40 minggu (±9 bulan). Plasenta dan tali pusat menyalurkan O₂ dan zat makanan. Kesehatan reproduksi: menjaga kebersihan, gizi seimbang, menghindari pergaulan berisiko, dan mewaspadai infeksi menular seksual (misalnya HIV/AIDS).</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Kalender Siklus dan Hormon</h2>
+  <p>Geser hari untuk melihat fase, keadaan dinding rahim, dan kadar hormon. Ubah panjang siklus.</p>
+  <div class="ctrl"><label>Hari ke- <span class="v" id="d-v"></span><input type="range" id="d" min="1" max="35" value="14"></label><label>Panjang siklus <span class="v" id="L-v"></span><input type="range" id="L" min="24" max="35" value="28"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 320"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: 40 Minggu di Dalam Rahim</h2>
+  <div class="ctrl"><label>Usia kehamilan <span class="v" id="w-v"></span><input type="range" id="w" min="1" max="40" value="12"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 280"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka (hari/minggu) atau nama organ/hormon.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 3 · Rujukan: BS IPA IX Merdeka Bab III; BS IPA IX K13 Bab 1</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ let L=+$('#L').value; const dd=Math.min(+$('#d').value,L); $('#d').max=L; $('#d-v').textContent=dd; $('#L-v').textContent=L+' hari';
+  const ov=L-14; const phase=dd<=5?'Menstruasi':dd<ov-1?'Praovulasi (fase folikel)':dd<=ov+1?'Ovulasi':'Pascaovulasi (fase luteal)';
+  const g=$('#g1'); clear(g); const A=G.axes(g,{x0:1,x1:L,y0:0,y1:1.1,W:640,H:200,pad:46,padb:26,xs:L>30?5:4,ys:0.5,lx:'hari',ly:'kadar relatif'});
+  const gau=(x,m,s_)=>Math.exp(-(((x-m)/s_)**2)/2);
+  const H=[['FSH','#1971c2',x=>0.3+0.5*gau(x,ov,1.5)+0.2*gau(x,3,3)],['LH','#e8590c',x=>0.15+0.85*gau(x,ov,1)],['Estrogen','#c2255c',x=>0.2+0.7*gau(x,ov-1,3)+0.3*gau(x,ov+7,3)],['Progesteron','#2f9e44',x=>0.08+0.8*gau(x,ov+7,3.5)]];
+  H.forEach(([n,c,fn],i)=>{ s('path',{d:G.curve(fn,1,L,A),fill:'none',stroke:c,'stroke-width':2.5},g); txt(g,560,22+i*15,n,{'font-size':11,'text-anchor':'start',fill:c,'font-weight':800}); });
+  s('line',{x1:A.X(dd),y1:A.Y(0),x2:A.X(dd),y2:A.Y(1.1),stroke:'var(--ink)','stroke-width':2,'stroke-dasharray':'4 3'},g);
+  // dinding rahim
+  const th=dd<=5?20-dd*3:dd<=ov?5+(dd-5)/(ov-5)*25:30+Math.min(8,(dd-ov)*0.7);
+  for(let i=1;i<=L;i++){ const x=A.X(i), t=i<=5?20-i*3:i<=ov?5+(i-5)/(ov-5)*25:30+Math.min(8,(i-ov)*0.7); s('rect',{x:x-6,y:290-t,width:12,height:t,fill:i<=5?'#e03131':i===dd?'#c2255c':'#ffc9c9'},g); }
+  s('rect',{x:A.X(1)-6,y:290,width:A.X(L)-A.X(1)+12,height:6,fill:'#c2255c'},g); txt(g,46,230,'tebal dinding rahim',{'font-size':11,'text-anchor':'start',fill:'var(--muted)'});
+  s('circle',{cx:A.X(ov),cy:248,r:7,fill:'#ffd43b',stroke:'#e8590c'},g); txt(g,A.X(ov),240,'ovulasi',{'font-size':10});
+  $('#o1').innerHTML=`<div class="big">Hari ke-${dd}: ${phase}</div><p>${dd<=5?'Dinding rahim yang menebal luruh bersama darah karena tidak terjadi pembuahan.':dd<ov-1?'FSH merangsang pematangan folikel; estrogen naik dan dinding rahim menebal kembali.':dd<=ov+1?'Lonjakan LH memicu folikel melepaskan sel telur (ovum) ke tuba falopi.':'Folikel bekas menjadi korpus luteum yang menghasilkan progesteron untuk mempertahankan dinding rahim. Bila tidak ada pembuahan, progesteron turun dan menstruasi berikutnya dimulai.'}</p><p class="muted">Ovulasi terjadi sekitar 14 hari sebelum menstruasi berikutnya, yaitu hari ke-${ov} untuk siklus ${L} hari.</p>`; }
+['d','L'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+const WK=[[1,'zigot & morula','Fertilisasi di tuba falopi menghasilkan zigot yang membelah menjadi morula dan blastosis.',0.1,'butir pasir'],[4,'embrio menempel di rahim','Implantasi; terbentuk plasenta dan jantung mulai berdenyut ±minggu ke-5.',0.4,'biji wijen'],[8,'organ utama mulai terbentuk','Akhir masa embrio; tangan, kaki, dan wajah terlihat.',1.6,'buah rasberi'],[12,'janin','Semua organ sudah terbentuk; jenis kelamin dapat dibedakan.',5.4,'jeruk nipis'],[20,'gerakan terasa','Ibu mulai merasakan tendangan; janin dapat mendengar suara.',16,'pisang'],[28,'mata terbuka','Paru-paru berkembang; lemak tubuh bertambah.',37,'terung'],[36,'siap lahir','Kepala biasanya sudah di bawah; organ hampir matang.',47,'melon'],[40,'kelahiran','Persalinan normal sekitar minggu ke-38 sampai ke-42.',51,'semangka kecil']];
+function d2(){ const w=+$('#w').value; $('#w-v').textContent='minggu ke-'+w; let k=0; WK.forEach((x,i)=>{ if(w>=x[0]) k=i; }); const a=WK[k], b=WK[Math.min(k+1,WK.length-1)]; const fr=b[0]===a[0]?0:(w-a[0])/(b[0]-a[0]); const len=a[3]+(b[3]-a[3])*fr;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:280,fill:'var(--card)'},g);
+  s('ellipse',{cx:200,cy:140,rx:150,ry:120,fill:'#ffe3e3',stroke:'#e64980','stroke-width':4},g); const r=4+Math.sqrt(len)*13; s('ellipse',{cx:200,cy:140,rx:Math.min(140,r*1.3+10),ry:Math.min(112,r*1.2+8),fill:'#d0ebff',opacity:.8},g); s('circle',{cx:200,cy:140-r*0.3,r:r*0.45,fill:'#ffc9a9',stroke:'#d9480f'},g); if(w>=8) s('ellipse',{cx:200,cy:140+r*0.35,rx:r*0.5,ry:r*0.6,fill:'#ffc9a9',stroke:'#d9480f'},g);
+  if(w>=4){ s('path',{d:`M200,${140+r*0.6} Q260,250 330,220`,fill:'none',stroke:'#e64980','stroke-width':4},g); s('ellipse',{cx:330,cy:215,rx:28,ry:14,fill:'#c2255c'},g); txt(g,330,250,'plasenta',{'font-size':11}); }
+  txt(g,500,60,'Panjang ±'+fm(len,1)+' cm',{'font-size':18,'font-weight':900}); txt(g,500,90,'≈ sebesar '+a[4],{'font-size':14}); s('rect',{x:400,y:120,width:200,height:14,rx:7,fill:'var(--line)'},g); s('rect',{x:400,y:120,width:200*w/40,height:14,rx:7,fill:'#e64980'},g); txt(g,500,156,`${fm(w/40*100,0)}% masa kehamilan`,{'font-size':12});
+  $('#o2').innerHTML=`<div class="big">Minggu ke-${w}: ${a[1]}</div><p>${a[2]}</p><p class="muted">Ukuran adalah perkiraan rata-rata.</p>`; }
+$('#w').oninput=d2; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Hari ovulasi', gen(){ const L=rand(25,34); return {q:`Siklus menstruasi seorang wanita ${L} hari. Perkiraan ovulasi pada hari ke- …`, a:String(L-14), hint:'panjang siklus − 14', ex:`${L} − 14 = ${L-14}`}; }},
+ {name:'Fungsi organ', gen(){ const X=[['menghasilkan sperma','testis'],['menghasilkan sel telur','ovarium'],['tempat fertilisasi','tuba falopi'],['tempat perkembangan janin','uterus'],['tempat pematangan sperma','epididimis'],['saluran sperma dari epididimis','vas deferens']]; const x=pick(X); return {q:`Organ yang berfungsi ${x[0]} adalah …`, a:x[1], hint:'nama organ', ex:x[1]}; }},
+ {name:'Fase siklus', gen(){ const dd=rand(1,28); const ph=dd<=5?'menstruasi':dd<13?'praovulasi':dd<=15?'ovulasi':'pascaovulasi'; return {q:`Pada siklus 28 hari, hari ke-${dd} termasuk fase …`, a:ph, hint:'menstruasi / praovulasi / ovulasi / pascaovulasi', ex:ph}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Sel sperma dihasilkan di …', o:['testis','epididimis','prostat','uretra'], a:0, ex:'Tubulus seminiferus.'},
+ {q:'Fertilisasi (pembuahan) pada manusia terjadi di …', o:['tuba falopi','uterus','ovarium','vagina'], a:0, ex:'Oviduk.'},
+ {q:'Hormon yang memicu ovulasi adalah …', o:['LH','progesteron','testosteron','insulin'], a:0, ex:'Lonjakan LH.'},
+ {q:'Hormon yang mempertahankan penebalan dinding rahim adalah …', o:['progesteron','FSH','LH','adrenalin'], a:0, ex:'Dari korpus luteum.'},
+ {q:'Ciri pubertas pada laki-laki adalah …', o:['suara membesar dan jakun tumbuh','pinggul melebar','payudara membesar','menstruasi'], a:0, ex:'Testosteron.'},
+ {q:'Peluruhan dinding rahim disertai darah disebut …', o:['menstruasi','ovulasi','fertilisasi','implantasi'], a:0, ex:'Haid.'},
+ {q:'Penempelan embrio pada dinding rahim disebut …', o:['implantasi','ovulasi','fertilisasi','gestasi'], a:0, ex:'Implantasi.'},
+ {q:'Pertukaran zat antara ibu dan janin berlangsung melalui …', o:['plasenta','ketuban','ovarium','tuba falopi'], a:0, ex:'Ari-ari.'},
+ {q:'Penyakit yang disebabkan virus yang menyerang kekebalan tubuh adalah …', o:['HIV/AIDS','sifilis','keputihan','kanker serviks'], a:0, ex:'HIV.'},
+ {q:'Sel kelamin manusia memiliki jumlah kromosom …', o:['23','46','22','44'], a:0, ex:'Haploid.'},
+ {q:'Siklus 30 hari, perkiraan ovulasi hari ke- …', input:true, a:['16'], ex:'30−14.'},
+ {q:'Lama kehamilan normal sekitar … minggu', input:true, a:['40'], ex:'±9 bulan.'}
+],'y3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

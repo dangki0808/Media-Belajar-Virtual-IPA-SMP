@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bank Soal IPA SMP · Virtual Science Lab</title>
+<style>
+:root{--bg:#f6f3ea;--card:#fffdf8;--ink:#1f2a37;--muted:#5d6479;--line:#e3ddcc;--edge:#1f2a37;--navy:#7048e8;--coral:#e8590c;--ok:#2f9e44;--no:#e03131;--x:#11885f;--xi:#1971c2;--xii:#c2410c}
+@media (prefers-color-scheme:dark){:root{--bg:#141820;--card:#1d2330;--ink:#eef1f8;--muted:#a8afc4;--line:#323a50;--edge:#c9d4e5;--navy:#b197fc;--coral:#ffa36b;--ok:#69db7c;--no:#ff8787;--x:#4fd1a0;--xi:#74c0fc;--xii:#ffa94d}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;font-family:"Nunito","Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:16px;line-height:1.55;min-height:100vh;background:var(--bg);background-image:linear-gradient(90deg,transparent 54px,rgba(224,49,49,.28) 54px 56px,transparent 56px),linear-gradient(transparent 27px,rgba(112,72,232,.13) 27px 28px);background-size:100% 100%,100% 28px;background-attachment:fixed}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 0 22px}
+h1,h2,h3{line-height:1.2;font-weight:900}
+.hero{position:relative;margin:28px 0 10px;padding:22px;background:var(--card);border:2px solid var(--edge);border-radius:24px;box-shadow:8px 8px 0 var(--navy)}
+.hero h1{font-size:clamp(1.9rem,5vw,2.8rem);margin:.2em 0}.hero p{color:var(--muted);max-width:720px}
+.hero::after{content:"🗂";position:absolute;right:18px;top:-24px;font-size:3rem;transform:rotate(8deg)}
+.eyebrow{font-size:.75rem;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.stats div{background:var(--card);border:2px dashed var(--navy);border-radius:14px;padding:8px 14px;transform:rotate(-1deg)}.stats div:nth-child(even){transform:rotate(1.2deg)}.stats b{font-size:1.5rem;display:block;line-height:1.1;color:var(--navy)}.stats small{color:var(--muted);font-weight:700}
+.bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0;position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);padding:8px 0;border-bottom:2px solid var(--edge)}
+.bar input,.bar select{font:inherit;padding:9px 12px;border-radius:12px;border:2px solid var(--edge);background:var(--card);color:var(--ink);min-height:44px;max-width:100%}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.btn{font:inherit;font-weight:800;border-radius:14px;cursor:pointer;min-height:44px;padding:8px 16px;border:2px solid var(--edge);background:var(--navy);color:#fff;box-shadow:0 4px 0 var(--edge)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--edge)}
+.btn.ghost{background:var(--card);color:var(--ink)}
+.q{position:relative;background:var(--card);border:2px solid var(--edge);border-radius:6px 20px 6px 20px;padding:14px 16px 14px 20px;margin:14px 0;break-inside:avoid;box-shadow:4px 4px 0 color-mix(in srgb,var(--c) 45%,transparent)}
+.q::before{content:"";position:absolute;left:-2px;top:14px;bottom:14px;width:6px;border-radius:0 6px 6px 0;background:var(--c)}
+.q .meta{display:flex;gap:6px;flex-wrap:wrap;font-size:.75rem;font-weight:800;color:var(--muted);margin-bottom:6px}
+.q .meta span{background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);padding:2px 8px;border-radius:99px;border:1.5px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.q .meta span.lv{background:var(--line);color:var(--ink);border-color:transparent}
+.q .tx{font-weight:700}
+.q ol{margin:8px 0 0;padding-left:0;list-style:none;display:grid;gap:6px}
+.q ol li{border:2px solid var(--line);border-radius:12px;padding:6px 10px;cursor:pointer;display:flex;gap:8px}
+.q ol li:hover{border-color:var(--c)}
+.q ol li b{color:var(--muted)}
+.q ol li.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--card))}
+.q ol li.no{border-color:var(--no);background:color-mix(in srgb,var(--no) 10%,var(--card))}
+.key{margin-top:8px;padding:8px 12px;border-radius:10px;background:#fff9db;border:2px dashed #f59f00;font-size:.95rem;color:#3d2f00}
+@media (prefers-color-scheme:dark){.key{background:#2b2512;color:#ffe8a3}}
+.hide{display:none!important}
+.muted{color:var(--muted)}
+sub,sup{line-height:0}
+.pager{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.pager button{font:inherit;font-weight:800;min-width:40px;height:40px;border-radius:10px;border:2px solid var(--edge);background:var(--card);color:var(--ink);cursor:pointer}
+.pager button.on{background:var(--navy);color:#fff}
+.card{background:var(--card);border:2px solid var(--edge);border-radius:20px;padding:16px 18px;margin:18px 0;box-shadow:5px 5px 0 #ffd43b}
+#paket{display:none}
+footer{color:var(--muted);font-size:.85rem;border-top:2px dashed var(--line);padding:18px 0 30px;margin-top:20px}
+@media print{body{background:#fff;color:#000}.vnav,.hero,.bar,.card.tools,.pager,footer,#list,.stats,.row{display:none!important}#paket{display:block!important}.q{border:1px solid #999;box-shadow:none;page-break-inside:avoid}.q::before{display:none}.pb{page-break-before:always}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><span class="eyebrow">Bank soal · Kelas VII–IX · Merdeka + K13 + KTSP</span><h1>Bank Soal IPA SMP</h1>
+<p>Semua soal dari 30 modul: pilihan ganda, isian singkat, dan uraian, lengkap dengan kunci dan pembahasan. Saring menurut kelas, modul, jenis, dan tingkat (Dasar, Menengah, HOTS). Ketuk pilihan jawaban untuk langsung memeriksa. Guru dapat menyusun paket soal acak lalu mencetaknya beserta kunci.</p>
+<div class="stats" id="stats"></div></section>
+<div class="bar">
+  <input type="search" id="q" placeholder="🔍 Cari kata kunci, mis. fotosintesis" aria-label="Cari soal">
+  <select id="fk" aria-label="Kelas"><option value="">Semua kelas</option><option value="x">Kelas VII</option><option value="xi">Kelas VIII</option><option value="xii">Kelas IX</option></select>
+  <select id="fm" aria-label="Modul"><option value="">Semua modul</option></select>
+  <select id="ft" aria-label="Jenis soal"><option value="">Semua jenis</option><option value="pg">Pilihan ganda</option><option value="is">Isian singkat</option><option value="ur">Uraian</option></select>
+  <select id="fl" aria-label="Tingkat"><option value="">Semua tingkat</option><option value="D">Dasar</option><option value="M">Menengah</option><option value="H">HOTS</option></select>
+</div>
+<div class="row"><label style="font-weight:700"><input type="checkbox" id="showkey"> Tampilkan semua kunci &amp; pembahasan</label><span class="muted" id="count"></span></div>
+<div id="list"></div>
+<div class="pager" id="pager"></div>
+<div class="card tools"><h2 style="margin-top:0">🖨️ Susun paket soal acak</h2>
+  <p class="muted">Paket diambil acak dari soal yang sedang tersaring di atas. Hasilnya dicetak sebagai lembar soal, diikuti lembar kunci dan pembahasan di halaman terpisah.</p>
+  <div class="row"><label>Judul <input type="text" id="pj" value="Ulangan Harian IPA" style="font:inherit;padding:8px;border-radius:10px;border:1.5px solid var(--line);min-width:220px;max-width:100%"></label>
+  <label>PG <input type="number" id="npg" value="20" min="0" max="60" style="width:70px;font:inherit;padding:8px;border-radius:10px;border:1.5px solid var(--line)"></label>
+  <label>Isian <input type="number" id="nis" value="5" min="0" max="20" style="width:70px;font:inherit;padding:8px;border-radius:10px;border:1.5px solid var(--line)"></label>
+  <label>Uraian <input type="number" id="nur" value="3" min="0" max="10" style="width:70px;font:inherit;padding:8px;border-radius:10px;border:1.5px solid var(--line)"></label>
+  <button class="btn" id="cetak">Buat &amp; cetak paket</button></div>
+</div>
+<div id="paket"></div>
+<footer>Virtual Science Lab SMP · Bank Soal · Soal disusun berdasarkan Buku Siswa IPA SMP Kurikulum Merdeka, K13, dan BSE KTSP. Soal asli ujian tidak disalin.</footer>
+</div>
+<script src="../shared/catalog.js"></script>
+<script src="../shared/banksoal.js"></script>
+<script src="../shared/nav.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const F=x=>String(x);
+const MOD={}; VCL_CATALOG.forEach(g=>g.mods.forEach((m,i)=>MOD[m.k]={t:m.t,kel:g.name,cls:g.folder.endsWith('7')?'x':g.folder.endsWith('8')?'xi':'xii',f:g.folder+'/'+m.f,no:i+1}));
+const COL={x:'var(--x)',xi:'var(--xi)',xii:'var(--xii)'}, LV={D:'Dasar',M:'Menengah',H:'HOTS'}, TP={pg:'Pilihan ganda',is:'Isian',ur:'Uraian'};
+const B=VCL_BANK.map((q,i)=>Object.assign({id:i},q));
+// urutan opsi stabil per soal (acak semu)
+const ord=q=>{ let s=q.id*9301+49297; const a=[0,1,2,3]; for(let i=3;i>0;i--){ s=(s*9301+49297)%233280; const j=Math.floor(s/233280*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+$('#stats').innerHTML=`<div><b>${B.length}</b><small>soal</small></div><div><b>${B.filter(q=>q.t==='pg').length}</b><small>pilihan ganda</small></div><div><b>${B.filter(q=>q.t==='is').length}</b><small>isian</small></div><div><b>${B.filter(q=>q.t==='ur').length}</b><small>uraian</small></div><div><b>${B.filter(q=>q.lv==='H').length}</b><small>soal HOTS</small></div><div><b>${new Set(B.map(q=>q.k)).size}</b><small>modul</small></div>`;
+function fillMod(){ const k=$('#fk').value; $('#fm').innerHTML='<option value="">Semua modul</option>'+Object.entries(MOD).filter(([key,m])=>!k||m.cls===k).map(([key,m])=>`<option value="${key}">${m.kel} · ${m.no}. ${m.t}</option>`).join(''); }
+let page=0; const PER=20;
+function filt(){ const q=$('#q').value.trim().toLowerCase(), k=$('#fk').value, m=$('#fm').value, t=$('#ft').value, l=$('#fl').value;
+  return B.filter(x=>(!k||MOD[x.k].cls===k)&&(!m||x.k===m)&&(!t||x.t===t)&&(!l||x.lv===l)&&(!q||(x.q+' '+(x.o||[]).join(' ')+' '+x.ex).toLowerCase().includes(q))); }
+const keyHTML=x=>x.t==='pg'?`<b>Kunci:</b> ${'ABCD'[ord(x).indexOf(0)]}. ${x.o[0]}<br>${x.ex}`:x.t==='is'?`<b>Jawaban:</b> ${x.sh}<br>${x.ex}`:`<b>Jawaban model:</b> ${x.ex}`;
+function card(x,n,interactive){ const m=MOD[x.k]; const c=COL[m.cls];
+  return `<div class="q" style="--c:${c}" data-id="${x.id}"><div class="meta"><span>${m.kel}</span><span>${m.no}. ${m.t}</span><span class="lv">${TP[x.t]} · ${LV[x.lv]}</span></div><div class="tx">${n}. ${x.q}</div>
+   ${x.t==='pg'?`<ol>${ord(x).map((oi,j)=>`<li data-c="${oi===0?1:0}"><b>${'ABCD'[j]}.</b><span>${x.o[oi]}</span></li>`).join('')}</ol>`:x.t==='is'?'<p class="muted" style="margin:.4em 0 0">Jawab: ……………………</p>':'<p class="muted" style="margin:.4em 0 0">Jawab secara uraian.</p>'}
+   ${interactive?`<div class="key ${$('#showkey').checked?'':'hide'}">${keyHTML(x)}</div>${x.t!=='pg'?'<button class="btn ghost sk" style="margin-top:8px;min-height:36px;padding:4px 12px">Lihat jawaban</button>':''}`:''}</div>`; }
+function render(){ const L=filt(); const pages=Math.ceil(L.length/PER); if(page>=pages) page=0;
+  $('#count').textContent=`${L.length} soal ditemukan`;
+  $('#list').innerHTML=L.slice(page*PER,page*PER+PER).map((x,i)=>card(x,page*PER+i+1,true)).join('')||'<p class="muted">Tidak ada soal yang cocok.</p>';
+  document.querySelectorAll('#list .q').forEach(el=>{ el.querySelectorAll('li').forEach(li=>li.onclick=()=>{ if(el.dataset.done) return; el.dataset.done=1; li.classList.add(li.dataset.c==='1'?'ok':'no'); el.querySelector('li[data-c="1"]').classList.add('ok'); el.querySelector('.key').classList.remove('hide'); });
+    const b=el.querySelector('.sk'); if(b) b.onclick=()=>{ el.querySelector('.key').classList.toggle('hide'); }; });
+  $('#pager').innerHTML=pages>1?Array.from({length:pages},(_,i)=>`<button class="${i===page?'on':''}" data-p="${i}">${i+1}</button>`).join(''):'';
+  document.querySelectorAll('#pager button').forEach(b=>b.onclick=()=>{ page=+b.dataset.p; render(); window.scrollTo({top:document.querySelector('#list').offsetTop-80,behavior:'smooth'}); });
+}
+['#q','#fm','#ft','#fl'].forEach(s=>$(s).addEventListener('input',()=>{ page=0; render(); }));
+$('#fk').addEventListener('input',()=>{ fillMod(); page=0; render(); });
+$('#showkey').onchange=render;
+const shuf=a=>{ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+$('#cetak').onclick=()=>{ const L=filt(); const pick=(t,n)=>shuf(L.filter(x=>x.t===t)).slice(0,Math.max(0,n));
+  const P=pick('pg',+$('#npg').value), I=pick('is',+$('#nis').value), U=pick('ur',+$('#nur').value);
+  if(!P.length&&!I.length&&!U.length){ alert('Tidak ada soal pada saringan ini.'); return; }
+  let n=0; const sec=(ttl,arr)=>arr.length?`<h3>${ttl}</h3>`+arr.map(x=>card(x,++n,false)).join(''):'';
+  const body=sec('A. Pilihan Ganda',P)+sec('B. Isian Singkat',I)+sec('C. Uraian',U);
+  n=0; const keys=[...P,...I,...U].map(x=>`<div class="q" style="--c:#555"><div class="tx">${++n}. ${x.q.length>90?x.q.slice(0,90)+'…':x.q}</div><div class="key">${keyHTML(x)}</div></div>`).join('');
+  $('#paket').innerHTML=`<h2>${$('#pj').value}</h2><p>Nama: ______________________ &nbsp; Kelas: ________ &nbsp; Tanggal: ____________</p>${body}<div class="pb"></div><h2>Kunci dan Pembahasan — ${$('#pj').value}</h2>${keys}`;
+  window.print(); };
+fillMod(); render();
+})();
+</script>
+</body></html>

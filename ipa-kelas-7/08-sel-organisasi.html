@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sel dan Organisasi Kehidupan · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="biologi" data-store="ipa7" style="--acc:#0c8599">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🔬</div>
+  <span class="chip">Modul 8 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Sel dan Organisasi Kehidupan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menggunakan mikroskop dan menghitung perbesaran.</li><li>Membedakan sel hewan dan sel tumbuhan beserta organelnya.</li><li>Menjelaskan fungsi organel sel.</li><li>Mengurutkan tingkat organisasi kehidupan dari sel sampai organisme.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🔬 Lab Mikroskop Virtual</button><button data-target="lab2">🧩 Lab Organel Sel</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Robert Hooke dan sepotong gabus</span><p style="margin:.3em 0">Tahun 1665, Robert Hooke mengamati irisan gabus dengan mikroskop buatannya. Ia melihat ruang-ruang kecil seperti kamar biara dan menamainya <b>cell</b> (sel). Kini kita tahu: semua makhluk hidup tersusun atas sel, dan sel adalah unit struktural sekaligus fungsional kehidupan.</p></div>
+</div>
+<div class="card"><h2>1. Mikroskop</h2>
+  <div class="eqn">Perbesaran total = perbesaran lensa okuler × perbesaran lensa objektif</div>
+  <p>Bagian penting: lensa okuler (dekat mata), lensa objektif (dekat preparat), revolver, makrometer/mikrometer (pengatur fokus kasar/halus), meja preparat, diafragma, dan cermin/lampu. Selalu mulai pengamatan dari perbesaran lemah.</p>
+</div>
+<div class="card"><h2>2. Sel hewan vs sel tumbuhan</h2>
+  <table class="t"><tr><th>Bagian</th><th>Sel hewan</th><th>Sel tumbuhan</th></tr><tr><td>Dinding sel</td><td>tidak ada</td><td>ada (selulosa)</td></tr><tr><td>Kloroplas</td><td>tidak ada</td><td>ada</td></tr><tr><td>Vakuola</td><td>kecil/banyak</td><td>besar, satu</td></tr><tr><td>Sentriol</td><td>ada</td><td>tidak ada</td></tr><tr><td>Bentuk</td><td>tidak tetap (bulat)</td><td>tetap (kotak)</td></tr></table>
+</div>
+<div class="card"><h2>3. Organisasi kehidupan</h2>
+  <div class="eqn">sel → jaringan → organ → sistem organ → organisme</div>
+  <p>Contoh pada manusia: sel otot jantung → jaringan otot jantung → jantung → sistem peredaran darah → manusia. Contoh pada tumbuhan: sel epidermis → jaringan epidermis → daun → sistem tajuk → tumbuhan. Jaringan tumbuhan: meristem, epidermis, parenkim, penyokong (kolenkim/sklerenkim), pengangkut (xilem/floem). Jaringan hewan: epitel, otot, ikat, saraf.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Amati Preparat</h2>
+  <p>Pilih preparat, putar revolver objektif, dan atur fokus sampai bayangan tajam.</p>
+  <div class="ctrl"><label>Preparat <select id="sp"><option value="0">Epidermis bawang merah</option><option value="1">Sel epitel pipi</option><option value="2">Daun Hydrilla</option><option value="3">Darah (apusan)</option></select></label><label>Okuler <select id="ok"><option>10</option><option>15</option></select></label><label>Objektif <select id="ob"><option>4</option><option selected>10</option><option>40</option></select></label><label>Fokus (mikrometer) <span class="v" id="fo-v"></span><input type="range" id="fo" min="0" max="100" value="35"></label></div>
+  <canvas class="viz" id="cv" width="640" height="360"></canvas>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Jelajahi Sel</h2>
+  <p>Pilih jenis sel, lalu klik organel untuk mengetahui fungsinya.</p>
+  <div class="row"><button class="chipbtn on" id="tH">🐾 Sel hewan</button><button class="chipbtn" id="tT">🌿 Sel tumbuhan</button></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 340"></svg>
+  <div class="out" id="o2"><p>Klik salah satu bagian sel.</p></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau nama organel.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 8 · Rujukan: BS IPA VII K13 Bab 5; BS IPA VIII Merdeka (pengayaan)</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const SP=[{n:'Epidermis bawang merah',d:'Sel tumbuhan berbentuk kotak tersusun rapat; dinding sel dan inti tampak jelas (lebih jelas bila diberi iodin).',draw:(c,z)=>{ const w=70*z, h=26*z; for(let y=-h;y<380;y+=h) for(let x=-w+(Math.floor(y/h)%2)*w/2;x<680;x+=w){ c.strokeStyle='#8a5a44'; c.lineWidth=2.5; c.fillStyle='#f3d9e6'; c.fillRect(x,y,w,h); c.strokeRect(x,y,w,h); c.fillStyle='#7b4b8f'; c.beginPath(); c.ellipse(x+w*.55,y+h*.5,5*z/2,4*z/2,0,0,7); c.fill(); } }},
+ {n:'Sel epitel pipi',d:'Sel hewan berbentuk pipih tidak beraturan, tidak berdinding sel; inti di tengah (diwarnai metilen biru).',draw:(c,z)=>{ let r=7; for(let k=0;k<14;k++){ const x=(k*137)%640, y=(k*89+40)%360; c.fillStyle='rgba(120,160,230,.35)'; c.strokeStyle='#3b5bdb'; c.lineWidth=1.5; c.beginPath(); for(let a=0;a<6.3;a+=.5){ const rr=(22+((k*a*13)%9))*z/2; c.lineTo(x+rr*Math.cos(a),y+rr*.8*Math.sin(a)); } c.closePath(); c.fill(); c.stroke(); c.fillStyle='#1c3faa'; c.beginPath(); c.arc(x,y,4*z/2,0,7); c.fill(); } }},
+ {n:'Daun Hydrilla',d:'Sel tumbuhan memanjang berisi butir-butir hijau kloroplas yang bergerak mengikuti aliran sitoplasma (siklosis).',draw:(c,z)=>{ const w=50*z, h=22*z; for(let y=-h;y<380;y+=h) for(let x=-w+(Math.floor(y/h)%2)*w/3;x<680;x+=w){ c.fillStyle='#e6f7d9'; c.strokeStyle='#2f7d32'; c.lineWidth=2; c.fillRect(x,y,w,h); c.strokeRect(x,y,w,h); c.fillStyle='#2b8a3e'; for(let i=0;i<7;i++){ c.beginPath(); c.ellipse(x+(i*0.13+.08)*w,y+h*(i%2?0.3:0.7),3*z/2,2*z/2,0,0,7); c.fill(); } } }},
+ {n:'Darah (apusan)',d:'Sel darah merah berbentuk cakram bikonkaf tanpa inti; sel darah putih lebih besar dan berinti.',draw:(c,z)=>{ for(let k=0;k<60;k++){ const x=(k*97)%660, y=(k*53+11)%370; const g=c.createRadialGradient(x,y,1,x,y,9*z/2); g.addColorStop(0,'#f8b4b4'); g.addColorStop(1,'#d63939'); c.fillStyle=g; c.beginPath(); c.arc(x,y,9*z/2,0,7); c.fill(); } c.fillStyle='#e7e1f5'; c.strokeStyle='#5f3dc4'; c.beginPath(); c.arc(330,180,16*z/2,0,7); c.fill(); c.stroke(); c.fillStyle='#6741d9'; c.beginPath(); c.arc(326,178,9*z/2,0,7); c.fill(); }}];
+function d1(){ const sp=+$('#sp').value, ok=+$('#ok').value, ob=+$('#ob').value, fo=+$('#fo').value; const tot=ok*ob; $('#fo-v').textContent=fo;
+  const best={4:30,10:55,40:80}[ob], blur=Math.abs(fo-best)/6;
+  const cv=$('#cv'), c=cv.getContext('2d'); c.save(); c.fillStyle='#111'; c.fillRect(0,0,640,360); c.beginPath(); c.arc(320,180,170,0,7); c.clip(); c.fillStyle='#fffdf6'; c.fillRect(0,0,640,360);
+  c.filter=`blur(${blur.toFixed(1)}px)`; SP[sp].draw(c,tot/100*2); c.filter='none'; c.restore();
+  c.strokeStyle='#555'; c.lineWidth=6; c.beginPath(); c.arc(320,180,170,0,7); c.stroke();
+  $('#o1').innerHTML=`<div class="big">Perbesaran: ${ok} × ${ob} = ${tot}×</div><p>${blur<0.8?'✅ Bayangan tajam. ':'🔧 Bayangan kabur, putar fokus (ideal sekitar '+best+'). '}${SP[sp].d}</p>`; }
+['sp','ok','ob','fo'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+const ORG={membran:['Membran sel','Mengatur keluar-masuk zat; bersifat selektif permeabel.'],inti:['Inti sel (nukleus)','Pusat pengatur kegiatan sel; menyimpan materi genetik (DNA).'],mito:['Mitokondria','Tempat respirasi sel, menghasilkan energi (ATP).'],ret:['Retikulum endoplasma','Jalur transportasi zat di dalam sel.'],ribo:['Ribosom','Tempat sintesis protein.'],golgi:['Badan Golgi','Mengemas dan mengirim protein ke luar sel.'],lis:['Lisosom','Mencerna zat dan bagian sel yang rusak.'],sent:['Sentriol','Berperan dalam pembelahan sel hewan.'],vak:['Vakuola','Menyimpan air, cadangan makanan, dan zat sisa; pada tumbuhan sangat besar.'],dind:['Dinding sel','Pelindung kaku dari selulosa yang memberi bentuk tetap pada sel tumbuhan.'],klo:['Kloroplas','Tempat fotosintesis; mengandung klorofil.'],sito:['Sitoplasma','Cairan sel tempat organel berada dan reaksi berlangsung.']};
+let plant=false, sel=null;
+function d2(){ $('#tH').classList.toggle('on',!plant); $('#tT').classList.toggle('on',plant);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:340,fill:'var(--card)'},g);
+  const hit=(el,k)=>{ el.style.cursor='pointer'; el.addEventListener('click',()=>{ sel=k; $('#o2').innerHTML=`<div class="big">${ORG[k][0]}</div><p>${ORG[k][1]}</p>`; d2(); }); if(sel===k){ el.setAttribute('stroke','#e03131'); el.setAttribute('stroke-width',4); } return el; };
+  if(plant){ hit(s('rect',{x:120,y:30,width:400,height:280,rx:10,fill:'#d3f9d8',stroke:'#2b8a3e','stroke-width':8},g),'dind'); hit(s('rect',{x:136,y:46,width:368,height:248,rx:6,fill:'#ebfbee'},g),'sito'); hit(s('rect',{x:132,y:42,width:376,height:256,rx:6,fill:'none',stroke:'#69db7c','stroke-width':6},g),'membran'); hit(s('rect',{x:220,y:90,width:200,height:150,rx:50,fill:'#d0ebff',stroke:'#4dabf7','stroke-width':2},g),'vak');
+    [[160,70],[470,90],[170,270],[460,260],[300,270]].forEach(([x,y])=>hit(s('ellipse',{cx:x,cy:y,rx:20,ry:11,fill:'#2f9e44',stroke:'#1b5e20'},g),'klo')); }
+  else { hit(s('ellipse',{cx:320,cy:170,rx:236,ry:136,fill:'#fff0f6'},g),'sito'); hit(s('ellipse',{cx:320,cy:170,rx:240,ry:140,fill:'none',stroke:'#e64980','stroke-width':7},g),'membran'); hit(s('circle',{cx:200,cy:240,r:9,fill:'#ae3ec9'},g),'lis'); hit(s('g',{},g),'sent'); const sg=g.lastChild; s('rect',{x:420,y:110,width:10,height:26,fill:'#868e96'},sg); s('rect',{x:433,y:118,width:26,height:10,fill:'#868e96'},sg); hit(s('circle',{cx:205,cy:185,r:10,fill:'#a5d8ff',stroke:'#4dabf7'},g),'vak'); }
+  hit(s('circle',{cx:plant?470:320,cy:plant?170:170,r:plant?32:42,fill:'#d0bfff',stroke:'#7048e8','stroke-width':2},g),'inti'); s('circle',{cx:plant?470:320,cy:170,r:10,fill:'#7048e8'},g);
+  [[plant?190:420,plant?200:220],[plant?400:180,plant?60:150]].forEach(([x,y])=>hit(s('ellipse',{cx:x,cy:y,rx:24,ry:12,fill:'#ffa94d',stroke:'#d9480f','stroke-width':2},g),'mito'));
+  hit(s('path',{d:plant?'M150,130 q20,-20 40,0 t40,0':'M360,250 q20,-20 40,0 t40,0 M360,265 q20,-20 40,0 t40,0',fill:'none',stroke:'#1971c2','stroke-width':5},g),'ret');
+  hit(s('path',{d:plant?'M150,215 h50 M155,227 h40 M160,239 h30':'M240,85 h50 M245,97 h40 M250,109 h30',fill:'none',stroke:'#f08c00','stroke-width':6,'stroke-linecap':'round'},g),'golgi');
+  [[plant?170:390,plant?160:270],[plant?200:410,plant?150:290],[plant?185:430,plant?170:250]].forEach(([x,y])=>hit(s('circle',{cx:x,cy:y,r:4,fill:'#343a40'},g),'ribo'));
+  txt(g,580,24,plant?'Sel tumbuhan':'Sel hewan',{'font-size':15,'font-weight':800}); }
+$('#tH').onclick=()=>{plant=false;sel=null;d2();}; $('#tT').onclick=()=>{plant=true;sel=null;d2();}; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Perbesaran', gen(){ const ok=pick([5,10,15]), ob=pick([4,10,40,100]); return rand(0,1)?{q:`Okuler ${ok}× dan objektif ${ob}×. Perbesaran total = …×`, a:String(ok*ob), hint:'okuler × objektif', ex:`${ok} × ${ob} = ${ok*ob}`}:{q:`Perbesaran total ${ok*ob}× dengan okuler ${ok}×. Objektif yang dipakai = …×`, a:String(ob), hint:'total ÷ okuler', ex:`${ok*ob} / ${ok} = ${ob}`}; }},
+ {name:'Fungsi organel', gen(){ const k=pick(Object.keys(ORG)); return {q:`Organel/bagian sel yang berfungsi: "${ORG[k][1]}" adalah …`, a:ORG[k][0].split(' (')[0].toLowerCase(), show:ORG[k][0], hint:'nama organel', ex:ORG[k][0]}; }},
+ {name:'Organisasi', gen(){ const L=['sel','jaringan','organ','sistem organ','organisme']; const i=rand(0,3); return {q:`Tingkat organisasi setelah ${L[i]} adalah …`, a:L[i+1], hint:'sel → jaringan → organ → sistem organ → organisme', ex:L.join(' → ')}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Ilmuwan yang pertama kali memperkenalkan istilah sel adalah …', o:['Robert Hooke','Antonie van Leeuwenhoek','Schleiden','Linnaeus'], a:0, ex:'Pengamatan gabus 1665.'},
+ {q:'Organel yang hanya dimiliki sel tumbuhan adalah …', o:['kloroplas','mitokondria','ribosom','inti sel'], a:0, ex:'Juga dinding sel.'},
+ {q:'Organel yang hanya dimiliki sel hewan adalah …', o:['sentriol','vakuola','membran sel','ribosom'], a:0, ex:'Untuk pembelahan.'},
+ {q:'Mitokondria berfungsi sebagai …', o:['tempat respirasi sel penghasil energi','tempat fotosintesis','pengatur kegiatan sel','tempat sintesis protein'], a:0, ex:'"Pembangkit tenaga" sel.'},
+ {q:'Bagian sel yang mengatur seluruh kegiatan sel adalah …', o:['inti sel','sitoplasma','vakuola','lisosom'], a:0, ex:'Nukleus.'},
+ {q:'Tempat sintesis protein adalah …', o:['ribosom','badan Golgi','lisosom','sentriol'], a:0, ex:'Ribosom.'},
+ {q:'Urutan organisasi kehidupan yang benar adalah …', o:['sel – jaringan – organ – sistem organ – organisme','sel – organ – jaringan – sistem organ – organisme','jaringan – sel – organ – organisme','organ – sel – jaringan – organisme'], a:0, ex:'Dari kecil ke besar.'},
+ {q:'Jantung termasuk tingkat organisasi …', o:['organ','jaringan','sel','sistem organ'], a:0, ex:'Tersusun atas beberapa jaringan.'},
+ {q:'Bagian mikroskop untuk mengatur fokus secara halus adalah …', o:['mikrometer','makrometer','revolver','diafragma'], a:0, ex:'Pemutar halus.'},
+ {q:'Jaringan tumbuhan yang mengangkut air dari akar ke daun adalah …', o:['xilem','floem','epidermis','meristem'], a:0, ex:'Pembuluh kayu.'},
+ {q:'Okuler 10× dan objektif 40×. Perbesaran total = …×', input:true, a:['400'], ex:'10 × 40.'},
+ {q:'Dinding sel tumbuhan tersusun atas zat …', input:true, a:['selulosa'], ex:'Selulosa.'}
+],'v8');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

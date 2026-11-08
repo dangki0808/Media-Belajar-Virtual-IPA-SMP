@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ekologi, Pencemaran & Pemanasan Global · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="biologi" data-store="ipa7" style="--acc:#5c940d">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🌿</div>
+  <span class="chip">Modul 9 · Lingkungan <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Ekologi, Pencemaran, dan Pemanasan Global</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan komponen biotik-abiotik dan tingkat organisasi ekosistem.</li><li>Menyusun rantai dan jaring-jaring makanan serta piramida ekologi.</li><li>Menjelaskan pola interaksi (simbiosis, predasi, kompetisi).</li><li>Menjelaskan pencemaran dan efek rumah kaca serta upaya penanggulangannya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🦗 Lab Jaring Makanan</button><button data-target="lab2">🌍 Lab Efek Rumah Kaca</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Sawah tanpa ular</span><p style="margin:.3em 0">Di sebuah desa, warga memburu ular sawah untuk dijual kulitnya. Beberapa bulan kemudian, tikus merajalela dan panen padi gagal. Mengapa? Karena ular adalah pemangsa tikus. Ketika satu mata rantai hilang, <b>keseimbangan ekosistem</b> terganggu.</p></div>
+</div>
+<div class="card"><h2>1. Ekosistem</h2>
+  <p><b>Biotik</b> (makhluk hidup) dan <b>abiotik</b> (air, tanah, cahaya, suhu, udara) saling berinteraksi. Tingkat organisasi: individu → populasi → komunitas → ekosistem → bioma → biosfer.</p>
+  <div class="grid2"><div class="def"><b>Produsen</b>: tumbuhan hijau (autotrof).<br><b>Konsumen</b> I, II, III: herbivora, karnivora, omnivora.<br><b>Dekomposer</b>: bakteri dan jamur pengurai.</div><div class="def"><b>Simbiosis mutualisme</b>: lebah–bunga.<br><b>Komensalisme</b>: anggrek–pohon mangga.<br><b>Parasitisme</b>: benalu–pohon, kutu–kucing.<br><b>Predasi</b>, <b>kompetisi</b>, <b>antibiosis</b>.</div></div>
+  <p><b>Piramida ekologi</b>: pada setiap tingkat trofik hanya sekitar <b>10%</b> energi yang diteruskan ke tingkat berikutnya; sisanya hilang sebagai panas.</p>
+</div>
+<div class="card"><h2>2. Pencemaran dan pemanasan global</h2>
+  <table class="t"><tr><th>Pencemaran</th><th>Sumber</th><th>Dampak</th></tr><tr><td>Air</td><td>limbah pabrik, deterjen, pupuk</td><td>eutrofikasi (ledakan eceng gondok), ikan mati</td></tr><tr><td>Udara</td><td>asap kendaraan, pembakaran</td><td>ISPA, hujan asam (SO₂, NO₂), efek rumah kaca (CO₂)</td></tr><tr><td>Tanah</td><td>sampah plastik, pestisida</td><td>tanah tidak subur, racun pada rantai makanan</td></tr></table>
+  <p><b>Efek rumah kaca</b>: gas CO₂, CH₄, N₂O, dan uap air menahan panas yang dipantulkan bumi. Jika kadarnya berlebihan, suhu bumi naik (<b>pemanasan global</b>): es kutub mencair, permukaan laut naik, cuaca ekstrem. Solusi: hemat energi, menanam pohon, transportasi umum, energi terbarukan, 3R (reduce, reuse, recycle).</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Simulasi Populasi Sawah</h2>
+  <p>Rantai makanan: padi → tikus → ular → elang. Atur perburuan ular dan lihat apa yang terjadi selama 40 bulan.</p>
+  <div class="ctrl"><label>Perburuan ular <span class="v" id="hu-v"></span><input type="range" id="hu" min="0" max="90" step="5" value="0"></label><label>Pestisida pada tikus <span class="v" id="pe-v"></span><input type="range" id="pe" min="0" max="60" step="5" value="0"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Atur Kadar CO₂ Atmosfer</h2>
+  <p>Kadar CO₂ praindustri sekitar 280 ppm; kini sudah lebih dari 420 ppm. Lihat bagaimana panas yang tertahan berubah.</p>
+  <div class="ctrl"><label>CO₂ <span class="v" id="co-v"></span><input type="range" id="co" min="180" max="800" step="10" value="420"></label><label>Luas hutan <span class="v" id="hf-v"></span><input type="range" id="hf" min="10" max="100" step="5" value="60"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 9 · Rujukan: BS IPA VII Merdeka Bab VI; BS IPA VII K13 Bab 7–9</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 — model Lotka-Volterra sederhana bertingkat */
+function sim(hu,pe){ let P=100,T=16,U=2.5,E=2; const out=[]; for(let m=0;m<=40;m++){ out.push([P,T,U,E]);
+  for(let k=0;k<10;k++){ const dt=0.1;
+   const dP=0.5*P*(1-P/120)-0.006*P*T, dT=0.002*P*T-0.04*T*U-0.1*T-pe/100*0.4*T, dU=0.02*T*U-0.08*U*E-0.12*U-hu/100*0.5*U, dE=0.024*U*E-0.06*E;
+   P=Math.max(0.1,P+dP*dt); T=Math.max(0.01,T+dT*dt); U=Math.max(0.01,U+dU*dt); E=Math.max(0.01,E+dE*dt); } } return out; }
+function d1(){ const hu=+$('#hu').value, pe=+$('#pe').value; $('#hu-v').textContent=hu+'%'; $('#pe-v').textContent=pe+'%';
+  const r=sim(hu,pe); const g=$('#g1'); clear(g); const A=G.axes(g,{x0:0,x1:40,y0:0,y1:140,W:640,H:300,pad:44,padb:30,xs:5,ys:20,lx:'bulan',ly:'populasi (relatif)'});
+  const C=[['🌾 Padi','#2f9e44',1],['🐀 Tikus','#868e96',2.5],['🐍 Ular','#e8590c',15],['🦅 Elang','#1971c2',15]];
+  C.forEach(([n,c,sc],j)=>{ let d=''; r.forEach((v,m)=>d+=(m?'L':'M')+A.X(m)+','+A.Y(Math.min(140,v[j]*sc))); s('path',{d,fill:'none',stroke:c,'stroke-width':3,'clip-path':A.cp},g); txt(g,560,40+j*18,n,{'font-size':12,'text-anchor':'start',fill:c,'font-weight':800}); });
+  const L=r[40]; $('#o1').innerHTML=`<p>Akhir bulan ke-40 → padi ${fm(L[0],0)}, tikus ${fm(L[1]*2.5,0)}, ular ${fm(L[2]*15,0)}, elang ${fm(L[3]*15,0)} (skala relatif).</p><p>${hu>=40?'⚠️ Ular berkurang drastis → tikus meledak → <b>padi rusak</b>. Elang ikut kekurangan makanan.':pe>=30?'Pestisida menekan tikus, tetapi ular dan elang kehilangan makanan, dan racunnya dapat terakumulasi di tubuh pemangsa (biomagnifikasi).':'Populasi saling mengendalikan sehingga ekosistem relatif seimbang.'}</p>`; }
+['hu','pe'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+function d2(){ const co=+$('#co').value, hf=+$('#hf').value; $('#co-v').textContent=co+' ppm'; $('#hf-v').textContent=hf+'%';
+  const eff=co*(1.3-hf/200); const dT=3*Math.log2(eff/280*1.0)+(-0.0); const T=14+dT;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'#0b1d3a'},g);
+  s('circle',{cx:60,cy:50,r:30,fill:'#ffd43b'},g);
+  s('path',{d:'M0,300 L0,230 Q320,180 640,230 L640,300 Z',fill:'#2f9e44'},g); for(let i=0;i<hf/10;i++) txt(g,40+i*60,240,'🌳',{'font-size':26});
+  s('path',{d:'M0,120 Q320,60 640,120',fill:'none',stroke:`rgba(255,${Math.max(80,255-co/3)},120,${Math.min(.9,co/900)})`,'stroke-width':14},g); txt(g,520,95,'lapisan gas rumah kaca',{'font-size':12,fill:'#fff'});
+  const nIn=5, kept=Math.min(5,Math.round(co/160));
+  for(let i=0;i<nIn;i++){ const x=140+i*90; s('line',{x1:x-60,y1:40,x2:x,y2:200,stroke:'#ffe066','stroke-width':3},g); const back=i<kept; s('line',{x1:x,y1:200,x2:x+40,y2:back?110:20,stroke:'#ff6b6b','stroke-width':3,'stroke-dasharray':'6 4'},g); if(back) s('line',{x1:x+40,y1:110,x2:x+70,y2:190,stroke:'#ff6b6b','stroke-width':3,'stroke-dasharray':'6 4'},g); }
+  txt(g,320,280,`Suhu rata-rata bumi ≈ ${fm(T,1)} °C`,{'font-size':18,'font-weight':800,fill:'#fff'});
+  $('#o2').innerHTML=`<div class="big">${dT>2?'🔥':dT>0.8?'🌡️':'🙂'} Kenaikan ≈ ${fm(dT,1)} °C dari masa praindustri</div><p>Sinar matahari (kuning) masuk, bumi memancarkan panas (merah). Makin banyak gas rumah kaca, makin banyak panas yang dipantulkan kembali ke bumi. Hutan menyerap CO₂ lewat fotosintesis, sehingga ${hf<40?'penggundulan hutan memperparah pemanasan':'hutan yang luas membantu mengurangi CO₂'}.</p>`; }
+['co','hf'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Aturan 10%', gen(){ const E=pick([1000,5000,10000,20000,50000]), n=rand(1,3); const v=E/10**n; return {q:`Produsen memiliki energi ${E.toLocaleString('id-ID')} kkal. Energi yang sampai ke konsumen tingkat ${n} = … kkal`, a:String(v), hint:'×10% setiap naik satu tingkat trofik', ex:`${E} × (0,1)^${n} = ${v}`}; }},
+ {name:'Interaksi', gen(){ const X=[['lebah dan bunga','mutualisme'],['anggrek dan pohon mangga','komensalisme'],['benalu dan pohon','parasitisme'],['cacing pita dan manusia','parasitisme'],['kerbau dan burung jalak','mutualisme'],['ikan remora dan hiu','komensalisme'],['kutu dan anjing','parasitisme']]; const x=pick(X); return {q:`Hubungan ${x[0]} disebut simbiosis …`, a:x[1], hint:'mutualisme/komensalisme/parasitisme', ex:x[1]}; }},
+ {name:'Peran', gen(){ const X=[['rumput','produsen'],['belalang','konsumen I'],['katak (pemakan belalang)','konsumen II'],['jamur','dekomposer'],['bakteri pengurai','dekomposer'],['padi','produsen'],['ulat','konsumen I']]; const x=pick(X); return {q:`Dalam rantai makanan, ${x[0]} berperan sebagai …`, a:x[1], hint:'produsen / konsumen I / konsumen II / dekomposer', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Kumpulan individu sejenis yang hidup di tempat yang sama disebut …', o:['populasi','komunitas','ekosistem','biosfer'], a:0, ex:'Sejenis.'},
+ {q:'Berikut yang termasuk komponen abiotik adalah …', o:['cahaya matahari','jamur','cacing','lumut'], a:0, ex:'Tak hidup.'},
+ {q:'Hubungan antara benalu dan pohon inangnya adalah …', o:['parasitisme','mutualisme','komensalisme','netralisme'], a:0, ex:'Benalu menyerap air dan mineral inang.'},
+ {q:'Organisme yang berperan sebagai pengurai adalah …', o:['bakteri dan jamur','rumput dan lumut','ular dan elang','belalang dan ulat'], a:0, ex:'Dekomposer.'},
+ {q:'Pada rantai makanan padi → tikus → ular → elang, ular berperan sebagai …', o:['konsumen II','konsumen I','produsen','konsumen III'], a:0, ex:'Pemakan tikus.'},
+ {q:'Jika ular diburu habis, yang paling mungkin terjadi adalah …', o:['populasi tikus meningkat','populasi padi meningkat','populasi elang meningkat','tidak ada perubahan'], a:0, ex:'Pemangsa tikus hilang.'},
+ {q:'Ledakan populasi eceng gondok di danau biasanya disebabkan oleh …', o:['limbah pupuk dan deterjen (eutrofikasi)','sampah plastik','hujan asam','penangkapan ikan'], a:0, ex:'Nutrien berlebih.'},
+ {q:'Gas utama penyebab efek rumah kaca adalah …', o:['CO₂','O₂','N₂','He'], a:0, ex:'Karbon dioksida.'},
+ {q:'Hujan asam disebabkan oleh gas …', o:['SO₂ dan NO₂','O₂ dan N₂','CO₂ dan H₂O','He dan Ar'], a:0, ex:'Membentuk asam di awan.'},
+ {q:'Upaya mengurangi pemanasan global adalah …', o:['menggunakan transportasi umum','membakar sampah','menebang hutan','menambah kendaraan pribadi'], a:0, ex:'Mengurangi emisi.'},
+ {q:'Produsen menyimpan 10.000 kkal energi. Energi yang diterima konsumen II = … kkal', input:true, a:['100'], ex:'10.000 × 0,1 × 0,1.'},
+ {q:'Kegiatan memanfaatkan kembali barang bekas disebut … (reduce/reuse/recycle)', input:true, a:['reuse'], ex:'Reuse.'}
+],'v9');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

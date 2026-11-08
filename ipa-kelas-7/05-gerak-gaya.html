@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerak dan Gaya · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="fisika" data-store="ipa7" style="--acc:#5f3dc4">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🚲</div>
+  <span class="chip">Modul 5 · Fisika <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Gerak dan Gaya</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Membedakan jarak dan perpindahan, kelajuan dan kecepatan.</li><li>Menghitung kelajuan rata-rata dan percepatan.</li><li>Membaca grafik s–t dan v–t untuk GLB dan GLBB.</li><li>Menerapkan hukum Newton I, II, III dan konsep gaya gesek.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🏁 Lab Balapan GLB vs GLBB</button><button data-target="lab2">📦 Lab Hukum Newton II</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Berangkat sekolah naik sepeda</span><p style="margin:.3em 0">Rumah Dina berjarak 1,2 km dari sekolah. Ia mengayuh sepeda selama 6 menit. Di jalan menurun sepedanya makin cepat; ketika direm, sepeda melambat. Semua yang Dina rasakan adalah <b>gerak</b>, dan perubahan geraknya disebabkan oleh <b>gaya</b>.</p></div>
+</div>
+<div class="card"><h2>1. Besaran gerak</h2>
+  <div class="grid2"><div class="def"><b>Jarak</b> = panjang lintasan (skalar).<br><b>Perpindahan</b> = perubahan posisi dari awal ke akhir (vektor).</div><div class="def"><b>Kelajuan</b> v = s / t (m/s).<br><b>Percepatan</b> a = Δv / t (m/s²).</div></div>
+  <table class="t"><tr><th></th><th>GLB</th><th>GLBB</th></tr><tr><td>Kecepatan</td><td>tetap</td><td>berubah teratur</td></tr><tr><td>Percepatan</td><td>0</td><td>tetap (≠ 0)</td></tr><tr><td>Rumus</td><td>s = v·t</td><td>v = v₀ + a·t; s = v₀t + ½at²</td></tr><tr><td>Contoh</td><td>kereta di rel lurus dengan laju tetap</td><td>buah jatuh (dipercepat), mobil direm (diperlambat)</td></tr></table>
+</div>
+<div class="card"><h2>2. Gaya dan hukum Newton</h2>
+  <p>Gaya adalah tarikan atau dorongan (satuan newton, N). Gaya dapat mengubah gerak, arah, dan bentuk benda.</p>
+  <table class="t"><tr><th>Hukum</th><th>Bunyi singkat</th><th>Contoh</th></tr><tr><td>I (kelembaman)</td><td>ΣF = 0 → benda diam tetap diam, benda bergerak tetap GLB</td><td>badan terdorong ke depan saat bus mengerem</td></tr><tr><td>II</td><td>a = ΣF / m</td><td>troli kosong lebih mudah dipercepat daripada troli penuh</td></tr><tr><td>III (aksi-reaksi)</td><td>F aksi = −F reaksi</td><td>roket, mendayung perahu</td></tr></table>
+  <p><b>Berat</b> w = m · g (g ≈ 10 m/s²). <b>Gaya gesek</b> melawan arah gerak; menguntungkan (rem, alas sepatu) dan merugikan (mesin aus).</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Dua Mobil Balapan</h2>
+  <p>Mobil A bergerak lurus beraturan. Mobil B mulai dari diam dan dipercepat. Siapa yang lebih dulu menempuh 100 m?</p>
+  <div class="ctrl"><label>Kecepatan A <span class="v" id="va-v"></span><input type="range" id="va" min="2" max="20" value="10"></label><label>Percepatan B <span class="v" id="ab-v"></span><input type="range" id="ab" min="0.5" max="5" step="0.5" value="2"></label><label>Waktu <span class="v" id="t-v"></span><input type="range" id="t" min="0" max="20" step="0.1" value="5"></label></div>
+  <svg class="viz" id="g0" viewBox="0 0 640 120"></svg>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Dorong Kotak</h2>
+  <p>Atur gaya dorong, massa kotak, dan jenis lantai. Gaya gesek kinetik f = μ·m·g.</p>
+  <div class="ctrl"><label>Gaya dorong F <span class="v" id="F-v"></span><input type="range" id="F" min="0" max="200" step="5" value="60"></label><label>Massa m <span class="v" id="m-v"></span><input type="range" id="m" min="2" max="40" value="10"></label><label>Lantai <select id="mu"><option value="0">es licin (μ = 0)</option><option value="0.2" selected>keramik (μ = 0,2)</option><option value="0.5">karpet (μ = 0,5)</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 230"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja dalam satuan yang diminta.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 5 · Rujukan: BS IPA VII Merdeka Bab IV; BS IPA VIII K13 Bab 1</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const va=+$('#va').value, ab=+$('#ab').value, t=+$('#t').value; $('#va-v').textContent=va+' m/s'; $('#ab-v').textContent=fm(ab,1)+' m/s²'; $('#t-v').textContent=fm(t,1)+' s';
+  const sA=Math.min(100,va*t), sB=Math.min(100,0.5*ab*t*t), tA=100/va, tB=Math.sqrt(200/ab);
+  const g0=$('#g0'); clear(g0); s('rect',{x:0,y:0,width:640,height:120,fill:'var(--card)'},g0);
+  [[35,'A','#1971c2',sA],[85,'B','#e8590c',sB]].forEach(([y,n,c,sv])=>{ s('rect',{x:30,y:y-14,width:580,height:28,rx:6,fill:'color-mix(in srgb,var(--muted) 15%,transparent)'},g0); s('line',{x1:610,y1:y-16,x2:610,y2:y+16,stroke:'var(--ink)','stroke-width':3,'stroke-dasharray':'4 3'},g0);
+    const x=30+sv*5.6; s('rect',{x:x-18,y:y-10,width:36,height:20,rx:5,fill:c},g0); txt(g0,x,y+5,n,{'font-size':12,'font-weight':800,fill:'#fff'}); });
+  const g=$('#g1'); clear(g); const A=G.axes(g,{x0:0,x1:20,y0:0,y1:120,W:640,H:300,pad:46,padb:30,xs:2,ys:20,lx:'t (s)',ly:'s (m)'});
+  s('path',{d:G.curve(x=>va*x,0,20,A),fill:'none',stroke:'#1971c2','stroke-width':3,'clip-path':A.cp},g); s('path',{d:G.curve(x=>0.5*ab*x*x,0,20,A),fill:'none',stroke:'#e8590c','stroke-width':3,'clip-path':A.cp},g);
+  s('line',{x1:A.X(t),y1:A.Y(0),x2:A.X(t),y2:A.Y(120),stroke:'var(--muted)','stroke-dasharray':'4 4'},g);
+  const win=Math.abs(tA-tB)<0.05?'seri':tA<tB?'A':'B';
+  $('#o1').innerHTML=`<p>Pada t = ${fm(t,1)} s: s<sub>A</sub> = ${fm(sA,1)} m (v tetap ${va} m/s) · s<sub>B</sub> = ${fm(sB,1)} m (v<sub>B</sub> = ${fm(ab*t,1)} m/s).</p><p><b>Pemenang: ${win}</b>. A sampai di 100 m pada ${fm(tA,2)} s; B pada ${fm(tB,2)} s. Grafik GLB berupa garis lurus, grafik GLBB berupa parabola.</p>`; }
+['va','ab','t'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+function d2(){ const F=+$('#F').value, m=+$('#m').value, mu=+$('#mu').value; $('#F-v').textContent=F+' N'; $('#m-v').textContent=m+' kg';
+  const fs=mu*m*10, net=Math.max(0,F-fs), a=net/m, moves=F>fs;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:230,fill:'var(--card)'},g);
+  s('rect',{x:0,y:170,width:640,height:60,fill:mu==0?'#d0ebff':mu<0.3?'#e9ecef':'#d8b4a0'},g);
+  const bw=60+m*2, bx=320-bw/2; s('rect',{x:bx,y:170-bw*0.8,width:bw,height:bw*0.8,rx:6,fill:'#c08a4a',stroke:'#7a5230','stroke-width':2},g); txt(g,320,170-bw*0.4+5,m+' kg',{'font-size':14,'font-weight':800,fill:'#fff'});
+  const arr=(x1,x2,y,c,l)=>{ if(Math.abs(x2-x1)<2) return; s('line',{x1,y1:y,x2,y2:y,stroke:c,'stroke-width':5},g); const d=Math.sign(x2-x1); s('path',{d:`M${x2},${y} l${-12*d},-8 v16z`,fill:c},g); txt(g,(x1+x2)/2,y-10,l,{'font-size':12,'font-weight':700,fill:c}); };
+  arr(bx-F*0.8-4,bx-4,170-bw*0.4,'#1971c2','F = '+F+' N'); const fv=moves?fs:F; arr(bx+bw/2+fv*0.4,bx+bw/2-fv*0.4,200,'#c92a2a','f = '+fm(fv,0)+' N');
+  $('#o2').innerHTML=moves?`<div class="big">a = ${fm(a,2)} m/s²</div><p>ΣF = F − f = ${F} − ${fm(fs,0)} = ${fm(net,0)} N; a = ΣF / m = ${fm(net,0)} / ${m}. Massa lebih besar → percepatan lebih kecil (hukum II Newton).</p>`:`<div class="big">Kotak diam (a = 0)</div><p>Gaya dorong ${F} N belum melebihi gaya gesek maksimum ${fm(fs,0)} N. Gesekan menyesuaikan sehingga ΣF = 0 (hukum I Newton).</p>`; }
+['F','m','mu'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Kelajuan', gen(){ const v=rand(2,25), t=rand(2,12)*5; return {q:`Sebuah benda menempuh ${v*t} m dalam ${t} s. Kelajuannya = … m/s`, a:String(v), hint:'v = s / t', ex:`${v*t} / ${t} = ${v}`}; }},
+ {name:'Jarak GLB', gen(){ const v=rand(3,30), t=rand(2,20); return {q:`Mobil bergerak tetap ${v} m/s selama ${t} s. Jarak tempuhnya = … m`, a:String(v*t), hint:'s = v · t', ex:`${v} × ${t} = ${v*t}`}; }},
+ {name:'Percepatan', gen(){ const a=rand(1,6), t=rand(2,8), v0=rand(0,10); return {q:`Kecepatan sepeda berubah dari ${v0} m/s menjadi ${v0+a*t} m/s dalam ${t} s. Percepatannya = … m/s²`, a:String(a), hint:'a = (v − v₀) / t', ex:`(${v0+a*t} − ${v0}) / ${t} = ${a}`}; }},
+ {name:'F = m·a', gen(){ const m=rand(2,40), a=rand(1,8); const k=rand(0,2); return k===0?{q:`Gaya yang diperlukan untuk mempercepat benda ${m} kg sebesar ${a} m/s² = … N`, a:String(m*a), hint:'F = m · a', ex:`${m} × ${a} = ${m*a}`}:k===1?{q:`Gaya ${m*a} N bekerja pada benda ${m} kg (tanpa gesekan). Percepatannya = … m/s²`, a:String(a), hint:'a = F / m', ex:`${m*a} / ${m} = ${a}`}:{q:`Berat benda bermassa ${m} kg (g = 10 m/s²) = … N`, a:String(m*10), hint:'w = m · g', ex:`${m} × 10 = ${m*10}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Ani berjalan 4 m ke timur lalu 3 m ke utara. Perpindahannya adalah …', o:['5 m','7 m','1 m','12 m'], a:0, ex:'√(4² + 3²) = 5; jaraknya 7 m.'},
+ {q:'Gerak benda pada lintasan lurus dengan kecepatan tetap disebut …', o:['GLB','GLBB dipercepat','GLBB diperlambat','gerak melingkar'], a:0, ex:'Gerak lurus beraturan.'},
+ {q:'Buah kelapa yang jatuh dari pohon mengalami …', o:['GLBB dipercepat','GLB','GLBB diperlambat','diam'], a:0, ex:'Dipercepat oleh gravitasi.'},
+ {q:'Grafik s–t untuk GLB berbentuk …', o:['garis lurus miring','parabola','garis mendatar','lingkaran'], a:0, ex:'s sebanding dengan t.'},
+ {q:'Penumpang terdorong ke depan saat bus mengerem mendadak. Ini contoh hukum …', o:['I Newton','II Newton','III Newton','Archimedes'], a:0, ex:'Kelembaman.'},
+ {q:'Roket dapat meluncur karena …', o:['gaya aksi-reaksi gas buang dan roket','gaya gesek udara','gaya magnet bumi','gaya berat'], a:0, ex:'Hukum III Newton.'},
+ {q:'Gaya gesek yang menguntungkan terdapat pada …', o:['rem sepeda','mesin yang aus','perahu melawan arus','ban yang cepat habis'], a:0, ex:'Rem memanfaatkan gesekan.'},
+ {q:'Satuan gaya dalam SI adalah …', o:['newton','joule','watt','pascal'], a:0, ex:'1 N = 1 kg·m/s².'},
+ {q:'Jika gaya pada benda dijadikan dua kali dan massanya tetap, percepatannya menjadi …', o:['dua kali','setengah','sama','empat kali'], a:0, ex:'a sebanding F.'},
+ {q:'Kelajuan termasuk besaran skalar, sedangkan kecepatan termasuk besaran …', o:['vektor','pokok','turunan saja','tetap'], a:0, ex:'Punya arah.'},
+ {q:'Sebuah mobil menempuh 180 km dalam 3 jam. Kelajuan rata-ratanya = … km/jam', input:true, a:['60'], ex:'180/3.'},
+ {q:'Benda 5 kg didorong 20 N di lantai licin. Percepatannya = … m/s²', input:true, a:['4'], ex:'20/5.'}
+],'v5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

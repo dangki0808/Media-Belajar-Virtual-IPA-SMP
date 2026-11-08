@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perkembangbiakan Tumbuhan dan Hewan · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#2b8a3e">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🌸</div>
+  <span class="chip">Modul 4 · Biologi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Perkembangbiakan Tumbuhan dan Hewan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Membedakan perkembangbiakan generatif dan vegetatif.</li><li>Menyebutkan bagian bunga dan jenis penyerbukan.</li><li>Menjelaskan vegetatif alami dan buatan pada tumbuhan.</li><li>Menjelaskan perkembangbiakan hewan dan metamorfosis.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🦋 Lab Metamorfosis</button><button data-target="lab2">🌺 Lab Bunga</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Ulat di daun jeruk</span><p style="margin:.3em 0">Seekor ulat hijau gemuk melahap daun jeruk di halaman. Dua minggu kemudian ia menggantung diam sebagai kepompong, lalu keluar menjadi kupu-kupu yang cantik. Perubahan bentuk dramatis ini disebut <b>metamorfosis</b>, salah satu cara makhluk hidup melestarikan jenisnya.</p></div>
+</div>
+<div class="card"><h2>1. Tumbuhan</h2>
+  <p><b>Generatif</b> (kawin): melalui bunga → penyerbukan → pembuahan → biji. Pada tumbuhan berbiji tertutup terjadi <b>pembuahan ganda</b>: sperma 1 + ovum → zigot; sperma 2 + inti kandung lembaga sekunder → endosperma.</p>
+  <p>Jenis penyerbukan: sendiri, tetangga, silang, bastar. Perantara: angin (anemogami), serangga (entomogami), burung (ornitogami), air (hidrogami), manusia (antropogami, misalnya vanili).</p>
+  <table class="t"><tr><th>Vegetatif alami</th><th>Contoh</th><th>Vegetatif buatan</th><th>Contoh</th></tr><tr><td>Umbi lapis</td><td>bawang merah</td><td>Stek</td><td>singkong, mawar</td></tr><tr><td>Umbi batang</td><td>kentang</td><td>Cangkok</td><td>mangga, jambu</td></tr><tr><td>Geragih (stolon)</td><td>stroberi, rumput teki</td><td>Okulasi (menempel)</td><td>jeruk, karet</td></tr><tr><td>Tunas adventif daun</td><td>cocor bebek</td><td>Sambung (enten)</td><td>alpukat</td></tr><tr><td>Rizoma</td><td>jahe, kunyit</td><td>Kultur jaringan</td><td>anggrek</td></tr></table>
+</div>
+<div class="card"><h2>2. Hewan</h2>
+  <p><b>Vegetatif</b>: membelah diri (amoeba), tunas (hydra), fragmentasi (planaria, cacing pipih), partenogenesis (lebah jantan). <b>Generatif</b>: ovipar (bertelur: ayam, ikan), vivipar (melahirkan: kucing), ovovivipar (bertelur-melahirkan: hiu, kadal tertentu). Fertilisasi internal dan eksternal (katak, ikan).</p>
+  <p><b>Metamorfosis sempurna</b>: telur → larva → pupa → imago (kupu-kupu, nyamuk, lalat). <b>Tidak sempurna</b>: telur → nimfa → imago (belalang, kecoak, capung). Katak: telur → berudu → katak muda → katak dewasa.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Siklus Hidup Hewan</h2>
+  <div class="row" id="an"></div>
+  <div class="ctrl"><label>Tahap <span class="v" id="st-v"></span><input type="range" id="st" min="0" max="3" value="0"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 280"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Bagian Bunga Sempurna</h2>
+  <p>Klik bagian bunga, lalu tekan "Penyerbukan" untuk melihat serbuk sari berpindah.</p>
+  <div class="row"><button class="btn" id="pol">🐝 Penyerbukan oleh lebah</button></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 320"></svg>
+  <div class="out" id="o2"><p>Klik salah satu bagian bunga.</p></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan istilah singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 4 · Rujukan: BS IPA IX K13 Bab 2; KTSP IX</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const AN=[['Kupu-kupu','sempurna',[['🥚','Telur','Diletakkan di bawah daun tanaman inang.'],['🐛','Larva (ulat)','Makan sangat banyak dan berganti kulit beberapa kali.'],['🫘','Pupa (kepompong)','Tidak makan; tubuh disusun ulang di dalam kepompong.'],['🦋','Imago (dewasa)','Bersayap dan siap berkembang biak.']]],
+ ['Nyamuk','sempurna',[['🥚','Telur','Diletakkan di permukaan air tergenang.'],['〰️','Larva (jentik)','Hidup di air dan bernapas lewat sifon.'],['❓','Pupa','Berbentuk koma, tetap di air.'],['🦟','Imago','Nyamuk dewasa; betina mengisap darah.']]],
+ ['Belalang','tidak sempurna',[['🥚','Telur','Diletakkan di dalam tanah.'],['🦗','Nimfa','Mirip dewasa tetapi kecil dan belum bersayap.'],['🦗','Nimfa besar','Berganti kulit (ekdisis) beberapa kali.'],['🦗','Imago','Sayap lengkap, siap kawin.']]],
+ ['Katak','(amfibi)',[['🫧','Telur','Bertumpuk dalam lendir di air; fertilisasi eksternal.'],['🐟','Berudu','Bernapas dengan insang, berekor.'],['🐸','Katak muda','Kaki tumbuh, ekor memendek, paru-paru berkembang.'],['🐸','Katak dewasa','Hidup di darat dan air; bernapas dengan paru-paru dan kulit.']]]];
+let ai=0;
+function d1(){ $('#an').innerHTML=AN.map((a,i)=>`<button class="chipbtn ${i===ai?'on':''}" data-i="${i}">${a[0]}</button>`).join(''); $$('#an button').forEach(b=>b.onclick=()=>{ ai=+b.dataset.i; $('#st').value=0; d1(); });
+  const k=+$('#st').value, A=AN[ai], S=A[2]; $('#st-v').textContent=(k+1)+' / 4';
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:280,fill:'var(--card)'},g);
+  const cx=320, cy=140, R=100; s("ellipse",{cx,cy,rx:R*1.9,ry:R*0.85,fill:"none",stroke:"var(--line)","stroke-width":6},g);
+  S.forEach((st,i)=>{ const a=-Math.PI/2+i*Math.PI/2; const x=cx+R*Math.cos(a)*1.9, y=cy+R*Math.sin(a)*0.85; s('circle',{cx:x,cy:y,r:34,fill:i===k?'var(--acc)':'var(--card)',stroke:'var(--edge)','stroke-width':2},g); txt(g,x,y+(i===0?2:10),st[0],{'font-size':i===k?32:24}); txt(g,x,y+(i===2?-42:50),st[1],{'font-size':12,'font-weight':i===k?900:500}); });
+  for(let i=0;i<4;i++){ const a=-Math.PI/2+i*Math.PI/2+Math.PI/4; txt(g,cx+R*Math.cos(a)*1.2,cy+R*Math.sin(a)*0.75+5,'↻',{'font-size':18,fill:'var(--muted)'}); }
+  txt(g,cx,cy+5,'Metamorfosis '+A[1],{'font-size':13,'font-weight':800});
+  $('#o1').innerHTML=`<div class="big">${S[k][1]}</div><p>${S[k][2]}</p>`; }
+$('#st').oninput=d1; d1();
+
+/* LAB 2 */
+const FP={mah:['Mahkota bunga','Menarik serangga dengan warna dan aroma.'],kel:['Kelopak','Melindungi bunga saat masih kuncup.'],ksr:['Kepala sari (antera)','Menghasilkan serbuk sari (sel kelamin jantan).'],tsr:['Tangkai sari (filamen)','Menopang kepala sari. Kepala sari + tangkai sari = benang sari.'],kp:['Kepala putik (stigma)','Tempat jatuhnya serbuk sari; permukaannya lengket.'],tp:['Tangkai putik (stilus)','Jalan tumbuhnya buluh serbuk sari.'],bak:['Bakal buah (ovarium)','Berisi bakal biji; kelak menjadi buah.'],dasar:['Dasar bunga','Tempat melekat bagian-bagian bunga.']};
+let fp=null, pt=-1, tm=null;
+function d2(){ const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:320,fill:'var(--card)'},g);
+  const H=(k,el)=>{ el.style.cursor='pointer'; if(k===fp){ el.setAttribute('stroke','#e03131'); el.setAttribute('stroke-width',4); } el.addEventListener('click',()=>{ fp=k; $('#o2').innerHTML=`<div class="big">${FP[k][0]}</div><p>${FP[k][1]}</p>`; d2(); }); return el; };
+  s('line',{x1:320,y1:320,x2:320,y2:250,stroke:'#2f9e44','stroke-width':10},g);
+  H('dasar',s('ellipse',{cx:320,cy:250,rx:40,ry:12,fill:'#94d82d',stroke:'#5c940d','stroke-width':2},g));
+  [-1,1].forEach(sd=>H('kel',s('path',{d:`M${320+sd*30},250 q${sd*60},-10 ${sd*70},-50 q${-sd*40},10 ${-sd*70},40z`,fill:'#69db7c',stroke:'#2b8a3e','stroke-width':2},g)));
+  [-1,1].forEach(sd=>H('mah',s('path',{d:`M${320+sd*20},240 q${sd*120},-60 ${sd*120},-170 q${-sd*90},40 ${-sd*120},150z`,fill:'#ffa8c5',stroke:'#d6336c','stroke-width':2,opacity:.95},g)));
+  H('bak',s('ellipse',{cx:320,cy:220,rx:26,ry:24,fill:'#ffe066',stroke:'#f08c00','stroke-width':2},g)); s('circle',{cx:312,cy:220,r:5,fill:'#fff'},g); s('circle',{cx:328,cy:222,r:5,fill:'#fff'},g);
+  H('tp',s('rect',{x:315,y:110,width:10,height:90,fill:'#ffd43b',stroke:'#f08c00'},g)); H('kp',s('ellipse',{cx:320,cy:105,rx:18,ry:10,fill:'#fab005',stroke:'#e67700','stroke-width':2},g));
+  [-1,1].forEach(sd=>{ [0,1].forEach(j=>{ const x=320+sd*(45+j*28); H('tsr',s('line',{x1:320+sd*10,y1:235,x2:x,y2:140+j*15,stroke:'#adb5bd','stroke-width':4},g)); H('ksr',s('ellipse',{cx:x,cy:132+j*15,rx:10,ry:14,fill:'#f08c00',stroke:'#c2410c','stroke-width':2},g)); }); });
+  if(pt>=0){ const p=Math.min(1,pt); const bx=520-p*(520-345), by=60+Math.sin(p*Math.PI)*-30+p*40; txt(g,bx,by,'🐝',{'font-size':30}); if(p>0.4) for(let i=0;i<6;i++) s('circle',{cx:320+(i-3)*5+(1-Math.min(1,(p-0.4)*2))*60,cy:105-4+(i%2)*4,r:3,fill:'#ffd43b',stroke:'#e67700'},g); if(p>=1){ s('path',{d:'M320,110 C322,150 318,180 320,210',fill:'none',stroke:'#e03131','stroke-width':2,'stroke-dasharray':'4 3'},g); txt(g,420,300,'buluh serbuk sari tumbuh menuju bakal biji',{'font-size':12,fill:'#e03131'}); } }
+  [['kepala sari',230,120],['putik',360,100]].forEach(([l,x,y])=>{}); }
+$('#pol').onclick=()=>{ pt=0; clearInterval(tm); tm=setInterval(()=>{ pt+=0.02; d2(); if(pt>=1){ clearInterval(tm); $('#o2').innerHTML='<div class="big">Penyerbukan → pembuahan</div><p>Lebah membawa serbuk sari ke kepala putik (penyerbukan oleh serangga = entomogami). Serbuk sari membentuk buluh, lalu terjadi pembuahan ganda di bakal biji. Bakal buah berkembang menjadi buah dan bakal biji menjadi biji.</p>'; } },30); }; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Vegetatif', gen(){ const X=[['bawang merah','umbi lapis'],['kentang','umbi batang'],['stroberi','geragih'],['cocor bebek','tunas adventif'],['jahe','rizoma'],['singkong','stek'],['mangga','cangkok'],['jeruk','okulasi'],['anggrek','kultur jaringan'],['pisang','tunas']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} umumnya diperbanyak secara vegetatif dengan …`, a:x[1], hint:'jenis perkembangbiakan vegetatif', ex:x[1]}; }},
+ {name:'Metamorfosis', gen(){ const X=[['kupu-kupu','sempurna'],['nyamuk','sempurna'],['lalat','sempurna'],['belalang','tidak sempurna'],['kecoak','tidak sempurna'],['capung','tidak sempurna'],['kumbang','sempurna'],['jangkrik','tidak sempurna']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} mengalami metamorfosis …`, a:x[1], hint:'sempurna / tidak sempurna', ex:x[1]}; }},
+ {name:'Cara lahir', gen(){ const X=[['ayam','ovipar'],['kucing','vivipar'],['ikan hiu','ovovivipar'],['penyu','ovipar'],['sapi','vivipar'],['ular','ovipar'],['paus','vivipar']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} berkembang biak secara …`, a:x[1], hint:'ovipar / vivipar / ovovivipar', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bagian bunga yang menghasilkan serbuk sari adalah …', o:['kepala sari','kepala putik','bakal buah','mahkota'], a:0, ex:'Antera.'},
+ {q:'Bakal buah setelah pembuahan akan berkembang menjadi …', o:['buah','biji','bunga','daun'], a:0, ex:'Ovarium → buah.'},
+ {q:'Penyerbukan dengan bantuan serangga disebut …', o:['entomogami','anemogami','hidrogami','ornitogami'], a:0, ex:'Entomon = serangga.'},
+ {q:'Kentang berkembang biak secara vegetatif dengan …', o:['umbi batang','umbi lapis','geragih','rizoma'], a:0, ex:'Umbi batang.'},
+ {q:'Cocor bebek berkembang biak dengan …', o:['tunas adventif pada daun','geragih','umbi lapis','spora'], a:0, ex:'Tunas di tepi daun.'},
+ {q:'Mencangkok termasuk perkembangbiakan …', o:['vegetatif buatan','vegetatif alami','generatif','spora'], a:0, ex:'Dibantu manusia.'},
+ {q:'Hydra berkembang biak secara vegetatif dengan …', o:['tunas','membelah diri','fragmentasi','spora'], a:0, ex:'Budding.'},
+ {q:'Urutan metamorfosis sempurna adalah …', o:['telur → larva → pupa → imago','telur → nimfa → imago','telur → pupa → larva → imago','larva → telur → pupa → imago'], a:0, ex:'Sempurna.'},
+ {q:'Hewan yang mengalami metamorfosis tidak sempurna adalah …', o:['belalang','kupu-kupu','nyamuk','lalat'], a:0, ex:'Nimfa.'},
+ {q:'Ikan hiu yang telurnya menetas di dalam tubuh induk termasuk …', o:['ovovivipar','ovipar','vivipar','partenogenesis'], a:0, ex:'Bertelur-melahirkan.'},
+ {q:'Bagian bunga tempat jatuhnya serbuk sari adalah kepala …', input:true, a:['putik','stigma'], show:'putik', ex:'Stigma.'},
+ {q:'Tahap kehidupan katak yang hidup di air dan bernapas dengan insang disebut …', input:true, a:['berudu','kecebong'], show:'berudu', ex:'Berudu.'}
+],'y4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

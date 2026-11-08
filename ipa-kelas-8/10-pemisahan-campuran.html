@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pemisahan Campuran · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="kimia" data-store="ipa8" style="--acc:#7048e8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">⚗️</div>
+  <span class="chip">Modul 10 · Materi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Pemisahan Campuran</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Membedakan campuran homogen dan heterogen.</li><li>Memilih metode pemisahan berdasarkan perbedaan sifat zat.</li><li>Menjelaskan filtrasi, evaporasi, kristalisasi, distilasi, sublimasi, kromatografi, dan dekantasi.</li><li>Menghitung nilai Rf pada kromatografi kertas.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">⚗️ Lab Pilih Metode</button><button data-target="lab2">🖊️ Lab Kromatografi Kertas</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Garam dari laut Madura</span><p style="margin:.3em 0">Petambak garam di Madura mengalirkan air laut ke petak-petak tambak. Panas matahari menguapkan airnya, lalu kristal garam pun tertinggal. Mereka sedang melakukan <b>pemisahan campuran</b> dengan cara <b>evaporasi dan kristalisasi</b>, memanfaatkan perbedaan titik didih air dan garam.</p></div>
+</div>
+<div class="card"><h2>1. Campuran</h2>
+  <p><b>Homogen</b> (larutan): komponen tidak dapat dibedakan, contohnya air gula, udara, sirup. <b>Heterogen</b>: komponen masih terlihat, contohnya air dan pasir, minyak dan air. Suspensi dan koloid (susu, santan) juga termasuk campuran.</p>
+</div>
+<div class="card"><h2>2. Metode pemisahan</h2>
+  <table class="t"><tr><th>Metode</th><th>Dasar perbedaan</th><th>Contoh</th></tr><tr><td>Filtrasi (penyaringan)</td><td>ukuran partikel</td><td>air dan pasir, penjernihan air</td></tr><tr><td>Dekantasi</td><td>massa jenis (endapan dituang)</td><td>air dan pasir kasar</td></tr><tr><td>Corong pisah</td><td>massa jenis cairan tak bercampur</td><td>minyak dan air</td></tr><tr><td>Evaporasi / kristalisasi</td><td>titik didih (zat padat terlarut)</td><td>garam dari air laut, gula tebu</td></tr><tr><td>Distilasi (penyulingan)</td><td>titik didih antarcairan</td><td>air murni, minyak kayu putih, alkohol</td></tr><tr><td>Sublimasi</td><td>zat menyublim</td><td>kapur barus, iodin dari pasir</td></tr><tr><td>Kromatografi</td><td>daya serap dan kelarutan</td><td>komponen tinta, pewarna makanan, tes DNA</td></tr><tr><td>Magnet</td><td>sifat magnet</td><td>serbuk besi dan pasir</td></tr></table>
+  <div class="eqn">Rf = jarak tempuh zat / jarak tempuh pelarut</div>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Tantangan Pemisahan</h2>
+  <p>Pilih metode yang paling tepat untuk setiap campuran. Kumpulkan skor!</p>
+  <div class="out" style="text-align:center"><div style="font-size:2.6rem" id="ci"></div><div class="big" id="cn"></div></div>
+  <div class="row" id="mb" style="justify-content:center"></div>
+  <div class="out" id="o1"><p>Klik salah satu metode.</p></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Pisahkan Warna Tinta</h2>
+  <p>Kertas saring dicelupkan ke pelarut. Jalankan waktu dan amati noda tinta terpisah.</p>
+  <div class="ctrl"><label>Tinta <select id="ink"><option value="0">Spidol hitam</option><option value="1">Spidol hijau</option><option value="2">Pewarna makanan oranye</option><option value="3">Spidol biru</option></select></label><label>Waktu <span class="v" id="tm-v"></span><input type="range" id="tm" min="0" max="10" step="0.5" value="6"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 320"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab nama metode atau angka.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 10 · Rujukan: BS IPA VIII Merdeka Bab VI; BS IPA VII K13 Bab 2</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const MT=['Filtrasi','Corong pisah','Evaporasi','Distilasi','Sublimasi','Kromatografi','Magnet'];
+const CP=[['🏖️','Air dan pasir halus',0,'Pasir tertahan di kertas saring, air (filtrat) lolos.'],['🫗','Minyak dan air',1,'Minyak berada di atas karena massa jenisnya lebih kecil; keran corong membuka lapisan bawah.'],['🧂','Garam dari air laut',2,'Air menguap, garam tertinggal sebagai kristal.'],['💧','Air murni dari air keruh berwarna',3,'Air diuapkan lalu didinginkan di kondensor menjadi distilat murni.'],['🌿','Minyak kayu putih dari daun',3,'Penyulingan uap memisahkan minyak atsiri.'],['⚪','Kapur barus bercampur pasir',4,'Kapur barus menyublim menjadi gas, lalu mengkristal di bagian dingin.'],['🖊️','Komponen warna tinta spidol',5,'Tiap pewarna terbawa pelarut dengan kecepatan berbeda.'],['🧲','Serbuk besi dan pasir',6,'Besi tertarik magnet.'],['🍬','Gula dari air tebu',2,'Nira dipanaskan, gula mengkristal.'],['🍶','Alkohol dari campuran alkohol-air',3,'Titik didih alkohol (78 °C) lebih rendah daripada air.']];
+let cur=0, sc=0, tot=0, order=shuffle([...CP.keys()]);
+function nx(){ cur=order[tot%order.length]; const c=CP[cur]; $('#ci').textContent=c[0]; $('#cn').textContent=c[1]; }
+$('#mb').innerHTML=MT.map((m,i)=>`<button class="btn soft" data-i="${i}">${m}</button>`).join('');
+$$('#mb button').forEach(b=>b.onclick=()=>{ const c=CP[cur], ok=+b.dataset.i===c[2]; tot++; if(ok) sc++; $('#o1').innerHTML=`<p>${ok?'✅ Tepat!':'❌ Kurang tepat.'} <b>${c[1]}</b> → <b>${MT[c[2]]}</b>. ${c[3]}</p><p class="big">Skor ${sc}/${tot}</p>`; nx(); });
+nx();
+
+/* LAB 2 */
+const INK=[[['#ffd43b',0.85],['#e64980',0.62],['#1c7ed6',0.38]],[['#ffd43b',0.8],['#1c7ed6',0.45]],[['#fa5252',0.7],['#fcc419',0.88]],[['#4c6ef5',0.55],['#be4bdb',0.3]]];
+function d2(){ const ink=+$('#ink').value, tm=+$('#tm').value; $('#tm-v').textContent=tm+' menit';
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:320,fill:'var(--card)'},g);
+  s('path',{d:'M190,40 V300 H330 V40',fill:'none',stroke:'var(--ink)','stroke-width':3},g); s('rect',{x:193,y:260,width:134,height:38,fill:'#d0ebff'},g);
+  const top=50, base=240, front=base-(base-top)*Math.min(1,tm/10); s('rect',{x:220,y:top,width:100,height:base-top+40,fill:'#fff',stroke:'#adb5bd'},g); s('rect',{x:221,y:front,width:98,height:base+40-front,fill:'#e7f5ff'},g);
+  s('line',{x1:220,y1:base,x2:320,y2:base,stroke:'#868e96','stroke-dasharray':'3 3'},g); txt(g,338,base+4,'garis awal',{'font-size':11,'text-anchor':'start'});
+  s('line',{x1:220,y1:front,x2:320,y2:front,stroke:'#1971c2','stroke-width':2},g); txt(g,338,front+4,'batas pelarut',{'font-size':11,'text-anchor':'start',fill:'#1971c2'});
+  const rows=[]; INK[ink].forEach(([c,rf])=>{ const y=base-(base-front)*rf; s('ellipse',{cx:270,cy:y,rx:14,ry:8+(base-front)*0.04,fill:c,opacity:.85},g); rows.push([c,rf,base-y]); });
+  const ds=(base-front)/24; txt(g,520,60,'Jarak pelarut: '+fm(ds,1)+' cm',{'font-size':13,'font-weight':800});
+  rows.forEach(([c,rf,d],i)=>{ s('circle',{cx:450,cy:95+i*30,r:8,fill:c},g); txt(g,465,100+i*30,`jarak ${fm(d/24,1)} cm → Rf ${tm>0?fm(rf,2):'–'}`,{'font-size':12,'text-anchor':'start'}); });
+  $('#o2').innerHTML=`<p>${tm===0?'Celupkan dan tunggu pelarut naik melalui pori kertas.':`Tinta terpisah menjadi ${INK[ink].length} komponen warna. Zat yang lebih mudah larut dan kurang terserap kertas bergerak lebih jauh (Rf besar).`}</p><p class="muted">Rf tidak bergantung pada waktu; Rf adalah ciri khas zat untuk pelarut tertentu.</p>`; }
+['ink','tm'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Nilai Rf', gen(){ const ds=pick([5,8,10,12,15,20]), rf=pick([0.2,0.25,0.4,0.5,0.6,0.75,0.8]); const dz=ds*rf; return {q:`Pelarut naik ${ds} cm dan noda zat naik ${fm(dz,1)} cm. Nilai Rf = …`, a:String(rf), hint:'Rf = jarak zat / jarak pelarut', ex:`${fm(dz,1)}/${ds} = ${rf}`}; }},
+ {name:'Metode', gen(){ const c=pick(CP); return {q:`Metode yang tepat untuk memisahkan ${c[1].toLowerCase()} adalah …`, a:MT[c[2]].toLowerCase(), show:MT[c[2]], hint:MT.join(' / '), ex:c[3]}; }},
+ {name:'Homogen/heterogen', gen(){ const X=[['air gula','homogen'],['air dan pasir','heterogen'],['udara bersih','homogen'],['minyak dan air','heterogen'],['larutan garam','homogen'],['es campur','heterogen'],['sirup','homogen'],['nasi goreng','heterogen']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} termasuk campuran …`, a:x[1], hint:'homogen / heterogen', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Penjernihan air sumur dengan pasir, ijuk, dan arang memanfaatkan metode …', o:['filtrasi','distilasi','sublimasi','kromatografi'], a:0, ex:'Penyaringan.'},
+ {q:'Pembuatan garam dari air laut menggunakan metode …', o:['evaporasi/kristalisasi','filtrasi','sublimasi','kromatografi'], a:0, ex:'Penguapan.'},
+ {q:'Distilasi memisahkan campuran berdasarkan perbedaan …', o:['titik didih','ukuran partikel','sifat magnet','warna'], a:0, ex:'Penyulingan.'},
+ {q:'Metode untuk memisahkan kapur barus dari pasir adalah …', o:['sublimasi','filtrasi','distilasi','corong pisah'], a:0, ex:'Kapur barus menyublim.'},
+ {q:'Untuk mengetahui komponen pewarna dalam saus digunakan …', o:['kromatografi','sublimasi','filtrasi','dekantasi'], a:0, ex:'Kromatografi kertas.'},
+ {q:'Campuran minyak dan air paling tepat dipisahkan dengan …', o:['corong pisah','filtrasi','sublimasi','magnet'], a:0, ex:'Tidak saling melarut.'},
+ {q:'Contoh campuran homogen adalah …', o:['larutan gula','air dan pasir','minyak dan air','tanah'], a:0, ex:'Komponen tak terlihat.'},
+ {q:'Bagian alat distilasi yang mengubah uap menjadi cair adalah …', o:['kondensor','labu didih','termometer','pembakar'], a:0, ex:'Pendingin Liebig.'},
+ {q:'Hasil penyaringan yang lolos dari kertas saring disebut …', o:['filtrat','residu','distilat','eluen'], a:0, ex:'Filtrat.'},
+ {q:'Pemisahan serbuk besi dari pasir paling mudah dengan …', o:['magnet','filtrasi','distilasi','evaporasi'], a:0, ex:'Besi magnetis.'},
+ {q:'Pelarut naik 10 cm, noda naik 4 cm. Rf = …', input:true, a:['0,4','0.4'], show:'0,4', ex:'4/10.'},
+ {q:'Penyulingan minyak kayu putih termasuk metode …', input:true, a:['distilasi','destilasi','penyulingan'], show:'distilasi', ex:'Distilasi uap.'}
+],'w10');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

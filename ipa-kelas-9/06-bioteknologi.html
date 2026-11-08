@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bioteknologi · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#0c8599">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧫</div>
+  <span class="chip">Modul 6 · Biologi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Bioteknologi</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Membedakan bioteknologi konvensional dan modern.</li><li>Menjelaskan peran mikroorganisme dalam fermentasi pangan.</li><li>Menjelaskan kultur jaringan dan rekayasa genetika.</li><li>Menganalisis manfaat dan dampak bioteknologi.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🫘 Lab Fermentasi</button><button data-target="lab2">🧬 Lab Insulin dari Bakteri</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Tempe, warisan Indonesia</span><p style="margin:.3em 0">Tempe sudah dibuat di Jawa sejak ratusan tahun lalu. Kedelai rebus ditaburi ragi tempe yang berisi jamur <i>Rhizopus</i>. Dalam 1–2 hari, benang-benang jamur mengikat kedelai menjadi padat dan lebih mudah dicerna. Inilah <b>bioteknologi</b>: memanfaatkan makhluk hidup untuk menghasilkan produk yang berguna.</p></div>
+</div>
+<div class="card"><h2>1. Bioteknologi konvensional</h2>
+  <table class="t"><tr><th>Produk</th><th>Mikroorganisme</th><th>Bahan</th></tr><tr><td>Tempe</td><td><i>Rhizopus oryzae</i>, <i>R. oligosporus</i></td><td>kedelai</td></tr><tr><td>Tape</td><td><i>Saccharomyces cerevisiae</i> (khamir)</td><td>singkong, ketan</td></tr><tr><td>Yoghurt</td><td><i>Lactobacillus bulgaricus</i>, <i>Streptococcus thermophilus</i></td><td>susu</td></tr><tr><td>Kecap, tauco</td><td><i>Aspergillus oryzae</i></td><td>kedelai</td></tr><tr><td>Oncom</td><td><i>Neurospora sitophila</i></td><td>ampas tahu/kacang</td></tr><tr><td>Roti</td><td><i>Saccharomyces cerevisiae</i></td><td>tepung terigu</td></tr><tr><td>Nata de coco</td><td><i>Acetobacter xylinum</i></td><td>air kelapa</td></tr></table>
+</div>
+<div class="card"><h2>2. Bioteknologi modern</h2>
+  <p><b>Kultur jaringan</b>: memperbanyak tanaman dari sel atau jaringan (eksplan) di media steril, sehingga bibit banyak, seragam, cepat, dan bebas penyakit (anggrek, pisang). <b>Rekayasa genetika (DNA rekombinan)</b>: memindahkan gen, misalnya gen insulin manusia ke bakteri <i>E. coli</i>, atau tanaman tahan hama (jagung Bt). Lainnya: kloning, antibodi monoklonal, vaksin.</p>
+  <p>Dampak negatif yang perlu diwaspadai: berkurangnya keanekaragaman genetik, kemungkinan alergi, isu etika, dan ketergantungan pada benih tertentu.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Dapur Fermentasi</h2>
+  <p>Pilih produk, atur suhu dan lama inkubasi. Mikroorganisme punya suhu optimum masing-masing.</p>
+  <div class="ctrl"><label>Produk <select id="pd"><option value="0">Tempe</option><option value="1">Tape singkong</option><option value="2">Yoghurt</option></select></label><label>Suhu <span class="v" id="T-v"></span><input type="range" id="T" min="5" max="60" value="30"></label><label>Lama <span class="v" id="h-v"></span><input type="range" id="h" min="0" max="72" step="2" value="36"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Langkah Rekayasa Genetika</h2>
+  <p>Tekan "Langkah berikutnya" untuk mengikuti cara memproduksi insulin manusia dengan bakteri.</p>
+  <div class="row"><button class="btn" id="nx">Langkah berikutnya ▶</button><button class="btn ghost" id="rs">Ulangi</button></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau nama mikroorganisme/produk.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 6 · Rujukan: BS IPA IX Merdeka Bab IV; BS IPA IX K13 Bab 5</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const PD=[['Tempe','Rhizopus',32,30,'#f8f9fa','Kedelai tertutup miselium putih, padat, dan harum.','Kedelai masih lepas-lepas.','Jamur berlebihan; tempe mulai busuk dan berbau amonia.'],['Tape singkong','Saccharomyces',30,40,'#fff3bf','Singkong lunak, manis, sedikit beralkohol.','Masih keras dan tawar.','Terlalu asam dan beralkohol tinggi.'],['Yoghurt','Lactobacillus',43,8,'#fff9db','Susu mengental dan asam segar (pH ±4,5).','Susu masih encer.','Terlalu asam, whey terpisah.']];
+function d1(){ const p=PD[+$('#pd').value], T=+$('#T').value, h=+$('#h').value; $('#T-v').textContent=T+' °C'; $('#h-v').textContent=h+' jam';
+  const fT=Math.max(0,1-((T-p[2])/12)**2); const grow=t=>1/(1+Math.exp(-(t*fT-p[3]*0.6)/(p[3]*0.15+1)));
+  const g=$('#g1'); clear(g); const A=G.axes(g,{x0:0,x1:72,y0:0,y1:1.1,W:640,H:300,pad:46,padb:30,xs:12,ys:0.5,lx:'jam',ly:'pertumbuhan mikroba'});
+  s('path',{d:G.curve(grow,0,72,A),fill:'none',stroke:'var(--acc)','stroke-width':3},g); s('line',{x1:A.X(h),y1:A.Y(0),x2:A.X(h),y2:A.Y(1.1),stroke:'var(--ink)','stroke-dasharray':'4 3'},g);
+  const lv=grow(h); const over=h*fT>p[3]*1.6&&p[0]!=='Yoghurt'||p[0]==='Yoghurt'&&h*fT>24;
+  txt(g,540,200,p[0]==='Tempe'?'🫘':p[0]==='Yoghurt'?'🥛':'🍠',{'font-size':44}); s('rect',{x:500,y:220,width:80,height:20,rx:10,fill:'var(--line)'},g); s('rect',{x:500,y:220,width:80*lv,height:20,rx:10,fill:over?'#e8590c':'#2f9e44'},g);
+  $('#o1').innerHTML=`<div class="big">${lv<0.3?'Belum jadi':over?'Terlalu lama':lv>0.85?'✅ Jadi sempurna':'Hampir jadi'}</div><p>${lv<0.3?p[6]:over?p[7]:p[5]} Mikroorganisme: <i>${p[1]}</i>, suhu optimum ±${p[2]} °C. ${fT<0.2?'⚠️ Suhu terlalu jauh dari optimum, sehingga mikroba hampir tidak tumbuh atau bahkan mati.':''}</p>`; }
+['pd','T','h'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+const ST=['Isolasi gen insulin dari sel pankreas manusia.','Plasmid (DNA cincin) diambil dari bakteri E. coli.','Plasmid dipotong dengan enzim restriksi ("gunting DNA").','Gen insulin disambungkan ke plasmid dengan enzim ligase → DNA rekombinan.','Plasmid rekombinan dimasukkan kembali ke bakteri.','Bakteri berkembang biak cepat di tangki fermentasi dan menghasilkan insulin.','Insulin dimurnikan dan dikemas untuk penderita diabetes.'];
+let sp=0;
+function d2(){ const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  ST.forEach((t,i)=>{ const x=30+i*86; s('circle',{cx:x+20,cy:30,r:14,fill:i<=sp?'var(--acc)':'var(--line)'},g); txt(g,x+20,35,String(i+1),{'font-size':12,'font-weight':800,fill:i<=sp?'#fff':'var(--ink)'}); if(i<6) s('line',{x1:x+36,y1:30,x2:x+90,y2:30,stroke:i<sp?'var(--acc)':'var(--line)','stroke-width':3},g); });
+  const cx=320, cy=150;
+  if(sp===0){ s('ellipse',{cx,cy,rx:110,ry:60,fill:'#ffe3e3',stroke:'#e64980','stroke-width':2},g); s('path',{d:`M${cx-60},${cy} q20,-20 40,0 t40,0 t40,0`,fill:'none',stroke:'#7048e8','stroke-width':5},g); s('rect',{x:cx-20,y:cy-8,width:40,height:16,fill:'#f59f00'},g); txt(g,cx,cy+40,'gen insulin (kuning) pada DNA manusia',{'font-size':12}); }
+  else { s('rect',{x:cx-150,y:cy-55,width:300,height:110,rx:55,fill:'#d3f9d8',stroke:'#2f9e44','stroke-width':2,opacity:sp>=4?1:0.35},g); if(sp>=1){ const open=sp===2; s('circle',{cx,cy,r:34,fill:'none',stroke:'#1971c2','stroke-width':6,'stroke-dasharray':open?'180 34':'none'},g); if(sp>=3) s('path',{d:`M${cx+20},${cy-27} A34,34 0 0 1 ${cx+34},${cy}`,fill:'none',stroke:'#f59f00','stroke-width':7},g); if(sp===2) txt(g,cx+60,cy-30,'✂️',{'font-size':24}); }
+    if(sp>=5){ for(let i=0;i<8;i++){ const x=80+i*65; s('rect',{x:x-22,y:215,width:44,height:22,rx:11,fill:'#d3f9d8',stroke:'#2f9e44'},g); s('circle',{cx:x,cy:226,r:6,fill:'none',stroke:'#1971c2','stroke-width':2},g); } }
+    if(sp>=6) txt(g,560,150,'💉',{'font-size':40}); txt(g,cx,cy+80,sp>=4?'bakteri E. coli':'plasmid',{'font-size':12}); }
+  $('#o2').innerHTML=`<div class="big">Langkah ${sp+1}</div><p>${ST[sp]}</p>${sp===6?'<p class="muted">Sebelum ada teknik ini, insulin diambil dari pankreas sapi atau babi dalam jumlah terbatas.</p>':''}`; }
+$('#nx').onclick=()=>{ if(sp<6){ sp++; d2(); } }; $('#rs').onclick=()=>{ sp=0; d2(); }; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Pembelahan bakteri', gen(){ const t=pick([20,30]), H=pick([1,2,3,4]), n0=pick([1,10,100]); const k=H*60/t; return {q:`Bakteri membelah setiap ${t} menit. Dari ${n0} bakteri, setelah ${H} jam jumlahnya = …`, a:String(n0*2**k), hint:'N = N₀ × 2ⁿ, n = waktu / waktu pembelahan', ex:`n = ${k} → ${n0} × 2^${k} = ${n0*2**k}`}; }},
+ {name:'Mikroba–produk', gen(){ const X=[['tempe','rhizopus'],['tape','saccharomyces'],['yoghurt','lactobacillus'],['kecap','aspergillus'],['oncom','neurospora'],['nata de coco','acetobacter'],['roti','saccharomyces']]; const x=pick(X); return {q:`Genus mikroorganisme yang berperan dalam pembuatan ${x[0]} adalah …`, a:x[1], hint:'nama genus', ex:x[1]}; }},
+ {name:'Konvensional/modern', gen(){ const X=[['pembuatan tempe','konvensional'],['kultur jaringan anggrek','modern'],['insulin dari bakteri','modern'],['pembuatan yoghurt','konvensional'],['kloning domba Dolly','modern'],['pembuatan kecap','konvensional'],['jagung tahan hama (Bt)','modern']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} termasuk bioteknologi …`, a:x[1], hint:'konvensional / modern', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Mikroorganisme yang berperan dalam pembuatan tempe adalah …', o:['Rhizopus oryzae','Saccharomyces cerevisiae','Lactobacillus bulgaricus','Acetobacter xylinum'], a:0, ex:'Jamur tempe.'},
+ {q:'Yoghurt dibuat dengan bantuan bakteri …', o:['Lactobacillus bulgaricus','Rhizopus oligosporus','Aspergillus oryzae','Neurospora sitophila'], a:0, ex:'Bakteri asam laktat.'},
+ {q:'Nata de coco dibuat dari air kelapa dengan bantuan …', o:['Acetobacter xylinum','Rhizopus','Aspergillus','Penicillium'], a:0, ex:'Selulosa bakteri.'},
+ {q:'Berikut contoh bioteknologi modern, kecuali …', o:['pembuatan tape','kultur jaringan','DNA rekombinan','kloning'], a:0, ex:'Tape konvensional.'},
+ {q:'Keunggulan kultur jaringan adalah …', o:['bibit banyak, seragam, dan cepat','bibit beragam genetiknya','tidak memerlukan media','hanya untuk hewan'], a:0, ex:'Klonal.'},
+ {q:'Enzim yang berfungsi memotong DNA disebut enzim …', o:['restriksi','ligase','amilase','pepsin'], a:0, ex:'Gunting DNA.'},
+ {q:'Bakteri yang dipakai untuk menghasilkan insulin manusia adalah …', o:['Escherichia coli','Lactobacillus','Rhizopus','Acetobacter'], a:0, ex:'E. coli.'},
+ {q:'Plasmid adalah …', o:['DNA berbentuk cincin pada bakteri','dinding sel bakteri','protein virus','enzim pemotong'], a:0, ex:'Vektor.'},
+ {q:'Dampak negatif tanaman transgenik adalah …', o:['dapat mengurangi keanekaragaman genetik','meningkatkan hasil panen','tahan hama','tahan kekeringan'], a:0, ex:'Risiko.'},
+ {q:'Proses penguraian zat organik oleh mikroorganisme tanpa oksigen untuk menghasilkan produk disebut …', o:['fermentasi','fotosintesis','respirasi aerob','pencernaan'], a:0, ex:'Fermentasi.'},
+ {q:'Bakteri membelah setiap 20 menit. Satu bakteri setelah 1 jam menjadi …', input:true, a:['8'], ex:'2³.'},
+ {q:'Kecap dibuat dari kedelai dengan bantuan jamur …', input:true, a:['aspergillus','aspergillus oryzae','aspergillus wentii'], show:'Aspergillus', ex:'Aspergillus.'}
+],'y6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

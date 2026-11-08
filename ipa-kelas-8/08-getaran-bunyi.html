@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getaran, Gelombang, dan Bunyi · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="fisika" data-store="ipa8" style="--acc:#d6336c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🔊</div>
+  <span class="chip">Modul 8 · Fisika <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Getaran, Gelombang, dan Bunyi</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menghitung periode dan frekuensi getaran.</li><li>Membedakan gelombang transversal dan longitudinal serta menghitung v = λ·f.</li><li>Menjelaskan syarat terdengarnya bunyi, nada, resonansi, dan pemantulan bunyi.</li><li>Menghitung jarak dengan gema (sonar).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">⏱️ Lab Bandul</button><button data-target="lab2">🌊 Lab Gelombang & Sonar</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Kelelawar berburu dalam gelap</span><p style="margin:.3em 0">Kelelawar dapat menangkap serangga di malam gelap gulita. Ia mengeluarkan bunyi <b>ultrasonik</b> (di atas 20.000 Hz) lalu mendengarkan pantulannya. Dari selang waktu pantulan, kelelawar "melihat" jarak mangsanya. Cara ini disebut <b>ekolokasi</b>, dan prinsipnya sama dengan sonar pada kapal.</p></div>
+</div>
+<div class="card"><h2>1. Getaran</h2>
+  <div class="grid2"><div class="def"><b>Periode</b> T = t / n (sekon)<br><b>Frekuensi</b> f = n / t (hertz)<br>T = 1 / f</div><div class="def">Satu getaran bandul: A → B → C → B → A.<br><b>Amplitudo</b> = simpangan terjauh. Periode bandul hanya bergantung pada panjang tali (dan g), tidak pada massa beban.</div></div>
+</div>
+<div class="card"><h2>2. Gelombang</h2>
+  <p><b>Transversal</b>: arah getar tegak lurus arah rambat (tali, riak air, cahaya), terdiri atas bukit dan lembah. <b>Longitudinal</b>: arah getar sejajar arah rambat (bunyi, slinki didorong), terdiri atas rapatan dan renggangan.</p>
+  <div class="eqn">v = λ · f = λ / T</div>
+</div>
+<div class="card"><h2>3. Bunyi</h2>
+  <p>Syarat terdengar: ada sumber bunyi, medium, dan pendengar; frekuensi audio 20–20.000 Hz (infrasonik &lt; 20 Hz didengar jangkrik/anjing; ultrasonik &gt; 20.000 Hz didengar kelelawar/lumba-lumba). Cepat rambat bunyi di udara ±340 m/s, lebih cepat di zat cair dan padat. <b>Tinggi nada</b> ditentukan frekuensi, <b>kuat bunyi</b> ditentukan amplitudo. <b>Resonansi</b>: ikut bergetarnya benda karena frekuensinya sama. Pemantulan: gaung (bersamaan, mengganggu) dan gema (terdengar setelah bunyi asli).</p>
+  <div class="eqn">kedalaman/jarak s = v · t / 2</div>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Bandul Sederhana</h2>
+  <p>Ubah panjang tali, massa, dan simpangan. Hitung berapa getaran dalam 10 detik.</p>
+  <div class="ctrl"><label>Panjang tali <span class="v" id="L-v"></span><input type="range" id="L" min="0.1" max="2" step="0.05" value="1"></label><label>Massa beban <span class="v" id="m-v"></span><input type="range" id="m" min="50" max="500" step="50" value="100"></label><label>Simpangan <span class="v" id="a-v"></span><input type="range" id="a" min="5" max="25" value="15"></label></div>
+  <div class="row"><button class="btn" id="go">▶ Ukur 10 detik</button></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Gelombang dan Gema</h2>
+  <div class="row"><button class="chipbtn on" id="mT">Transversal</button><button class="chipbtn" id="mL">Longitudinal</button><button class="chipbtn" id="mS">Sonar kapal</button></div>
+  <div class="ctrl" id="wc"><label>Frekuensi <span class="v" id="f-v"></span><input type="range" id="f" min="0.5" max="3" step="0.5" value="1"></label><label>Panjang gelombang <span class="v" id="lm-v"></span><input type="range" id="lm" min="40" max="200" step="20" value="120"></label></div>
+  <div class="ctrl" id="sc" style="display:none"><label>Kedalaman laut <span class="v" id="dp-v"></span><input type="range" id="dp" min="100" max="3000" step="100" value="1500"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja dalam satuan yang diminta.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 8 · Rujukan: BS IPA VIII Merdeka Bab V; BS IPA VIII K13 Bab 10</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let t0=performance.now(), meas=null, cnt=0, lastSign=0;
+function T(){ return 2*Math.PI*Math.sqrt(+$('#L').value/9.8); }
+function d1(now){ const L=+$('#L').value, A=+$('#a').value*Math.PI/180; $('#L-v').textContent=fm(L,2)+' m'; $('#m-v').textContent=$('#m').value+' g'; $('#a-v').textContent=$('#a').value+'°';
+  const t=(now-t0)/1000, th=A*Math.cos(2*Math.PI*t/T()); const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  s('rect',{x:200,y:14,width:240,height:8,fill:'#495057'},g); const px=320, py=22, len=40+L*120; const bx=px+len*Math.sin(th), by=py+len*Math.cos(th);
+  [-A,0,A].forEach((a,i)=>{ s('line',{x1:px,y1:py,x2:px+len*Math.sin(a),y2:py+len*Math.cos(a),stroke:'var(--muted)','stroke-dasharray':'3 4'},g); txt(g,px+(len+18)*Math.sin(a),py+(len+18)*Math.cos(a)+4,'ABC'[i===0?0:i===1?1:2],{'font-size':12,fill:'var(--muted)'}); });
+  s('line',{x1:px,y1:py,x2:bx,y2:by,stroke:'var(--ink)','stroke-width':2},g); s('circle',{cx:bx,cy:by,r:8+(+$('#m').value)/50,fill:'#e8590c',stroke:'#fff','stroke-width':2},g);
+  if(meas){ const el=(now-meas)/1000; const sg=Math.sign(Math.sin(2*Math.PI*t/T())); if(lastSign<0&&sg>=0) cnt++; lastSign=sg; if(el>=10){ meas=null; } txt(g,560,40,'⏱ '+fm(Math.min(el,10),1)+' s',{'font-size':18,'font-weight':800}); txt(g,560,70,cnt+' getaran',{'font-size':14}); }
+  const Tv=T(); $('#o1').innerHTML=`<div class="big">T = ${fm(Tv,2)} s · f = ${fm(1/Tv,2)} Hz</div><p>${meas===null&&cnt?`Dalam 10 s terhitung ±${cnt} getaran → f ≈ ${cnt}/10 = ${fm(cnt/10,1)} Hz. `:''}Periode makin besar jika tali makin panjang. Massa beban dan simpangan kecil tidak memengaruhi periode.</p>`; }
+$('#go').onclick=()=>{ t0=performance.now(); meas=performance.now(); cnt=0; lastSign=0; };
+function lp(now){ if($('#lab1').classList.contains('on')) d1(now); requestAnimationFrame(lp); } requestAnimationFrame(lp); d1(performance.now());
+
+/* LAB 2 */
+let md=0, ts=performance.now();
+function setM(k){ md=k; ['mT','mL','mS'].forEach((id,i)=>$('#'+id).classList.toggle('on',i===k)); $('#wc').style.display=k<2?'':'none'; $('#sc').style.display=k===2?'':'none'; }
+$('#mT').onclick=()=>setM(0); $('#mL').onclick=()=>setM(1); $('#mS').onclick=()=>{ setM(2); ts=performance.now(); };
+function d2(now){ const f=+$('#f').value, lm=+$('#lm').value, t=(now-ts)/1000; $('#f-v').textContent=fm(f,1)+' Hz'; $('#lm-v').textContent=fm(lm/100,1)+' m'; $('#dp-v').textContent=$('#dp').value+' m';
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  if(md===0){ let d=''; for(let x=20;x<=620;x+=4){ const y=130-60*Math.sin(2*Math.PI*((x-20)/lm-f*t)); d+=(x===20?'M':'L')+x+','+y; } s('path',{d,fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+    s('line',{x1:20,y1:130,x2:620,y2:130,stroke:'var(--muted)','stroke-dasharray':'4 4'},g); s('line',{x1:100,y1:215,x2:100+lm,y2:215,stroke:'#e8590c','stroke-width':3},g); txt(g,100+lm/2,238,'λ',{'font-size':16,'font-weight':800,fill:'#e8590c'});
+    const x0=320, y0=130-60*Math.sin(2*Math.PI*((x0-20)/lm-f*t)); s('circle',{cx:x0,cy:y0,r:8,fill:'#e03131'},g); txt(g,x0+40,30,'↕ partikel bergetar naik-turun, gelombang merambat →',{'font-size':12}); }
+  else if(md===1){ for(let i=0;i<60;i++){ const x0=20+i*10; const x=x0+12*Math.sin(2*Math.PI*((x0-20)/lm-f*t)); s('line',{x1:x,y1:70,x2:x,y2:190,stroke:i===30?'#e03131':'var(--acc)','stroke-width':i===30?4:2.5},g); } txt(g,320,30,'↔ rapatan dan renggangan merambat →',{'font-size':12}); s('line',{x1:100,y1:215,x2:100+lm,y2:215,stroke:'#e8590c','stroke-width':3},g); txt(g,100+lm/2,238,'λ',{'font-size':16,'font-weight':800,fill:'#e8590c'}); }
+  else { const dp=+$('#dp').value, v=1500, tt=2*dp/v; s('rect',{x:0,y:60,width:640,height:200,fill:'#1864ab',opacity:.75},g); s('rect',{x:0,y:240,width:640,height:20,fill:'#a0522d'},g); txt(g,320,50,'🚢',{'font-size':40});
+    const yb=60+180*dp/3000; s('line',{x1:0,y1:yb,x2:640,y2:yb,stroke:'#a0522d','stroke-width':4},g); const el=(t%(tt+1)); const ph=el/tt; if(ph<=1){ const y=ph<0.5?62+(yb-62)*ph*2:yb-(yb-62)*(ph-0.5)*2; s('circle',{cx:320,cy:y,r:12,fill:'none',stroke:ph<0.5?'#ffe066':'#ff8787','stroke-width':3},g); }
+    txt(g,560,yb-10,'dasar laut',{'font-size':12,fill:'#fff'});
+    $('#o2').innerHTML=`<div class="big">Gema diterima setelah t = ${fm(tt,2)} s</div><p>Cepat rambat bunyi di air laut ≈ 1.500 m/s. Kedalaman s = v·t/2 = 1.500 × ${fm(tt,2)} / 2 = ${dp} m. Dibagi 2 karena bunyi pergi dan kembali.</p>`; return; }
+  const v=lm/100*f; $('#o2').innerHTML=`<div class="big">v = λ · f = ${fm(lm/100,1)} × ${fm(f,1)} = ${fm(v,2)} m/s</div><p>Periode T = 1/f = ${fm(1/f,2)} s. Titik merah ${md===0?'hanya naik-turun (gelombang transversal)':'hanya maju-mundur (gelombang longitudinal)'}, sedangkan energinya merambat ke kanan.</p>`; }
+function lp2(now){ if($('#lab2').classList.contains('on')) d2(now); requestAnimationFrame(lp2); } requestAnimationFrame(lp2); d2(performance.now());
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Frekuensi', gen(){ const n=rand(2,30)*5, t=pick([2,4,5,10,20]); return {q:`Sebuah bandul bergetar ${n} kali dalam ${t} s. Frekuensinya = … Hz`, a:String(n/t), hint:'f = n / t', ex:`${n}/${t} = ${n/t}`}; }},
+ {name:'Periode', gen(){ const f=pick([2,4,5,10,20,25,50]); return {q:`Frekuensi getaran ${f} Hz. Periodenya = … s`, a:String(1/f), hint:'T = 1 / f', ex:`1/${f} = ${1/f}`}; }},
+ {name:'v = λ·f', gen(){ const l=pick([0.5,1,1.5,2,2.5,4]), f=rand(2,40)*5; return {q:`Gelombang dengan panjang ${fm(l,1)} m dan frekuensi ${f} Hz. Cepat rambatnya = … m/s`, a:String(l*f), hint:'v = λ f', ex:`${fm(l,1)} × ${f} = ${l*f}`}; }},
+ {name:'Gema', gen(){ const t=pick([1,2,3,4,0.5,1.5]), v=pick([340,1500]); return {q:`Bunyi pantul terdengar ${fm(t,1)} s setelah bunyi asli (v = ${v} m/s). Jarak dinding/dasar = … m`, a:String(v*t/2), hint:'s = v t / 2', ex:`${v} × ${fm(t,1)} / 2 = ${v*t/2}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Satuan frekuensi adalah …', o:['hertz','sekon','meter','desibel'], a:0, ex:'1 Hz = 1 getaran/s.'},
+ {q:'Periode bandul sederhana dipengaruhi oleh …', o:['panjang tali','massa beban','warna beban','bahan tali'], a:0, ex:'T = 2π√(L/g).'},
+ {q:'Contoh gelombang longitudinal adalah …', o:['bunyi','cahaya','riak air','gelombang tali'], a:0, ex:'Rapatan-renggangan.'},
+ {q:'Gelombang transversal terdiri atas …', o:['bukit dan lembah','rapatan dan renggangan','simpul saja','amplitudo saja'], a:0, ex:'Transversal.'},
+ {q:'Bunyi tidak dapat merambat di …', o:['ruang hampa','air','besi','udara'], a:0, ex:'Butuh medium.'},
+ {q:'Kelelawar dapat mendengar bunyi …', o:['ultrasonik','infrasonik','audiosonik saja','tidak dapat mendengar'], a:0, ex:'> 20.000 Hz.'},
+ {q:'Tinggi rendahnya nada ditentukan oleh …', o:['frekuensi','amplitudo','medium','jarak'], a:0, ex:'Frekuensi.'},
+ {q:'Peristiwa ikut bergetarnya benda karena getaran benda lain disebut …', o:['resonansi','gaung','interferensi','refleksi'], a:0, ex:'Frekuensi sama.'},
+ {q:'Bunyi pantul yang terdengar setelah bunyi asli disebut …', o:['gema','gaung','kerdam','desah'], a:0, ex:'Gema.'},
+ {q:'Pemanfaatan pemantulan bunyi untuk mengukur kedalaman laut disebut …', o:['sonar','radar','termos','stetoskop'], a:0, ex:'Sound navigation and ranging.'},
+ {q:'Gelombang λ = 2 m dan f = 170 Hz. Cepat rambatnya = … m/s', input:true, a:['340'], ex:'2×170.'},
+ {q:'Gema dari dasar laut diterima 4 s setelah dikirim (v = 1.500 m/s). Kedalaman laut = … m', input:true, a:['3000','3.000'], show:'3.000', ex:'1500×4/2.'}
+],'w8');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

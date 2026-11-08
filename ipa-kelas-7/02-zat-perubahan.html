@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zat dan Perubahannya · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="kimia" data-store="ipa7" style="--acc:#1971c2">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧊</div>
+  <span class="chip">Modul 2 · Materi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Zat dan Perubahannya</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan wujud zat dengan model partikel.</li><li>Menghitung massa jenis dan meramalkan benda tenggelam atau terapung.</li><li>Membedakan perubahan fisika dan perubahan kimia.</li><li>Mengelompokkan materi menjadi unsur, senyawa, dan campuran.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🧊 Lab Model Partikel</button><button data-target="lab2">🛟 Lab Tenggelam–Terapung</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Es teh yang “berkeringat”</span><p style="margin:.3em 0">Segelas es teh di siang hari tiba-tiba basah di bagian luarnya. Apakah tehnya merembes keluar? Bukan. Uap air di udara menyentuh gelas yang dingin lalu mengembun menjadi titik-titik air. Air bisa berwujud padat (es), cair (air), dan gas (uap) karena susunan dan gerak partikelnya berubah.</p></div>
+</div>
+<div class="card"><h2>1. Wujud zat dan model partikel</h2>
+  <table class="t"><tr><th>Wujud</th><th>Susunan partikel</th><th>Gaya tarik</th><th>Bentuk &amp; volume</th></tr><tr><td>Padat</td><td>rapat, teratur, hanya bergetar</td><td>sangat kuat</td><td>tetap &amp; tetap</td></tr><tr><td>Cair</td><td>agak renggang, bergeser</td><td>sedang</td><td>berubah &amp; tetap</td></tr><tr><td>Gas</td><td>sangat renggang, bebas</td><td>sangat lemah</td><td>berubah &amp; berubah</td></tr></table>
+  <p>Perubahan wujud: mencair, membeku, menguap, mengembun, menyublim (padat → gas), mengkristal/deposisi (gas → padat).</p>
+</div>
+<div class="card"><h2>2. Massa jenis</h2>
+  <div class="eqn">ρ = m / V &nbsp;&nbsp; (g/cm³ atau kg/m³; 1 g/cm³ = 1.000 kg/m³)</div>
+  <p>Benda <b>terapung</b> jika massa jenisnya lebih kecil daripada zat cair, <b>melayang</b> jika sama, dan <b>tenggelam</b> jika lebih besar.</p>
+</div>
+<div class="card"><h2>3. Perubahan fisika dan kimia</h2>
+  <div class="grid2"><div class="def"><b>Perubahan fisika</b>: tidak menghasilkan zat baru. Contoh: es mencair, gula larut, kertas digunting, lilin meleleh.</div><div class="def"><b>Perubahan kimia</b>: menghasilkan zat baru, ditandai perubahan warna, bau, suhu, gas, atau endapan. Contoh: kertas terbakar, besi berkarat, nasi basi, buah matang.</div></div>
+</div>
+<div class="card"><h2>4. Unsur, senyawa, campuran</h2>
+  <div class="grid3"><div class="ex"><span class="t">Unsur</span>Zat tunggal yang tidak dapat diuraikan lagi secara kimia: emas (Au), oksigen (O₂), besi (Fe).</div><div class="ex"><span class="t">Senyawa</span>Gabungan unsur dengan perbandingan tetap: air (H₂O), garam (NaCl), gula.</div><div class="ex"><span class="t">Campuran</span>Gabungan zat tanpa perbandingan tetap. Homogen (larutan gula, udara) atau heterogen (pasir + air, salad buah).</div></div>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Panaskan dan Dinginkan Air</h2>
+  <p>Geser suhu dan amati susunan serta gerak partikel air.</p>
+  <div class="ctrl"><label>Suhu <span class="v" id="T-v"></span><input type="range" id="T" min="-30" max="130" value="20"></label></div>
+  <canvas class="viz" id="cv" width="640" height="260"></canvas>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Massa Jenis, Tenggelam atau Terapung?</h2>
+  <p>Pilih benda dan zat cair. Bandingkan massa jenis keduanya.</p>
+  <div class="grid2"><label style="font-weight:700">Benda<select id="bd" style="width:100%"></select></label><label style="font-weight:700">Zat cair<select id="zc" style="width:100%"></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 280" style="margin-top:10px"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis jawaban berupa angka (pakai koma atau titik untuk desimal) atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 2 · Rujukan: BS IPA VII Merdeka Bab II; BS IPA VII K13 Bab 3 (Klasifikasi Materi dan Perubahannya)</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const cv=$('#cv'), ctx=cv.getContext('2d'); const P=[]; for(let i=0;i<60;i++){ const r=Math.floor(i/10), c=i%10; P.push({hx:220+c*22,hy:120+r*22,x:220+c*22,y:120+r*22,vx:Math.random()-0.5,vy:Math.random()-0.5}); }
+function st(T){ return T<0?'padat':T<100?'cair':'gas'; }
+function loop(){ if($('#lab1').classList.contains('on')){ const T=+$('#T').value, S=st(T); const sp=S==='padat'?0.4:S==='cair'?1.5:4+T/40;
+  ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--card'); ctx.fillRect(0,0,640,260);
+  ctx.strokeStyle='#adb5bd'; ctx.strokeRect(150,20,340,230);
+  P.forEach(p=>{ if(S==='padat'){ p.x=p.hx+(Math.random()-0.5)*sp*3; p.y=p.hy-40+(Math.random()-0.5)*sp*3; }
+    else { p.x+=p.vx*sp; p.y+=p.vy*sp+(S==='cair'?0.3:0); const top=S==='cair'?140:22; if(p.x<156||p.x>484) p.vx*=-1; if(p.y<top||p.y>244) p.vy*=-1; p.x=Math.max(156,Math.min(484,p.x)); p.y=Math.max(top,Math.min(244,p.y)); if(S==='cair'){ p.vx+=(Math.random()-0.5)*0.3; p.vy+=(Math.random()-0.5)*0.3; const m=Math.hypot(p.vx,p.vy)||1; p.vx/=m; p.vy/=m; } }
+    ctx.beginPath(); ctx.arc(p.x,p.y,8,0,6.283); ctx.fillStyle=S==='padat'?'#74c0fc':S==='cair'?'#1c7ed6':'#a5d8ff'; ctx.fill(); }); }
+  requestAnimationFrame(loop); }
+function d1(){ const T=+$('#T').value, S=st(T); $('#T-v').textContent=T+' °C';
+  $('#o1').innerHTML=`<div class="big">Wujud: ${S} ${S==='padat'?'(es)':S==='cair'?'(air)':'(uap air)'}</div><p>${S==='padat'?'Partikel tersusun rapat dan teratur, hanya bergetar di tempatnya. Bentuk dan volume tetap.':S==='cair'?'Partikel masih berdekatan tetapi dapat bergeser, sehingga air mengikuti bentuk wadah.':'Partikel bergerak sangat cepat dan berjauhan, mengisi seluruh ruang.'} Titik lebur es 0 °C dan titik didih air 100 °C (tekanan 1 atm).</p>`; }
+$('#T').oninput=d1; d1(); loop();
+
+/* LAB 2 */
+const BD=[['Gabus',0.25,'#f8e5b9'],['Kayu jati',0.7,'#b07a3f'],['Es',0.92,'#d0ebff'],['Plastik PET',1.38,'#a5d8ff'],['Telur segar',1.03,'#fff4e6'],['Aluminium',2.7,'#ced4da'],['Besi',7.87,'#868e96'],['Emas',19.3,'#fab005']];
+const ZC=[['Minyak goreng',0.92,'rgba(250,210,80,.45)'],['Air tawar',1.0,'rgba(116,192,252,.45)'],['Air laut',1.03,'rgba(77,171,247,.55)'],['Air garam pekat',1.2,'rgba(51,154,240,.6)'],['Raksa',13.6,'rgba(173,181,189,.8)']];
+$('#bd').innerHTML=BD.map((b,i)=>`<option value="${i}">${b[0]} (ρ = ${fm(b[1],2)} g/cm³)</option>`).join(''); $('#zc').innerHTML=ZC.map((b,i)=>`<option value="${i}">${b[0]} (ρ = ${fm(b[1],2)} g/cm³)</option>`).join(''); $('#bd').value=4; $('#zc').value=1;
+function d2(){ const B=BD[+$('#bd').value], Z=ZC[+$('#zc').value]; const r=B[1]/Z[1];
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:280,fill:'var(--card)'},g);
+  s('path',{d:'M180,40 V260 H460 V40',fill:'none',stroke:'var(--ink)','stroke-width':3},g); const surf=90; s('rect',{x:182,y:surf,width:276,height:168,fill:Z[2]},g);
+  const h=60; let y; const near=Math.abs(r-1)<0.02; if(r<1&&!near) y=surf-h*(1-r); else if(near) y=surf+50; else y=258-h;
+  s('rect',{x:290,y,width:60,height:h,rx:B[0]==='Telur segar'?30:6,fill:B[2],stroke:'var(--ink)'},g);
+  const state=near?'melayang':r<1?'terapung':'tenggelam';
+  txt(g,540,120,state.toUpperCase(),{'font-size':20,'font-weight':800,fill:state==='tenggelam'?'var(--bad)':'var(--ok)'});
+  $('#o2').innerHTML=`<p>ρ benda = ${fm(B[1],2)} g/cm³ ${near?'≈':r<1?'<':'>'} ρ zat cair = ${fm(Z[1],2)} g/cm³ → <b>${state}</b>. ${r<1&&!near?`Bagian yang tercelup ≈ ${fm(r*100,0)}% volume benda.`:''}</p><p class="muted">Contoh: telur segar tenggelam di air tawar, tetapi bisa melayang atau terapung di air garam. Kapal besi terapung karena bentuknya berongga sehingga massa jenis rata-ratanya kecil.</p>`; }
+$('#bd').onchange=d2; $('#zc').onchange=d2; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Massa jenis', gen(){ const V=rand(2,20)*5, rho=pick([0.8,1,2.7,7.9,11.3,0.5]); const m=Math.round(rho*V*10)/10; return {q:`Benda bermassa ${fm(m,1)} g dan volume ${V} cm³. Massa jenisnya = … g/cm³`, a:String(Math.round(m/V*100)/100), hint:'ρ = m/V', ex:`${fm(m,1)} ÷ ${V} = ${fm(m/V,2)} g/cm³`}; }},
+ {name:'Fisika/kimia', gen(){ const P=pick([['es mencair','fisika'],['kayu dibakar','kimia'],['gula larut dalam air','fisika'],['besi berkarat','kimia'],['susu menjadi yoghurt','kimia'],['kertas dilipat','fisika'],['nasi menjadi basi','kimia'],['air menguap','fisika'],['kembang api meledak','kimia'],['lilin meleleh','fisika']]); return {q:`Peristiwa “${P[0]}” termasuk perubahan … (fisika/kimia)`, a:[P[1]], strict:true, hint:'Apakah terbentuk zat baru?', ex:`${P[0]} → perubahan ${P[1]}`}; }},
+ {name:'Unsur/senyawa/campuran', gen(){ const P=pick([['emas','unsur'],['oksigen','unsur'],['air','senyawa'],['garam dapur','senyawa'],['udara','campuran'],['air laut','campuran'],['besi','unsur'],['gula pasir','senyawa'],['sirup','campuran'],['karbon dioksida','senyawa']]); return {q:`${P[0][0].toUpperCase()+P[0].slice(1)} tergolong … (unsur/senyawa/campuran)`, a:[P[1]], strict:true, hint:'Unsur satu jenis atom; senyawa perbandingan tetap; campuran tidak tetap.', ex:`${P[0]} → ${P[1]}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Zat yang bentuk dan volumenya tetap adalah zat …', o:['padat','cair','gas','plasma'], a:0, ex:'Partikel rapat dan teratur.'},
+ {q:'Perubahan wujud dari padat langsung menjadi gas disebut …', o:['menyublim','menguap','mencair','mengembun'], a:0, ex:'Contoh kapur barus.'},
+ {q:'Titik-titik air di luar gelas es teh terjadi karena …', o:['uap air di udara mengembun','air merembes dari dalam gelas','es mencair keluar','gelas berkeringat'], a:0, ex:'Pengembunan.'},
+ {q:'Massa jenis benda 2 g/cm³ sama dengan …', o:['2.000 kg/m³','200 kg/m³','20 kg/m³','0,2 kg/m³'], a:0, ex:'× 1.000.'},
+ {q:'Benda akan terapung di air jika massa jenisnya …', o:['lebih kecil dari 1 g/cm³','sama dengan 1 g/cm³','lebih besar dari 1 g/cm³','lebih dari 7 g/cm³'], a:0, ex:'Massa jenis air 1 g/cm³.'},
+ {q:'Berikut yang merupakan perubahan kimia adalah …', o:['besi berkarat','es mencair','garam larut','kaca pecah'], a:0, ex:'Terbentuk zat baru (karat).'},
+ {q:'Ciri terjadinya perubahan kimia adalah …', o:['terbentuk gas atau endapan baru','bentuk berubah','ukuran mengecil','wujud berubah'], a:0, ex:'Zat baru.'},
+ {q:'Contoh senyawa adalah …', o:['air','emas','udara','sirup'], a:0, ex:'H₂O.'},
+ {q:'Udara bersih termasuk …', o:['campuran homogen','unsur','senyawa','campuran heterogen'], a:0, ex:'Komposisi seragam.'},
+ {q:'Telur tenggelam di air tawar tetapi terapung di air garam pekat. Hal ini karena …', o:['massa jenis air garam lebih besar','telur menjadi lebih ringan','air garam lebih dingin','telur mengembang'], a:0, ex:'Air garam lebih rapat.'},
+ {q:'Benda 54 g bervolume 20 cm³. Massa jenisnya = … g/cm³', input:true, a:['2,7','2.7'], show:'2,7', ex:'54/20 (aluminium).'},
+ {q:'Perubahan wujud gas menjadi cair disebut …', input:true, a:['mengembun','kondensasi','pengembunan'], strict:true, show:'mengembun', ex:'Kondensasi.'}
+],'v2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Struktur dan Fungsi Tumbuhan · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="biologi" data-store="ipa8" style="--acc:#2b8a3e">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🌱</div>
+  <span class="chip">Modul 5 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Struktur dan Fungsi Tumbuhan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan struktur dan fungsi akar, batang, dan daun.</li><li>Mengidentifikasi jaringan penyusun daun.</li><li>Menjelaskan transportasi air (xilem) dan hasil fotosintesis (floem).</li><li>Menganalisis faktor yang memengaruhi laju transpirasi.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">💧 Lab Potometer</button><button data-target="lab2">🍃 Lab Penampang Daun</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Pohon setinggi gedung</span><p style="margin:.3em 0">Pohon kapuk di halaman sekolah tingginya lebih dari 20 meter, padahal tidak punya jantung untuk memompa air. Bagaimana air dari akar bisa sampai ke daun tertinggi? Jawabannya: daya hisap daun akibat <b>transpirasi</b>, tekanan akar, serta daya kapilaritas dan kohesi-adhesi air di pembuluh <b>xilem</b>.</p></div>
+</div>
+<div class="card"><h2>1. Organ tumbuhan</h2>
+  <table class="t"><tr><th>Organ</th><th>Fungsi</th><th>Catatan</th></tr><tr><td>Akar</td><td>menyerap air dan mineral, menopang</td><td>tudung akar, rambut akar memperluas bidang serapan; monokotil serabut, dikotil tunggang</td></tr><tr><td>Batang</td><td>jalur transportasi, penopang</td><td>dikotil berkambium (bisa membesar, ada lingkaran tahun)</td></tr><tr><td>Daun</td><td>fotosintesis, transpirasi, pertukaran gas</td><td>stomata diatur sel penjaga</td></tr></table>
+</div>
+<div class="card"><h2>2. Jaringan dan transportasi</h2>
+  <p>Meristem (pertumbuhan), epidermis (pelindung), parenkim (pengisi; di daun: palisade dan spons), kolenkim–sklerenkim (penguat), <b>xilem</b> (mengangkut air dan mineral dari akar ke daun, satu arah ke atas), <b>floem</b> (mengangkut hasil fotosintesis ke seluruh tubuh).</p>
+  <p><b>Transpirasi</b> = penguapan air melalui stomata. Makin cepat bila cahaya terang, suhu tinggi, angin kencang, dan kelembapan rendah. Alat ukurnya <b>potometer</b>.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Ukur Laju Transpirasi</h2>
+  <p>Gelembung udara dalam pipa kapiler bergerak ketika daun menguapkan air. Ubah kondisi dan bandingkan kecepatannya.</p>
+  <div class="ctrl"><label>Cahaya <span class="v" id="li-v"></span><input type="range" id="li" min="0" max="100" value="60"></label><label>Angin <span class="v" id="wi-v"></span><input type="range" id="wi" min="0" max="100" value="20"></label><label>Kelembapan <span class="v" id="hu-v"></span><input type="range" id="hu" min="20" max="100" value="60"></label><label>Suhu <span class="v" id="te-v"></span><input type="range" id="te" min="15" max="40" value="28"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 260"></svg>
+  <div class="row"><button class="btn" id="go">Mulai 5 menit</button></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Irisan Melintang Daun</h2>
+  <p>Klik setiap lapisan untuk mengenal nama dan fungsinya.</p>
+  <svg class="viz" id="g2" viewBox="0 0 640 320"></svg>
+  <div class="out" id="o2"><p>Klik salah satu jaringan.</p></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau nama jaringan.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 5 · Rujukan: BS IPA VIII K13 Bab 4; KTSP VIII</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function rateT(){ const li=+$('#li').value, wi=+$('#wi').value, hu=+$('#hu').value, te=+$('#te').value;
+  return Math.max(0.2, (0.3+li/100*1.2)*(1+wi/100*0.8)*((110-hu)/60)*(1+(te-25)*0.04)*2.2); }
+let pos=0, run=null, tmin=0;
+function d1(){ ['li','wi','hu','te'].forEach(i=>$('#'+i+'-v').textContent=$('#'+i).value+(i==='te'?' °C':'%'));
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  s('path',{d:'M80,60 q-20,-50 30,-50 q-10,40 -30,50 M80,60 q30,-50 60,-30 q-30,30 -60,30 M80,60 q-50,-20 -60,10 q40,10 60,-10',fill:'#69db7c',stroke:'#2b8a3e','stroke-width':2},g);
+  s('line',{x1:80,y1:60,x2:80,y2:120,stroke:'#2b8a3e','stroke-width':5},g);
+  s('rect',{x:70,y:115,width:20,height:40,fill:'#adb5bd'},g); s('path',{d:'M80,155 v40 h500',fill:'none',stroke:'#74c0fc','stroke-width':10},g);
+  for(let i=0;i<=10;i++){ s('line',{x1:120+i*45,y1:203,x2:120+i*45,y2:212,stroke:'var(--ink)'},g); txt(g,120+i*45,228,String((10-i)*10),{'font-size':11}); } txt(g,600,228,'mm',{'font-size':11});
+  s('circle',{cx:570-pos*4.5,cy:195,r:6,fill:'#fff',stroke:'#1971c2','stroke-width':2},g);
+  txt(g,400,60,'☀️'.repeat(Math.ceil(+$('#li').value/34)),{'font-size':22}); txt(g,400,100,'💨'.repeat(Math.ceil(+$('#wi').value/34)),{'font-size':20});
+  const r=rateT(); $('#o1').innerHTML=`<div class="big">Laju ≈ ${fm(r,1)} mm/menit</div><p>Waktu: ${fm(tmin,1)} menit · gelembung bergeser ${fm(pos,1)} mm. ${r>4?'Transpirasi cepat: cahaya terang, angin, udara kering, atau suhu tinggi membuat stomata membuka dan air cepat menguap.':r<1.5?'Transpirasi lambat: gelap, udara lembap, atau tanpa angin.':'Transpirasi sedang.'}</p>`; }
+['li','wi','hu','te'].forEach(i=>$('#'+i).oninput=d1);
+$('#go').onclick=()=>{ pos=0; tmin=0; clearInterval(run); run=setInterval(()=>{ tmin+=0.1; pos=Math.min(100,pos+rateT()*0.1); d1(); if(tmin>=5-1e-9||pos>=100){ clearInterval(run); } },60); }; d1();
+
+/* LAB 2 */
+const LY={kut:['Kutikula','Lapisan lilin yang mengurangi penguapan.'],epa:['Epidermis atas','Pelindung, selnya rapat dan transparan agar cahaya tembus.'],pal:['Jaringan palisade (tiang)','Sel tegak panjang, paling banyak kloroplas, tempat utama fotosintesis.'],spo:['Jaringan spons (bunga karang)','Berongga untuk pertukaran gas dan menyimpan hasil fotosintesis.'],xil:['Xilem','Mengangkut air dan mineral dari akar ke daun.'],flo:['Floem','Mengangkut hasil fotosintesis ke seluruh bagian tumbuhan.'],epb:['Epidermis bawah','Pelindung; tempat sebagian besar stomata.'],sto:['Stomata dan sel penjaga','Celah untuk pertukaran CO₂–O₂ dan penguapan air; membuka dan menutup karena sel penjaga.']};
+let ly=null;
+function d2(){ const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:320,fill:'var(--card)'},g);
+  const H=(k,el)=>{ if(k===ly){ el.setAttribute('stroke','#e03131'); el.setAttribute('stroke-width',3); } el.style.cursor='pointer'; el.addEventListener('click',()=>{ ly=k; $('#o2').innerHTML=`<div class="big">${LY[k][0]}</div><p>${LY[k][1]}</p>`; d2(); }); return el; };
+  H('kut',s('rect',{x:40,y:20,width:560,height:10,fill:'#fff3bf',stroke:'#e9c46a'},g));
+  const e1=s('g',{},g); for(let i=0;i<14;i++) s('rect',{x:40+i*40,y:30,width:40,height:28,fill:'#e6fcf5',stroke:'#63b38f'},e1); H('epa',e1);
+  const p=s('g',{},g); for(let i=0;i<20;i++){ s('rect',{x:42+i*28,y:60,width:24,height:70,rx:10,fill:'#b2f2bb',stroke:'#2f9e44'},p); for(let j=0;j<4;j++) s('circle',{cx:54+i*28,cy:72+j*16,r:4,fill:'#2b8a3e'},p); } H('pal',p);
+  const sp=s('g',{},g); for(let i=0;i<22;i++){ const x=50+(i*53)%540, y=150+(i*37)%80; s('ellipse',{cx:x,cy:y,rx:20,ry:14,fill:'#d3f9d8',stroke:'#40c057'},sp); } H('spo',sp);
+  H('xil',s('circle',{cx:320,cy:180,r:22,fill:'#a5d8ff',stroke:'#1971c2','stroke-width':2},g)); H('flo',s('circle',{cx:320,cy:220,r:16,fill:'#ffd8a8',stroke:'#e8590c','stroke-width':2},g)); txt(g,360,184,'xilem',{'font-size':12,'text-anchor':'start'}); txt(g,360,224,'floem',{'font-size':12,'text-anchor':'start'});
+  const e2=s('g',{},g); for(let i=0;i<14;i++) if(i!==4&&i!==10) s('rect',{x:40+i*40,y:252,width:40,height:26,fill:'#e6fcf5',stroke:'#63b38f'},e2); H('epb',e2);
+  [200,440].forEach(x=>{ const st=s('g',{},g); s('ellipse',{cx:x-10,cy:265,rx:10,ry:14,fill:'#69db7c',stroke:'#2b8a3e'},st); s('ellipse',{cx:x+10,cy:265,rx:10,ry:14,fill:'#69db7c',stroke:'#2b8a3e'},st); H('sto',st); });
+  txt(g,320,305,'↑ CO₂ masuk · O₂ dan uap air keluar melalui stomata ↓',{'font-size':12,fill:'var(--muted)'}); }
+d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Laju transpirasi', gen(){ const d=rand(6,60), t=pick([2,3,4,5,6]); const r=d/t; return {q:`Gelembung potometer bergeser ${d} mm dalam ${t} menit. Laju transpirasi = … mm/menit`, a:String(Math.round(r*100)/100), hint:'jarak ÷ waktu', ex:`${d}/${t} = ${fm(r,2)}`}; }},
+ {name:'Fungsi jaringan', gen(){ const k=pick(Object.keys(LY)); return {q:`Bagian daun yang berfungsi: "${LY[k][1]}" adalah …`, a:LY[k][0].split(' (')[0].split(' dan')[0].toLowerCase(), show:LY[k][0], hint:'nama jaringan', ex:LY[k][0]}; }},
+ {name:'Faktor', gen(){ const X=[['cahaya makin terang','naik'],['kelembapan udara makin tinggi','turun'],['angin makin kencang','naik'],['suhu makin tinggi','naik'],['stomata menutup','turun']]; const x=pick(X); return {q:`Jika ${x[0]}, laju transpirasi … (naik/turun)`, a:x[1], hint:'naik atau turun', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Jaringan yang mengangkut air dari akar ke daun adalah …', o:['xilem','floem','kambium','epidermis'], a:0, ex:'Pembuluh kayu.'},
+ {q:'Jaringan yang mengangkut hasil fotosintesis adalah …', o:['floem','xilem','palisade','kutikula'], a:0, ex:'Pembuluh tapis.'},
+ {q:'Bagian akar yang memperluas bidang penyerapan adalah …', o:['rambut akar','tudung akar','korteks','endodermis'], a:0, ex:'Rambut akar.'},
+ {q:'Jaringan daun yang paling banyak mengandung kloroplas adalah …', o:['palisade','spons','epidermis','xilem'], a:0, ex:'Jaringan tiang.'},
+ {q:'Stomata membuka dan menutup karena kerja …', o:['sel penjaga','kutikula','xilem','rambut akar'], a:0, ex:'Turgor sel penjaga.'},
+ {q:'Lingkaran tahun pada batang terbentuk karena aktivitas …', o:['kambium','epidermis','floem saja','empulur'], a:0, ex:'Dikotil.'},
+ {q:'Laju transpirasi akan menurun bila …', o:['udara lembap','angin kencang','cahaya terang','suhu tinggi'], a:0, ex:'Selisih uap kecil.'},
+ {q:'Alat untuk mengukur laju transpirasi adalah …', o:['potometer','termometer','barometer','higrometer'], a:0, ex:'Potometer.'},
+ {q:'Tumbuhan monokotil umumnya memiliki akar …', o:['serabut','tunggang','napas','gantung'], a:0, ex:'Contoh padi.'},
+ {q:'Fungsi kutikula pada daun adalah …', o:['mengurangi penguapan','fotosintesis','mengangkut air','menyimpan makanan'], a:0, ex:'Lapisan lilin.'},
+ {q:'Gelembung potometer bergeser 24 mm dalam 4 menit. Lajunya = … mm/menit', input:true, a:['6'], ex:'24/4.'},
+ {q:'Celah pada daun tempat keluar-masuk gas disebut …', input:true, a:['stomata','stoma','mulut daun'], show:'stomata', ex:'Stomata.'}
+],'w5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

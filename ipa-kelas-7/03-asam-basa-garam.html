@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asam, Basa, dan Garam · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="kimia" data-store="ipa7" style="--acc:#c2255c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🧪</div>
+  <span class="chip">Modul 3 · Materi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Asam, Basa, dan Garam di Sekitar Kita</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Membedakan sifat asam, basa, dan garam.</li><li>Menggunakan indikator buatan dan indikator alami untuk mengenali larutan.</li><li>Membaca skala pH.</li><li>Menjelaskan reaksi penetralan dan contohnya dalam kehidupan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🌈 Lab Indikator</button><button data-target="lab2">⚖️ Lab Penetralan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Disengat lebah, oleskan apa?</span><p style="margin:.3em 0">Sengatan lebah bersifat asam, sehingga orang tua dulu mengoleskan air sabun atau pasta gigi yang bersifat basa. Sebaliknya, sengatan tawon bersifat basa dan diredakan dengan cuka. Bagaimana kita tahu suatu zat asam atau basa tanpa mencicipinya? Gunakan <b>indikator</b>.</p></div>
+</div>
+<div class="card"><h2>1. Sifat asam, basa, dan garam</h2>
+  <table class="t"><tr><th></th><th>Asam</th><th>Basa</th><th>Garam</th></tr><tr><td>Rasa (jangan dicicipi di lab!)</td><td>masam</td><td>pahit</td><td>asin</td></tr><tr><td>Sentuhan</td><td>korosif</td><td>licin seperti sabun</td><td>—</td></tr><tr><td>Lakmus</td><td>biru → merah</td><td>merah → biru</td><td>tidak berubah</td></tr><tr><td>pH</td><td>&lt; 7</td><td>&gt; 7</td><td>umumnya 7</td></tr><tr><td>Contoh</td><td>cuka, jeruk, HCl lambung</td><td>sabun, air kapur, obat maag</td><td>garam dapur NaCl</td></tr></table>
+</div>
+<div class="card"><h2>2. Indikator</h2>
+  <div class="grid2"><div class="def"><b>Indikator buatan</b>: kertas lakmus, indikator universal (pH meter warna), fenolftalein, metil jingga.</div><div class="def"><b>Indikator alami</b>: ekstrak kubis ungu, kunyit, bunga sepatu, bunga telang. Contoh: kunyit kuning dalam asam/netral dan merah kecokelatan dalam basa.</div></div>
+</div>
+<div class="card"><h2>3. Penetralan</h2>
+  <div class="eqn">asam + basa → garam + air &nbsp;&nbsp; HCl + NaOH → NaCl + H₂O</div>
+  <p>Contoh: obat maag (Mg(OH)₂, Al(OH)₃) menetralkan asam lambung berlebih; kapur pertanian menetralkan tanah asam; pasta gigi menetralkan asam sisa makanan penyebab gigi berlubang.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Uji Bahan Rumah Tangga</h2>
+  <p>Pilih bahan. Celupkan berbagai indikator dan amati warnanya.</p>
+  <div class="row" id="bh"></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 260" style="margin-top:10px"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Teteskan Basa ke dalam Asam</h2>
+  <p>Gelas berisi 20 mL HCl 0,1 M dengan indikator universal. Tambahkan NaOH 0,1 M sedikit demi sedikit.</p>
+  <div class="ctrl"><label>NaOH ditambahkan <span class="v" id="v-v"></span><input type="range" id="v" min="0" max="40" step="0.5" value="0"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis jawaban berupa angka (pakai koma atau titik untuk desimal) atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 3 · Rujukan: BS IPA VII K13 Bab 3; IPA Terpadu VII (KTSP)</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+const univ=pH=>`hsl(${Math.max(0,Math.min(280,pH/14*280))},80%,52%)`;
+/* LAB 1 */
+const BH=[['Air jeruk nipis',2.2],['Cuka',2.9],['Minuman bersoda',3.5],['Air hujan',5.8],['Air murni',7],['Larutan garam',7],['Soda kue',8.5],['Pasta gigi',9.5],['Air sabun',10],['Air kapur',12.4],['Pemutih',12.8]];
+let bi=1;
+$('#bh').innerHTML=BH.map((b,i)=>`<button class="chipbtn ${i===bi?'on':''}" data-i="${i}">${b[0]}</button>`).join('');
+$$('#bh .chipbtn').forEach(b=>b.onclick=()=>{ $$('#bh .chipbtn').forEach(x=>x.classList.toggle('on',x===b)); bi=+b.dataset.i; d1(); });
+const kubis=p=>p<3?'#d6336c':p<5?'#e64980':p<7?'#9c36b5':p<8?'#7048e8':p<10?'#1c7ed6':p<12?'#2f9e44':'#fab005';
+function d1(){ const [n,p]=BH[bi];
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  const items=[['Lakmus merah',p>7.5?'#1c7ed6':'#e03131','strip'],['Lakmus biru',p<6.5?'#e03131':'#1c7ed6','strip'],['Universal',univ(p),'strip'],['Kunyit',p>8?'#a0412d':'#fab005','tube'],['Kubis ungu',kubis(p),'tube'],['Bunga sepatu',p<6.5?'#e64980':p>8?'#2f9e44':'#9c36b5','tube']];
+  items.forEach(([lab,col,t],i)=>{ const x=40+i*100; if(t==='strip'){ s('rect',{x:x+20,y:40,width:28,height:150,rx:4,fill:col,stroke:'var(--line)'},g); } else { s('path',{d:`M${x+12},40 v130 a22,22 0 0 0 44,0 v-130`,fill:'none',stroke:'var(--muted)','stroke-width':2.5},g); s('path',{d:`M${x+14},100 v70 a20,20 0 0 0 40,0 v-70z`,fill:col},g); } txt(g,x+34,230,lab,{'font-size':11,'font-weight':700}); });
+  const sifat=p<6.8?'asam':p>7.2?'basa':'netral';
+  $('#o1').innerHTML=`<div class="big">${n}: pH ≈ ${fm(p,1)} → ${sifat}</div><p>${sifat==='asam'?'Lakmus biru menjadi merah, lakmus merah tetap merah.':sifat==='basa'?'Lakmus merah menjadi biru, lakmus biru tetap biru.':'Kedua lakmus tidak berubah warna.'} ${p>8?'Kunyit berubah menjadi merah kecokelatan.':''}</p>`; }
+d1();
+
+/* LAB 2 */
+function pHmix(v){ const na=0.1*20, nb=0.1*v, Vt=(20+v)/1000; const d=(na-nb)/1000/Vt; if(Math.abs(d)<1e-7) return 7; return d>0?-Math.log10(d):14+Math.log10(-d); }
+function d2(){ const v=+$('#v').value, p=pHmix(v); $('#v-v').textContent=fm(v,1)+' mL';
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  s('path',{d:'M60,90 V230 H200 V90',fill:'none',stroke:'var(--ink)','stroke-width':3},g); s('rect',{x:62,y:230-80-v*1.2,width:136,height:80+v*1.2,fill:univ(p),'fill-opacity':.8},g);
+  s('rect',{x:120,y:10,width:20,height:60,fill:'#e9ecef',stroke:'var(--muted)'},g); txt(g,150,30,'NaOH',{'font-size':11,'text-anchor':'start'});
+  const X=x=>260+x*9, Y=y=>230-y*14; s('line',{x1:X(0),y1:Y(0),x2:X(40),y2:Y(0),stroke:'var(--ink)'},g); s('line',{x1:X(0),y1:Y(0),x2:X(0),y2:Y(14),stroke:'var(--ink)'},g);
+  let d=''; for(let x=0;x<=40;x+=0.25){ d+=(x?'L':'M')+X(x)+','+Y(pHmix(x)); } s('path',{d,fill:'none',stroke:'var(--acc)','stroke-width':2.5},g);
+  s('circle',{cx:X(v),cy:Y(p),r:6,fill:'var(--b)'},g); txt(g,X(40),Y(0)+18,'mL NaOH',{'font-size':11,'text-anchor':'end'}); txt(g,X(0)+4,Y(14)+10,'pH',{'font-size':11,'text-anchor':'start'}); s('line',{x1:X(0),y1:Y(7),x2:X(40),y2:Y(7),stroke:'var(--muted)','stroke-dasharray':'4 4'},g);
+  $('#o2').innerHTML=`<div class="big">pH ≈ ${fm(p,1)} (${p<6.8?'asam':p>7.2?'basa':'netral'})</div><p>${v<19.5?'Asam masih berlebih.':v<=20.5?'<b>Tepat netral!</b> Seluruh HCl bereaksi dengan NaOH: HCl + NaOH → NaCl + H₂O. Yang tersisa larutan garam dapur.':'Basa sekarang berlebih.'}</p>`; }
+$('#v').oninput=d2; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Sifat larutan', gen(){ const p=rand(1,14); return {q:`Larutan dengan pH ${p} bersifat … (asam/basa/netral)`, a:[p<7?'asam':p>7?'basa':'netral'], strict:true, hint:'pH < 7 asam, = 7 netral, > 7 basa.', ex:`pH ${p} → ${p<7?'asam':p>7?'basa':'netral'}`}; }},
+ {name:'Lakmus', gen(){ const B=pick(BH); const t=rand(0,1); const lm=t?'merah':'biru'; const res=t?(B[1]>7.5?'biru':'merah'):(B[1]<6.5?'merah':'biru'); return {q:`Kertas lakmus ${lm} dicelupkan ke ${B[0].toLowerCase()}. Warnanya menjadi … (merah/biru)`, a:[res], strict:true, hint:'Asam memerahkan lakmus biru; basa membirukan lakmus merah.', ex:`${B[0]} pH ${fm(B[1],1)} → ${res}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Larutan yang dapat mengubah lakmus biru menjadi merah bersifat …', o:['asam','basa','netral','garam'], a:0, ex:'Ciri asam.'},
+ {q:'Zat berikut yang bersifat basa adalah …', o:['air sabun','cuka','jeruk nipis','minuman bersoda'], a:0, ex:'pH > 7.'},
+ {q:'Larutan dengan pH 7 bersifat …', o:['netral','asam','basa','korosif'], a:0, ex:'Air murni.'},
+ {q:'Indikator alami berikut yang berubah merah kecokelatan dalam basa adalah …', o:['kunyit','kubis ungu','bunga sepatu','daun pandan'], a:0, ex:'Kurkumin.'},
+ {q:'Reaksi asam dengan basa menghasilkan …', o:['garam dan air','asam baru','gas oksigen','logam'], a:0, ex:'Penetralan.'},
+ {q:'Obat maag digunakan untuk …', o:['menetralkan asam lambung berlebih','menambah asam lambung','membunuh bakteri','menambah gula darah'], a:0, ex:'Bersifat basa.'},
+ {q:'Asam yang terdapat dalam lambung manusia adalah …', o:['asam klorida','asam cuka','asam sitrat','asam laktat'], a:0, ex:'HCl.'},
+ {q:'Petani menaburkan kapur pada tanah karena tanahnya terlalu …', o:['asam','basa','netral','asin'], a:0, ex:'Kapur bersifat basa.'},
+ {q:'Sifat basa yang dapat dirasakan dengan aman pada sabun adalah …', o:['licin','masam','asin','manis'], a:0, ex:'Jangan dicicipi zat lab.'},
+ {q:'Contoh garam dalam kehidupan sehari-hari adalah …', o:['natrium klorida','asam asetat','natrium hidroksida','asam sitrat'], a:0, ex:'Garam dapur.'},
+ {q:'Larutan pH 3 bersifat …', input:true, a:['asam'], strict:true, ex:'pH < 7.'},
+ {q:'HCl + NaOH → NaCl + …', input:true, a:['H2O','air'], strict:true, show:'H₂O', ex:'Penetralan.'}
+],'v3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

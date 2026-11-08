@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tekanan Zat · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="fisika" data-store="ipa8" style="--acc:#1864ab">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🌊</div>
+  <span class="chip">Modul 7 · Fisika <span class="lvl lanjut">LANJUT</span></span>
+  <h1>Tekanan Zat</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menghitung tekanan zat padat P = F/A.</li><li>Menghitung tekanan hidrostatis P = ρ g h.</li><li>Menerapkan hukum Pascal dan hukum Archimedes.</li><li>Menjelaskan tekanan gas, tekanan udara, dan penerapan tekanan pada makhluk hidup.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🌊 Lab Tekanan & Archimedes</button><button data-target="lab2">🚗 Lab Dongkrak Hidrolik</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Bendungan yang makin tebal ke bawah</span><p style="margin:.3em 0">Coba perhatikan dinding bendungan Jatiluhur: bagian bawahnya jauh lebih tebal daripada bagian atas. Penyebabnya adalah <b>tekanan hidrostatis</b>, yang makin besar pada kedalaman yang makin dalam. Penyelam juga merasakan telinganya sakit ketika menyelam terlalu dalam.</p></div>
+</div>
+<div class="card"><h2>1. Tekanan zat padat dan cair</h2>
+  <div class="grid2"><div class="def"><b>Zat padat</b>: P = F / A (Pa = N/m²)<br>Pisau tajam dan paku runcing memperkecil A agar P besar.</div><div class="def"><b>Hidrostatis</b>: P = ρ · g · h<br>Bergantung pada massa jenis dan kedalaman, bukan bentuk wadah.</div></div>
+</div>
+<div class="card"><h2>2. Hukum Pascal dan Archimedes</h2>
+  <div class="grid2"><div class="def"><b>Pascal</b>: tekanan pada zat cair di ruang tertutup diteruskan ke segala arah sama besar.<br>F₁/A₁ = F₂/A₂ → dongkrak, rem, kursi dokter gigi hidrolik.</div><div class="def"><b>Archimedes</b>: benda dalam zat cair mendapat gaya ke atas sebesar berat zat cair yang dipindahkan.<br>F<sub>A</sub> = ρ<sub>cair</sub> · g · V<sub>tercelup</sub> → kapal, kapal selam, balon udara, hidrometer.</div></div>
+  <p><b>Tekanan gas dan udara</b>: tekanan udara turun 1 cmHg setiap naik 100 m (76 cmHg di permukaan laut). Hukum Boyle: P · V = tetap pada suhu tetap. <b>Pada makhluk hidup</b>: tekanan darah, naiknya air dari akar ke daun (kapilaritas dan tekanan akar), pernapasan.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Celupkan Balok ke Zat Cair</h2>
+  <p>Balok aluminium bervolume 500 cm³ (berat di udara 13,5 N) digantung pada neraca pegas, lalu diturunkan ke dalam zat cair.</p>
+  <div class="ctrl"><label>Kedalaman dasar balok <span class="v" id="d-v"></span><input type="range" id="d" min="0" max="60" value="25"></label><label>Zat cair <select id="rho"><option value="1000">air (1.000 kg/m³)</option><option value="1030">air laut (1.030)</option><option value="800">minyak (800)</option><option value="13600">raksa (13.600)</option></select></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 330"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Angkat Mobil dengan Satu Tangan</h2>
+  <div class="ctrl"><label>Gaya tekan F₁ <span class="v" id="f1-v"></span><input type="range" id="f1" min="10" max="300" step="10" value="100"></label><label>Luas pengisap kecil A₁ <span class="v" id="a1-v"></span><input type="range" id="a1" min="2" max="20" value="5"></label><label>Luas pengisap besar A₂ <span class="v" id="a2-v"></span><input type="range" id="a2" min="100" max="1000" step="50" value="500"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja (g = 10 m/s², ρ air = 1.000 kg/m³).</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 7 · Rujukan: BS IPA VIII Merdeka Bab IV; BS IPA VIII K13 Bab 3</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const dd=+$('#d').value, rho=+$('#rho').value; $('#d-v').textContent=dd+' cm';
+  const H=10, Vt=Math.min(1,Math.max(0,dd/H))*500e-6, FA=rho*10*Vt, Wa=13.5, float=FA>=Wa; const Wc=Math.max(0,Wa-FA); const Ph=rho*10*dd/100;
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:330,fill:'var(--card)'},g);
+  const top=110, sc=3; const col={1000:'#a5d8ff',1030:'#74c0fc',800:'#ffe066',13600:'#ced4da'}[rho];
+  s('rect',{x:140,y:top,width:260,height:200,fill:col,opacity:.75},g); s('path',{d:`M140,40 V310 H400 V40`,fill:'none',stroke:'var(--ink)','stroke-width':3},g);
+  for(let i=0;i<=6;i++){ s('line',{x1:400,y1:top+i*30,x2:410,y2:top+i*30,stroke:'var(--ink)'},g); txt(g,428,top+i*30+4,i*10+' cm',{'font-size':11}); }
+  const yb=top+dd*sc; const realY=float?Math.min(yb,top+(Wa/(rho*10*500e-6))*H*sc):yb;
+  s('line',{x1:270,y1:10,x2:270,y2:realY-H*sc-1,stroke:'#495057','stroke-width':2},g);
+  s('rect',{x:252,y:10,width:36,height:46,rx:6,fill:'#fff',stroke:'#495057','stroke-width':2},g); txt(g,270,38,fm(float?0:Wc,2),{'font-size':12,'font-weight':800});
+  s('rect',{x:240,y:realY-H*sc,width:60,height:H*sc,fill:'#ced4da',stroke:'#495057','stroke-width':2},g);
+  const pdx=150, pdy=top+dd*sc; s('circle',{cx:pdx+10,cy:pdy,r:5,fill:'#e03131'},g); txt(g,pdx+20,pdy+4,'P',{'font-size':12,'text-anchor':'start',fill:'#e03131'});
+  txt(g,540,60,'Gaya ke atas',{'font-size':13,'font-weight':800}); txt(g,540,84,'Fᴀ = '+fm(Math.min(FA,float?Wa:FA),2)+' N',{'font-size':15,fill:'var(--acc)','font-weight':800});
+  txt(g,540,130,'Neraca pegas',{'font-size':13,'font-weight':800}); txt(g,540,154,fm(float?0:Wc,2)+' N',{'font-size':15,fill:'var(--acc)','font-weight':800});
+  txt(g,540,200,'P hidrostatis',{'font-size':13,'font-weight':800}); txt(g,540,224,fm(Ph,0)+' Pa',{'font-size':15,fill:'#e03131','font-weight':800});
+  $('#o1').innerHTML=`<p>P<sub>h</sub> = ρ g h = ${rho} × 10 × ${fm(dd/100,2)} = ${fm(Ph,0)} Pa. Volume tercelup ${fm(Vt*1e6,0)} cm³ → F<sub>A</sub> = ρ g V = ${fm(FA,2)} N. Berat semu = ${fm(Wa,1)} − ${fm(FA,2)} = ${fm(Wc,2)} N.</p><p>${float?'🛟 Balok <b>terapung</b> di raksa karena massa jenis aluminium (2.700 kg/m³) lebih kecil daripada raksa.':'Berat balok di dalam zat cair terasa lebih ringan karena gaya ke atas.'}</p>`; }
+['d','rho'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+function d2(){ const F1=+$('#f1').value, A1=+$('#a1').value, A2=+$('#a2').value; $('#f1-v').textContent=F1+' N'; $('#a1-v').textContent=A1+' cm²'; $('#a2-v').textContent=A2+' cm²';
+  const F2=F1*A2/A1, car=10000, lift=F2>=car;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const w1=12+A1*2, w2=80+A2*0.15, L=110, R=330; const y1=130+(lift?60:0), y2=175-(lift?20:0);
+  s('rect',{x:L,y:y1,width:w1,height:262-y1,fill:'#ffd8a8'},g); s('rect',{x:L+w1,y:232,width:R-L-w1,height:30,fill:'#ffd8a8'},g); s('rect',{x:R,y:y2,width:w2,height:262-y2,fill:'#ffd8a8'},g);
+  s('path',{d:`M${L},90 V262 H${R+w2} V110 M${R},110 V232 H${L+w1} V90`,fill:'none',stroke:'var(--ink)','stroke-width':3},g);
+  s('rect',{x:L,y:y1-8,width:w1,height:8,fill:'#495057'},g); s('rect',{x:R,y:y2-8,width:w2,height:8,fill:'#495057'},g);
+  const rise=0; const cx=R+w2/2;
+  txt(g,cx,y2-14,'🚗',{'font-size':54}); txt(g,cx,40,'mobil 1.000 kg (10.000 N)',{'font-size':12});
+  s('line',{x1:L+w1/2,y1:y1-70,x2:L+w1/2,y2:y1-10,stroke:'#1971c2','stroke-width':5},g); s('path',{d:`M${L+w1/2},${y1-8} l-8,-12 h16z`,fill:'#1971c2'},g); txt(g,L-8,y1-40,'F₁ = '+F1+' N',{'font-size':13,'font-weight':800,fill:'#1971c2','text-anchor':'end'});
+  $('#o2').innerHTML=`<div class="big">F₂ = ${fm(F2,0)} N ${lift?'✅ mobil terangkat':'❌ belum cukup'}</div><p>Hukum Pascal: F₁/A₁ = F₂/A₂ → F₂ = ${F1} × ${A2} / ${A1} = ${fm(F2,0)} N. Gaya diperbesar ${fm(A2/A1,0)} kali. ${lift?'':'Perbesar F₁ atau perbandingan luas A₂/A₁.'}</p>`; }
+['f1','a1','a2'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'P = F/A', gen(){ const A=pick([0.01,0.02,0.05,0.1,0.2,0.5]), P=rand(2,40)*100; const F=Math.round(P*A); return {q:`Gaya ${F} N bekerja pada luas ${String(A).replace('.',',')} m². Tekanannya = … Pa`, a:String(Math.round(F/A)), hint:'P = F / A', ex:`${F} / ${A} = ${Math.round(F/A)}`}; }},
+ {name:'Hidrostatis', gen(){ const h=rand(1,30), r=pick([1000,800,1030]); return {q:`Tekanan hidrostatis pada kedalaman ${h} m di zat cair ρ = ${r} kg/m³ (g = 10) = … Pa`, a:String(r*10*h), hint:'P = ρ g h', ex:`${r} × 10 × ${h} = ${r*10*h}`}; }},
+ {name:'Pascal', gen(){ const A1=pick([2,4,5,10]), k=pick([20,25,50,100]), F1=rand(2,30)*10; return {q:`Dongkrak: A₁ = ${A1} cm², A₂ = ${A1*k} cm², F₁ = ${F1} N. F₂ = … N`, a:String(F1*k), hint:'F₂ = F₁ × A₂/A₁', ex:`${F1} × ${k} = ${F1*k}`}; }},
+ {name:'Archimedes', gen(){ const V=pick([100,200,250,500,1000]), r=pick([1000,800]); return {q:`Benda bervolume ${V} cm³ tercelup seluruhnya dalam zat cair ρ = ${r} kg/m³ (g = 10). Gaya ke atas = … N`, a:String(r*10*V/1e6), hint:'F_A = ρ g V (V dalam m³)', ex:`${r} × 10 × ${V}×10⁻⁶ = ${r*10*V/1e6}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Ujung paku dibuat runcing agar …', o:['tekanannya besar','gayanya kecil','luasnya besar','tekanannya kecil'], a:0, ex:'A kecil → P besar.'},
+ {q:'Tekanan hidrostatis tidak bergantung pada …', o:['bentuk wadah','kedalaman','massa jenis zat cair','percepatan gravitasi'], a:0, ex:'P = ρgh.'},
+ {q:'Alat berikut yang bekerja berdasarkan hukum Pascal adalah …', o:['dongkrak hidrolik','kapal selam','hidrometer','balon udara'], a:0, ex:'Hidrolik.'},
+ {q:'Kapal besi dapat terapung karena …', o:['massa jenis rata-rata kapal lebih kecil daripada air','besi lebih ringan dari air','gaya gravitasi di laut kecil','air laut asin'], a:0, ex:'Berongga.'},
+ {q:'Benda melayang dalam air jika …', o:['massa jenis benda sama dengan massa jenis air','massa jenis benda lebih besar','massa jenis benda lebih kecil','benda berongga'], a:0, ex:'ρ sama.'},
+ {q:'Dinding bendungan bagian bawah dibuat lebih tebal karena …', o:['tekanan hidrostatis makin besar di kedalaman','air di bawah lebih dingin','agar terlihat kokoh','arus di bawah lebih kuat'], a:0, ex:'P bertambah dengan h.'},
+ {q:'Menurut hukum Boyle, bila volume gas diperkecil pada suhu tetap, tekanannya …', o:['makin besar','makin kecil','tetap','nol'], a:0, ex:'PV tetap.'},
+ {q:'Kapal selam dapat menyelam dengan cara …', o:['mengisi tangki pemberat dengan air','membuang air dari tangki','menambah udara di tangki','mematikan mesin'], a:0, ex:'Massa jenis bertambah.'},
+ {q:'Air dari akar naik ke daun antara lain karena …', o:['daya kapilaritas dan tekanan akar','gaya Archimedes','hukum Pascal saja','gaya magnet'], a:0, ex:'Kapilaritas.'},
+ {q:'Satuan tekanan dalam SI adalah …', o:['pascal','newton','joule','watt'], a:0, ex:'N/m².'},
+ {q:'Tekanan hidrostatis pada kedalaman 5 m di air (ρ = 1.000 kg/m³, g = 10) = … Pa', input:true, a:['50000','50.000'], show:'50.000', ex:'1000×10×5.'},
+ {q:'Balok seberat 300 N alasnya 0,5 m². Tekanannya = … Pa', input:true, a:['600'], ex:'300/0,5.'}
+],'w7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

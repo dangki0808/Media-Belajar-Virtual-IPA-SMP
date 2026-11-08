@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistem Gerak Manusia · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="biologi" data-store="ipa8" style="--acc:#1971c2">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🦴</div>
+  <span class="chip">Modul 1 · Biologi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Sistem Gerak Manusia</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menyebutkan bagian rangka manusia dan fungsinya.</li><li>Membedakan jenis tulang, sendi, dan otot.</li><li>Menjelaskan kerja otot antagonis dan sinergis.</li><li>Menerapkan prinsip tuas pada sistem gerak serta mengenali gangguannya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🦴 Lab Rangka Interaktif</button><button data-target="lab2">💪 Lab Lengan sebagai Tuas</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Tas sekolah yang terlalu berat</span><p style="margin:.3em 0">Rafi selalu membawa tas berisi semua buku dengan satu bahu. Lama-kelamaan bahunya terasa pegal dan tulang punggungnya mulai miring. Ternyata kebiasaan sederhana dapat memengaruhi <b>rangka</b> yang masih tumbuh. Rangka, sendi, dan otot bekerja sama sebagai <b>sistem gerak</b>.</p></div>
+</div>
+<div class="card"><h2>1. Rangka (alat gerak pasif)</h2>
+  <p>Rangka manusia dewasa terdiri atas ±206 tulang. Fungsi: memberi bentuk tubuh, menegakkan tubuh, melindungi organ penting, tempat melekat otot, membentuk sel darah (sumsum merah), menyimpan mineral.</p>
+  <div class="grid2"><div class="def"><b>Tulang keras</b>: tersusun osteosit dan zat kapur; contoh tulang paha.<br><b>Tulang rawan</b>: lentur, tersusun kondrosit; contoh daun telinga, hidung.</div><div class="def"><b>Bentuk</b>: pipa (paha, lengan), pipih (tengkorak, rusuk, dada), pendek (ruas jari, pergelangan).</div></div>
+</div>
+<div class="card"><h2>2. Sendi dan otot</h2>
+  <table class="t"><tr><th>Sendi gerak (diartrosis)</th><th>Contoh</th></tr><tr><td>Engsel (satu arah)</td><td>siku, lutut</td></tr><tr><td>Peluru (segala arah)</td><td>bahu, pangkal paha</td></tr><tr><td>Putar</td><td>tulang atlas–tengkorak</td></tr><tr><td>Pelana</td><td>ibu jari</td></tr><tr><td>Geser</td><td>antartulang pergelangan</td></tr></table>
+  <p>Otot (alat gerak aktif): <b>otot rangka</b> (lurik, sadar), <b>otot polos</b> (organ dalam, tak sadar), <b>otot jantung</b>. Otot <b>antagonis</b> bekerja berlawanan (bisep berkontraksi saat trisep relaksasi → lengan menekuk). Otot <b>sinergis</b> bekerja bersamaan (otot antartulang rusuk).</p>
+  <p><b>Gangguan</b>: skoliosis (bengkok ke samping), kifosis (bungkuk), lordosis (terlalu ke depan), osteoporosis (tulang keropos), fraktura (patah tulang), rakitis (kurang vitamin D), artritis (radang sendi), kram.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Jelajahi Rangka</h2>
+  <p>Klik bagian rangka untuk mengenal nama, jenis, dan fungsinya.</p>
+  <svg class="viz" id="g1" viewBox="0 0 640 420"></svg>
+  <div class="out" id="o1"><p>Klik salah satu tulang.</p></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Seberapa Kuat Otot Bisep?</h2>
+  <p>Lengan bawah adalah tuas jenis III: sendi siku = titik tumpu, otot bisep = kuasa (4 cm dari siku), beban di telapak tangan.</p>
+  <div class="ctrl"><label>Massa beban <span class="v" id="mb-v"></span><input type="range" id="mb" min="0" max="10" step="0.5" value="2"></label><label>Jarak beban dari siku <span class="v" id="lb-v"></span><input type="range" id="lb" min="10" max="35" value="30"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 1 · Rujukan: BS IPA VIII K13 Bab 1; KTSP VIII</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const BN={tengkorak:['Tengkorak','tulang pipih','Melindungi otak; tersusun atas tulang-tulang yang dihubungkan sendi mati.'],tlp:['Tulang belakang (33 ruas)','tulang pendek','Menegakkan tubuh dan melindungi sumsum tulang belakang; terdiri atas ruas leher, punggung, pinggang, kelangkang, ekor.'],rusuk:['Tulang rusuk (12 pasang)','tulang pipih','Melindungi jantung dan paru-paru; 7 pasang rusuk sejati, 3 pasang palsu, 2 pasang melayang.'],dada:['Tulang dada','tulang pipih','Tempat melekat tulang rusuk; mengandung sumsum merah pembentuk sel darah.'],lengan:['Tulang lengan atas (humerus)','tulang pipa','Menghubungkan bahu dan siku; tempat melekat otot bisep dan trisep.'],hasta:['Tulang hasta & pengumpil','tulang pipa','Membentuk lengan bawah; memungkinkan telapak tangan diputar.'],panggul:['Tulang panggul','tulang pipih','Menopang tubuh bagian atas dan melindungi organ di rongga perut bawah.'],paha:['Tulang paha (femur)','tulang pipa','Tulang terpanjang dan terkuat di tubuh.'],tempurung:['Tempurung lutut','tulang pendek','Melindungi sendi lutut (sendi engsel).'],kering:['Tulang kering & betis','tulang pipa','Membentuk tungkai bawah dan menopang berat badan.'],bahu:['Tulang belikat & selangka','tulang pipih','Membentuk gelang bahu, tempat sendi peluru lengan.']};
+function d1(sel){ const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:420,fill:'var(--card)'},g);
+  const P=(k,el)=>{ el.setAttribute('fill',k===sel?'#ffd43b':'#f8f1e3'); el.setAttribute('stroke','#7a6a55'); el.setAttribute('stroke-width',2); el.style.cursor='pointer'; el.addEventListener('click',()=>d1(k)); return el; };
+  const cx=320;
+  P('tengkorak',s('ellipse',{cx,cy:45,rx:30,ry:34},g));
+  P('tlp',s('rect',{x:cx-6,y:80,width:12,height:170,rx:5},g));
+  P('bahu',s('path',{d:`M${cx-75},100 Q${cx},86 ${cx+75},100 L${cx+75},110 Q${cx},96 ${cx-75},110Z`},g));
+  for(let i=0;i<6;i++) P('rusuk',s('path',{d:`M${cx-8},${118+i*16} Q${cx-60},${112+i*16} ${cx-56},${132+i*16} M${cx+8},${118+i*16} Q${cx+60},${112+i*16} ${cx+56},${132+i*16}`,fill:'none'},g)).setAttribute('fill','none');
+  P('dada',s('rect',{x:cx-6,y:112,width:12,height:80,rx:4},g));
+  [-1,1].forEach(sd=>{ P('lengan',s('rect',{x:cx+sd*80-6,y:108,width:12,height:96,rx:6,transform:`rotate(${sd*-8} ${cx+sd*80} 108)`},g)); P('hasta',s('rect',{x:cx+sd*94-7,y:206,width:14,height:90,rx:6,transform:`rotate(${sd*-6} ${cx+sd*94} 206)`},g));
+    P('paha',s('rect',{x:cx+sd*28-8,y:282,width:16,height:66,rx:7},g)); P('tempurung',s('circle',{cx:cx+sd*28,cy:352,r:8},g)); P('kering',s('rect',{x:cx+sd*28-7,y:362,width:14,height:52,rx:6},g)); });
+  P('panggul',s('path',{d:`M${cx-48},250 Q${cx},230 ${cx+48},250 L${cx+40},286 Q${cx},300 ${cx-40},286Z`},g));
+  if(sel){ const b=BN[sel]; $('#o1').innerHTML=`<div class="big">${b[0]}</div><p><span class="chip">${b[1]}</span></p><p>${b[2]}</p>`; } }
+d1();
+
+/* LAB 2 */
+function d2(){ const mb=+$('#mb').value, lb=+$('#lb').value; $('#mb-v').textContent=fm(mb,1)+' kg'; $('#lb-v').textContent=lb+' cm';
+  const W=mb*10, Fk=W*lb/4;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const ex=120, ey=200; s('rect',{x:ex-30,y:30,width:40,height:170,rx:18,fill:'#f4d6c0',stroke:'#c4876b','stroke-width':2},g); txt(g,ex-10,24,'lengan atas',{'font-size':12,fill:'var(--muted)'});
+  s('rect',{x:ex,y:ey-14,width:lb*12+30,height:28,rx:14,fill:'#f4d6c0',stroke:'#c4876b','stroke-width':2},g);
+  s('circle',{cx:ex,cy:ey,r:10,fill:'#495057'},g); txt(g,ex,ey+40,'▲ tumpu (siku)',{'font-size':12});
+  s('path',{d:`M${ex-14},60 Q${ex+40},${110} ${ex+48},${ey-14}`,fill:'none',stroke:'#e03131','stroke-width':10+Math.min(14,Fk/60),'stroke-linecap':'round',opacity:.85},g); txt(g,ex+60,100,'otot bisep (kuasa)',{'font-size':12,fill:'#c92a2a','text-anchor':'start'});
+  const bx=ex+lb*12; if(mb>0){ s('rect',{x:bx-22,y:ey+16,width:44,height:20+mb*4,rx:5,fill:'#495057'},g); txt(g,bx,ey+30+mb*2,fm(mb,1)+' kg',{'font-size':12,'font-weight':800,fill:'#fff'}); }
+  s('line',{x1:ex,y1:ey+60,x2:ex+48,y2:ey+60,stroke:'#c92a2a','stroke-width':2},g); txt(g,ex+24,ey+78,'4 cm',{'font-size':11,fill:'#c92a2a'});
+  s('line',{x1:ex,y1:ey+90,x2:bx,y2:ey+90,stroke:'#1971c2','stroke-width':2},g); txt(g,(ex+bx)/2,ey+86,lb+' cm',{'font-size':11,fill:'#1971c2'});
+  $('#o2').innerHTML=`<div class="big">Gaya otot bisep ≈ ${fm(Fk,0)} N</div><p>Keseimbangan tuas: F<sub>k</sub> × L<sub>k</sub> = W × L<sub>b</sub> → F<sub>k</sub> = ${fm(W,0)} × ${lb} / 4 = ${fm(Fk,0)} N, yaitu ${fm(lb/4,1)} kali berat beban. Tuas jenis III tidak menghemat gaya, tetapi menghasilkan gerak tangan yang cepat dan jangkauan luas.</p>`; }
+['mb','lb'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Jenis sendi', gen(){ const X=[['siku','engsel'],['lutut','engsel'],['bahu','peluru'],['pangkal paha','peluru'],['tulang atlas dan tengkorak','putar'],['ibu jari','pelana'],['antartulang pergelangan tangan','geser'],['ruas jari','engsel']]; const x=pick(X); return {q:`Sendi pada ${x[0]} termasuk sendi …`, a:x[1], hint:'engsel / peluru / putar / pelana / geser', ex:x[1]}; }},
+ {name:'Tuas lengan', gen(){ const m=rand(1,8), lb=pick([20,24,28,30,32]); return {q:`Beban ${m} kg (g = 10) dipegang ${lb} cm dari siku; bisep melekat 4 cm dari siku. Gaya bisep = … N`, a:String(m*10*lb/4), hint:'F = W × Lb / Lk', ex:`${m*10} × ${lb} / 4 = ${m*10*lb/4}`}; }},
+ {name:'Gangguan', gen(){ const X=[['tulang belakang bengkok ke samping','skoliosis'],['tulang belakang terlalu bungkuk','kifosis'],['tulang belakang terlalu melengkung ke depan','lordosis'],['tulang keropos karena kekurangan kalsium','osteoporosis'],['kaki berbentuk O/X karena kurang vitamin D','rakitis'],['radang pada sendi','artritis']]; const x=pick(X); return {q:`Gangguan berupa ${x[0]} disebut …`, a:x[1], hint:'nama gangguan', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Tulang disebut alat gerak pasif karena …', o:['digerakkan oleh otot','tidak dapat tumbuh','tidak mengandung sel','tidak memiliki sendi'], a:0, ex:'Otot yang aktif.'},
+ {q:'Tulang rawan terdapat pada …', o:['daun telinga','tulang paha','tulang kering','tulang rusuk bagian belakang'], a:0, ex:'Lentur.'},
+ {q:'Tulang paha termasuk tulang …', o:['pipa','pipih','pendek','rawan'], a:0, ex:'Femur.'},
+ {q:'Sendi yang memungkinkan gerak ke segala arah adalah sendi …', o:['peluru','engsel','pelana','geser'], a:0, ex:'Bahu.'},
+ {q:'Sendi pada siku merupakan sendi …', o:['engsel','peluru','putar','pelana'], a:0, ex:'Satu arah.'},
+ {q:'Ketika lengan ditekuk, otot bisep …', o:['berkontraksi dan trisep relaksasi','relaksasi dan trisep berkontraksi','dan trisep sama-sama kontraksi','dan trisep sama-sama relaksasi'], a:0, ex:'Antagonis.'},
+ {q:'Otot yang bekerja di bawah kesadaran adalah …', o:['otot rangka','otot polos','otot jantung','otot usus'], a:0, ex:'Otot lurik rangka.'},
+ {q:'Kelainan tulang belakang yang membengkok ke samping disebut …', o:['skoliosis','kifosis','lordosis','fraktura'], a:0, ex:'Skoliosis.'},
+ {q:'Osteoporosis dapat dicegah dengan …', o:['cukup kalsium, vitamin D, dan olahraga','mengurangi minum air','tidur terlalu lama','menghindari sinar matahari pagi'], a:0, ex:'Tulang padat.'},
+ {q:'Tulang yang menghasilkan sel darah merah mengandung …', o:['sumsum merah','sumsum kuning','tulang rawan','ligamen'], a:0, ex:'Contoh tulang pipih.'},
+ {q:'Jumlah tulang rangka manusia dewasa sekitar …', input:true, a:['206'], ex:'206.'},
+ {q:'Beban 20 N dipegang 30 cm dari siku; bisep 4 cm dari siku. Gaya bisep = … N', input:true, a:['150'], ex:'20×30/4.'}
+],'w1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

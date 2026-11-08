@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Science Lab SMP · IPA Kelas VII–IX</title>
+<link rel="stylesheet" href="shared/style.css">
+<style>
+.mhero{position:relative;margin:30px 0 18px;padding:30px 26px;background:var(--card);border:2px solid var(--edge);border-radius:30px;box-shadow:10px 10px 0 #ffd43b;overflow:hidden}
+.mhero h1{font-size:clamp(2.1rem,6vw,3.6rem);font-weight:900;line-height:1.02;margin:.25em 0 .3em;letter-spacing:-1px}
+.mhero h1 span{display:inline-block;padding:0 8px;border-radius:10px;color:#fff;transform:rotate(-2deg)}
+.mhero p{max-width:640px;color:var(--muted);font-size:1.08rem}
+.mhero .doodles{position:absolute;right:-10px;top:10px;font-size:2.4rem;line-height:1.5;opacity:.9;text-align:right;pointer-events:none}
+.mhero .doodles span{display:inline-block;margin:0 6px;animation:bob 4s ease-in-out infinite}
+.mhero .doodles span:nth-child(2n){animation-delay:-1.3s}.mhero .doodles span:nth-child(3n){animation-delay:-2.6s}
+@keyframes bob{50%{transform:translateY(-8px) rotate(6deg)}}
+.search{display:flex;gap:10px;margin-top:16px;max-width:560px}
+.search input{flex:1;border:2px solid var(--edge)!important;border-radius:14px}
+#hits{margin-top:8px;display:grid;gap:6px;max-width:560px}
+#hits a{display:block;padding:8px 12px;border:2px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);background:var(--card)}
+#hits a:hover{border-color:var(--acc)}
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin:18px 0 10px}
+.book{position:relative;display:block;text-decoration:none;color:#fff;border:2px solid var(--edge);border-radius:8px 22px 22px 8px;padding:22px 22px 18px 44px;min-height:250px;box-shadow:7px 7px 0 var(--edge);transition:transform .15s}
+.book:hover{transform:translate(-3px,-4px) rotate(-1deg)}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:24px;border-right:2px solid rgba(0,0,0,.35);background:repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 6px,transparent 6px 14px);border-radius:6px 0 0 6px}
+.book .lbl{display:inline-block;background:#fff;color:#1f2a37;border:2px solid var(--edge);border-radius:10px;padding:2px 10px;font-weight:900;font-size:.8rem;transform:rotate(-3deg)}
+.book h3{font-size:2rem;font-weight:900;margin:.35em 0 .15em;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.25)}
+.book p{color:rgba(255,255,255,.92);margin:0 0 10px;font-size:.95rem}
+.book .ems{font-size:1.6rem;letter-spacing:4px}
+.book .pg{height:10px;border-radius:99px;background:rgba(255,255,255,.3);overflow:hidden;margin-top:10px;border:1.5px solid rgba(0,0,0,.25)}
+.book .pg i{display:block;height:100%;background:#fff}
+.book small{font-weight:800}
+.feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;margin:16px 0}
+.feat a{position:relative;display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--edge);border-radius:20px;padding:16px;box-shadow:4px 4px 0 var(--fc)}
+.feat a:hover{transform:translateY(-3px)}
+.feat a b{display:block;font-size:1.12rem;margin:6px 0 2px}
+.feat a span.e{font-size:2rem}
+.feat a small{color:var(--muted)}
+.feat a em{position:absolute;right:12px;top:12px;font-style:normal;font-size:.72rem;font-weight:900;color:var(--fc)}
+h2.sec{display:inline-block;margin:26px 0 4px;font-size:1.6rem;font-weight:900;background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:4px 14px;box-shadow:4px 4px 0 #ffd43b;transform:rotate(-1deg)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi div{border:2px dashed color-mix(in srgb,var(--edge) 35%,transparent);border-radius:16px;padding:12px;text-align:center}
+.kpi b{display:block;font-size:1.8rem;font-weight:900}
+@media (max-width:640px){.mhero .doodles{position:static;text-align:left;font-size:1.8rem}}
+</style>
+</head>
+<body class="t7" data-kat="sains" data-store="ipa">
+<div class="wrap">
+<section class="mhero">
+  <div class="doodles"><span>🔬</span><span>🌿</span><span>⚡</span><br><span>🪐</span><span>🧪</span><span>🦋</span></div>
+  <span class="chip">IPA SMP · Fase D · Merdeka + K13 + KTSP</span>
+  <h1>Virtual <span style="background:#11885f">Science</span> Lab <span style="background:#1971c2">SMP</span></h1>
+  <p>Buku catatan sains digital untuk Kelas VII, VIII, dan IX: 30 modul dengan cerita sehari-hari, 60 lab virtual, latihan acak tanpa batas, kuis, bank soal, dan tryout. Semua berjalan tanpa internet.</p>
+  <div class="search"><input id="q" type="text" placeholder="Cari topik… (mis. fotosintesis, lensa, golongan darah)"></div>
+  <div id="hits"></div>
+</section>
+
+<h2 class="sec">📒 Pilih buku catatanmu</h2>
+<div class="books" id="books"></div>
+
+<h2 class="sec">🧰 Perlengkapan belajar</h2>
+<div class="feat">
+  <a href="tryout/index.html" style="--fc:#e8590c"><em id="tob">–</em><span class="e">📝</span><b>Tryout</b><small id="f2m">Per modul, semester, ujian akhir SMP, OSN</small></a>
+  <a href="bank-soal/index.html" style="--fc:#7048e8"><em id="nb">–</em><span class="e">🗂</span><b>Bank Soal</b><small>Saring per kelas, modul, tipe, dan tingkat kesulitan</small></a>
+  <a href="rumus/index.html" style="--fc:#1971c2"><span class="e">📘</span><b>Ringkasan Rumus</b><small>Rumus dan konsep kunci 30 topik</small></a>
+  <a href="kurikulum/index.html" style="--fc:#2f9e44"><span class="e">🧭</span><b>Peta Kurikulum</b><small>Pemetaan Merdeka · K13 · KTSP</small></a>
+  <a href="lab-unsur/index.html" style="--fc:#c2255c"><span class="e">⚛️</span><b>Lab Unsur</b><small>Tabel periodik, Mr, dan penyetara reaksi</small></a>
+</div>
+
+<h2 class="sec">📈 Catatan kemajuanmu</h2>
+<div class="card"><div class="kpi"><div><b id="k1">0</b>kuis selesai</div><div><b id="k2">–</b>rata-rata kuis</div><div><b id="k3">0</b>nilai ≥ 80</div><div><b id="k4">–</b>tryout terbaik</div></div>
+<div class="row"><button class="btn ghost" id="reset">Hapus semua nilai di perangkat ini</button></div></div>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · IPA Kelas VII–IX · Bahan: Buku Siswa IPA SMP Kemendikbudristek (Kurikulum Merdeka), BSE IPA K13 &amp; KTSP · Berjalan offline</div></footer>
+<script src="shared/core.js"></script>
+<script src="shared/catalog.js"></script>
+<script src="shared/banksoal.js"></script>
+<script src="shared/nav.js"></script>
+<script>
+const G=VCL_CATALOG;
+const get=k=>{ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } };
+const raw=k=>{ try{ const v=localStorage.getItem(k); return v==null?null:+v; }catch(e){ return null; } };
+const COL={'ipa-kelas-7':'linear-gradient(150deg,#11885f,#2f9e44 60%,#94d82d)','ipa-kelas-8':'linear-gradient(150deg,#1864ab,#1971c2 55%,#22b8cf)','ipa-kelas-9':'linear-gradient(150deg,#a61e4d,#c2410c 50%,#f59f00)'};
+function render(){ let n=0,s=0,hi=0;
+  document.getElementById('books').innerHTML=G.map(g=>{ let d=0; g.mods.forEach(m=>{ const v=raw(g.pref+m.k); if(v!=null){ d++; n++; s+=v; if(v>=80) hi++; } });
+    return `<a class="book" href="${g.folder}/index.html" style="background:${COL[g.folder]}"><span class="lbl">${g.fase} · ${g.theme}</span><h3>${g.name}</h3><p>${g.mods.slice(0,4).map(m=>m.t.split(' dan ')[0]).join(' · ')} …</p><div class="ems">${g.mods.map(m=>m.i).join('')}</div><div class="pg"><i style="width:${d/g.mods.length*100}%"></i></div><small>${d}/${g.mods.length} kuis modul selesai</small></a>`; }).join('');
+  document.getElementById('k1').textContent=n; document.getElementById('k2').textContent=n?Math.round(s/n):'–'; document.getElementById('k3').textContent=hi;
+  const B=get('toipa:best')||{}, bv=Object.values(B); document.getElementById('tob').textContent=bv.length?Math.max(...bv):'–'; document.getElementById('k4').textContent=bv.length?Math.max(...bv):'–';
+  const C=get('toipa:cnt')||{}; const cs=Object.values(C).reduce((a,b)=>a+b,0); if(cs) document.getElementById('f2m').textContent=cs+' set selesai';
+  document.getElementById('nb').textContent=(window.VCL_BANK?VCL_BANK.length:0)+' soal'; }
+render(); window.addEventListener('pageshow',render);
+const ALL=G.flatMap(g=>g.mods.map(m=>({...m,g})));
+document.getElementById('q').oninput=e=>{ const q=e.target.value.trim().toLowerCase(); const H=document.getElementById('hits');
+  if(q.length<2){ H.innerHTML=''; return; } const r=ALL.filter(m=>(m.t+' '+m.d).toLowerCase().includes(q)).slice(0,8);
+  H.innerHTML=r.length?r.map(m=>`<a href="${m.g.folder}/${m.f}">${m.i} <b>${m.t}</b> <span class="muted">· ${m.g.name}</span></a>`).join(''):'<span class="muted">Tidak ditemukan.</span>'; };
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis IPA dan Tryout di perangkat ini?')){ G.forEach(g=>g.mods.forEach(m=>{ try{ localStorage.removeItem(g.pref+m.k); }catch(e){} })); ['toipa:best','toipa:cnt','toipa:hist'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); render(); } };
+</script>
+</body></html>

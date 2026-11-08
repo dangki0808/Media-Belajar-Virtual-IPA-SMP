@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tryout IPA SMP · Virtual Science Lab</title>
+<style>
+:root{--bg:#fff8ec;--card:#fffdf8;--ink:#1f2a37;--muted:#5d6479;--line:#eadfca;--edge:#1f2a37;--green:#e8590c;--orange:#c2255c;--gold:#ffd43b;--ok:#2f9e44;--no:#e03131}
+@media (prefers-color-scheme:dark){:root{--bg:#17140f;--card:#211d17;--ink:#f3eee4;--muted:#b3aa98;--line:#3a3328;--edge:#d9cdb6;--green:#ff922b;--orange:#f783ac;--ok:#69db7c;--no:#ff8787}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;font-family:"Nunito","Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);font-size:17px;line-height:1.6;min-height:100vh;background-color:var(--bg);background-image:radial-gradient(color-mix(in srgb,var(--green) 28%,transparent) 1.3px,transparent 1.6px);background-size:22px 22px;background-attachment:fixed}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:900;line-height:1.15}
+.eyebrow{font-size:.75rem;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--orange)}
+.hero{position:relative;margin:28px 0 8px;padding:24px;background:var(--card);border:2px solid var(--edge);border-radius:26px;box-shadow:8px 8px 0 var(--green)}
+.hero::after{content:"⏱️";position:absolute;right:20px;top:-26px;font-size:3.2rem;transform:rotate(10deg)}
+.hero h1{font-size:clamp(2rem,5vw,3rem);margin:.2em 0}.hero h1 em{font-style:normal;color:#fff;background:var(--green);padding:0 10px;border-radius:12px;display:inline-block;transform:rotate(-1.5deg)}.hero p{color:var(--muted);max-width:680px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin:20px 0}
+.lv{position:relative;font:inherit;text-align:left;background:var(--card);border:2px solid var(--edge);border-radius:20px;padding:16px;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:transform .15s;min-height:160px;box-shadow:4px 4px 0 var(--edge)}
+.lv:hover{transform:translate(-2px,-3px) rotate(-.5deg)}
+.lv .tag{font-size:.72rem;font-weight:900;letter-spacing:1px;color:#fff;background:var(--green);border-radius:99px;padding:2px 10px;align-self:flex-start;border:2px solid var(--edge)}
+.lv.osn .tag{background:var(--orange)}
+.lv b{font-size:1.2rem}.lv small{color:var(--muted)}
+.lv .bar{height:10px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:auto;border:1.5px solid var(--edge)}.lv .bar i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--green) 0 8px,var(--gold) 8px 16px)}
+.card{background:var(--card);border:2px solid var(--edge);border-radius:22px;padding:20px;margin:20px 0;box-shadow:5px 5px 0 var(--gold)}
+.btn{font:inherit;font-weight:800;border-radius:14px;cursor:pointer;min-height:46px;padding:10px 18px;border:2px solid var(--edge);background:var(--green);color:#fff;box-shadow:0 4px 0 var(--edge)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--edge)}
+.btn.ghost{background:var(--card);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.exam-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 0 4px}
+.exam-head h2{margin:0;font-size:1.4rem}.exam-head .t{margin-left:auto;font-weight:900;font-variant-numeric:tabular-nums;background:var(--card);border:2px solid var(--edge);border-radius:12px;padding:4px 12px}
+.nums{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.nums button{font:inherit;font-weight:800;width:40px;height:40px;border-radius:10px;border:2px solid var(--edge);background:var(--card);color:var(--ink);cursor:pointer}
+.nums button.ans{background:color-mix(in srgb,var(--green) 22%,var(--card))}
+.nums button.cur{outline:3px solid var(--gold);outline-offset:1px}
+.nums button.ok{background:var(--ok);color:#fff}.nums button.no{background:var(--no);color:#fff}
+.qcard{background:var(--card);border:2px solid var(--edge);border-radius:6px 26px 6px 26px;padding:22px;box-shadow:6px 6px 0 var(--green)}
+.qno{font-weight:900;color:var(--orange);font-size:.9rem}
+.qtext{font-size:1.15rem;margin:6px 0 14px;font-weight:600}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;text-align:left;display:flex;gap:12px;align-items:center;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:10px 14px;cursor:pointer;min-height:52px}
+.opt:hover{border-color:var(--green)}
+.opt .L{flex:0 0 32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:var(--line);border:2px solid var(--edge)}
+.opt.sel{border-color:var(--green);background:color-mix(in srgb,var(--green) 10%,var(--card))}.opt.sel .L{background:var(--green);color:#fff}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}.opt.right .L{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--no);background:color-mix(in srgb,var(--no) 12%,var(--card))}.opt.wrong .L{background:var(--no);color:#fff}
+.nav{display:flex;justify-content:space-between;gap:10px;margin:14px 0;flex-wrap:wrap}
+.ex{margin-top:12px;padding:12px 14px;border-radius:14px;background:#fff9db;border:2px dashed #f59f00;color:#3d2f00}
+@media (prefers-color-scheme:dark){.ex{background:#2b2512;color:#ffe8a3}}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1;font-size:.9em;margin:0 2px}
+.fr sup{border-bottom:1.5px solid currentColor;padding:0 2px 1px;font-size:1em;vertical-align:baseline}.fr sub{font-size:1em;padding-top:1px;vertical-align:baseline}
+.score{font-size:3.6rem;font-weight:900;color:var(--green);line-height:1}
+.muted{color:var(--muted)}.hide{display:none!important}
+table.h{width:100%;border-collapse:collapse;font-size:.92rem}table.h td,table.h th{padding:6px 8px;border-bottom:1.5px dashed var(--line);text-align:left}
+footer{color:var(--muted);font-size:.85rem;border-top:2px dashed var(--line);padding:18px 0 30px;margin-top:30px}
+@media print{.nums,.nav,#home,.no-print{display:none!important}.qcard{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main id="home">
+  <section class="hero"><span class="eyebrow">Tryout IPA SMP · Ujian akhir · AKM · OSN</span>
+    <h1>Coba tryout seperti <em>ujian sebenarnya.</em></h1>
+    <p>Simulasi ujian akhir SMP berwaktu (20 soal, 40 menit), ujian semester (25 soal, 60 menit), tryout per modul, soal pilihan ganda IPA per kelas (VII, VIII, IX), paket literasi sains bergaya AKM, paket campuran, dan Tantangan OSN IPA SMP. Angka soal berubah setiap kali sehingga bisa dikerjakan berulang. Pembahasan muncul setelah jawaban dikumpulkan.</p></section>
+  <div class="grid" id="levels"></div>
+  <div class="card"><h3 style="margin-top:0">🎯 Tryout per modul</h3><p class="muted" style="margin-top:0">10 soal pilihan ganda dari bank soal modul yang dipilih (dasar, menengah, dan HOTS).</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><select id="modsel" style="font:inherit;padding:10px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);flex:1;min-width:220px;max-width:100%"></select><button class="btn" id="modgo">Mulai</button></div></div>
+  <div class="card"><h3 style="margin-top:0">Riwayat tryout</h3><div id="hist" class="muted"></div>
+    <p class="muted" style="font-size:.9rem;margin-bottom:0">Untuk guru: setiap set bisa dicetak sebagai lembar soal (tombol 🖨️ pada halaman hasil). Nilai tersimpan di perangkat ini.</p></div>
+</main>
+
+<main id="exam" class="hide">
+  <div class="exam-head"><button class="btn ghost" id="quit">← Keluar</button><h2 id="ex-title"></h2><span class="t" id="clock">00:00</span></div>
+  <div class="nums" id="nums"></div>
+  <div class="qcard" id="qcard"></div>
+  <div class="nav"><button class="btn ghost" id="prev">← Sebelumnya</button><button class="btn ghost" id="nextq">Berikutnya →</button><button class="btn" id="submit">Kumpulkan jawaban</button></div>
+</main>
+
+<main id="result" class="hide"></main>
+<footer>Tryout IPA SMP · Virtual Science Lab · Soal disusun ulang dengan angka acak mengikuti tipe soal asesmen sekolah, asesmen akhir/AKM, dan olimpiade. Soal asli tidak disalin.</footer>
+</div>
+<script src="../shared/catalog.js"></script>
+<script src="../shared/banksoal.js"></script>
+<script src="bank.js"></script>
+<script src="../shared/nav.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const st={ get(k,d){ try{ const v=JSON.parse(localStorage.getItem('toipa:'+k)); return v==null?d:v; }catch(e){ return d; } }, set(k,v){ try{ localStorage.setItem('toipa:'+k,JSON.stringify(v)); }catch(e){} } };
+const LV=[['uas','Simulasi Ujian Akhir SMP (20 soal, 40 menit)','Literasi sains, soal hitungan, dan HOTS dari seluruh materi VII–IX; waktu dibatasi','UJIAN AKHIR'],['sem7-1','Ujian Semester Kelas VII · Sem. 1','Hakikat sains, zat, asam-basa, suhu-kalor, gerak-gaya','SEMESTER'],['sem7-2','Ujian Semester Kelas VII · Sem. 2','Energi, klasifikasi, sel, ekologi, tata surya','SEMESTER'],['sem8-1','Ujian Semester Kelas VIII · Sem. 1','Sistem gerak, pencernaan, peredaran darah, pernapasan-ekskresi, tumbuhan, usaha-energi','SEMESTER'],['sem8-2','Ujian Semester Kelas VIII · Sem. 2','Tekanan, getaran-bunyi, cahaya, pemisahan campuran, tanah','SEMESTER'],['sem9-1','Ujian Semester Kelas IX · Sem. 1','Koordinasi, aditif-adiktif, reproduksi, perkembangbiakan, pewarisan sifat','SEMESTER'],['sem9-2','Ujian Semester Kelas IX · Sem. 2','Bioteknologi, listrik, magnet-energi alternatif, isu lingkungan','SEMESTER'],[7,'Kelas VII','Pengukuran, zat, asam-basa, kalor, gerak, energi, klasifikasi, sel, ekologi, bumi','KELAS'],[8,'Kelas VIII','Usaha-pesawat sederhana, tekanan, gelombang-bunyi, optik, sistem organ, pemisahan','KELAS'],[9,'Kelas IX','Listrik, magnet-trafo, pewarisan sifat, bioteknologi, reproduksi, lingkungan','KELAS'],['akm','Literasi Sains (AKM)','Membaca data, merancang percobaan, dan menarik kesimpulan','AKM'],['campur','Paket Campuran','Acak dari seluruh materi IPA SMP + literasi sains','CAMPUR'],['osn','Tantangan OSN IPA SMP','Soal bertingkat olimpiade fisika-biologi tingkat SMP','OLIMPIADE']];
+const SZ=l=>String(l).startsWith('sem')?25:l==='uas'?20:l==='akm'||l==='campur'?15:10;
+const LIMIT=l=>l==='uas'?2400:String(l).startsWith('sem')?3600:0;
+const name=l=>{ if(String(l).startsWith('mod:')){ const k=l.slice(4); let t=k; VCL_CATALOG.forEach(g=>g.mods.forEach(m=>{ if(m.k===k) t=g.name+' · '+m.t; })); return 'Modul '+t; } const f=LV.find(x=>String(x[0])===String(l)); return f?f[1]:String(l); };
+function home(){
+  const best=st.get('best',{}), cnt=st.get('cnt',{});
+  $('#levels').innerHTML=LV.map(([l,n,d,tg])=>{ const b=best[l]; return `<button class="lv ${l==='osn'||l==='akm'||l==='uas'?'osn':''}" data-l="${l}"><span class="tag">${LV.find(x=>x[0]===l)[3]}</span><b>${n}</b><small>${d}</small><small><b style="font-size:.9rem">${cnt[l]||0}</b> set selesai${b!=null?` · terbaik <b style="font-size:.9rem">${b}</b>`:''}</small><div class="bar"><i style="width:${b||0}%"></i></div></button>`; }).join('');
+  document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>start(b.dataset.l));
+  const H=st.get('hist',[]); $('#hist').innerHTML=H.length?`<table class="h"><tr><th>Tanggal</th><th>Tryout</th><th>Nilai</th><th>Waktu</th></tr>${H.slice(-10).reverse().map(h=>`<tr><td>${h.t}</td><td>${name(h.l)}</td><td><b>${h.s}</b></td><td>${h.d}</td></tr>`).join('')}</table>`:'Belum ada tryout. Pilih salah satu kartu di atas.';
+}
+let E=null, clock=null;
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function show(v){ ['home','exam','result'].forEach(x=>$('#'+x).classList.toggle('hide',x!==v)); window.scrollTo(0,0); }
+function start(l){ l=isNaN(+l)?l:+l; const Q=TRYOUT.makeSet(l,SZ(l)); E={l,Q,A:Array(Q.length).fill(null),i:0,sec:0,done:false}; show('exam'); $('#ex-title').textContent='Tryout '+name(l);
+  E.lim=LIMIT(l); clearInterval(clock); clock=setInterval(()=>{ E.sec++; $('#clock').textContent=E.lim?'⏳ sisa '+mmss(Math.max(0,E.lim-E.sec)):'⏱ '+mmss(E.sec); if(E.lim&&E.sec>=E.lim&&!E.done){ E.auto=true; $('#submit').onclick(); } },1000); $('#clock').textContent=E.lim?'⏳ sisa '+mmss(E.lim):'⏱ 00:00'; draw(); }
+function draw(){
+  const q=E.Q[E.i];
+  $('#nums').innerHTML=E.Q.map((_,i)=>{ let c=''; if(E.done) c=E.A[i]===E.Q[i].ans?'ok':'no'; else if(E.A[i]!=null) c='ans'; return `<button class="${c} ${i===E.i?'cur':''}" data-i="${i}" aria-label="Soal ${i+1}">${i+1}</button>`; }).join('');
+  document.querySelectorAll('#nums button').forEach(b=>b.onclick=()=>{ E.i=+b.dataset.i; draw(); });
+  $('#qcard').innerHTML=`<div class="qno">Soal ${E.i+1} dari ${E.Q.length}</div><div class="qtext">${q.q}</div><div class="opts">${q.opts.map((o,j)=>{ let c=''; if(E.done){ if(j===q.ans) c='right'; else if(E.A[E.i]===j) c='wrong'; } else if(E.A[E.i]===j) c='sel'; return `<button class="opt ${c}" data-j="${j}"><span class="L">${'ABCDE'[j]}</span><span>${o}</span></button>`; }).join('')}</div>${E.done?`<div class="ex"><b>${E.A[E.i]===q.ans?'✓ Benar.':E.A[E.i]==null?'— Tidak dijawab.':'✗ Belum tepat.'}</b> Jawaban: <b>${'ABCDE'[q.ans]}</b>. ${q.ex}</div>`:''}`;
+  if(!E.done) document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{ E.A[E.i]=+b.dataset.j; draw(); if(E.i<E.Q.length-1) setTimeout(()=>{ E.i++; draw(); },250); });
+  $('#prev').disabled=E.i===0; $('#nextq').disabled=E.i===E.Q.length-1;
+  $('#submit').textContent=E.done?'Lihat ringkasan nilai':`Kumpulkan jawaban (${E.A.filter(a=>a!=null).length}/${E.Q.length})`;
+}
+$('#prev').onclick=()=>{ if(E.i>0){ E.i--; draw(); } }; $('#nextq').onclick=()=>{ if(E.i<E.Q.length-1){ E.i++; draw(); } };
+$('#quit').onclick=()=>{ if(!E.done&&E.A.some(a=>a!=null)&&!confirm('Keluar dari tryout? Jawaban belum dikumpulkan.')) return; clearInterval(clock); show('home'); home(); };
+$('#submit').onclick=()=>{ if(E.done) return result();
+  const kosong=E.A.filter(a=>a==null).length; if(kosong&&!E.auto&&!confirm(`Masih ada ${kosong} soal belum dijawab. Tetap kumpulkan?`)) return;
+  clearInterval(clock); E.done=true; const ok=E.A.filter((a,i)=>a===E.Q[i].ans).length, s=Math.round(ok/E.Q.length*100);
+  const best=st.get('best',{}), cnt=st.get('cnt',{}); if(best[E.l]==null||s>best[E.l]) best[E.l]=s; cnt[E.l]=(cnt[E.l]||0)+1; st.set('best',best); st.set('cnt',cnt);
+  const d=new Date(); const H=st.get('hist',[]); H.push({t:d.toLocaleDateString('id-ID'),l:E.l,s,d:mmss(E.sec)}); st.set('hist',H.slice(-100)); E.ok=ok; result(); };
+function result(){
+  const s=Math.round(E.ok/E.Q.length*100), msg=s===100?'Luar biasa! Semua benar.':s>=80?'Hebat! Kamu siap menghadapi ujian.':s>=60?'Cukup baik. Pelajari pembahasan soal yang salah.':'Ayo pelajari lagi materinya, lalu coba set baru.';
+  $('#result').innerHTML=`<div class="card" style="text-align:center;margin-top:24px"><span class="eyebrow">Hasil tryout</span><h2 style="margin:.3em 0">${name(E.l)}</h2><div class="score">${s}</div><p>${E.ok} dari ${E.Q.length} soal benar · waktu ${mmss(E.sec)}</p><p><b>${msg}</b></p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn" id="rev">Lihat pembahasan</button><button class="btn ghost" id="again">Set baru</button><button class="btn ghost no-print" id="print">🖨️ Cetak soal & pembahasan</button><button class="btn ghost" id="back">Pilih tryout lain</button></div></div>
+    <div id="printable" class="hide"></div>`;
+  show('result');
+  $('#rev').onclick=()=>{ E.i=E.Q.findIndex((q,i)=>E.A[i]!==q.ans); if(E.i<0) E.i=0; show('exam'); draw(); };
+  $('#again').onclick=()=>start(E.l); $('#back').onclick=()=>{ show('home'); home(); };
+  $('#print').onclick=()=>{ const p=$('#printable'); p.classList.remove('hide'); p.innerHTML=`<h2>Tryout ${name(E.l)}</h2>`+E.Q.map((q,i)=>`<div class="qcard" style="margin:10px 0"><div class="qno">Soal ${i+1}</div><div class="qtext">${q.q}</div><ol type="A">${q.opts.map(o=>`<li>${o}</li>`).join('')}</ol><div class="ex">Jawaban: <b>${'ABCDE'[q.ans]}</b>. ${q.ex}</div></div>`).join(''); window.print(); };
+}
+$('#modsel').innerHTML=VCL_CATALOG.map(g=>`<optgroup label="${g.name}">`+g.mods.map((m,i)=>`<option value="mod:${m.k}">${i+1}. ${m.t}</option>`).join('')+'</optgroup>').join('');
+$('#modgo').onclick=()=>start($('#modsel').value);
+home();
+})();
+</script>
+</body></html>

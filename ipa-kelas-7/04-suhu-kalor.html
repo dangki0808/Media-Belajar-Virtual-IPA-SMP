@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suhu, Kalor, dan Pemuaian · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="energi" data-store="ipa7" style="--acc:#e8590c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🌡️</div>
+  <span class="chip">Modul 4 · Energi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Suhu, Kalor, dan Pemuaian</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Mengonversi suhu antara skala Celsius, Reamur, Fahrenheit, dan Kelvin.</li><li>Menghitung kalor dengan Q = m·c·ΔT dan kalor laten Q = m·L.</li><li>Membaca grafik pemanasan es sampai menjadi uap.</li><li>Menjelaskan perpindahan kalor dan pemuaian dalam kehidupan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🌡️ Lab Skala Suhu</button><button data-target="lab2">♨️ Lab Grafik Pemanasan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Celah di sambungan rel kereta</span><p style="margin:.3em 0">Mengapa sambungan rel kereta api dibuat bercelah? Di siang hari yang terik, besi rel memanjang karena <b>memuai</b>. Tanpa celah, rel bisa melengkung dan membahayakan kereta. Kalor yang diterima rel menaikkan suhunya, dan suhu yang naik membuat partikel bergetar lebih kuat sehingga benda memuai.</p></div>
+</div>
+<div class="card"><h2>1. Suhu dan termometer</h2>
+  <table class="t"><tr><th>Skala</th><th>Titik beku air</th><th>Titik didih air</th></tr><tr><td>Celsius</td><td>0</td><td>100</td></tr><tr><td>Reamur</td><td>0</td><td>80</td></tr><tr><td>Fahrenheit</td><td>32</td><td>212</td></tr><tr><td>Kelvin</td><td>273</td><td>373</td></tr></table>
+  <div class="eqn">C : R : (F − 32) : (K − 273) = 5 : 4 : 9 : 5</div>
+</div>
+<div class="card"><h2>2. Kalor</h2>
+  <div class="grid2"><div class="def"><b>Menaikkan suhu</b>: Q = m · c · ΔT<br>c air = 4.200 J/kg°C, c es = 2.100 J/kg°C.</div><div class="def"><b>Mengubah wujud</b> (suhu tetap): Q = m · L<br>Kalor lebur es = 336.000 J/kg; kalor uap air = 2.260.000 J/kg.</div></div>
+  <p>Perpindahan kalor: <b>konduksi</b> (melalui zat padat tanpa perpindahan partikel, misalnya sendok panas), <b>konveksi</b> (disertai aliran zat, misalnya air mendidih dan angin laut), <b>radiasi</b> (tanpa perantara, misalnya panas matahari dan api unggun).</p>
+</div>
+<div class="card"><h2>3. Pemuaian</h2>
+  <p>Benda padat, cair, dan gas memuai bila dipanaskan. Penerapan: celah rel dan sambungan jembatan, bimetal pada setrika dan alarm kebakaran, kabel listrik dibuat kendur, memasang roda besi pada pedati dengan dipanaskan.</p>
+  <div class="eqn">Muai panjang: ΔL = L₀ · α · ΔT</div>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Empat Termometer</h2>
+  <p>Geser suhu dalam Celsius. Lihat nilai yang sama pada skala Reamur, Fahrenheit, dan Kelvin.</p>
+  <div class="ctrl"><label>Suhu (°C) <span class="v" id="c-v"></span><input type="range" id="c" min="-40" max="120" value="37"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Memanaskan 100 g Es dari −20 °C</h2>
+  <p>Tambahkan kalor sedikit demi sedikit. Perhatikan bahwa suhu berhenti naik saat es mencair dan saat air mendidih.</p>
+  <div class="ctrl"><label>Kalor yang diberikan <span class="v" id="q-v"></span><input type="range" id="q" min="0" max="310" step="1" value="20"></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja; kalor dalam joule kecuali diminta lain.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 4 · Rujukan: BS IPA VII Merdeka Bab III; BS IPA VII K13 Bab 4</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const C=+$('#c').value, R=C*0.8, F=C*1.8+32, K=C+273; $('#c-v').textContent=C+' °C';
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const T=[['Celsius',C,-40,120,'°C'],['Reamur',R,-32,96,'°R'],['Fahrenheit',F,-40,248,'°F'],['Kelvin',K,233,393,'K']];
+  T.forEach(([n,v,lo,hi,u],i)=>{ const x=80+i*150, top=40, bot=240, fr=(v-lo)/(hi-lo);
+    s('rect',{x:x-9,y:top,width:18,height:bot-top,rx:9,fill:'var(--card)',stroke:'var(--muted)'},g); s('rect',{x:x-4,y:bot-(bot-top)*fr,width:8,height:(bot-top)*fr,fill:'#e03131'},g); s('circle',{cx:x,cy:bot+12,r:14,fill:'#e03131'},g);
+    txt(g,x,24,n,{'font-size':13,'font-weight':800}); txt(g,x,290,fm(v,1)+' '+u,{'font-size':14,'font-weight':800,fill:'var(--acc)'}); });
+  $('#o1').innerHTML=`<p>R = 4/5 × ${C} = ${fm(R,1)} °R · F = 9/5 × ${C} + 32 = ${fm(F,1)} °F · K = ${C} + 273 = ${K} K</p><p class="muted">${C===37?'37 °C adalah suhu normal tubuh manusia.':C===100?'Air mendidih (1 atm).':C===0?'Es mencair.':C===-40?'Pada −40 °C, skala Celsius dan Fahrenheit menunjukkan angka yang sama!':''}</p>`; }
+$('#c').oninput=d1; d1();
+
+/* LAB 2 */
+const m=0.1, ce=2100, ca=4200, cu=2010, Lf=336000, Lv=2260000;
+const Q1=m*ce*20, Q2=Q1+m*Lf, Q3=Q2+m*ca*100, Q4=Q3+m*Lv, Q5=Q4+m*cu*20;
+function state(Q){ if(Q<=Q1) return [-20+Q/(m*ce),'es memanas']; if(Q<=Q2) return [0,'es mencair (suhu tetap)']; if(Q<=Q3) return [(Q-Q2)/(m*ca),'air memanas']; if(Q<=Q4) return [100,'air mendidih (suhu tetap)']; return [100+(Q-Q4)/(m*cu),'uap memanas']; }
+function d2(){ const Q=+$('#q').value*1000; const [T,st]=state(Q); $('#q-v').textContent=fm(Q/1000,0)+' kJ';
+  const g=$('#g2'); clear(g); const A=G.axes(g,{x0:0,x1:310,y0:-30,y1:130,W:640,H:300,pad:46,padb:30,xs:50,ys:20,lx:'Q (kJ)',ly:'T (°C)'});
+  let d=''; for(let q=0;q<=310;q+=1){ const t=state(q*1000)[0]; d+=(q?'L':'M')+A.X(q)+','+A.Y(t); } s('path',{d,fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+  s('circle',{cx:A.X(Q/1000),cy:A.Y(T),r:7,fill:'var(--b)',stroke:'#fff','stroke-width':2},g);
+  [[Q1,Q2,'melebur'],[Q3,Q4,'menguap']].forEach(([a,b,t])=>txt(g,A.X((a+b)/2000),A.Y(t==='melebur'?0:100)-10,t,{'font-size':11,fill:'var(--muted)'}));
+  $('#o2').innerHTML=`<div class="big">T = ${fm(T,1)} °C · ${st}</div><p>Tahap: es −20 → 0 °C butuh ${fm(Q1/1000,1)} kJ; melebur ${fm(m*Lf/1000,1)} kJ; air 0 → 100 °C ${fm(m*ca*100/1000,1)} kJ; menguap ${fm(m*Lv/1000,0)} kJ. Kalor laten menguap jauh lebih besar, sehingga mendidihkan air sampai habis butuh waktu lama.</p>`; }
+$('#q').oninput=d2; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'°C → °F', gen(){ const c=rand(-4,20)*5; return {q:`${c} °C = … °F`, a:String(c*1.8+32), hint:'F = 9/5 C + 32', ex:`9/5 × ${c} + 32 = ${c*1.8+32}`}; }},
+ {name:'°C → K/°R', gen(){ const c=rand(-10,24)*5; const t=rand(0,1); return {q:`${c} °C = … ${t?'K':'°R'}`, a:String(t?c+273:c*0.8), hint:t?'K = C + 273':'R = 4/5 C', ex:t?`${c} + 273 = ${c+273}`:`4/5 × ${c} = ${c*0.8}`}; }},
+ {name:'Q = m·c·ΔT', gen(){ const mm=pick([0.2,0.5,1,2]), dT=rand(2,16)*5; return {q:`Kalor untuk memanaskan ${fm(mm,1)} kg air dari 20 °C menjadi ${20+dT} °C (c = 4.200 J/kg°C) = … J`, a:String(mm*4200*dT), hint:'Q = m c ΔT', ex:`${fm(mm,1)} × 4.200 × ${dT} = ${(mm*4200*dT).toLocaleString('id-ID')} J`}; }},
+ {name:'Q = m·L', gen(){ const mm=pick([0.1,0.2,0.5,1]); return {q:`Kalor untuk meleburkan ${fm(mm,1)} kg es pada 0 °C (L = 336.000 J/kg) = … J`, a:String(mm*336000), hint:'Q = m L', ex:`${fm(mm,1)} × 336.000 = ${(mm*336000).toLocaleString('id-ID')} J`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Satuan SI untuk suhu adalah …', o:['kelvin','celsius','fahrenheit','reamur'], a:0, ex:'K.'},
+ {q:'Suhu 50 °C sama dengan …', o:['122 °F','90 °F','82 °F','132 °F'], a:0, ex:'9/5 × 50 + 32.'},
+ {q:'Suhu 27 °C sama dengan …', o:['300 K','246 K','27 K','327 K'], a:0, ex:'+273.'},
+ {q:'Perpindahan kalor dari matahari ke bumi terjadi secara …', o:['radiasi','konduksi','konveksi','induksi'], a:0, ex:'Tanpa medium.'},
+ {q:'Gagang panci dibuat dari plastik karena plastik merupakan …', o:['isolator panas','konduktor panas','penyerap panas yang baik','logam'], a:0, ex:'Menghambat konduksi.'},
+ {q:'Angin laut terjadi karena perpindahan kalor secara …', o:['konveksi','konduksi','radiasi','isolasi'], a:0, ex:'Aliran udara.'},
+ {q:'Celah pada sambungan rel kereta api berfungsi untuk …', o:['memberi ruang pemuaian','menghemat besi','mengurangi suara','mempercepat kereta'], a:0, ex:'Rel memuai saat panas.'},
+ {q:'Saat es sedang mencair, suhunya …', o:['tetap','naik','turun','naik turun'], a:0, ex:'Kalor dipakai untuk mengubah wujud.'},
+ {q:'Kalor yang diperlukan untuk menaikkan suhu 1 kg zat sebesar 1 °C disebut …', o:['kalor jenis','kapasitas kalor','kalor laten','kalor lebur'], a:0, ex:'c.'},
+ {q:'Bimetal melengkung ketika dipanaskan karena …', o:['dua logam memiliki koefisien muai berbeda','logamnya meleleh','logamnya menyusut','kalor jenisnya sama'], a:0, ex:'Logam yang lebih mudah memuai di sisi luar lengkungan.'},
+ {q:'Kalor untuk memanaskan 2 kg air sebesar 10 °C (c = 4.200 J/kg°C) = … J', input:true, a:['84000','84.000'], show:'84.000', ex:'2 × 4.200 × 10.'},
+ {q:'40 °C = … °R', input:true, a:['32'], ex:'4/5 × 40.'}
+],'v4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hakikat Sains & Pengukuran · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="sains" data-store="ipa7" style="--acc:#11885f">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">📏</div>
+  <span class="chip">Modul 1 · Kerja Ilmiah <span class="lvl pemula">PEMULA</span></span>
+  <h1>Hakikat Sains, Metode Ilmiah, dan Pengukuran</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan hakikat sains dan langkah-langkah metode ilmiah.</li><li>Membedakan besaran pokok dan besaran turunan beserta satuan SI-nya.</li><li>Mengonversi satuan dengan tangga satuan.</li><li>Membaca alat ukur seperti mistar, jangka sorong, dan neraca.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">📐 Lab Jangka Sorong</button><button data-target="lab2">🪜 Lab Tangga Satuan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Mengapa roti ibu tidak mengembang?</span><p style="margin:.3em 0">Dina membuat roti, tetapi adonannya tidak mengembang. Ia menduga raginya sudah kedaluwarsa. Untuk membuktikannya, Dina membuat dua adonan yang sama persis, satu dengan ragi lama dan satu dengan ragi baru. Cara Dina berpikir dan menguji dugaan inilah yang disebut <b>metode ilmiah</b>, dan dari situlah sains berkembang.</p></div>
+</div>
+<div class="card"><h2>1. Metode ilmiah</h2>
+  <ol class="steps"><li>Mengamati dan merumuskan masalah.</li><li>Menyusun hipotesis (dugaan sementara).</li><li>Merancang percobaan: variabel bebas, terikat, dan kontrol.</li><li>Melakukan percobaan dan mengumpulkan data.</li><li>Menganalisis data dan menarik kesimpulan.</li><li>Mengomunikasikan hasil.</li></ol>
+  <div class="note">Keselamatan di laboratorium: pakai jas lab, jangan mencicipi bahan, baca label, dan laporkan kecelakaan kepada guru.</div>
+</div>
+<div class="card"><h2>2. Besaran dan satuan</h2>
+  <table class="t"><tr><th>Besaran pokok</th><th>Satuan SI</th><th>Alat ukur</th></tr><tr><td>Panjang</td><td>meter (m)</td><td>mistar, jangka sorong, mikrometer sekrup</td></tr><tr><td>Massa</td><td>kilogram (kg)</td><td>neraca</td></tr><tr><td>Waktu</td><td>sekon (s)</td><td>stopwatch</td></tr><tr><td>Suhu</td><td>kelvin (K)</td><td>termometer</td></tr><tr><td>Kuat arus</td><td>ampere (A)</td><td>amperemeter</td></tr><tr><td>Intensitas cahaya</td><td>kandela (cd)</td><td>luxmeter</td></tr><tr><td>Jumlah zat</td><td>mol</td><td>—</td></tr></table>
+  <p><b>Besaran turunan</b> diturunkan dari besaran pokok: luas (m²), volume (m³), kecepatan (m/s), massa jenis (kg/m³), gaya (newton = kg·m/s²).</p>
+</div>
+<div class="card"><h2>3. Ketelitian alat ukur</h2>
+  <div class="grid3"><div class="def"><b>Mistar</b>: skala terkecil 1 mm, ketelitian 0,5 mm.</div><div class="def"><b>Jangka sorong</b>: ketelitian 0,1 mm (0,01 cm). Hasil = skala utama + (garis nonius yang berimpit × 0,1 mm).</div><div class="def"><b>Mikrometer sekrup</b>: ketelitian 0,01 mm, untuk tebal kertas atau diameter kawat.</div></div>
+  <p>Tangga satuan: km – hm – dam – m – dm – cm – mm. Turun satu anak tangga dikali 10, naik satu anak tangga dibagi 10.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Membaca Jangka Sorong</h2>
+  <p>Baca skala utama (atas, dalam mm) tepat sebelum angka nol nonius, lalu cari garis nonius (bawah) yang paling lurus dengan garis skala utama.</p>
+  <svg class="viz" id="g1" viewBox="0 0 640 220"></svg>
+  <div class="row"><input type="text" id="in1" inputmode="decimal" placeholder="Hasil dalam mm, mis. 23,4" aria-label="Hasil pengukuran"><button class="btn" id="ck1">Periksa</button><button class="btn ghost" id="nw1">Benda lain</button><button class="btn soft" id="hl1">Tunjukkan garis berimpit</button></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Tangga Konversi Satuan</h2>
+  <p>Pilih jenis besaran, satuan asal, dan satuan tujuan. Perhatikan berapa anak tangga dilalui.</p>
+  <div class="seg" id="jen"><button data-j="m" class="on">Panjang (m)</button><button data-j="g">Massa (g)</button><button data-j="L">Volume (L)</button></div>
+  <div class="ctrl"><label>Nilai <input type="text" id="val" value="2,5" inputmode="decimal"></label><label>Dari <select id="dari"></select></label><label>Ke <select id="ke"></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 260"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan angka; desimal boleh memakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 1 · Rujukan: BS IPA VII Kurikulum Merdeka Bab I; BS IPA VII K13 Bab 1 (Objek IPA dan Pengamatannya)</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let L1=23.4, hl=false;
+function d1(){
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:220,fill:'var(--card)'},g);
+  const px=12, x0=40; // 12 px per mm
+  s('rect',{x:x0-20,y:40,width:600,height:50,fill:'#dee2e6',stroke:'var(--ink)'},g);
+  for(let mm=0;mm<=48;mm++){ const x=x0+mm*px; s('line',{x1:x,y1:90,x2:x,y2:90-(mm%10===0?24:mm%5===0?16:10),stroke:'var(--ink)','stroke-width':mm%10===0?1.6:1},g); if(mm%10===0) txt(g,x,58,String(mm/10),{'font-size':12,'font-weight':700}); }
+  txt(g,x0+590-20,58,'cm',{'font-size':11,fill:'var(--muted)'});
+  const xn=x0+L1*px; // nol nonius
+  s('rect',{x:xn-14,y:90,width:150,height:46,fill:'#ced4da','fill-opacity':.85,stroke:'var(--ink)'},g);
+  const best=Math.round((L1*10)%10);
+  for(let i=0;i<=10;i++){ const x=xn+i*0.9*px; s('line',{x1:x,y1:90,x2:x,y2:90+(i%5===0?20:12),stroke:hl&&i===best?'var(--bad)':'var(--ink)','stroke-width':hl&&i===best?2.5:1},g); if(i%5===0) txt(g,x,124,String(i),{'font-size':11}); }
+  s('rect',{x:x0-20,y:140,width:xn-x0+20,height:30,fill:'#a5d8ff','fill-opacity':.6},g); txt(g,(x0+xn)/2-10,160,'benda',{'font-size':12,fill:'var(--muted)'});
+  txt(g,xn+140,152,'nonius',{'font-size':11,fill:'var(--muted)','text-anchor':'start'});
+}
+$('#ck1').onclick=()=>{ const v=Number(VML.norm($('#in1').value)); const ok=Math.abs(v-L1)<0.051; const su=Math.floor(L1), nn=Math.round((L1-su)*10);
+  $('#o1').innerHTML=`<div class="fb ${ok?'ok':'no'}"><b>${ok?'✓ Tepat!':'✗ Belum tepat.'}</b> Skala utama ${su} mm, garis nonius ke-${nn} berimpit → ${su} + ${nn} × 0,1 = <b>${fm(L1,1)} mm</b> = ${fm(L1/10,2)} cm.</div>`; };
+$('#nw1').onclick=()=>{ L1=rand(80,420)/10; hl=false; $('#in1').value=''; $('#o1').innerHTML=''; d1(); };
+$('#hl1').onclick=()=>{ hl=!hl; d1(); };
+d1();
+
+/* LAB 2 */
+const PRE=[['k','kilo'],['h','hekto'],['da','deka'],['','(satuan dasar)'],['d','desi'],['c','senti'],['m','mili']];
+let jn='m';
+function fillU(){ $('#dari').innerHTML=$('#ke').innerHTML=PRE.map((p,i)=>`<option value="${i}">${p[0]}${jn}</option>`).join(''); $('#dari').value=0; $('#ke').value=3; }
+$$('#jen button').forEach(b=>b.onclick=()=>{ $$('#jen button').forEach(x=>x.classList.toggle('on',x===b)); jn=b.dataset.j; fillU(); d2(); });
+function d2(){
+  const v=Number(VML.norm($('#val').value)), a=+$('#dari').value, b=+$('#ke').value, st=b-a, r=v*Math.pow(10,st);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:260,fill:'var(--card)'},g);
+  PRE.forEach((p,i)=>{ const x=40+i*82, y=30+i*28; s('rect',{x,y,width:78,height:30,rx:6,fill:i===a?'var(--b)':i===b?'var(--acc)':'color-mix(in srgb,var(--acc) 12%,var(--card))',stroke:'var(--ink)','stroke-width':.8},g); txt(g,x+39,y+20,p[0]+jn,{'font-size':14,'font-weight':800,fill:i===a||i===b?'#fff':'var(--ink)'}); });
+  txt(g,560,40,'naik ÷ 10',{'font-size':12,fill:'var(--muted)'}); txt(g,100,240,'turun × 10',{'font-size':12,fill:'var(--muted)'});
+  if(isNaN(v)){ $('#o2').innerHTML='Isi nilai berupa angka.'; return; }
+  const out=Math.abs(r)>=1e-6&&Math.abs(r)<1e9?r.toLocaleString('id-ID',{maximumFractionDigits:8}):r.toExponential(3);
+  $('#o2').innerHTML=`<div class="big">${fm(v,6)} ${PRE[a][0]}${jn} = ${out} ${PRE[b][0]}${jn}</div><p>${st===0?'Satuan sama.':st>0?`Turun ${st} anak tangga → dikali 10<sup>${st}</sup> = ${Math.pow(10,st).toLocaleString('id-ID')}.`:`Naik ${-st} anak tangga → dibagi 10<sup>${-st}</sup> = ${Math.pow(10,-st).toLocaleString('id-ID')}.`}</p>${jn==='L'?'<p class="muted">Ingat: 1 L = 1 dm³ dan 1 mL = 1 cm³.</p>':''}`;
+}
+['val','dari','ke'].forEach(id=>$('#'+id).addEventListener('input',d2)); fillU(); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Konversi panjang', gen(){ const u=['km','hm','dam','m','dm','cm','mm']; const a=rand(0,6), b=rand(0,6), v=rand(2,90)/ (rand(0,1)?1:10); const r=v*Math.pow(10,b-a); return {q:`${fm(v,1)} ${u[a]} = … ${u[b]}`, a:String(Math.round(r*1e6)/1e6), hint:'Turun ×10, naik ÷10 tiap anak tangga.', ex:`${b-a>=0?'× 10':'÷ 10'}<sup>${Math.abs(b-a)}</sup> → ${r.toLocaleString('id-ID',{maximumFractionDigits:6})} ${u[b]}`}; }},
+ {name:'Jangka sorong', gen(){ const su=rand(10,60), nn=rand(0,9); return {q:`Skala utama jangka sorong menunjukkan ${su} mm dan garis nonius ke-${nn} berimpit. Hasil pengukuran = … mm`, a:String(su+nn/10), hint:'Hasil = skala utama + nonius × 0,1 mm', ex:`${su} + ${nn} × 0,1 = ${fm(su+nn/10,1)} mm`}; }},
+ {name:'Besaran', gen(){ const B=pick([['massa','pokok'],['panjang','pokok'],['suhu','pokok'],['waktu','pokok'],['kuat arus','pokok'],['luas','turunan'],['volume','turunan'],['kecepatan','turunan'],['massa jenis','turunan'],['gaya','turunan'],['tekanan','turunan']]); return {q:`${B[0][0].toUpperCase()+B[0].slice(1)} termasuk besaran … (pokok/turunan)`, a:[B[1]], strict:true, hint:'Ada tujuh besaran pokok.', ex:`${B[0]} → besaran ${B[1]}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Langkah metode ilmiah setelah merumuskan masalah adalah …', o:['menyusun hipotesis','menarik kesimpulan','membuat laporan','mengumpulkan data'], a:0, ex:'Dugaan sementara.'},
+ {q:'Dina membandingkan ragi lama dan ragi baru pada dua adonan yang sama. Variabel bebasnya adalah …', o:['jenis ragi (lama/baru)','tinggi adonan','jumlah tepung','suhu ruangan'], a:0, ex:'Yang sengaja diubah.'},
+ {q:'Satuan SI untuk massa adalah …', o:['kilogram','gram','ons','pon'], a:0, ex:'kg.'},
+ {q:'Kelompok besaran pokok adalah …', o:['panjang, massa, waktu','luas, volume, massa','kecepatan, waktu, suhu','gaya, panjang, massa'], a:0, ex:'Ketiganya besaran pokok.'},
+ {q:'Satuan gaya dalam SI adalah newton, setara dengan …', o:['kg·m/s²','kg·m/s','kg/m³','m/s²'], a:0, ex:'F = m·a.'},
+ {q:'Alat yang paling tepat untuk mengukur diameter dalam tabung reaksi adalah …', o:['jangka sorong','mistar','mikrometer sekrup','neraca'], a:0, ex:'Rahang dalam jangka sorong.'},
+ {q:'Ketelitian mikrometer sekrup adalah …', o:['0,01 mm','0,1 mm','1 mm','0,5 mm'], a:0, ex:'Untuk benda sangat tipis.'},
+ {q:'2,5 km sama dengan …', o:['2.500 m','250 m','25.000 m','25 m'], a:0, ex:'× 1.000.'},
+ {q:'Alat ukur suhu adalah …', o:['termometer','barometer','higrometer','spidometer'], a:0, ex:'Suhu.'},
+ {q:'Hal berikut yang sesuai aturan keselamatan laboratorium adalah …', o:['membaca label bahan sebelum digunakan','mencicipi larutan','makan di laboratorium','membuang bahan kimia ke wastafel sembarangan'], a:0, ex:'Pahami bahaya bahan.'},
+ {q:'Skala utama jangka sorong 4,2 cm dan nonius ke-6 berimpit. Hasilnya = … cm', input:true, a:['4,26','4.26'], show:'4,26', ex:'4,2 + 0,06.'},
+ {q:'500 mL = … L', input:true, a:['0,5','0.5'], show:'0,5', ex:'÷ 1.000.'}
+],'v1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

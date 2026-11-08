@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nutrisi dan Sistem Pencernaan · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="biologi" data-store="ipa8" style="--acc:#e8590c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🍱</div>
+  <span class="chip">Modul 2 · Biologi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Nutrisi dan Sistem Pencernaan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan jenis zat makanan dan fungsinya.</li><li>Melakukan uji makanan (amilum, gula, protein, lemak).</li><li>Mengurutkan organ pencernaan beserta enzimnya.</li><li>Mengenali gangguan sistem pencernaan dan pencegahannya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🚇 Lab Perjalanan Makanan</button><button data-target="lab2">🧪 Lab Uji Makanan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Perjalanan sepotong nasi</span><p style="margin:.3em 0">Nasi yang kamu kunyah lama-lama terasa manis. Itu tanda enzim <b>amilase</b> di ludah mulai mengubah amilum menjadi gula. Perjalanan makanan dari mulut sampai anus panjangnya sekitar 9 meter dan memakan waktu 24–72 jam!</p></div>
+</div>
+<div class="card"><h2>1. Zat makanan</h2>
+  <table class="t"><tr><th>Zat</th><th>Fungsi</th><th>Uji</th><th>Hasil positif</th></tr><tr><td>Karbohidrat (amilum)</td><td>sumber energi utama</td><td>Lugol</td><td>biru kehitaman</td></tr><tr><td>Glukosa</td><td>energi cepat</td><td>Benedict (dipanaskan)</td><td>hijau → kuning → merah bata</td></tr><tr><td>Protein</td><td>pembangun, pengganti sel rusak</td><td>Biuret</td><td>ungu</td></tr><tr><td>Lemak</td><td>cadangan energi, pelarut vitamin A D E K</td><td>Sudan III / kertas</td><td>merah jingga / noda transparan</td></tr></table>
+  <p>Vitamin, mineral, dan air juga penting walau tidak menghasilkan energi. Kekurangan vitamin A → rabun senja; C → sariawan/skorbut; D → rakitis; zat besi → anemia; iodium → gondok.</p>
+</div>
+<div class="card"><h2>2. Organ dan enzim pencernaan</h2>
+  <table class="t"><tr><th>Organ</th><th>Proses</th></tr><tr><td>Mulut</td><td>mekanik (gigi) dan kimiawi: amilase ludah: amilum → maltosa</td></tr><tr><td>Kerongkongan</td><td>gerak peristaltik</td></tr><tr><td>Lambung</td><td>HCl (membunuh kuman, mengaktifkan pepsinogen), pepsin: protein → pepton, renin menggumpalkan susu</td></tr><tr><td>Usus halus</td><td>empedu mengemulsi lemak; enzim pankreas: amilase, tripsin, lipase; penyerapan sari makanan oleh vili</td></tr><tr><td>Usus besar</td><td>penyerapan air, pembusukan sisa oleh bakteri <i>E. coli</i> (menghasilkan vitamin K)</td></tr><tr><td>Anus</td><td>pengeluaran feses</td></tr></table>
+  <p>Gangguan: maag (gastritis), diare, konstipasi, apendisitis (radang usus buntu), tukak lambung. Cegah dengan makan teratur, berserat, bersih, dan cukup minum.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Ikuti Sepotong Roti Isi Telur</h2>
+  <p>Tekan "Lanjut" untuk memindahkan makanan ke organ berikutnya. Perhatikan zat apa yang sudah dicerna.</p>
+  <div class="row"><button class="btn" id="nx">Lanjut ▶</button><button class="btn ghost" id="rs">Ulangi</button></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 380"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Teteskan Reagen</h2>
+  <p>Pilih bahan makanan, lalu uji dengan empat reagen. Simpulkan kandungannya.</p>
+  <div class="row" id="fb"></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 230"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan nama organ, enzim, atau angka.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 2 · Rujukan: BS IPA VIII Merdeka Bab I; BS IPA VIII K13 Bab 5</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const ST=[['Mulut',[320,40],'Gigi mengunyah (pencernaan mekanik). Amilase ludah mulai mengubah amilum roti menjadi maltosa.',[0.2,0,0]],['Kerongkongan',[320,100],'Bolus didorong ke bawah oleh gerak peristaltik. Tidak ada pencernaan kimiawi.',[0.2,0,0]],['Lambung',[370,165],'HCl membunuh kuman. Pepsin memecah protein telur menjadi pepton. Makanan menjadi bubur (kimus).',[0.25,0.4,0]],['Usus halus (duodenum)',[320,215],'Empedu dari hati mengemulsi lemak. Enzim pankreas: amilase, tripsin, lipase bekerja.',[0.8,0.8,0.7]],['Usus halus (jejunum–ileum)',[320,260],'Sari makanan (glukosa, asam amino, asam lemak, gliserol) diserap oleh vili ke darah dan limfa.',[1,1,1]],['Usus besar',[320,300],'Air diserap kembali. Bakteri E. coli membusukkan sisa makanan dan menghasilkan vitamin K.',[1,1,1]],['Anus',[320,350],'Sisa makanan dikeluarkan sebagai feses.',[1,1,1]]];
+let st=0;
+function d1(){ const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:380,fill:'var(--card)'},g);
+  s('path',{d:'M320,40 L320,140 Q330,150 360,145 Q420,150 410,185 Q395,205 330,200',fill:'none',stroke:'#f4a6a6','stroke-width':22,'stroke-linecap':'round'},g);
+  s('path',{d:'M330,200 q-60,10 -40,25 t60,10 t-60,15 t60,12 t-40,12',fill:'none',stroke:'#f8c4a4','stroke-width':14,'stroke-linecap':'round'},g);
+  s('path',{d:'M250,330 L250,250 Q250,235 265,235 L380,235 Q395,235 395,250 L395,330 L330,330 L330,355',fill:'none',stroke:'#d9a87a','stroke-width':16,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.85},g);
+  s('ellipse',{cx:265,cy:165,rx:45,ry:24,fill:'#a0522d',opacity:.8},g); txt(g,265,170,'hati',{'font-size':12,fill:'#fff','font-weight':700});
+  s('ellipse',{cx:395,cy:205,rx:28,ry:9,fill:'#ffc078'},g); txt(g,450,205,'pankreas',{'font-size':11,fill:'var(--muted)'});
+  ST.forEach((x,i)=>txt(g,i===2?470:i===0?390:235,x[1][1]+4,(i<=st?'● ':'○ ')+x[0],{'font-size':12,'font-weight':i===st?800:500,'text-anchor':i===2||i===0?'start':'end',fill:i===st?'var(--acc)':'var(--muted)'}));
+  const [x,y]=ST[st][1]; s('circle',{cx:x,cy:y,r:12-st,fill:'#f59f00',stroke:'#fff','stroke-width':3},g);
+  const [a,p,l]=ST[st][3]; const bar=(yy,v,n,c)=>{ s('rect',{x:500,y:yy,width:120,height:14,rx:7,fill:'var(--line)'},g); s('rect',{x:500,y:yy,width:120*v,height:14,rx:7,fill:c},g); txt(g,500,yy-4,n+' '+Math.round(v*100)+'%',{'font-size':11,'text-anchor':'start'}); };
+  bar(270,a,'Karbohidrat dicerna','#f59f00'); bar(305,p,'Protein dicerna','#c2255c'); bar(340,l,'Lemak dicerna','#1971c2');
+  $('#o1').innerHTML=`<div class="big">${st+1}. ${ST[st][0]}</div><p>${ST[st][2]}</p>`; }
+$('#nx').onclick=()=>{ if(st<ST.length-1){ st++; d1(); } }; $('#rs').onclick=()=>{ st=0; d1(); }; d1();
+
+/* LAB 2 */
+const R=[['Lugol','#c9a227','#1b1f4b','amilum'],['Benedict','#4dabf7','#c0392b','glukosa'],['Biuret','#74c0fc','#7b2cbf','protein'],['Sudan III','#ffe8cc','#e8590c','lemak']];
+const FD=[['Nasi',[1,0,0,0]],['Putih telur',[0,0,1,0]],['Minyak goreng',[0,0,0,1]],['Jus anggur',[0,1,0,0]],['Susu',[0,1,1,1]],['Tempe',[1,0,1,1]],['Air',[0,0,0,0]],['Kacang tanah',[1,0,1,1]]];
+let fi=0, tested=[0,0,0,0];
+function d2(){ $('#fb').innerHTML=FD.map((f,i)=>`<button class="chipbtn ${i===fi?'on':''}" data-i="${i}">${f[0]}</button>`).join('');
+  $$('#fb button').forEach(b=>b.onclick=()=>{ fi=+b.dataset.i; tested=[0,0,0,0]; d2(); });
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:230,fill:'var(--card)'},g);
+  R.forEach((r,i)=>{ const x=100+i*150, pos=FD[fi][1][i]; const col=!tested[i]?'#f1f3f5':pos?r[2]:r[1];
+    s('path',{d:`M${x-20},30 v120 a20,20 0 0 0 40,0 v-120`,fill:'none',stroke:'var(--muted)','stroke-width':2},g); s('path',{d:`M${x-18},80 v70 a18,18 0 0 0 36,0 v-70z`,fill:col},g);
+    txt(g,x,200,r[0],{'font-size':13,'font-weight':800}); const b=s('g',{},g); s('rect',{x:x-34,y:206,width:68,height:20,rx:10,fill:'var(--acc)'},b); txt(b,x,220,tested[i]?(pos?'positif':'negatif'):'teteskan',{'font-size':11,fill:'#fff','font-weight':700}); b.style.cursor='pointer'; b.addEventListener('click',()=>{ tested[i]=1; d2(); }); });
+  const done=tested.every(x=>x); const has=R.filter((r,i)=>FD[fi][1][i]).map(r=>r[3]);
+  $('#o2').innerHTML=done?`<div class="big">${FD[fi][0]} mengandung: ${has.length?has.join(', '):'tidak ada zat yang diuji'}</div><p>Lugol → biru kehitaman (amilum); Benedict → merah bata (glukosa); Biuret → ungu (protein); Sudan III → merah jingga (lemak).</p>`:`<p>Klik tombol "teteskan" di bawah tiap tabung (${tested.filter(x=>x).length}/4 diuji).</p>`; }
+d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Enzim', gen(){ const X=[['amilase ludah','mulut'],['pepsin','lambung'],['renin','lambung'],['HCl','lambung'],['tripsin','usus halus'],['lipase pankreas','usus halus'],['empedu','usus halus']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} bekerja di …`, a:x[1], hint:'nama organ', ex:x[1]}; }},
+ {name:'Uji makanan', gen(){ const r=pick(R); return {q:`Reagen ${r[0]} digunakan untuk menguji …`, a:r[3], hint:'amilum / glukosa / protein / lemak', ex:r[3]}; }},
+ {name:'Kalori', gen(){ const k=rand(20,80), p=rand(5,30), l=rand(2,25); return {q:`Bekal berisi ${k} g karbohidrat, ${p} g protein, ${l} g lemak. Energinya = … kkal`, a:String(4*k+4*p+9*l), hint:'4·K + 4·P + 9·L', ex:`${4*k+4*p+9*l}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Reagen untuk menguji amilum adalah …', o:['Lugol','Benedict','Biuret','Sudan III'], a:0, ex:'Biru kehitaman.'},
+ {q:'Makanan yang ditetesi Biuret berubah ungu berarti mengandung …', o:['protein','amilum','glukosa','lemak'], a:0, ex:'Biuret.'},
+ {q:'Enzim di mulut yang mengubah amilum menjadi maltosa adalah …', o:['amilase (ptialin)','pepsin','tripsin','lipase'], a:0, ex:'Ludah.'},
+ {q:'Fungsi HCl di lambung adalah …', o:['membunuh kuman dan mengaktifkan pepsinogen','mencerna lemak','menyerap air','menghasilkan vitamin K'], a:0, ex:'Asam lambung.'},
+ {q:'Penyerapan sari makanan terutama terjadi di …', o:['usus halus','lambung','usus besar','kerongkongan'], a:0, ex:'Melalui vili.'},
+ {q:'Cairan empedu berfungsi …', o:['mengemulsi lemak','mencerna protein','mencerna amilum','menyerap air'], a:0, ex:'Dari hati.'},
+ {q:'Gerak meremas yang mendorong makanan di kerongkongan disebut …', o:['peristaltik','emulsi','difusi','osmosis'], a:0, ex:'Peristaltik.'},
+ {q:'Kekurangan vitamin C menyebabkan …', o:['sariawan (skorbut)','rabun senja','rakitis','anemia'], a:0, ex:'Vitamin C.'},
+ {q:'Bakteri E. coli di usus besar membantu menghasilkan vitamin …', o:['K','A','C','B1'], a:0, ex:'Vitamin K.'},
+ {q:'Radang pada umbai cacing disebut …', o:['apendisitis','gastritis','diare','konstipasi'], a:0, ex:'Usus buntu.'},
+ {q:'Enzim pepsin mengubah protein menjadi …', input:true, a:['pepton'], ex:'Pepton.'},
+ {q:'Satu gram lemak menghasilkan energi … kkal', input:true, a:['9'], ex:'9.'}
+],'w2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

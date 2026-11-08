@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bumi dan Tata Surya · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="bumi" data-store="ipa7" style="--acc:#364fc7">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🪐</div>
+  <span class="chip">Modul 10 · Bumi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Bumi dan Tata Surya</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan susunan tata surya dan karakteristik planet.</li><li>Menjelaskan akibat rotasi dan revolusi bumi.</li><li>Menjelaskan fase bulan, gerhana matahari, dan gerhana bulan.</li><li>Mendeskripsikan lapisan bumi dan atmosfer.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🪐 Lab Tata Surya</button><button data-target="lab2">🌒 Lab Fase Bulan & Gerhana</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Malam tanpa bulan</span><p style="margin:.3em 0">Nenek moyang kita menentukan musim tanam dengan mengamati rasi bintang Waluku (Orion). Mereka tahu bahwa langit bergerak teratur. Keteraturan itu terjadi karena bumi <b>berotasi</b> pada porosnya dan <b>berevolusi</b> mengelilingi matahari, sementara bulan mengelilingi bumi.</p></div>
+</div>
+<div class="card"><h2>1. Tata surya</h2>
+  <p>Matahari sebagai pusat; delapan planet: <b>Merkurius, Venus, Bumi, Mars</b> (planet dalam/terestrial, berbatu) dan <b>Jupiter, Saturnus, Uranus, Neptunus</b> (planet luar/raksasa gas). Benda langit lain: planet kerdil (Pluto), satelit, asteroid (sabuk antara Mars–Jupiter), komet, meteoroid.</p>
+  <p class="muted">Jembatan keledai: "<b>Me</b>reka <b>Ve</b>rsi <b>Bu</b>kan <b>Ma</b>sih <b>Ju</b>ga <b>Sa</b>ma <b>U</b>ntuk <b>Ne</b>gara."</p>
+</div>
+<div class="card"><h2>2. Gerak bumi dan bulan</h2>
+  <table class="t"><tr><th>Gerak</th><th>Periode</th><th>Akibat</th></tr><tr><td>Rotasi bumi</td><td>±24 jam</td><td>siang–malam, gerak semu harian matahari, perbedaan waktu (15° = 1 jam)</td></tr><tr><td>Revolusi bumi</td><td>±365¼ hari</td><td>pergantian musim, gerak semu tahunan matahari, rasi bintang berubah</td></tr><tr><td>Revolusi bulan</td><td>±29,5 hari (sinodis)</td><td>fase bulan, gerhana, pasang surut (bersama matahari)</td></tr></table>
+  <div class="grid2"><div class="def"><b>Gerhana matahari</b>: Matahari – Bulan – Bumi segaris; terjadi saat bulan baru.</div><div class="def"><b>Gerhana bulan</b>: Matahari – Bumi – Bulan segaris; terjadi saat bulan purnama.</div></div>
+</div>
+<div class="card"><h2>3. Lapisan bumi</h2>
+  <p>Kerak (litosfer) → mantel → inti luar (cair) → inti dalam (padat). Atmosfer dari bawah: <b>troposfer</b> (cuaca), <b>stratosfer</b> (lapisan ozon), mesosfer (meteor terbakar), termosfer, eksosfer.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Planetarium Mini</h2>
+  <p>Planet berputar mengelilingi matahari dengan kecepatan sebanding aslinya (jarak tidak berskala). Klik planet untuk melihat datanya.</p>
+  <div class="ctrl"><label>Kecepatan waktu <span class="v" id="sp-v"></span><input type="range" id="sp" min="0" max="40" value="10"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 400"></svg>
+  <div class="out" id="o1"><p>Klik sebuah planet.</p></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Geser Posisi Bulan</h2>
+  <p>Matahari di kiri. Geser posisi bulan pada orbitnya dan lihat penampakan bulan dari bumi.</p>
+  <div class="ctrl"><label>Hari ke- <span class="v" id="dy-v"></span><input type="range" id="dy" min="0" max="29.5" step="0.5" value="7.5"></label><label>Bulan tepat di bidang ekliptika? <select id="ek"><option value="1">ya (bisa gerhana)</option><option value="0">tidak (miring 5°)</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan nama planet atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 10 · Rujukan: BS IPA VII Merdeka Bab VII; BS IPA VII K13 Bab 11; KTSP IX</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const PL=[['Merkurius',0.24,'#adb5bd',5,'Planet terdekat dan terkecil; tanpa atmosfer berarti, suhu siang 430 °C dan malam −180 °C.','0','88 hari'],['Venus',0.62,'#f2c46d',8,'Planet terpanas (≈ 465 °C) karena efek rumah kaca CO₂; berotasi berlawanan arah. Dijuluki bintang fajar/senja.','0','225 hari'],['Bumi',1,'#4dabf7',8,'Satu-satunya planet yang diketahui berpenghuni; memiliki air cair dan atmosfer kaya O₂.','1','365¼ hari'],['Mars',1.88,'#e8590c',6,'Planet merah karena oksida besi; memiliki gunung tertinggi tata surya, Olympus Mons.','2','687 hari'],['Jupiter',11.9,'#d9a066',16,'Planet terbesar; Bintik Merah Raksasa adalah badai yang berumur ratusan tahun.','95','11,9 tahun'],['Saturnus',29.5,'#e9c46a',13,'Memiliki cincin paling indah dari es dan batuan; massa jenisnya lebih kecil daripada air.','146','29,5 tahun'],['Uranus',84,'#8ce99a',10,'Berotasi "berbaring" dengan sumbu miring ±98°.','28','84 tahun'],['Neptunus',165,'#4263eb',10,'Planet terjauh dengan angin tercepat (≈ 2.000 km/jam).','16','165 tahun']];
+let tday=0, last=performance.now(), pick1=-1;
+function d1(){ const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:400,fill:'#0b1026'},g);
+  for(let i=0;i<60;i++) s('circle',{cx:(i*137)%640,cy:(i*71)%400,r:i%5?0.8:1.4,fill:'#fff',opacity:.6},g);
+  s('circle',{cx:320,cy:200,r:22,fill:'#ffd43b'},g); s('circle',{cx:320,cy:200,r:30,fill:'#ffd43b',opacity:.2},g);
+  PL.forEach((p,i)=>{ const R=40+i*21.5, ry=R*0.55; s('ellipse',{cx:320,cy:200,rx:R*1.55,ry:ry*1.3,fill:'none',stroke:'#fff',opacity:.15},g);
+    const a=tday/365.25/p[1]*2*Math.PI+i; const x=320+R*1.55*Math.cos(a), y=200+ry*1.3*Math.sin(a);
+    if(p[0]==='Saturnus') s('ellipse',{cx:x,cy:y,rx:p[3]+7,ry:3,fill:'none',stroke:'#f1e3b0','stroke-width':2},g);
+    const c=s('circle',{cx:x,cy:y,r:p[3]/1.4+2,fill:p[2],stroke:i===pick1?'#fff':'none','stroke-width':2},g); c.style.cursor='pointer'; c.addEventListener('pointerdown',()=>{ pick1=i; info(); }); });
+  txt(g,20,24,`Hari ke-${fm(tday,0)} · Bumi sudah ${fm(tday/365.25,2)} kali mengelilingi matahari`,{'font-size':13,'text-anchor':'start',fill:'#fff'}); }
+function info(){ const p=PL[pick1]; $('#o1').innerHTML=`<div class="big">${p[0]}</div><p>Planet ke-${pick1+1} dari matahari · kala revolusi ${p[6]} · satelit alami: ${p[5]}</p><p>${p[4]}</p>`; }
+function loop(now){ const dt=(now-last)/1000; last=now; const sp=+$('#sp').value; $('#sp-v').textContent=sp+' hari/detik ×10'; if($('#lab1').classList.contains('on')){ tday+=dt*sp*10; d1(); } requestAnimationFrame(loop); }
+d1(); requestAnimationFrame(loop);
+
+/* LAB 2 */
+const PH=['Bulan baru','Sabit awal','Kuartal pertama','Cembung awal','Purnama','Cembung akhir','Kuartal ketiga','Sabit akhir'];
+function d2(){ const dy=+$('#dy').value, ek=+$('#ek').value; $('#dy-v').textContent=dy;
+  const th=dy/29.5*2*Math.PI; const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'#0b1026'},g);
+  for(let i=0;i<8;i++) s('line',{x1:0,y1:60+i*25,x2:40,y2:60+i*25,stroke:'#ffe066','stroke-width':2,opacity:.6},g); s('circle',{cx:-60,cy:150,r:100,fill:'#ffd43b'},g); txt(g,30,30,'☀️ cahaya matahari',{'font-size':12,'text-anchor':'start',fill:'#ffe066'});
+  const ex=260, ey=150; s('circle',{cx:ex,cy:ey,r:110,fill:'none',stroke:'#fff',opacity:.25,'stroke-dasharray':'4 4'},g);
+  s('circle',{cx:ex,cy:ey,r:26,fill:'#1c7ed6'},g); s('path',{d:`M${ex},${ey-26} A26,26 0 0 1 ${ex},${ey+26} Z`,fill:'#000',opacity:.5},g);
+  const mx=ex-110*Math.cos(th), my=ey-110*Math.sin(th)*-1; // hari 0: bulan di antara matahari-bumi (kiri)
+  s('circle',{cx:mx,cy:my,r:10,fill:'#dee2e6'},g); s('path',{d:`M${mx},${my-10} A10,10 0 0 1 ${mx},${my+10} Z`,fill:'#000',opacity:.6},g);
+  if(ek&&Math.abs(Math.sin(th))<0.08){ if(Math.cos(th)>0) s('path',{d:`M${mx},${my-10} L${ex},${ey-6} L${ex},${ey+6} L${mx},${my+10}Z`,fill:'#000',opacity:.6},g); else s('path',{d:`M${ex},${ey-26} L${mx},${my-12} L${mx},${my+12} L${ex},${ey+26}Z`,fill:'#000',opacity:.45},g); }
+  // tampak dari bumi
+  const vx=540, vy=150, r=60, ill=(1-Math.cos(th))/2; s('circle',{cx:vx,cy:vy,r,fill:'#212529',stroke:'#495057'},g);
+  const k=Math.cos(th), waxing=Math.sin(th)>0.001, rx=Math.abs(k)*r;
+  const s1=waxing?1:0, s2=ill<0.5?(waxing?0:1):(waxing?1:0);
+  const d=`M${vx},${vy-r} A${r},${r} 0 0 ${s1} ${vx},${vy+r} A${rx},${r} 0 0 ${s2} ${vx},${vy-r}Z`;
+  let eclipse=''; if(ek&&Math.abs(Math.sin(th))<0.08) eclipse=Math.cos(th)>0?'sun':'moon';
+  s('path',{d,fill:eclipse==='moon'?'#c0392b':'#f1f3f5'},g); txt(g,vx,vy+r+24,'tampak dari bumi',{'font-size':12,fill:'#fff'});
+  const idx=Math.round(dy/29.5*8)%8;
+  $('#o2').innerHTML=`<div class="big">${PH[idx]} · ${fm(ill*100,0)}% terang</div><p>${eclipse==='sun'?'🌑 <b>Gerhana matahari!</b> Bulan berada di antara matahari dan bumi; bayangan bulan jatuh ke bumi.':eclipse==='moon'?'🔴 <b>Gerhana bulan!</b> Bumi berada di antara matahari dan bulan; bulan masuk bayangan bumi dan tampak kemerahan.':'Tidak terjadi gerhana. Gerhana tidak terjadi setiap bulan baru/purnama karena orbit bulan miring sekitar 5° terhadap ekliptika.'}</p>`; }
+['dy','ek'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Urutan planet', gen(){ const i=rand(0,7); return {q:`Planet ke-${i+1} dari matahari adalah …`, a:PL[i][0].toLowerCase(), show:PL[i][0], hint:'Me-Ve-Bu-Ma-Ju-Sa-U-Ne', ex:PL.map(p=>p[0]).join(', ')}; }},
+ {name:'Perbedaan waktu', gen(){ const d=pick([15,30,45,60,75,90,105,120]); return {q:`Dua kota berbeda ${d}° bujur. Selisih waktunya = … jam`, a:String(d/15), hint:'15° = 1 jam', ex:`${d}/15 = ${d/15}`}; }},
+ {name:'Rotasi/revolusi', gen(){ const X=[['siang dan malam','rotasi'],['pergantian musim','revolusi'],['perbedaan waktu antartempat','rotasi'],['gerak semu harian matahari','rotasi'],['perubahan rasi bintang yang tampak','revolusi'],['gerak semu tahunan matahari','revolusi']]; const x=pick(X); return {q:`${x[0][0].toUpperCase()+x[0].slice(1)} merupakan akibat … bumi`, a:x[1], hint:'rotasi atau revolusi', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Planet terbesar dalam tata surya adalah …', o:['Jupiter','Saturnus','Neptunus','Bumi'], a:0, ex:'Raksasa gas.'},
+ {q:'Planet yang dijuluki planet merah adalah …', o:['Mars','Venus','Merkurius','Jupiter'], a:0, ex:'Oksida besi.'},
+ {q:'Sabuk asteroid terletak di antara orbit …', o:['Mars dan Jupiter','Bumi dan Mars','Jupiter dan Saturnus','Venus dan Bumi'], a:0, ex:'Sabuk utama.'},
+ {q:'Pergantian siang dan malam disebabkan oleh …', o:['rotasi bumi','revolusi bumi','revolusi bulan','rotasi matahari'], a:0, ex:'Bumi berputar pada porosnya.'},
+ {q:'Gerhana bulan terjadi bila posisi …', o:['Matahari – Bumi – Bulan segaris','Matahari – Bulan – Bumi segaris','Bulan – Matahari – Bumi segaris','ketiganya membentuk sudut siku'], a:0, ex:'Bulan masuk bayangan bumi.'},
+ {q:'Gerhana matahari hanya mungkin terjadi pada fase …', o:['bulan baru','purnama','kuartal pertama','kuartal ketiga'], a:0, ex:'Bulan di antara matahari dan bumi.'},
+ {q:'Lapisan atmosfer tempat terjadinya cuaca adalah …', o:['troposfer','stratosfer','mesosfer','termosfer'], a:0, ex:'Lapisan terbawah.'},
+ {q:'Lapisan ozon terdapat pada …', o:['stratosfer','troposfer','eksosfer','mesosfer'], a:0, ex:'Melindungi dari UV.'},
+ {q:'Planet terpanas di tata surya adalah …', o:['Venus','Merkurius','Mars','Jupiter'], a:0, ex:'Efek rumah kaca kuat.'},
+ {q:'Lapisan bumi yang berwujud cair adalah …', o:['inti luar','inti dalam','kerak','litosfer'], a:0, ex:'Inti luar cair.'},
+ {q:'Kota A di 105° BT dan kota B di 135° BT. Jika di A pukul 07.00, di B pukul … (jawab angka jam)', input:true, a:['9','09','09.00','9.00'], show:'09.00', ex:'30° = 2 jam lebih awal di timur.'},
+ {q:'Satu kali revolusi bulan (sinodis) berlangsung sekitar … hari', input:true, a:['29,5','29.5','29','30'], show:'29,5', ex:'Satu bulan kamariah.'}
+],'v10');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

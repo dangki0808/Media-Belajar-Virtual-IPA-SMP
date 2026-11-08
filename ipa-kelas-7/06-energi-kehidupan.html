@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Energi dalam Sistem Kehidupan · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="energi" data-store="ipa7" style="--acc:#f08c00">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">⚡</div>
+  <span class="chip">Modul 6 · Energi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Energi dalam Sistem Kehidupan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Mengenali bentuk-bentuk energi dan perubahannya.</li><li>Menghitung energi kinetik dan energi potensial sederhana.</li><li>Menjelaskan fotosintesis dan respirasi sebagai proses energi.</li><li>Menghitung kebutuhan dan kandungan energi makanan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🌿 Lab Fotosintesis Hydrilla</button><button data-target="lab2">🍽️ Lab Kalori Piring Makanku</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Dari nasi menjadi lari</span><p style="margin:.3em 0">Sepiring nasi yang kamu makan pagi ini menyimpan energi kimia. Energi itu awalnya berasal dari cahaya matahari yang ditangkap daun padi melalui <b>fotosintesis</b>. Di dalam sel tubuhmu, energi makanan dilepas melalui <b>respirasi</b> dan dipakai untuk berlari, berpikir, dan menjaga suhu tubuh.</p></div>
+</div>
+<div class="card"><h2>1. Bentuk dan perubahan energi</h2>
+  <p>Energi adalah kemampuan melakukan usaha (satuan joule, J). <b>Hukum kekekalan energi</b>: energi tidak dapat diciptakan atau dimusnahkan, hanya berubah bentuk.</p>
+  <table class="t"><tr><th>Bentuk</th><th>Contoh</th></tr><tr><td>Kinetik (gerak)</td><td>Ek = ½ m v²; angin, air mengalir</td></tr><tr><td>Potensial (kedudukan)</td><td>Ep = m g h; air di bendungan</td></tr><tr><td>Kimia</td><td>makanan, baterai, bensin</td></tr><tr><td>Listrik, cahaya, panas, bunyi</td><td>lampu, matahari, kompor, gitar</td></tr></table>
+</div>
+<div class="card"><h2>2. Energi pada makhluk hidup</h2>
+  <div class="grid2"><div class="def"><b>Fotosintesis</b> (kloroplas)<br>6CO₂ + 6H₂O + cahaya → C₆H₁₂O₆ + 6O₂<br>Energi cahaya → energi kimia.</div><div class="def"><b>Respirasi</b> (mitokondria)<br>C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energi (ATP)<br>Energi kimia → energi siap pakai.</div></div>
+  <p><b>Energi makanan</b>: karbohidrat 4 kkal/g, protein 4 kkal/g, lemak 9 kkal/g. 1 kkal ≈ 4,2 kJ. Kebutuhan remaja sekitar 2.000–2.400 kkal per hari.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Gelembung Oksigen dari Hydrilla</h2>
+  <p>Ingenhousz membuktikan fotosintesis menghasilkan O₂. Atur jarak lampu, kadar CO₂ (NaHCO₃), dan suhu air, lalu hitung gelembung per menit.</p>
+  <div class="ctrl"><label>Jarak lampu <span class="v" id="d-v"></span><input type="range" id="d" min="10" max="100" step="5" value="30"></label><label>NaHCO₃ <span class="v" id="co-v"></span><input type="range" id="co" min="0" max="3" step="0.5" value="1"></label><label>Suhu air <span class="v" id="tw-v"></span><input type="range" id="tw" min="5" max="50" step="1" value="27"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Hitung Energi Sarapanmu</h2>
+  <p>Klik makanan untuk menambahkannya ke piring (klik lagi untuk menambah porsi). Bandingkan dengan kebutuhan sarapan ±25% kebutuhan harian (≈ 550 kkal).</p>
+  <div class="row" id="fd"></div>
+  <div class="row"><button class="btn ghost" id="clr">Kosongkan piring</button></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 210"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 6 · Rujukan: BS IPA VII K13 Bab 6; BS IPA VIII Merdeka Bab III</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let bub=[], tick=0;
+function rate(){ const d=+$('#d').value, co=+$('#co').value, tw=+$('#tw').value;
+  const L=Math.min(1,(30/d)**2*1.0), C=0.25+0.75*Math.min(1,co/2), T=Math.max(0,1-((tw-30)/16)**2);
+  return Math.round(40*Math.min(L,C)*T); }
+function d1(){ $('#d-v').textContent=$('#d').value+' cm'; $('#co-v').textContent=$('#co').value+' g'; $('#tw-v').textContent=$('#tw').value+' °C';
+  const r=rate(), tw=+$('#tw').value, d=+$('#d').value;
+  $('#o1').innerHTML=`<div class="big">${r} gelembung/menit</div><p>${r===0?'Hampir tidak ada gelembung. ':''}Faktor yang memengaruhi laju fotosintesis: intensitas cahaya (lampu makin dekat makin terang), ketersediaan CO₂, dan suhu (enzim bekerja optimum sekitar 25–35 °C; ${tw>42?'suhu terlalu tinggi merusak enzim':tw<12?'suhu terlalu rendah memperlambat enzim':'suhu cukup baik'}).</p>`;
+  draw1(); }
+function draw1(){ const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const d=+$('#d').value, lx=40+(d-10)*2.4; s('circle',{cx:lx,cy:120,r:22,fill:'#ffe066',stroke:'#f59f00','stroke-width':3},g);
+  for(let k=0;k<6;k++){ const a=-0.5+k*0.2; s('line',{x1:lx+26*Math.cos(a),y1:120+26*Math.sin(a),x2:lx+(46-d*0.15)*Math.cos(a),y2:120+(46-d*0.15)*Math.sin(a),stroke:'#f59f00','stroke-width':2,opacity:Math.max(.2,1-d/110)},g); }
+  txt(g,lx,165,d+' cm',{'font-size':12,fill:'var(--muted)'});
+  s('rect',{x:330,y:70,width:220,height:210,rx:6,fill:'#d0ebff',stroke:'#4dabf7','stroke-width':2,opacity:.9},g);
+  s('path',{d:'M410,265 L440,140 L470,265 Z',fill:'none',stroke:'#adb5bd','stroke-width':2},g);
+  s('rect',{x:432,y:60,width:16,height:85,rx:8,fill:'#e7f5ff',stroke:'#4dabf7','stroke-width':2},g);
+  for(let k=0;k<8;k++) s('path',{d:`M${430+k*3},265 q${-20+k*5},-40 ${-6+k*2},-90`,fill:'none',stroke:'#2b8a3e','stroke-width':3},g);
+  bub.forEach(b=>s('circle',{cx:b.x,cy:b.y,r:3.5,fill:'#fff',stroke:'#1c7ed6'},g)); txt(g,440,40,'O₂ terkumpul di tabung',{'font-size':12,fill:'var(--muted)'}); }
+['d','co','tw'].forEach(i=>$('#'+i).oninput=d1); d1();
+setInterval(()=>{ if(!$('#lab1').classList.contains('on')) return; tick++; const r=rate(); if(r>0&&tick%Math.max(1,Math.round(60/r))===0) bub.push({x:440+rand(-6,6),y:175}); bub.forEach(b=>b.y-=3); bub=bub.filter(b=>b.y>70); draw1(); },60);
+
+/* LAB 2 */
+const FD=[['Nasi putih (100 g)',40,4,0.5],['Roti tawar (2 lembar)',26,5,2],['Telur rebus',0.6,6.5,5],['Tempe goreng',8,10,12],['Susu (1 gelas)',12,8,8],['Pisang',23,1,0.3],['Gorengan',20,3,10],['Mi instan',54,8,16]];
+let cnt=FD.map(()=>0);
+function d2(){ $('#fd').innerHTML=FD.map((f,i)=>`<button class="chipbtn ${cnt[i]?'on':''}" data-i="${i}">${f[0]}${cnt[i]?' ×'+cnt[i]:''}</button>`).join('');
+  let K=0,P=0,L=0; FD.forEach((f,i)=>{K+=f[1]*cnt[i];P+=f[2]*cnt[i];L+=f[3]*cnt[i];}); const eK=K*4,eP=P*4,eL=L*9,E=eK+eP+eL;
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:210,fill:'var(--card)'},g);
+  const W=560, sc=W/Math.max(800,E); let x=40; [[eK,'#f59f00','Karbohidrat'],[eP,'#c2255c','Protein'],[eL,'#1971c2','Lemak']].forEach(([e,c,n])=>{ if(e>0){ s('rect',{x,y:60,width:e*sc,height:50,fill:c},g); if(e*sc>60) txt(g,x+e*sc/2,90,fm(e,0),{'font-size':12,'font-weight':800,fill:'#fff'}); } x+=e*sc; });
+  const tx=40+550*sc; s('line',{x1:tx,y1:45,x2:tx,y2:125,stroke:'var(--ink)','stroke-width':2,'stroke-dasharray':'5 4'},g); txt(g,tx,38,'target 550 kkal',{'font-size':12,'font-weight':700});
+  [['#f59f00','Karbohidrat 4 kkal/g'],['#c2255c','Protein 4 kkal/g'],['#1971c2','Lemak 9 kkal/g']].forEach(([c,n],i)=>{ s('rect',{x:40+i*200,y:150,width:14,height:14,fill:c},g); txt(g,60+i*200,162,n,{'font-size':12,'text-anchor':'start'}); });
+  $('#o2').innerHTML=`<div class="big">${fm(E,0)} kkal ≈ ${fm(E*4.2,0)} kJ</div><p>Karbohidrat ${fm(K,1)} g × 4 = ${fm(eK,0)} kkal · Protein ${fm(P,1)} g × 4 = ${fm(eP,0)} kkal · Lemak ${fm(L,1)} g × 9 = ${fm(eL,0)} kkal.</p><p class="muted">${E===0?'Piring masih kosong.':E<400?'Sarapan masih kurang energi.':E<=700?'Energi sarapan cukup. Pastikan ada sayur atau buah.':'Energi berlebih; kurangi makanan berlemak.'}</p>`;
+  $$('#fd button').forEach(b=>b.onclick=()=>{ cnt[+b.dataset.i]++; d2(); }); }
+$('#clr').onclick=()=>{ cnt=FD.map(()=>0); d2(); }; cnt[0]=1; cnt[2]=1; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Energi kinetik', gen(){ const m=pick([2,4,10,50,60]), v=rand(2,10); return {q:`Benda ${m} kg bergerak ${v} m/s. Energi kinetiknya = … J`, a:String(0.5*m*v*v), hint:'Ek = ½ m v²', ex:`½ × ${m} × ${v}² = ${0.5*m*v*v}`}; }},
+ {name:'Energi potensial', gen(){ const m=rand(1,20), h=rand(2,15); return {q:`Buah ${m} kg berada ${h} m di atas tanah (g = 10 m/s²). Ep = … J`, a:String(m*10*h), hint:'Ep = m g h', ex:`${m} × 10 × ${h} = ${m*10*h}`}; }},
+ {name:'Energi makanan', gen(){ const k=rand(10,60), p=rand(2,20), l=rand(1,20); return {q:`Makanan mengandung ${k} g karbohidrat, ${p} g protein, dan ${l} g lemak. Energinya = … kkal`, a:String(4*k+4*p+9*l), hint:'4·K + 4·P + 9·L', ex:`4×${k} + 4×${p} + 9×${l} = ${4*k+4*p+9*l}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bunyi hukum kekekalan energi adalah …', o:['energi tidak dapat diciptakan atau dimusnahkan, hanya berubah bentuk','energi selalu bertambah','energi dapat dimusnahkan oleh gesekan','energi hanya berasal dari makanan'], a:0, ex:'Energi berubah bentuk.'},
+ {q:'Perubahan energi pada lampu senter: …', o:['kimia → listrik → cahaya','listrik → kimia → cahaya','cahaya → listrik → kimia','gerak → listrik → cahaya'], a:0, ex:'Baterai berisi energi kimia.'},
+ {q:'Perubahan energi pada kincir angin pembangkit listrik: …', o:['kinetik → listrik','listrik → kinetik','kimia → listrik','panas → listrik'], a:0, ex:'Gerak angin memutar turbin.'},
+ {q:'Fotosintesis berlangsung di organel …', o:['kloroplas','mitokondria','ribosom','vakuola'], a:0, ex:'Mengandung klorofil.'},
+ {q:'Respirasi aerob di dalam sel terjadi di …', o:['mitokondria','kloroplas','inti sel','dinding sel'], a:0, ex:'Penghasil ATP.'},
+ {q:'Gas yang dihasilkan pada fotosintesis adalah …', o:['oksigen','karbon dioksida','nitrogen','uap air saja'], a:0, ex:'O₂, dibuktikan Ingenhousz.'},
+ {q:'Zat makanan yang menghasilkan energi paling besar per gram adalah …', o:['lemak','karbohidrat','protein','vitamin'], a:0, ex:'9 kkal/g.'},
+ {q:'Benda yang berada di ketinggian memiliki energi …', o:['potensial','kinetik','kimia','bunyi'], a:0, ex:'Ep = mgh.'},
+ {q:'Faktor berikut memengaruhi laju fotosintesis, kecuali …', o:['warna pot tanaman','intensitas cahaya','kadar CO₂','suhu'], a:0, ex:'Warna pot tidak berpengaruh.'},
+ {q:'Sumber energi utama bagi kehidupan di bumi adalah …', o:['matahari','bumi','bulan','batu bara'], a:0, ex:'Ditangkap tumbuhan.'},
+ {q:'Bola 2 kg bergerak 3 m/s. Energi kinetiknya = … J', input:true, a:['9'], ex:'½ × 2 × 9.'},
+ {q:'10 g lemak menghasilkan energi … kkal', input:true, a:['90'], ex:'10 × 9.'}
+],'v6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

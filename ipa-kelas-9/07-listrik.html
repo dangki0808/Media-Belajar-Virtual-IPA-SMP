@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listrik Statis dan Dinamis · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="fisika" data-store="ipa9" style="--acc:#f08c00">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">💡</div>
+  <span class="chip">Modul 7 · Fisika <span class="lvl lanjut">LANJUT</span></span>
+  <h1>Listrik Statis dan Dinamis</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan muatan listrik, induksi, dan gaya Coulomb.</li><li>Menerapkan hukum Ohm V = I·R.</li><li>Menghitung hambatan pengganti rangkaian seri dan paralel.</li><li>Menghitung energi listrik dan biaya pemakaian di rumah.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">💡 Lab Rangkaian Lampu</button><button data-target="lab2">🧾 Lab Tagihan Listrik</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Tagihan listrik membengkak</span><p style="margin:.3em 0">Bulan ini tagihan listrik keluarga Rina naik hampir dua kali lipat. Ternyata AC menyala 12 jam sehari dan pemanas air jarang dimatikan. Dengan memahami <b>daya</b> dan <b>energi listrik</b>, kita bisa menghitung biaya tiap alat dan berhemat.</p></div>
+</div>
+<div class="card"><h2>1. Listrik statis</h2>
+  <p>Benda bermuatan positif (kekurangan elektron) atau negatif (kelebihan elektron) karena digosok. Muatan sejenis tolak-menolak, tak sejenis tarik-menarik. Penggaris plastik digosok rambut menjadi negatif; kaca digosok kain sutra menjadi positif. Alat pendeteksi muatan: <b>elektroskop</b>. Petir = pelepasan muatan antara awan dan bumi; lindungi bangunan dengan penangkal petir.</p>
+  <div class="eqn">Hukum Coulomb: F = k · q₁ · q₂ / r²  (k = 9 × 10⁹ N·m²/C²)</div>
+</div>
+<div class="card"><h2>2. Listrik dinamis</h2>
+  <div class="grid2"><div class="def"><b>Kuat arus</b> I = Q / t (ampere)<br><b>Hukum Ohm</b> V = I · R</div><div class="def"><b>Seri</b>: R<sub>s</sub> = R₁ + R₂ + …, arus sama.<br><b>Paralel</b>: 1/R<sub>p</sub> = 1/R₁ + 1/R₂ + …, tegangan sama.</div></div>
+  <div class="eqn">Daya P = V · I ; Energi W = P · t ; biaya = kWh × tarif</div>
+  <p>Hemat listrik: matikan alat yang tidak dipakai, pakai lampu LED, atur suhu AC 24–26 °C. Keselamatan: jangan menumpuk steker, gunakan sekring/MCB.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Seri atau Paralel?</h2>
+  <p>Tiga lampu (hambatan dapat diatur) dihubungkan ke baterai. Klik lampu untuk melepasnya dari rangkaian.</p>
+  <div class="ctrl"><label>Rangkaian <select id="md"><option value="s">seri</option><option value="p">paralel</option></select></label><label>Tegangan <span class="v" id="V-v"></span><input type="range" id="V" min="1.5" max="12" step="1.5" value="6"></label><label>R₁ <span class="v" id="r1-v"></span><input type="range" id="r1" min="1" max="12" value="4"></label><label>R₂ <span class="v" id="r2-v"></span><input type="range" id="r2" min="1" max="12" value="6"></label><label>R₃ <span class="v" id="r3-v"></span><input type="range" id="r3" min="1" max="12" value="12"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Hitung Biaya Listrik Sebulan</h2>
+  <p>Atur jumlah jam pemakaian setiap alat per hari. Tarif contoh Rp1.444,70 per kWh (30 hari).</p>
+  <div id="ap" class="grid2" style="gap:0 18px"></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 220"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka saja (gunakan desimal bila perlu).</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 7 · Rujukan: BS IPA IX Merdeka Bab V; BS IPA IX K13 Bab 4–5</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let on=[1,1,1];
+function d1(){ const md=$('#md').value, V=+$('#V').value, R=[+$('#r1').value,+$('#r2').value,+$('#r3').value]; $('#V-v').textContent=fm(V,1)+' V'; R.forEach((r,i)=>$('#r'+(i+1)+'-v').textContent=r+' Ω');
+  let I=[0,0,0], Rt=0, It=0;
+  if(md==='s'){ if(on.every(x=>x)){ Rt=R[0]+R[1]+R[2]; It=V/Rt; I=[It,It,It]; } }
+  else { let inv=0; R.forEach((r,i)=>{ if(on[i]){ inv+=1/r; I[i]=V/r; } }); Rt=inv?1/inv:Infinity; It=I.reduce((a,b)=>a+b,0); }
+  const P=I.map((i,k)=>i*i*R[k]);
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const W='#495057'; const wire=(d)=>s('path',{d,fill:'none',stroke:W,'stroke-width':3},g);
+  s('rect',{x:40,y:120,width:30,height:60,rx:4,fill:'#ffd43b',stroke:W,'stroke-width':2},g); txt(g,55,200,fm(V,1)+' V',{'font-size':12,'font-weight':800}); txt(g,55,115,'+',{'font-size':16,'font-weight':900});
+  const lamp=(x,y,i)=>{ const br=Math.min(1,P[i]/3); if(on[i]) s('circle',{cx:x,cy:y,r:24+br*16,fill:'#ffe066',opacity:br*0.6},g); const c=s('circle',{cx:x,cy:y,r:18,fill:on[i]?`rgba(255,212,59,${0.2+br*0.8})`:'#e9ecef',stroke:W,'stroke-width':2},g); s('path',{d:`M${x-8},${y+4} q8,-14 16,0`,fill:'none',stroke:W,'stroke-width':1.5},g); c.style.cursor='pointer'; c.addEventListener('click',()=>{ on[i]=1-on[i]; d1(); }); txt(g,x,y+38,`R${i+1}=${R[i]}Ω`,{'font-size':11}); txt(g,x,y+52,on[i]?fm(I[i],2)+' A':'dilepas',{'font-size':11,fill:'var(--acc)','font-weight':800}); if(!on[i]) txt(g,x,y+5,'✖',{'font-size':18,fill:'#e03131'}); };
+  if(md==='s'){ wire('M55,120 V40 H600 V260 H55 V180'); [200,350,500].forEach((x,i)=>{ s('rect',{x:x-24,y:28,width:48,height:24,fill:'var(--card)'},g); lamp(x,40,i); if(!on[i]) s('rect',{x:x-26,y:30,width:52,height:20,fill:'var(--card)'},g); }); }
+  else { wire('M55,120 V40 H560 M55,180 V260 H560'); [180,350,520].forEach((x,i)=>{ wire(`M${x},40 V${150-22} M${x},${150+22} V260`); lamp(x,150,i); }); }
+  if(It>0){ const t=performance.now(); }
+  $('#o1').innerHTML=`<div class="big">R total = ${isFinite(Rt)&&Rt>0?fm(Rt,2)+' Ω':'∞ (rangkaian terbuka)'} · I total = ${fm(It,2)} A</div><p>${md==='s'?(on.every(x=>x)?`Seri: R = ${R.join(' + ')} = ${Rt} Ω; arus sama di semua lampu, I = V/R = ${fm(V,1)}/${Rt} = ${fm(It,2)} A.`:'Seri: satu lampu dilepas → rangkaian terputus, semua lampu padam!'):`Paralel: setiap lampu mendapat tegangan ${fm(V,1)} V; arus cabang I = V/R. Melepas satu lampu tidak memadamkan lampu lain, seperti instalasi listrik di rumah.`}</p><p class="muted">Kecerahan lampu sebanding dengan daya P = I²R.</p>`; }
+['md','V','r1','r2','r3'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+const AP=[['💡 Lampu LED (5 buah)',50,12],['📺 Televisi',100,5],['❄️ AC 1/2 PK',400,8],['🧊 Kulkas',100,24],['🍚 Rice cooker',350,4],['🌀 Kipas angin',45,6],['📱 Pengisi daya HP',10,4],['🚿 Pemanas air',1000,1]];
+const TARIF=1444.70;
+$('#ap').innerHTML=AP.map((a,i)=>`<div class="ctrl" style="margin:4px 0"><label style="flex:2 1 220px">${a[0]} · ${a[1]} W <span class="v" id="h${i}-v"></span><input type="range" id="h${i}" min="0" max="24" value="${a[2]}"></label></div>`).join('');
+function d2(){ const E=AP.map((a,i)=>{ const h=+$('#h'+i).value; $('#h'+i+'-v').textContent=h+' jam/hari'; return a[1]*h*30/1000; }); const tot=E.reduce((a,b)=>a+b,0);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:220,fill:'var(--card)'},g); const mx=Math.max(...E,1);
+  E.forEach((e,i)=>{ const x=30+i*76; const h=e/mx*140; s('rect',{x,y:170-h,width:56,height:h,rx:6,fill:'var(--acc)',opacity:.85},g); txt(g,x+28,165-h,fm(e,0),{'font-size':11}); txt(g,x+28,192,AP[i][0].split(' ')[0],{'font-size':20}); });
+  txt(g,620,24,'kWh per bulan',{'font-size':12,'text-anchor':'end',fill:'var(--muted)'});
+  const big=AP[E.indexOf(Math.max(...E))][0];
+  $('#o2').innerHTML=`<div class="big">${fm(tot,1)} kWh/bulan ≈ Rp${Math.round(tot*TARIF).toLocaleString('id-ID')}</div><p>W = P × t: misalnya AC 400 W × ${$('#h2').value} jam × 30 hari = ${fm(E[2],1)} kWh. Pemakai energi terbesar: <b>${big}</b>. Kurangi jam pemakaiannya untuk berhemat.</p>`; }
+AP.forEach((a,i)=>$('#h'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Hukum Ohm', gen(){ const R=rand(2,30), I=pick([0.5,1,1.5,2,2.5,3]); const k=rand(0,2); return k===0?{q:`Hambatan ${R} Ω dialiri arus ${fm(I,1)} A. Tegangannya = … V`, a:String(R*I), hint:'V = I R', ex:`${fm(I,1)} × ${R} = ${R*I}`}:k===1?{q:`Tegangan ${R*I} V pada hambatan ${R} Ω. Kuat arusnya = … A`, a:String(I), hint:'I = V / R', ex:`${R*I}/${R} = ${I}`}:{q:`Tegangan ${R*I} V menghasilkan arus ${fm(I,1)} A. Hambatannya = … Ω`, a:String(R), hint:'R = V / I', ex:`${R*I}/${fm(I,1)} = ${R}`}; }},
+ {name:'Seri/paralel', gen(){ const P=[[2,2],[3,6],[4,4],[6,12],[10,10],[12,4],[20,5]]; const [a,b]=pick(P); return rand(0,1)?{q:`Hambatan ${a} Ω dan ${b} Ω disusun seri. R pengganti = … Ω`, a:String(a+b), hint:'Rs = R₁ + R₂', ex:`${a+b}`}:{q:`Hambatan ${a} Ω dan ${b} Ω disusun paralel. R pengganti = … Ω`, a:String(a*b/(a+b)), hint:'Rp = R₁R₂/(R₁+R₂)', ex:`${a}×${b}/${a+b} = ${a*b/(a+b)}`}; }},
+ {name:'Energi & biaya', gen(){ const P=pick([50,100,200,250,400,500]), h=rand(2,10), d=30; const kwh=P*h*d/1000; return {q:`Alat ${P} W menyala ${h} jam/hari selama ${d} hari. Energinya = … kWh`, a:String(kwh), hint:'W = P × t (dalam kW dan jam)', ex:`${P} × ${h} × ${d} / 1000 = ${kwh}`}; }},
+ {name:'Muatan', gen(){ const I=pick([0.5,1,2,3,4]), t=pick([10,20,30,60]); return {q:`Arus ${fm(I,1)} A mengalir selama ${t} s. Muatan yang berpindah = … C`, a:String(I*t), hint:'Q = I t', ex:`${fm(I,1)} × ${t} = ${I*t}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Penggaris plastik yang digosok rambut menjadi bermuatan negatif karena …', o:['menerima elektron dari rambut','melepas elektron','menerima proton','melepas proton'], a:0, ex:'Elektron berpindah.'},
+ {q:'Dua muatan sejenis akan …', o:['tolak-menolak','tarik-menarik','diam','saling meniadakan'], a:0, ex:'Hukum Coulomb.'},
+ {q:'Jika jarak dua muatan dijadikan dua kali, gaya Coulombnya menjadi …', o:['seperempat','setengah','dua kali','empat kali'], a:0, ex:'Berbanding terbalik r².'},
+ {q:'Alat untuk mendeteksi muatan listrik adalah …', o:['elektroskop','amperemeter','voltmeter','ohmmeter'], a:0, ex:'Elektroskop.'},
+ {q:'Amperemeter dipasang dalam rangkaian secara …', o:['seri','paralel','silang','bebas'], a:0, ex:'Arus sama.'},
+ {q:'Pada rangkaian paralel, besaran yang sama di setiap cabang adalah …', o:['tegangan','arus','hambatan','daya'], a:0, ex:'V sama.'},
+ {q:'Lampu di rumah dipasang paralel agar …', o:['jika satu padam, yang lain tetap menyala','hemat kabel','arus kecil','tegangan bertambah'], a:0, ex:'Independen.'},
+ {q:'Satuan energi listrik yang dipakai PLN adalah …', o:['kWh','watt','volt','ampere'], a:0, ex:'Kilowatt-jam.'},
+ {q:'Hambatan 3 Ω dan 6 Ω disusun paralel. Hambatan penggantinya …', o:['2 Ω','9 Ω','4,5 Ω','18 Ω'], a:0, ex:'18/9.'},
+ {q:'Penangkal petir dibuat dari logam dan dihubungkan ke tanah agar …', o:['muatan listrik disalurkan ke bumi','petir tertarik ke rumah lain','muatan tersimpan','tegangan naik'], a:0, ex:'Grounding.'},
+ {q:'Hambatan 20 Ω dialiri arus 0,5 A. Tegangannya = … V', input:true, a:['10'], ex:'0,5×20.'},
+ {q:'Lampu 100 W menyala 10 jam. Energinya = … kWh', input:true, a:['1'], ex:'1000 Wh.'}
+],'y7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

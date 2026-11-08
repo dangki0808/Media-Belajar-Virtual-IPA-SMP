@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sistem Pernapasan dan Ekskresi · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="biologi" data-store="ipa8" style="--acc:#0c8599">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🫁</div>
+  <span class="chip">Modul 4 · Biologi <span class="lvl menengah">MENENGAH</span></span>
+  <h1>Sistem Pernapasan dan Ekskresi</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Mengurutkan saluran pernapasan dan menjelaskan pertukaran gas di alveolus.</li><li>Membedakan pernapasan dada dan perut serta menghitung volume udara paru.</li><li>Menjelaskan proses pembentukan urine di ginjal.</li><li>Menyebutkan organ ekskresi lain (kulit, hati, paru-paru) dan gangguannya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🫁 Lab Model Paru-Paru</button><button data-target="lab2">🫘 Lab Nefron</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Napas tersengal setelah lari</span><p style="margin:.3em 0">Setelah lari keliling lapangan, napasmu cepat dan keringat bercucuran. Tubuh butuh lebih banyak O₂ untuk respirasi sel dan harus membuang lebih banyak CO₂ serta panas. Sistem <b>pernapasan</b> dan sistem <b>ekskresi</b> bekerja keras menjaga tubuh tetap seimbang.</p></div>
+</div>
+<div class="card"><h2>1. Pernapasan</h2>
+  <div class="eqn">hidung → faring → laring → trakea → bronkus → bronkiolus → alveolus</div>
+  <p>Di alveolus, O₂ berdifusi ke darah dan CO₂ dari darah ke alveolus. <b>Pernapasan dada</b>: otot antartulang rusuk berkontraksi, rongga dada membesar. <b>Pernapasan perut</b>: otot diafragma berkontraksi (mendatar). Saat inspirasi volume paru membesar dan tekanannya turun sehingga udara masuk.</p>
+  <table class="t"><tr><th>Volume</th><th>Nilai rata-rata</th></tr><tr><td>Udara tidal (napas biasa)</td><td>500 mL</td></tr><tr><td>Udara cadangan inspirasi</td><td>1.500 mL</td></tr><tr><td>Udara cadangan ekspirasi</td><td>1.500 mL</td></tr><tr><td>Udara residu</td><td>1.000 mL</td></tr><tr><td>Kapasitas vital = tidal + cadangan inspirasi + cadangan ekspirasi</td><td>3.500 mL</td></tr><tr><td>Kapasitas total paru = kapasitas vital + residu</td><td>4.500 mL</td></tr></table>
+</div>
+<div class="card"><h2>2. Ekskresi</h2>
+  <table class="t"><tr><th>Organ</th><th>Zat sisa</th></tr><tr><td>Ginjal</td><td>urine (urea, garam, air)</td></tr><tr><td>Kulit</td><td>keringat</td></tr><tr><td>Paru-paru</td><td>CO₂ dan uap air</td></tr><tr><td>Hati</td><td>empedu (bilirubin), urea dibentuk di hati</td></tr></table>
+  <p>Pembentukan urine di nefron: <b>filtrasi</b> (glomerulus → urine primer), <b>reabsorpsi</b> (tubulus proksimal → urine sekunder), <b>augmentasi</b> (tubulus distal → urine sesungguhnya). Gangguan: batu ginjal, nefritis, diabetes melitus (ada glukosa dalam urine), asma, bronkitis, TBC, pneumonia, biang keringat.</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Model Balon dalam Toples</h2>
+  <p>Tarik "diafragma" (karet di dasar toples) ke bawah dan lihat yang terjadi pada paru-paru (balon).</p>
+  <div class="ctrl"><label>Posisi diafragma <span class="v" id="df-v"></span><input type="range" id="df" min="0" max="100" value="30"></label><label>Frekuensi napas <span class="v" id="fq-v"></span><input type="range" id="fq" min="10" max="40" value="16"></label></div>
+  <div class="grid2"><svg class="viz" id="g1" viewBox="0 0 440 320"></svg><svg class="viz" id="g1b" viewBox="0 0 440 320"></svg></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Dari Darah Menjadi Urine</h2>
+  <p>Ikuti tiga tahap pembentukan urine. Aktifkan kondisi tubuh tertentu untuk melihat perubahan urine.</p>
+  <div class="row"><button class="btn" id="nx">Tahap berikutnya ▶</button><select id="kd"><option value="0">Sehat</option><option value="1">Kadar gula darah sangat tinggi (diabetes)</option><option value="2">Glomerulus rusak (nefritis)</option><option value="3">Kurang minum</option></select></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka (mL) atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 4 · Rujukan: BS IPA VIII Merdeka Bab II; BS IPA VIII K13 Bab 9; KTSP IX</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+let ph=0;
+function d1(){ const df=+$('#df').value, fq=+$('#fq').value; $('#df-v').textContent=df>55?'ditarik ke bawah':df<25?'naik (melengkung)':'tengah'; $('#fq-v').textContent=fq+' /menit';
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:440,height:320,fill:'var(--card)'},g);
+  const vol=0.6+df/100*0.8, P=1.0+(0.5-df/100)*0.02;
+  s('rect',{x:120,y:50,width:200,height:220,rx:20,fill:'#e7f5ff',stroke:'#74c0fc','stroke-width':3,opacity:.8},g);
+  s('rect',{x:212,y:20,width:16,height:80,fill:'#adb5bd'},g); s('path',{d:'M220,100 L190,130 M220,100 L250,130',stroke:'#adb5bd','stroke-width':10,'stroke-linecap':'round'},g);
+  [190,250].forEach(x=>s('ellipse',{cx:x+(x<220?-8:8),cy:160,rx:26*vol,ry:38*vol,fill:'#ffa8a8',stroke:'#e03131','stroke-width':2},g));
+  const dy=270+df*0.5; s('path',{d:`M120,270 Q220,${dy+ (df<25?-30+df:0)} 320,270`,fill:'#f8c4a4',stroke:'#d9480f','stroke-width':3},g); s('line',{x1:220,y1:dy,x2:220,y2:dy+30,stroke:'#495057','stroke-width':3},g); s('circle',{cx:220,cy:dy+34,r:6,fill:'#495057'},g);
+  const ins=df>=50; for(let i=0;i<3;i++) txt(g,220,14+(ins?i*8:-i*8)+((ph*20)%8),ins?'↓':'↑',{'font-size':16,fill:ins?'#1971c2':'#e8590c','font-weight':900});
+  // grafik volume terhadap waktu
+  const g2=$('#g1b'); clear(g2); const A=G.axes(g2,{x0:0,x1:12,y0:0,y1:4500,W:440,H:320,pad:52,padb:30,xs:2,ys:500,lx:'t (s)',ly:'volume paru (mL)'});
+  const per=60/fq; s('path',{d:G.curve(t=>2500+250*Math.sin(2*Math.PI*t/per),0,12,A),fill:'none',stroke:'var(--acc)','stroke-width':2.5},g2);
+  [[1000,'residu'],[2500,'napas biasa (tidal 500 mL)'],[4000,'inspirasi maksimal']].forEach(([y,l])=>{ s('line',{x1:A.X(0),y1:A.Y(y),x2:A.X(12),y2:A.Y(y),stroke:'var(--muted)','stroke-dasharray':'4 4'},g2); txt(g2,A.X(11.8),A.Y(y)-6,l,{'font-size':11,'text-anchor':'end',fill:'var(--muted)'}); });
+  $('#o1').innerHTML=`<div class="big">${ins?'Inspirasi: udara MASUK':'Ekspirasi: udara KELUAR'}</div><p>Diafragma ${ins?'turun (berkontraksi) → volume rongga dada membesar → tekanan turun di bawah tekanan udara luar → udara masuk.':'naik (relaksasi) → volume rongga dada mengecil → tekanan naik → udara keluar.'} Dengan ${fq} kali napas/menit × 500 mL, volume udara pernapasan per menit ≈ ${fm(fq*0.5,1)} L.</p>`; }
+['df','fq'].forEach(i=>$('#'+i).oninput=d1); d1(); setInterval(()=>{ if($('#lab1').classList.contains('on')){ ph+=0.05; } },100);
+
+/* LAB 2 */
+const STG=['Darah masuk','Filtrasi (glomerulus)','Reabsorpsi (tubulus proksimal)','Augmentasi (tubulus distal)'];
+const SUB=['Sel darah','Protein','Glukosa','Asam amino','Urea','Garam','Air'];
+function amounts(stg,kd){ let v=[1,1,1,1,1,1,1]; if(stg>=1){ v=[0,0,1,1,1,1,1]; if(kd===2){ v[0]=0.4; v[1]=0.6; } } if(stg>=2){ v[2]=kd===1?0.5:0; v[3]=0; v[5]=0.5; v[6]=kd===3?0.1:0.2; } if(stg>=3){ v[4]=1; v[5]=0.6; v[6]=kd===3?0.05:0.12; } return v; }
+let sg=0;
+function d2(){ const kd=+$('#kd').value; const v=amounts(sg,kd);
+  const g=$('#g2'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  STG.forEach((t,i)=>{ s('rect',{x:20+i*155,y:14,width:145,height:30,rx:15,fill:i===sg?'var(--acc)':'var(--line)'},g); txt(g,92+i*155,34,t.split(' (')[0],{'font-size':12,'font-weight':800,fill:i===sg?'#fff':'var(--ink)'}); });
+  SUB.forEach((n,i)=>{ const y=70+i*31; txt(g,140,y+15,n,{'font-size':13,'text-anchor':'end','font-weight':700}); s('rect',{x:150,y,width:440,height:20,rx:10,fill:'var(--line)'},g); s('rect',{x:150,y,width:440*v[i],height:20,rx:10,fill:['#c92a2a','#ae3ec9','#f59f00','#2f9e44','#e8590c','#868e96','#1c7ed6'][i]},g); });
+  const msg=['Darah dari arteri renalis masuk ke glomerulus.','Tekanan tinggi menyaring darah. Sel darah dan protein (molekul besar) tidak lolos. Hasilnya: urine primer (filtrat glomerulus).','Zat berguna (glukosa, asam amino, sebagian garam dan air) diserap kembali ke darah. Hasilnya: urine sekunder.','Zat sisa (urea, garam berlebih) ditambahkan. Hasilnya: urine sesungguhnya yang dialirkan ke kandung kemih.'][sg];
+  const warn=kd===1&&sg>=2?' ⚠️ Glukosa tidak dapat diserap seluruhnya, sehingga urine mengandung gula (diabetes melitus).':kd===2&&sg>=1?' ⚠️ Glomerulus rusak, sehingga protein dan sel darah lolos ke urine (nefritis).':kd===3&&sg>=2?' ⚠️ Tubuh menyerap lebih banyak air, sehingga urine pekat dan sedikit. Minumlah cukup air.':'';
+  $('#o2').innerHTML=`<div class="big">${STG[sg]}</div><p>${msg}${warn}</p>`; }
+$('#nx').onclick=()=>{ sg=(sg+1)%4; d2(); }; $('#kd').oninput=d2; d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Kapasitas vital', gen(){ const t=pick([400,450,500,550]), ci=rand(12,20)*100, ce=rand(10,16)*100; return {q:`Udara tidal ${t} mL, cadangan inspirasi ${ci} mL, cadangan ekspirasi ${ce} mL. Kapasitas vital = … mL`, a:String(t+ci+ce), hint:'KV = tidal + cad. inspirasi + cad. ekspirasi', ex:`${t} + ${ci} + ${ce} = ${t+ci+ce}`}; }},
+ {name:'Kapasitas total', gen(){ const kv=rand(30,45)*100, r=rand(8,12)*100; return {q:`Kapasitas vital ${kv} mL dan udara residu ${r} mL. Kapasitas total paru = … mL`, a:String(kv+r), hint:'KT = KV + residu', ex:`${kv+r}`}; }},
+ {name:'Volume per menit', gen(){ const f=rand(12,24), t=pick([400,500,600]); return {q:`Frekuensi napas ${f} kali/menit dengan volume tidal ${t} mL. Volume udara per menit = … mL`, a:String(f*t), hint:'f × tidal', ex:`${f} × ${t} = ${f*t}`}; }},
+ {name:'Tahap urine', gen(){ const X=[['glomerulus','filtrasi'],['tubulus kontortus proksimal','reabsorpsi'],['tubulus kontortus distal','augmentasi']]; const x=pick(X); return {q:`Proses pembentukan urine di ${x[0]} adalah …`, a:x[1], hint:'filtrasi/reabsorpsi/augmentasi', ex:x[1]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Pertukaran O₂ dan CO₂ terjadi di …', o:['alveolus','trakea','bronkus','laring'], a:0, ex:'Secara difusi.'},
+ {q:'Saat inspirasi pada pernapasan perut, diafragma …', o:['berkontraksi dan mendatar','relaksasi dan melengkung','tidak bergerak','naik ke atas'], a:0, ex:'Rongga dada membesar.'},
+ {q:'Udara yang tetap tersisa di paru setelah ekspirasi maksimal disebut udara …', o:['residu','tidal','komplementer','suplementer'], a:0, ex:'±1.000 mL.'},
+ {q:'Tulang rawan pada trakea berfungsi …', o:['menjaga saluran tetap terbuka','menyaring debu','menghangatkan udara','menghasilkan lendir'], a:0, ex:'Cincin tulang rawan.'},
+ {q:'Penyakit radang paru akibat bakteri Mycobacterium tuberculosis adalah …', o:['TBC','asma','bronkitis','emfisema'], a:0, ex:'Tuberkulosis.'},
+ {q:'Hasil filtrasi di glomerulus disebut …', o:['urine primer','urine sekunder','urine sesungguhnya','urea'], a:0, ex:'Filtrat.'},
+ {q:'Urine yang mengandung glukosa menandakan penyakit …', o:['diabetes melitus','nefritis','batu ginjal','albuminuria'], a:0, ex:'Gula tidak terserap.'},
+ {q:'Zat sisa yang dikeluarkan kulit adalah …', o:['keringat','empedu','CO₂','urea murni dalam urine'], a:0, ex:'Kelenjar keringat.'},
+ {q:'Hati berperan dalam ekskresi dengan menghasilkan …', o:['empedu','keringat','urine','CO₂'], a:0, ex:'Bilirubin.'},
+ {q:'Proses penyerapan kembali zat berguna di tubulus proksimal disebut …', o:['reabsorpsi','filtrasi','augmentasi','difusi'], a:0, ex:'Reabsorpsi.'},
+ {q:'Tidal 500 mL, cadangan inspirasi 1.500 mL, cadangan ekspirasi 1.500 mL. Kapasitas vital = … mL', input:true, a:['3500','3.500'], show:'3.500', ex:'Jumlahkan.'},
+ {q:'Saluran yang membawa urine dari ginjal ke kandung kemih adalah …', input:true, a:['ureter'], ex:'Ureter.'}
+],'w4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

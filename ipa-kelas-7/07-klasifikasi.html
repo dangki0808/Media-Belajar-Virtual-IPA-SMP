@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Klasifikasi Makhluk Hidup · IPA SMP Kelas VII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t7" data-kat="biologi" data-store="ipa7" style="--acc:#2b8a3e">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VII</a><div class="brand">🔬 IPA SMP <small>· Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🦋</div>
+  <span class="chip">Modul 7 · Biologi <span class="lvl pemula">PEMULA</span></span>
+  <h1>Klasifikasi Makhluk Hidup</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menyebutkan ciri-ciri makhluk hidup.</li><li>Menggunakan kunci determinasi dikotom.</li><li>Mengelompokkan makhluk hidup ke dalam lima kingdom.</li><li>Menulis nama ilmiah sesuai aturan tata nama ganda (binomial nomenklatur).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🔑 Lab Kunci Determinasi</button><button data-target="lab2">🗂️ Lab Lima Kingdom</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Jalan-jalan ke kebun raya</span><p style="margin:.3em 0">Di Kebun Raya Bogor ada lebih dari 12.000 jenis tumbuhan. Bagaimana para ahli bisa menemukan satu jenis di antara ribuan? Rahasianya adalah <b>klasifikasi</b>: mengelompokkan makhluk hidup berdasarkan persamaan dan perbedaan ciri, lalu memberi nama ilmiah yang berlaku di seluruh dunia.</p></div>
+</div>
+<div class="card"><h2>1. Ciri makhluk hidup</h2>
+  <p>Bergerak, bernapas, makan (memerlukan nutrisi), tumbuh dan berkembang, berkembang biak, peka terhadap rangsang (iritabilitas), mengeluarkan zat sisa (ekskresi), serta beradaptasi.</p>
+</div>
+<div class="card"><h2>2. Takson dan nama ilmiah</h2>
+  <div class="eqn">Kingdom → Filum/Divisi → Kelas → Ordo → Famili → Genus → Spesies</div>
+  <p>Makin ke bawah, jumlah anggota makin sedikit tetapi persamaan cirinya makin banyak. <b>Binomial nomenklatur</b> (Carolus Linnaeus): nama genus diawali huruf kapital, nama spesies huruf kecil, dicetak miring atau digarisbawahi terpisah. Contoh: <i>Oryza sativa</i> (padi), <i>Panthera tigris</i> (harimau).</p>
+</div>
+<div class="card"><h2>3. Lima kingdom (Whittaker)</h2>
+  <table class="t"><tr><th>Kingdom</th><th>Ciri utama</th><th>Contoh</th></tr><tr><td>Monera</td><td>prokariot (tanpa membran inti), uniseluler</td><td>bakteri, alga biru-hijau</td></tr><tr><td>Protista</td><td>eukariot sederhana, mirip hewan/tumbuhan/jamur</td><td>Amoeba, Paramecium, alga hijau</td></tr><tr><td>Fungi</td><td>eukariot, dinding kitin, heterotrof, spora</td><td>jamur tiram, ragi, kapang roti</td></tr><tr><td>Plantae</td><td>eukariot multiseluler, klorofil, autotrof</td><td>lumut, paku, mangga</td></tr><tr><td>Animalia</td><td>eukariot multiseluler, heterotrof, tanpa dinding sel</td><td>cacing, ikan, kucing</td></tr></table>
+  <p>Hewan dibagi menjadi <b>invertebrata</b> (tak bertulang belakang: porifera, cacing, moluska, artropoda) dan <b>vertebrata</b> (pisces, amfibi, reptil, aves, mamalia).</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Siapakah Aku?</h2>
+  <p>Pilih satu hewan misterius, lalu jawab pertanyaan kunci dikotom sampai menemukan kelompoknya.</p>
+  <div class="row" id="an"></div>
+  <div id="key" style="margin-top:12px"></div>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Masukkan ke Kingdom yang Tepat</h2>
+  <p>Klik kingdom yang tepat untuk organisme yang muncul. Kumpulkan 10 jawaban benar!</p>
+  <div class="out" style="text-align:center"><div style="font-size:3rem" id="oi"></div><div class="big" id="on"></div><div class="muted" id="od"></div></div>
+  <div class="row" id="kb" style="justify-content:center"></div>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab dengan nama kingdom atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VII · Modul 7 · Rujukan: BS IPA VII Merdeka Bab V; BS IPA VII K13 Bab 3</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+const AN=[['🐟','Ikan mas',[1,0,1]],['🐸','Katak',[1,0,0,0]],['🐍','Ular',[1,0,0,1]],['🐦','Burung pipit',[1,1,1]],['🐄','Sapi',[1,1,0]],['🦋','Kupu-kupu',[0,1]],['🐌','Siput',[0,0,1]],['🪱','Cacing tanah',[0,0,0]]];
+const KQ={q:'Bertulang belakang?',y:{q:'Berdarah panas (suhu tubuh tetap)?',y:{q:'Berbulu dan bertelur?',y:'AVES (burung)',n:'MAMALIA (menyusui)'},n:{q:'Hidup di air sepanjang hidup dan bernapas dengan insang?',y:'PISCES (ikan)',n:{q:'Kulit bersisik kering?',y:'REPTILIA',n:'AMPHIBIA'}}},n:{q:'Kaki beruas-ruas?',y:'ARTHROPODA (serangga, laba-laba, udang)',n:{q:'Tubuh lunak, umumnya bercangkang?',y:'MOLLUSCA',n:'ANNELIDA (cacing gelang-gelang)'}}};
+let ai=0, node=KQ, path=[];
+function d1(){ $('#an').innerHTML=AN.map((a,i)=>`<button class="chipbtn ${i===ai?'on':''}" data-i="${i}">${a[0]} ${a[1]}</button>`).join('');
+  $$('#an button').forEach(b=>b.onclick=()=>{ ai=+b.dataset.i; node=KQ; path=[]; d1(); });
+  const steps=path.map((p,i)=>`<div class="def" style="margin:6px 0">${i+1}a/b. ${p[0]} → <b>${p[1]?'Ya':'Tidak'}</b></div>`).join('');
+  if(typeof node==='string'){ const right=correct(AN[ai][1])===node;
+    $('#key').innerHTML=steps; $('#o1').innerHTML=`<div class="big">${AN[ai][0]} ${AN[ai][1]} → ${node}</div><p>${right?'✅ Tepat! Kunci determinasi membawamu ke kelompok yang benar.':'❌ Ada jawaban yang keliru. Coba ulangi dan amati ciri hewannya.'}</p><button class="btn" id="rs">Ulangi</button>`; $('#rs').onclick=()=>{node=KQ;path=[];d1();}; return; }
+  $('#key').innerHTML=steps+`<div class="def" style="margin:6px 0"><b>${path.length+1}. ${node.q}</b><div class="row"><button class="btn" id="ky">Ya</button><button class="btn ghost" id="kn">Tidak</button></div></div>`;
+  $('#o1').innerHTML=`<p>Amati ${AN[ai][0]} <b>${AN[ai][1]}</b>, lalu jawab pertanyaan di atas.</p>`;
+  $('#ky').onclick=()=>{ path.push([node.q,1]); node=node.y; d1(); }; $('#kn').onclick=()=>{ path.push([node.q,0]); node=node.n; d1(); }; }
+const ANS={'Ikan mas':'PISCES (ikan)','Katak':'AMPHIBIA','Ular':'REPTILIA','Burung pipit':'AVES (burung)','Sapi':'MAMALIA (menyusui)','Kupu-kupu':'ARTHROPODA (serangga, laba-laba, udang)','Siput':'MOLLUSCA','Cacing tanah':'ANNELIDA (cacing gelang-gelang)'};
+function correct(n){ return ANS[n]; }
+d1();
+
+/* LAB 2 */
+const KD=['Monera','Protista','Fungi','Plantae','Animalia'];
+const OR=[['🦠','Bakteri E. coli','sel tanpa membran inti',0],['🟢','Alga biru-hijau (Anabaena)','prokariot, berfotosintesis',0],['🧫','Amoeba','satu sel eukariot, bergerak dengan kaki semu',1],['🌀','Paramecium','bergerak dengan silia',1],['🟩','Euglena','bersel satu, berklorofil dan berflagel',1],['🍄','Jamur tiram','dinding sel kitin, tumbuh di kayu lapuk',2],['🍞','Kapang roti (Rhizopus)','benang hifa pada tempe/roti',2],['🍺','Ragi (Saccharomyces)','jamur bersel satu untuk fermentasi',2],['🌿','Tumbuhan paku','berspora, punya akar-batang-daun sejati',3],['🌾','Padi','berbiji, berklorofil',3],['🟫','Lumut daun','tumbuh di tempat lembap, belum punya pembuluh',3],['🐠','Ikan nila','vertebrata, bernapas dengan insang',4],['🪸','Spons laut','berpori, menempel di dasar laut',4],['🦀','Kepiting','kaki beruas, cangkang keras',4],['🐒','Monyet','menyusui, berambut',4]];
+let cur, sc=0, tot=0;
+function nx(){ cur=pick(OR); $('#oi').textContent=cur[0]; $('#on').textContent=cur[1]; $('#od').textContent=cur[2]; }
+$('#kb').innerHTML=KD.map((k,i)=>`<button class="btn soft" data-i="${i}">${k}</button>`).join('');
+$$('#kb button').forEach(b=>b.onclick=()=>{ tot++; const ok=+b.dataset.i===cur[3]; if(ok) sc++;
+  $('#o2').innerHTML=`<p>${ok?'✅ Benar!':'❌ Belum tepat.'} ${cur[1]} termasuk <b>${KD[cur[3]]}</b>.</p><p class="big">Skor: ${sc} / ${tot}${sc>=10?' 🏅 Hebat, kamu ahli taksonomi!':''}</p>`; nx(); });
+nx();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Kingdom', gen(){ const o=pick(OR); return {q:`${o[1]} (${o[2]}) termasuk kingdom …`, a:KD[o[3]].toLowerCase(), show:KD[o[3]], hint:'Monera / Protista / Fungi / Plantae / Animalia', ex:o[2]}; }},
+ {name:'Kelas vertebrata', gen(){ const V=[['katak','amphibia'],['buaya','reptilia'],['paus','mamalia'],['kelelawar','mamalia'],['penyu','reptilia'],['hiu','pisces'],['ayam','aves'],['salamander','amphibia'],['penguin','aves'],['kuda laut','pisces']]; const v=pick(V); return {q:`Hewan ${v[0]} termasuk kelas vertebrata …`, a:v[1], show:v[1], hint:'pisces/amphibia/reptilia/aves/mamalia', ex:`${v[0]} → ${v[1]}`}; }},
+ {name:'Urutan takson', gen(){ const T=['kingdom','filum','kelas','ordo','famili','genus','spesies']; const i=rand(0,5); return {q:`Takson setelah ${T[i]} adalah …`, a:T[i+1], hint:'K-F-K-O-F-G-S', ex:T.join(' → ')}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Penulisan nama ilmiah yang benar adalah …', o:['<i>Oryza sativa</i>','<i>oryza sativa</i>','<i>Oryza Sativa</i>','<i>ORYZA sativa</i>'], a:0, ex:'Genus kapital, spesies kecil.'},
+ {q:'Tokoh yang memperkenalkan sistem tata nama ganda adalah …', o:['Carolus Linnaeus','Robert Hooke','Charles Darwin','Gregor Mendel'], a:0, ex:'Binomial nomenklatur.'},
+ {q:'Urutan takson dari tinggi ke rendah yang benar adalah …', o:['kingdom – filum – kelas – ordo','kelas – filum – ordo – famili','genus – famili – ordo – kelas','filum – kingdom – kelas – ordo'], a:0, ex:'K-F-K-O-F-G-S.'},
+ {q:'Makin rendah tingkat takson, maka …', o:['persamaan ciri makin banyak','jumlah anggota makin banyak','perbedaan ciri makin banyak','tidak ada perubahan'], a:0, ex:'Spesies paling mirip.'},
+ {q:'Organisme prokariot dikelompokkan dalam kingdom …', o:['Monera','Protista','Fungi','Plantae'], a:0, ex:'Tanpa membran inti.'},
+ {q:'Jamur tidak dimasukkan ke dunia tumbuhan karena …', o:['tidak berklorofil dan berdinding kitin','tidak bersel','bergerak aktif','prokariot'], a:0, ex:'Heterotrof.'},
+ {q:'Kelelawar termasuk kelas mamalia karena …', o:['menyusui anaknya','dapat terbang','aktif malam hari','bertelur'], a:0, ex:'Ciri utama mamalia.'},
+ {q:'Hewan berikut yang termasuk Arthropoda adalah …', o:['udang','cumi-cumi','cacing pita','bintang laut'], a:0, ex:'Kaki beruas.'},
+ {q:'Tumbuhan paku berkembang biak dengan …', o:['spora','biji','umbi','tunas saja'], a:0, ex:'Pteridophyta.'},
+ {q:'Kemampuan makhluk hidup menanggapi rangsang disebut …', o:['iritabilitas','adaptasi','ekskresi','reproduksi'], a:0, ex:'Peka rangsang.'},
+ {q:'Amoeba bergerak menggunakan …', o:['kaki semu (pseudopodia)','silia','flagel','sirip'], a:0, ex:'Protista mirip hewan.'},
+ {q:'Takson terendah dalam klasifikasi adalah …', input:true, a:['spesies','species','jenis'], show:'spesies', ex:'Spesies.'}
+],'v7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

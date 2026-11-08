@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cahaya dan Alat Optik · IPA SMP Kelas VIII</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t8" data-kat="fisika" data-store="ipa8" style="--acc:#f59f00">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas VIII</a><div class="brand">🔬 IPA SMP <small>· Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">🔦</div>
+  <span class="chip">Modul 9 · Fisika <span class="lvl lanjut">LANJUT</span></span>
+  <h1>Cahaya dan Alat Optik</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan sifat cahaya: merambat lurus, dipantulkan, dibiaskan.</li><li>Melukis dan menghitung bayangan pada cermin dan lensa (1/f = 1/s + 1/s').</li><li>Menjelaskan pembiasan dan dispersi cahaya.</li><li>Menjelaskan kerja mata, cacat mata, kacamata, kamera, lup, dan mikroskop.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">🔭 Lab Cermin & Lensa</button><button data-target="lab2">🌈 Lab Pembiasan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Sedotan yang tampak patah</span><p style="margin:.3em 0">Masukkan sedotan ke gelas berisi air: sedotan tampak patah di permukaan air! Cahaya dari sedotan di dalam air <b>dibiaskan</b> ketika keluar ke udara, sehingga mata melihat bayangan pada posisi yang berbeda. Pembiasan inilah yang dimanfaatkan lensa pada kacamata, kamera, dan mikroskop.</p></div>
+</div>
+<div class="card"><h2>1. Pemantulan dan cermin</h2>
+  <p>Hukum pemantulan: sinar datang, garis normal, dan sinar pantul sebidang; sudut datang = sudut pantul. Cermin datar: bayangan maya, tegak, sama besar. Dua cermin datar bersudut α menghasilkan n = 360°/α − 1 bayangan.</p>
+  <div class="eqn">1/f = 1/s + 1/s' · M = |s'/s| = h'/h · f = R/2</div>
+  <p>Cermin cekung (f +, mengumpulkan sinar: lampu senter, reflektor). Cermin cembung (f −, bayangan selalu maya-tegak-diperkecil: spion, cermin di tikungan).</p>
+</div>
+<div class="card"><h2>2. Pembiasan dan lensa</h2>
+  <p>Dari medium renggang ke rapat sinar dibiaskan mendekati normal (indeks bias air 1,33; kaca 1,5). Lensa cembung (+, konvergen) dan lensa cekung (−, divergen) memakai rumus yang sama; kekuatan lensa <b>P = 100/f</b> (f dalam cm, satuan dioptri).</p>
+  <table class="t"><tr><th>Cacat mata</th><th>Gejala</th><th>Kacamata</th></tr><tr><td>Miopi (rabun jauh)</td><td>bayangan jatuh di depan retina</td><td>lensa cekung (−)</td></tr><tr><td>Hipermetropi (rabun dekat)</td><td>bayangan di belakang retina</td><td>lensa cembung (+)</td></tr><tr><td>Presbiopi (mata tua)</td><td>daya akomodasi lemah</td><td>lensa rangkap</td></tr><tr><td>Astigmatisma</td><td>kornea tidak rata</td><td>lensa silinder</td></tr></table>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Lukis Bayangan</h2>
+  <div class="ctrl"><label>Alat optik <select id="ty"><option value="0">Lensa cembung</option><option value="1">Lensa cekung</option><option value="2">Cermin cekung</option><option value="3">Cermin cembung</option></select></label><label>Jarak benda s <span class="v" id="s-v"></span><input type="range" id="so" min="5" max="60" value="30"></label><label>Fokus |f| <span class="v" id="f-v"></span><input type="range" id="fo" min="5" max="25" value="10"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 300"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Sinar Laser Menembus Batas Medium</h2>
+  <div class="ctrl"><label>Sudut datang <span class="v" id="i-v"></span><input type="range" id="ia" min="0" max="85" value="40"></label><label>Medium 1 <select id="n1"><option value="1">udara (1,00)</option><option value="1.33">air (1,33)</option><option value="1.5">kaca (1,50)</option></select></label><label>Medium 2 <select id="n2"><option value="1">udara (1,00)</option><option value="1.33" selected>air (1,33)</option><option value="1.5">kaca (1,50)</option><option value="2.42">intan (2,42)</option></select></label></div>
+  <svg class="viz" id="g2" viewBox="0 0 640 320"></svg>
+  <div class="out" id="o2"></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka (cm/dioptri) atau kata kunci.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas VIII · Modul 9 · Rujukan: BS IPA VIII Merdeka Bab V; BS IPA VIII K13 Bab 11</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const ty=+$('#ty').value, so=+$('#so').value, fa=+$('#fo').value; $('#s-v').textContent=so+' cm'; $('#f-v').textContent=fa+' cm';
+  const f=(ty===0||ty===2)?fa:-fa, mir=ty>=2; const si=1/(1/f-1/so); const M=-si/so; const h=30;
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:300,fill:'var(--card)'},g);
+  const ox=mir?470:320, oy=150, sc=4.2; const X=d=>mir?ox-d*sc:ox-d*sc; // benda di kiri
+  s('line',{x1:0,y1:oy,x2:640,y2:oy,stroke:'var(--muted)'},g);
+  if(mir){ s('path',{d:`M${ox+(f>0?-14:14)},${oy-110} Q${ox+(f>0?14:-14)},${oy} ${ox+(f>0?-14:14)},${oy+110}`,fill:'none',stroke:'#1971c2','stroke-width':4},g); }
+  else { if(f>0) s('path',{d:`M${ox},${oy-110} Q${ox+22},${oy} ${ox},${oy+110} Q${ox-22},${oy} ${ox},${oy-110}`,fill:'#d0ebff',stroke:'#1971c2','stroke-width':2},g); else s('path',{d:`M${ox-12},${oy-110} H${ox+12} Q${ox},${oy} ${ox+12},${oy+110} H${ox-12} Q${ox},${oy} ${ox-12},${oy-110}`,fill:'#d0ebff',stroke:'#1971c2','stroke-width':2},g); }
+  [[f,'F'],[2*f,'2F']].forEach(([d,l])=>{ [1,-1].forEach(sd=>{ if(mir&&sd===-1) return; const x=ox-d*sc*sd*(mir?1:1); if(x>5&&x<635){ s('circle',{cx:x,cy:oy,r:3,fill:'var(--ink)'},g); txt(g,x,oy+18,l,{'font-size':11}); } }); });
+  const bx=X(so); s('line',{x1:bx,y1:oy,x2:bx,y2:oy-h,stroke:'#2f9e44','stroke-width':4},g); s('path',{d:`M${bx},${oy-h-8} l-6,10 h12z`,fill:'#2f9e44'},g);
+  // bayangan
+  const hi=M*h; const ix=mir?ox-si*sc:ox+si*sc; const real=si>0;
+  if(isFinite(si)&&Math.abs(si)<150){ s('line',{x1:ix,y1:oy,x2:ix,y2:oy-hi,stroke:'#e8590c','stroke-width':4,'stroke-dasharray':real?'':'6 4'},g); s('path',{d:`M${ix},${oy-hi-(hi>0?8:-8)} l-6,${hi>0?10:-10} h12z`,fill:'#e8590c'},g); }
+  // sinar istimewa: sinar sejajar sumbu dan sinar menuju pusat/vertex
+  const ray=(pts,dash)=>s('path',{d:'M'+pts.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' L'),fill:'none',stroke:'#f59f00','stroke-width':1.8,'stroke-dasharray':dash||''},g);
+  const ty_=oy-h, iy=oy-hi;
+  if(isFinite(si)&&Math.abs(si)<150) [[ox,ty_],[ox,oy]].forEach(P=>{ ray([[bx,ty_],P]); let dx=real?ix-P[0]:P[0]-ix, dy=real?iy-P[1]:P[1]-iy; const want=mir?-1:1; if(Math.sign(dx)!==want){ dx=-dx; dy=-dy; } const k=((want>0?640:0)-P[0])/dx; ray([P,[P[0]+dx*k,P[1]+dy*k]]); if(!real) ray([P,[ix,iy]],'4 4'); });
+  const sifat=(real?'nyata, terbalik':'maya, tegak')+', '+(Math.abs(M)>1.01?'diperbesar':Math.abs(M)<0.99?'diperkecil':'sama besar');
+  $('#o1').innerHTML=Math.abs(so-f)<0.01?`<div class="big">Benda tepat di titik fokus → bayangan di tak hingga</div>`:`<div class="big">s' = ${fm(si,1)} cm · M = ${fm(Math.abs(M),2)}×</div><p>1/f = 1/s + 1/s' → 1/${fm(f,0)} = 1/${so} + 1/s' → s' = ${fm(si,1)} cm. Sifat bayangan: <b>${sifat}</b>.${!mir?' Kekuatan lensa P = 100/f = '+fm(100/f,1)+' dioptri.':''}</p>`; }
+['ty','so','fo'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+function d2(){ const ia=+$('#ia').value, n1=+$('#n1').value, n2=+$('#n2').value; $('#i-v').textContent=ia+'°';
+  const si=n1/n2*Math.sin(ia*Math.PI/180), tir=si>1, r=tir?0:Math.asin(si)*180/Math.PI;
+  const g=$('#g2'); clear(g); const cl={1:'#f8f9fa',1.33:'#d0ebff',1.5:'#e6fcf5',2.42:'#f3d9fa'};
+  s('rect',{x:0,y:0,width:640,height:160,fill:cl[n1]},g); s('rect',{x:0,y:160,width:640,height:160,fill:cl[n2]},g);
+  s('line',{x1:320,y1:10,x2:320,y2:310,stroke:'var(--muted)','stroke-dasharray':'5 5'},g); txt(g,330,22,'garis normal',{'font-size':11,'text-anchor':'start',fill:'var(--muted)'});
+  const L=150, a=ia*Math.PI/180; const sx=320-L*Math.sin(a), sy=160-L*Math.cos(a); s('line',{x1:sx,y1:sy,x2:320,y2:160,stroke:'#e03131','stroke-width':4},g);
+  const ref=tir?1:Math.min(0.9,((n1-n2)/(n1+n2))**2*6+0.1); s('line',{x1:320,y1:160,x2:320+L*Math.sin(a),y2:160-L*Math.cos(a),stroke:'#e03131','stroke-width':tir?4:2,opacity:ref},g);
+  if(!tir){ const b=r*Math.PI/180; s('line',{x1:320,y1:160,x2:320+L*Math.sin(b),y2:160+L*Math.cos(b),stroke:'#e03131','stroke-width':4},g); }
+  txt(g,60,30,'n₁ = '+n1,{'font-size':14,'font-weight':800}); txt(g,60,300,'n₂ = '+n2,{'font-size':14,'font-weight':800});
+  $('#o2').innerHTML=tir?`<div class="big">Pemantulan sempurna!</div><p>n₁ sin i / n₂ = ${fm(si,2)} > 1, sehingga tidak ada sinar bias. Sudut kritis = ${fm(Math.asin(n2/n1)*180/Math.PI,1)}°. Prinsip ini dipakai pada serat optik dan berlian yang berkilau.</p>`:`<div class="big">Sudut bias r = ${fm(r,1)}°</div><p>Hukum Snellius: n₁ sin i = n₂ sin r. ${n2>n1?'Masuk ke medium lebih rapat → sinar mendekati normal.':n2<n1?'Masuk ke medium lebih renggang → sinar menjauhi normal.':'Indeks bias sama → sinar lurus.'}</p>`; }
+['ia','n1','n2'].forEach(i=>$('#'+i).oninput=d2); d2();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:"Jarak bayangan", gen(){ const f=pick([5,10,12,15,20]), k=pick([1.5,2,3,4,5]); const so=f*k; const si=1/(1/f-1/so); return {q:`Lensa cembung f = ${f} cm, benda ${so} cm di depannya. Jarak bayangan = … cm`, a:String(Math.round(si*100)/100), hint:"1/s' = 1/f − 1/s", ex:`1/s' = 1/${f} − 1/${so} → s' = ${fm(si,2)}`}; }},
+ {name:'Kekuatan lensa', gen(){ const f=pick([-50,-25,-20,20,25,40,50,100]); return {q:`Lensa dengan jarak fokus ${f} cm. Kekuatannya = … dioptri`, a:String(100/f), hint:'P = 100/f', ex:`100/${f} = ${100/f}`}; }},
+ {name:'Cermin datar', gen(){ const a=pick([30,36,40,45,60,72,90,120]); return {q:`Dua cermin datar membentuk sudut ${a}°. Jumlah bayangan = …`, a:String(360/a-1), hint:'n = 360/α − 1', ex:`360/${a} − 1 = ${360/a-1}`}; }},
+ {name:'Perbesaran', gen(){ const so=rand(2,10)*5, M=pick([0.5,2,3,4]); return {q:`Benda ${so} cm dari cermin menghasilkan bayangan ${fm(so*M,1)} cm dari cermin. Perbesarannya = …×`, a:String(M), hint:"M = s'/s", ex:`${fm(so*M,1)}/${so} = ${M}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Bayangan pada cermin datar bersifat …', o:['maya, tegak, sama besar','nyata, terbalik, sama besar','maya, terbalik, diperkecil','nyata, tegak, diperbesar'], a:0, ex:'Cermin datar.'},
+ {q:'Kaca spion kendaraan menggunakan cermin …', o:['cembung','cekung','datar','silinder'], a:0, ex:'Pandangan luas.'},
+ {q:'Penderita miopi dapat ditolong dengan kacamata berlensa …', o:['cekung (negatif)','cembung (positif)','silinder','rangkap'], a:0, ex:'Rabun jauh.'},
+ {q:'Bagian mata yang mengatur banyaknya cahaya masuk adalah …', o:['pupil (diatur iris)','retina','lensa','kornea'], a:0, ex:'Pupil.'},
+ {q:'Tempat terbentuknya bayangan pada mata adalah …', o:['retina','lensa','kornea','iris'], a:0, ex:'Retina.'},
+ {q:'Peristiwa terurainya cahaya putih menjadi warna pelangi disebut …', o:['dispersi','refleksi','difraksi','polarisasi'], a:0, ex:'Prisma.'},
+ {q:'Sinar dari udara masuk ke air akan dibiaskan …', o:['mendekati garis normal','menjauhi garis normal','tidak dibiaskan','dipantulkan seluruhnya'], a:0, ex:'Ke medium rapat.'},
+ {q:'Lup (kaca pembesar) menggunakan lensa …', o:['cembung','cekung','silinder','datar'], a:0, ex:'Lensa positif.'},
+ {q:'Benda di depan lensa cembung pada jarak lebih dari 2F menghasilkan bayangan …', o:['nyata, terbalik, diperkecil','maya, tegak, diperbesar','nyata, terbalik, diperbesar','maya, tegak, diperkecil'], a:0, ex:'Seperti kamera.'},
+ {q:'Sedotan tampak patah di dalam air karena peristiwa …', o:['pembiasan','pemantulan','dispersi','interferensi'], a:0, ex:'Refraksi.'},
+ {q:'Lensa cembung f = 10 cm, benda 15 cm. Jarak bayangan = … cm', input:true, a:['30'], ex:'1/10 − 1/15 = 1/30.'},
+ {q:'Lensa dengan f = 25 cm memiliki kekuatan … dioptri', input:true, a:['4'], ex:'100/25.'}
+],'w9');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

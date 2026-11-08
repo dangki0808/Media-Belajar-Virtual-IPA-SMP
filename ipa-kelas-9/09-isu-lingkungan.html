@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Isu Lingkungan dan Teknologi Ramah Lingkungan · IPA SMP Kelas IX</title>
+<link rel="stylesheet" href="../shared/style.css">
+</head>
+<body class="t9" data-kat="biologi" data-store="ipa9" style="--acc:#5c940d">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Kelas IX</a><div class="brand">🔬 IPA SMP <small>· Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero"><div class="hero-ic">♻️</div>
+  <span class="chip">Modul 9 · Lingkungan <span class="lvl pemula">PEMULA</span></span>
+  <h1>Isu Lingkungan dan Teknologi Ramah Lingkungan</h1>
+  <div class="tp"><b>Setelah modul ini kamu bisa</b><ul><li>Menjelaskan perubahan iklim, krisis sampah, dan kerusakan lingkungan.</li><li>Menghitung jejak karbon kegiatan sehari-hari.</li><li>Memilah sampah organik, anorganik, dan B3.</li><li>Merancang aksi dan teknologi ramah lingkungan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📖 Cerita & Materi</button><button data-target="lab1">👣 Lab Jejak Karbon</button><button data-target="lab2">🗑️ Lab Pilah Sampah</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+<main>
+<section id="materi" class="panel"><div class="card"><h2>Mulai dari cerita</h2>
+  <div class="story"><span class="t">Gunung sampah Bantargebang</span><p style="margin:.3em 0">Setiap hari lebih dari 7.000 ton sampah dari Jakarta dikirim ke TPST Bantargebang, sehingga tumpukannya kini setinggi gedung 15 lantai. Sebagian besar adalah sampah makanan dan plastik. Gas metana dari timbunan sampah ikut memanaskan bumi. Masalah global sering berawal dari kebiasaan kecil kita.</p></div>
+</div>
+<div class="card"><h2>1. Isu lingkungan</h2>
+  <p><b>Perubahan iklim</b>: emisi gas rumah kaca (CO₂ dari bahan bakar fosil, CH₄ dari sampah dan peternakan) menaikkan suhu rata-rata bumi, sehingga terjadi cuaca ekstrem, kenaikan permukaan laut, dan pemutihan terumbu karang. <b>Sampah</b>: plastik butuh ratusan tahun untuk terurai dan menjadi mikroplastik di laut. <b>Deforestasi</b>, pencemaran air dan udara, serta hilangnya keanekaragaman hayati.</p>
+  <div class="eqn">Jejak karbon = jumlah aktivitas × faktor emisi (kg CO₂)</div>
+</div>
+<div class="card"><h2>2. Solusi dan teknologi ramah lingkungan</h2>
+  <p>Prinsip <b>3R + 2</b>: reduce, reuse, recycle, plus replace (ganti dengan yang ramah lingkungan) dan replant (menanam). Teknologi: panel surya, kendaraan listrik, biogas dari kotoran ternak, komposter dan eco-enzyme, bank sampah, biopori, IPAL, bioplastik. Pilah sampah: <b>organik</b> (sisa makanan, daun), <b>anorganik</b> (plastik, kaleng, kertas), <b>B3</b> (baterai, lampu, obat kedaluwarsa).</p>
+</div></section>
+<section id="lab1" class="panel"><div class="card"><h2>Lab: Hitung Jejak Karbon Bulananmu</h2>
+  <div class="ctrl"><label>Naik motor (km/hari) <span class="v" id="mt-v"></span><input type="range" id="mt" min="0" max="40" value="10"></label><label>Naik mobil (km/hari) <span class="v" id="mb-v"></span><input type="range" id="mb" min="0" max="40" value="0"></label><label>Listrik rumah (kWh/bulan) <span class="v" id="ls-v"></span><input type="range" id="ls" min="30" max="600" step="10" value="150"></label><label>Makan daging sapi (kali/minggu) <span class="v" id="dg-v"></span><input type="range" id="dg" min="0" max="14" value="3"></label><label>Kantong plastik (per minggu) <span class="v" id="pl-v"></span><input type="range" id="pl" min="0" max="30" value="10"></label></div>
+  <svg class="viz" id="g1" viewBox="0 0 640 240"></svg>
+  <div class="out" id="o1"></div>
+</div></section>
+<section id="lab2" class="panel"><div class="card"><h2>Lab: Masukkan ke Tempat Sampah yang Tepat</h2>
+  <div class="out" style="text-align:center"><div style="font-size:3rem" id="wi"></div><div class="big" id="wn"></div></div>
+  <div class="row" style="justify-content:center"><button class="btn" style="background:#2f9e44" data-b="0">🟢 Organik</button><button class="btn" style="background:#f08c00" data-b="1">🟡 Anorganik</button><button class="btn" style="background:#e03131" data-b="2">🔴 B3</button></div>
+  <div class="out" id="o2"><p>Pilih tempat sampah yang tepat.</p></div>
+</div></section>
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jawab angka atau kata kunci singkat.</p></section>
+<section id="kuis" class="panel"><p class="muted">12 soal, urutan soal dan pilihan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Science Lab SMP · Kelas IX · Modul 9 · Rujukan: BS IPA IX Merdeka Bab VI; BS IPA VII K13 Bab 9</div></footer>
+<script src="../shared/core.js"></script>
+<script src="../shared/graph.js"></script>
+<script src="../shared/chem.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle} = VML; const G=GR, CH=CHEM, f=VML.f, fm=G.fmt;
+/* LAB 1 */
+function d1(){ const v={mt:+$('#mt').value,mb:+$('#mb').value,ls:+$('#ls').value,dg:+$('#dg').value,pl:+$('#pl').value};
+  $('#mt-v').textContent=v.mt+' km'; $('#mb-v').textContent=v.mb+' km'; $('#ls-v').textContent=v.ls+' kWh'; $('#dg-v').textContent=v.dg+'×'; $('#pl-v').textContent=v.pl+' kantong';
+  const E={'🏍️ Motor':v.mt*0.07*30,'🚗 Mobil':v.mb*0.19*30,'⚡ Listrik':v.ls*0.85,'🥩 Daging':v.dg*4.3*1.5,'🛍️ Plastik':v.pl*4.3*0.03};
+  const tot=Object.values(E).reduce((a,b)=>a+b,0), trees=tot*12/22;
+  const g=$('#g1'); clear(g); s('rect',{x:0,y:0,width:640,height:240,fill:'var(--card)'},g); const mx=Math.max(...Object.values(E),1);
+  Object.entries(E).forEach(([k,e],i)=>{ const y=20+i*40, w=e/mx*380; txt(g,120,y+20,k,{'font-size':14,'text-anchor':'end'}); s('rect',{x:130,y:y+4,width:Math.max(2,w),height:24,rx:12,fill:['#5f3dc4','#c92a2a','#f08c00','#a61e4d','#0c8599'][i]},g); txt(g,140+w,y+21,fm(e,1)+' kg',{'font-size':12,'text-anchor':'start'}); });
+  $('#o1').innerHTML=`<div class="big">${fm(tot,0)} kg CO₂ per bulan</div><p>Setara dengan ±${fm(trees,0)} pohon dewasa yang dibutuhkan selama setahun untuk menyerapnya (1 pohon ≈ 22 kg CO₂/tahun). ${E['⚡ Listrik']>tot/2?'Listrik adalah penyumbang terbesar; hemat listrik sangat berpengaruh!':E['🚗 Mobil']+E['🏍️ Motor']>tot/2?'Transportasi menjadi penyumbang terbesar; cobalah bersepeda, berjalan kaki, atau naik angkutan umum.':'Kurangi konsumsi daging merah dan plastik sekali pakai.'}</p><p class="muted">Faktor emisi adalah perkiraan sederhana untuk pembelajaran.</p>`; }
+['mt','mb','ls','dg','pl'].forEach(i=>$('#'+i).oninput=d1); d1();
+
+/* LAB 2 */
+const WS=[['🍌','Kulit pisang',0,'2–5 minggu'],['🍂','Daun kering',0,'±1 bulan'],['🥚','Kulit telur',0,'beberapa bulan'],['🍚','Sisa nasi',0,'1–2 minggu'],['🧴','Botol plastik',1,'±450 tahun'],['🥫','Kaleng minuman',1,'80–200 tahun'],['📰','Kertas koran',1,'2–6 minggu'],['🛍️','Kantong plastik',1,'10–1.000 tahun'],['🔋','Baterai bekas',2,'ratusan tahun, bocor logam berat'],['💡','Lampu neon bekas',2,'mengandung merkuri'],['💊','Obat kedaluwarsa',2,'mencemari air'],['🧪','Kaleng pestisida',2,'beracun'],['🥤','Gelas plastik',1,'±450 tahun'],['🍞','Roti basi',0,'±2 minggu']];
+const BN=['organik','anorganik','B3'];
+let wc, sc=0, tt=0;
+function nx(){ wc=pick(WS); $('#wi').textContent=wc[0]; $('#wn').textContent=wc[1]; }
+$$('[data-b]').forEach(b=>b.onclick=()=>{ const ok=+b.dataset.b===wc[2]; tt++; if(ok) sc++;
+  $('#o2').innerHTML=`<p>${ok?'✅ Benar!':'❌ Kurang tepat.'} ${wc[1]} termasuk sampah <b>${BN[wc[2]]}</b>. Lama terurai/bahaya: ${wc[3]}. ${wc[2]===0?'Olah menjadi kompos atau eco-enzyme.':wc[2]===1?'Setorkan ke bank sampah untuk didaur ulang.':'Jangan dibuang sembarangan; serahkan ke tempat pengumpulan khusus B3.'}</p><p class="big">Skor ${sc}/${tt}</p>`; nx(); });
+nx();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+ {name:'Emisi listrik', gen(){ const k=rand(5,40)*10; return {q:`Pemakaian listrik ${k} kWh dengan faktor emisi 0,85 kg CO₂/kWh menghasilkan … kg CO₂`, a:String(Math.round(k*0.85*100)/100), hint:'kWh × 0,85', ex:`${k} × 0,85 = ${fm(k*0.85,1)}`}; }},
+ {name:'Emisi kendaraan', gen(){ const km=rand(2,30)*5, f=pick([0.07,0.1,0.19,0.2]); return {q:`Kendaraan dengan faktor emisi ${String(f).replace('.',',')} kg CO₂/km menempuh ${km} km. Emisinya = … kg CO₂`, a:String(Math.round(km*f*100)/100), hint:'km × faktor emisi', ex:`${km} × ${f} = ${fm(km*f,2)}`}; }},
+ {name:'Pohon', gen(){ const e=rand(2,20)*22; return {q:`Satu pohon menyerap ±22 kg CO₂ per tahun. Untuk menyerap ${e} kg CO₂ per tahun dibutuhkan … pohon`, a:String(e/22), hint:'emisi ÷ 22', ex:`${e}/22 = ${e/22}`}; }},
+ {name:'Jenis sampah', gen(){ const w=pick(WS); return {q:`${w[1]} termasuk sampah …`, a:BN[w[2]].toLowerCase(), show:BN[w[2]], hint:'organik / anorganik / B3', ex:BN[w[2]]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Gas rumah kaca yang banyak dihasilkan dari timbunan sampah organik adalah …', o:['metana (CH₄)','oksigen','nitrogen','helium'], a:0, ex:'Pembusukan anaerob.'},
+ {q:'Dampak perubahan iklim berikut, kecuali …', o:['bertambahnya lapisan ozon','naiknya permukaan laut','cuaca ekstrem','pemutihan terumbu karang'], a:0, ex:'Bukan dampak.'},
+ {q:'Baterai bekas termasuk sampah …', o:['B3','organik','anorganik biasa','kompos'], a:0, ex:'Bahan berbahaya dan beracun.'},
+ {q:'Menggunakan botol minum sendiri merupakan penerapan prinsip …', o:['reduce/reuse','recycle','replant','replace saja'], a:0, ex:'Mengurangi plastik sekali pakai.'},
+ {q:'Mengolah botol plastik bekas menjadi bijih plastik termasuk …', o:['recycle','reduce','reuse','replant'], a:0, ex:'Daur ulang.'},
+ {q:'Teknologi pengolah kotoran ternak menjadi bahan bakar gas adalah …', o:['biogas','PLTA','biopori','IPAL'], a:0, ex:'Biogas.'},
+ {q:'Lubang resapan biopori bermanfaat untuk …', o:['meningkatkan resapan air dan membuat kompos','menimbun sampah plastik','membakar sampah','membuang limbah B3'], a:0, ex:'Biopori.'},
+ {q:'Sampah yang paling lama terurai adalah …', o:['botol plastik','kulit pisang','kertas koran','daun kering'], a:0, ex:'±450 tahun.'},
+ {q:'Jejak karbon adalah …', o:['jumlah emisi gas rumah kaca dari aktivitas seseorang','jumlah pohon di sekitar rumah','jejak kaki di tanah','kadar karbon dalam makanan'], a:0, ex:'Definisi.'},
+ {q:'Salah satu cara mengurangi jejak karbon transportasi adalah …', o:['bersepeda atau naik angkutan umum','memakai mobil pribadi sendirian','memanaskan mesin lama-lama','sering bepergian dengan pesawat'], a:0, ex:'Hemat emisi.'},
+ {q:'Pemakaian 200 kWh listrik (faktor 0,85 kg CO₂/kWh) menghasilkan … kg CO₂', input:true, a:['170'], ex:'200×0,85.'},
+ {q:'Sampah sisa makanan dan daun termasuk sampah …', input:true, a:['organik'], ex:'Mudah terurai.'}
+],'y9');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>
